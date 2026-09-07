@@ -4136,6 +4136,16 @@ tbody tr:last-child td {
 .note--solo { border-top: 5px solid var(--text-dim); }
 .note--work { border-top: 5px solid var(--lime-ink, var(--text-dim)); }
 
+/* 홈 — 오른쪽 열을 넓히고(320→420), 슬라이더 카드 바로 아래에 Now 패널이 붙도록 간격을 줄인다 */
+.page-home .bento { grid-template-columns: minmax(0, 1fr) 420px; margin-bottom: var(--sp-3); align-items: start; }
+.page-home .sidebar { flex: 0 0 420px; }
+.page-home .layout { gap: var(--sp-5); }
+.page-home .sidebar .panel:first-child { margin-top: 0; }
+@media (max-width: 1024px) {
+  .page-home .bento { grid-template-columns: minmax(0, 1fr) 360px; }
+  .page-home .sidebar { flex-basis: 360px; }
+}
+
 /* 앵커 이동 — 상단바(sticky)에 가리지 않게 섹션 머리를 창 위에 맞춘다 */
 html { scroll-behavior: smooth; }
 .page-portfolio #profile,
@@ -4146,8 +4156,8 @@ html { scroll-behavior: smooth; }
 .page-portfolio #how { scroll-margin-top: 92px; }
 
 /* 히어로 슬라이더 — 여행 세로 사진이 아니라 배포 화면(가로)을 담는다 */
-.page-portfolio .slider__track { aspect-ratio: 16 / 10; }
-.page-portfolio .slider__item img { object-fit: contain; background: var(--surface); }
+.page-home .slider__track { aspect-ratio: 16 / 10; }
+.page-home .slider__item img { object-fit: contain; background: var(--surface); }
 
 
 /* 일하는 방식 — 두 칸을 가로로 채운다 */
