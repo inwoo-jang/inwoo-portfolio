@@ -1,482 +1,823 @@
-<!doctype html>
+<!-- inwoo-portfolio — 채용 지원용 포트폴리오 (Inwoo.log 디자인) -->
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inwoo.log — 장인우 포트폴리오</title>
-<meta name="description" content="장인우 포트폴리오 · 세무·약국 B2B SaaS 기획 PM → AI 서비스 구현. 1인 설계~배포 5건, 7인 팀 PM, 기획 워크플로 자동화.">
-<style>
-  :root{
-    --bg:#fbfbfa; --surface:#fff; --line:#e4e2dd; --line-soft:#efedE8;
-    --ink:#1c1b19; --ink-2:#4a4741; --ink-3:#7d786f;
-    --accent:#1f5c4a; --accent-soft:#e8f0ec; --mark:#c8531f;
-    --radius:10px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#141414; --surface:#1b1b1a; --line:#2e2d2a; --line-soft:#262523;
-      --ink:#eceae6; --ink-2:#b5b1a9; --ink-3:#858077;
-      --accent:#7fc0a8; --accent-soft:#1e2a26; --mark:#e8875a;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#141414; --surface:#1b1b1a; --line:#2e2d2a; --line-soft:#262523;
-    --ink:#eceae6; --ink-2:#b5b1a9; --ink-3:#858077;
-    --accent:#7fc0a8; --accent-soft:#1e2a26; --mark:#e8875a;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-    font-size:16px; line-height:1.75; letter-spacing:-.01em;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:860px; margin:0 auto; padding:0 24px}
-  a{color:inherit}
-  h1,h2,h3{line-height:1.35; letter-spacing:-.02em; margin:0}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="장인우 포트폴리오 — 요구사항을 정의하고 직접 구현까지 하는 사람. 세무·약국 B2B SaaS 기획 PM에서 AI 서비스 구현까지.">
+  <title>포트폴리오 — 장인우 · Inwoo.log</title>
 
-  /* ---------- reveal ---------- */
-  .rv{opacity:0; transform:translateY(14px); transition:opacity .6s cubic-bezier(.2,.6,.2,1), transform .6s cubic-bezier(.2,.6,.2,1)}
-  .rv.in{opacity:1; transform:none}
-
-  /* ---------- hero ---------- */
-  header{padding:76px 0 44px; border-bottom:1px solid var(--line)}
-  .brand{display:flex; align-items:center; gap:9px; margin-bottom:16px}
-  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--accent); flex:none;
-              animation:pulse 2.6s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1; transform:scale(1)} 50%{opacity:.45; transform:scale(.82)}}
-  .brand .name{font-size:13.5px; color:var(--accent); font-weight:650; letter-spacing:.06em}
-  h1{font-size:clamp(28px,5vw,40px); font-weight:700}
-  .tagline{margin-top:16px; font-size:clamp(16px,2.4vw,19px); color:var(--ink-2); max-width:60ch}
-  .tagline b{color:var(--ink); font-weight:600}
-  .contact{margin-top:26px; display:flex; flex-wrap:wrap; gap:10px}
-  .contact a{
-    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
-    font-size:14px; padding:7px 14px; border:1px solid var(--line);
-    border-radius:99px; background:var(--surface); color:var(--ink-2);
-    transition:border-color .18s, color .18s, transform .18s;
-  }
-  .contact a:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px)}
-
-  /* ---------- stats ---------- */
-  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
-         background:var(--line); border:1px solid var(--line); border-radius:var(--radius);
-         overflow:hidden; margin:36px 0 0}
-  .stat{background:var(--surface); padding:18px 20px}
-  .stat .n{font-size:22px; font-weight:700; letter-spacing:-.03em}
-  .stat .l{font-size:13px; color:var(--ink-3); margin-top:3px}
-
-  section{padding:52px 0; border-bottom:1px solid var(--line)}
-  section:last-of-type{border-bottom:0}
-  h2{font-size:14px; font-weight:600; color:var(--ink-3); letter-spacing:.08em; text-transform:uppercase}
-  .lead{margin-top:8px; font-size:20px; font-weight:650; letter-spacing:-.02em}
-  .body{color:var(--ink-2); margin-top:12px; max-width:62ch}
-  .body b{color:var(--ink); font-weight:600}
-
-  /* ---------- projects ---------- */
-  .proj{margin-top:34px; padding-top:34px; border-top:1px solid var(--line-soft)}
-  .proj:first-of-type{border-top:0; padding-top:0}
-  .proj-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
-  .proj h3{font-size:19px; font-weight:650}
-  .role{font-size:13px; color:var(--ink-3)}
-  .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px}
-  .tag{font-size:12px; padding:3px 9px; border-radius:5px;
-       background:var(--accent-soft); color:var(--accent); font-weight:500}
-  .par{margin-top:14px; display:grid; gap:9px}
-  .par > div{display:grid; grid-template-columns:52px 1fr; gap:12px; align-items:start}
-  .par dt{font-size:12px; font-weight:650; color:var(--ink-3); padding-top:4px}
-  .par dd{margin:0; color:var(--ink-2); font-size:15px}
-  .par dd b{color:var(--ink); font-weight:600}
-  .links{margin-top:13px; display:flex; flex-wrap:wrap; gap:14px; font-size:13.5px}
-  .links a{color:var(--accent); text-decoration:none; font-weight:500;
-           border-bottom:1px solid transparent; transition:border-color .15s}
-  .links a:hover{border-bottom-color:var(--accent)}
-  .links .locked{color:var(--ink-3); font-weight:400}
-
-  /* featured layout: demo + text side by side */
-  .feat{display:grid; grid-template-columns:196px 1fr; gap:26px; align-items:start; margin-top:16px}
-  .demo{border:1px solid var(--line); border-radius:12px; background:var(--surface);
-        padding:14px; overflow:hidden; position:relative}
-  .demo-cap{font-size:11.5px; color:var(--ink-3); text-align:center; margin-top:9px; letter-spacing:.02em}
-
-  /* --- 퀴켓: note -> quiz --- */
-  .phone{width:100%; aspect-ratio:9/13; border:1px solid var(--line); border-radius:14px;
-         background:var(--bg); overflow:hidden; position:relative}
-  .qk-note, .qk-quiz{position:absolute; inset:11px; display:flex; flex-direction:column; gap:7px}
-  .qk-note{animation:qkNote 7s ease-in-out infinite}
-  .qk-quiz{animation:qkQuiz 7s ease-in-out infinite}
-  @keyframes qkNote{0%,38%{opacity:1; transform:translateY(0)} 46%,100%{opacity:0; transform:translateY(-9px)}}
-  @keyframes qkQuiz{0%,42%{opacity:0; transform:translateY(9px)} 52%,94%{opacity:1; transform:translateY(0)} 100%{opacity:0}}
-  .ln{height:6px; border-radius:3px; background:var(--line)}
-  .ln.w80{width:80%} .ln.w60{width:60%} .ln.w95{width:95%} .ln.w45{width:45%}
-  .qk-label{font-size:9.5px; font-weight:700; letter-spacing:.05em; color:var(--ink-3)}
-  .qk-q{font-size:10.5px; font-weight:650; color:var(--ink); line-height:1.45}
-  .qk-opt{font-size:9.5px; padding:5px 7px; border:1px solid var(--line); border-radius:6px; color:var(--ink-2)}
-  .qk-opt.ok{border-color:var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:650}
-
-  /* --- 에이링크: url -> AI tags --- */
-  .al{width:100%; aspect-ratio:9/13; border:1px solid var(--line); border-radius:14px;
-      background:var(--bg); overflow:hidden; position:relative; padding:11px;
-      display:flex; flex-direction:column; gap:8px}
-  .al-bar{display:flex; align-items:center; gap:5px; border:1px solid var(--line); border-radius:7px;
-          padding:5px 7px; background:var(--surface)}
-  .al-bar .u{font-size:8.5px; color:var(--ink-3); overflow:hidden; white-space:nowrap;
-             animation:alType 7s steps(22) infinite}
-  @keyframes alType{0%,4%{width:0} 22%,100%{width:100%}}
-  .al-card{border:1px solid var(--line); border-radius:8px; padding:8px; background:var(--surface);
-           display:flex; flex-direction:column; gap:6px; opacity:0; animation:alCard 7s ease-in-out infinite}
-  @keyframes alCard{0%,24%{opacity:0; transform:translateY(6px)} 34%,100%{opacity:1; transform:none}}
-  .al-t{font-size:10px; font-weight:650; color:var(--ink)}
-  .al-d{font-size:8.5px; color:var(--ink-3); line-height:1.5}
-  .al-tags{display:flex; flex-wrap:wrap; gap:4px}
-  .al-tag{font-size:8px; padding:2px 6px; border-radius:4px; background:var(--accent-soft);
-          color:var(--accent); font-weight:600; opacity:0}
-  .al-tag{animation:alTag 7s ease-out infinite}
-  .al-tag:nth-child(1){animation-delay:0s}
-  .al-tag:nth-child(2){animation-delay:.42s}
-  .al-tag:nth-child(3){animation-delay:.84s}
-  @keyframes alTag{0%,40%{opacity:0; transform:scale(.85)} 50%,100%{opacity:1; transform:scale(1)}}
-  .al-fail{margin-top:auto; font-size:8px; color:var(--mark); border:1px dashed var(--mark);
-           border-radius:6px; padding:5px 6px; line-height:1.45; opacity:0;
-           animation:alFail 7s ease-out infinite}
-  @keyframes alFail{0%,68%{opacity:0} 78%,100%{opacity:1}}
-
-  /* ---------- workflow ---------- */
-  .flow{margin-top:24px; display:grid; gap:1px; background:var(--line);
-        border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
-  .step{background:var(--surface); padding:13px 16px; display:grid;
-        grid-template-columns:26px 1fr auto; gap:13px; align-items:center; position:relative}
-  .step .i{width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
-           font-size:11px; font-weight:700; background:var(--accent-soft); color:var(--accent)}
-  .step .t{font-size:14.5px; color:var(--ink-2)}
-  .step .t b{color:var(--ink); font-weight:600}
-  .step .chk{font-size:11px; font-weight:650; color:var(--accent); white-space:nowrap; opacity:.9}
-  .step::after{content:""; position:absolute; left:0; top:0; bottom:0; width:2px;
-               background:var(--accent); transform:scaleY(0); transform-origin:top;
-               transition:transform .45s ease}
-  .flow.on .step::after{transform:scaleY(1)}
-  .flow.on .step:nth-child(1)::after{transition-delay:.05s}
-  .flow.on .step:nth-child(2)::after{transition-delay:.15s}
-  .flow.on .step:nth-child(3)::after{transition-delay:.25s}
-  .flow.on .step:nth-child(4)::after{transition-delay:.35s}
-  .flow.on .step:nth-child(5)::after{transition-delay:.45s}
-  .flow.on .step:nth-child(6)::after{transition-delay:.55s}
-  .flow.on .step:nth-child(7)::after{transition-delay:.65s}
-
-  /* ---------- career ---------- */
-  .job{margin-top:28px; padding-top:28px; border-top:1px solid var(--line-soft)}
-  .job:first-of-type{border-top:0; padding-top:0}
-  .job-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline}
-  .job h3{font-size:17px; font-weight:650}
-  .period{font-size:13px; color:var(--ink-3); white-space:nowrap}
-  .job ul{margin:12px 0 0; padding-left:0; list-style:none; display:grid; gap:8px}
-  .job li{position:relative; padding-left:15px; color:var(--ink-2); font-size:15px}
-  .job li::before{content:""; position:absolute; left:2px; top:11px;
-                  width:4px; height:4px; border-radius:50%; background:var(--ink-3)}
-  .job li b{color:var(--ink); font-weight:600}
-
-  /* ---------- skills ---------- */
-  .skills{margin-top:22px; display:grid; gap:1px; background:var(--line);
-          border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
-  .srow{background:var(--surface); padding:14px 18px; display:grid;
-        grid-template-columns:110px 1fr; gap:16px; align-items:start}
-  .srow dt{font-size:13px; font-weight:600; color:var(--ink-3); padding-top:2px}
-  .srow dd{margin:0; font-size:14.5px; color:var(--ink-2)}
-  .note{margin-top:14px; font-size:13.5px; color:var(--ink-3); line-height:1.65}
-
-  footer{padding:38px 0 64px; font-size:13.5px; color:var(--ink-3)}
-  footer a{color:var(--accent); text-decoration:none}
-
-  @media (max-width:640px){
-    .feat{grid-template-columns:1fr; gap:18px}
-    .demo{max-width:200px}
-  }
-  @media (max-width:560px){
-    header{padding:52px 0 34px}
-    .par > div{grid-template-columns:44px 1fr; gap:9px}
-    .srow{grid-template-columns:1fr; gap:5px}
-    .step{grid-template-columns:24px 1fr; gap:10px}
-    .step .chk{grid-column:2; font-size:10.5px}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .rv{opacity:1; transform:none; transition:none}
-    *,*::before,*::after{animation:none !important}
-    .flow .step::after{transform:scaleY(1)}
-    .al-bar .u,.al-card,.al-tag,.al-fail,.qk-note{opacity:1; width:auto}
-    .qk-quiz{opacity:0}
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flags.css">
 </head>
-<body>
-<div class="wrap">
+<body class="page-portfolio">
 
-<header>
-  <div class="brand"><span class="dot"></span><span class="name">INWOO.LOG · 장인우</span></div>
-  <h1>요구사항을 정의하고,<br>직접 구현까지 하는 사람</h1>
-  <p class="tagline">
-    예외가 많은 <b>세무·약국 규정</b>을 직접 기장하며 규칙으로 옮기고, 그것을 시스템으로 만들었습니다.
-    지금은 기획서를 넘기는 데서 멈추지 않기 위해 <b>구현 역량</b>을 채우고 있습니다.
-  </p>
-  <div class="contact">
-    <a href="mailto:roseprincess0331@gmail.com">roseprincess0331@gmail.com</a>
-    <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub · inwoo-jang</a>
-  </div>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
 
-  <div class="stats">
-    <div class="stat"><div class="n">4년 3개월</div><div class="l">총 경력 · PM 1년 9개월</div></div>
-    <div class="stat"><div class="n">5건</div><div class="l">1인 설계~배포</div></div>
-    <div class="stat"><div class="n">7인 팀 PM</div><div class="l">3개월 만에 양대 마켓 출시</div></div>
-    <div class="stat"><div class="n">약 30곳</div><div class="l">세무 기장 직접 수행</div></div>
-  </div>
-</header>
+  <header class="topbar">
+    <a class="topbar__logo" href="#top">inwoo<span>.log</span></a>
 
-<section class="rv">
-  <h2>What I do</h2>
-  <p class="lead">무엇을 AI에게 맡기지 않을지 정하는 일</p>
-  <p class="body">
-    AI 서비스에서 어려운 것은 모델을 부르는 일이 아니라 <b>역할을 나누는 일</b>이라고 생각합니다.
-    법령 근거는 RAG로, 세액 계산은 코드로, 범위 밖 질문의 거절은 규칙으로 나눴고,
-    해커톤에서는 계산과 임계 판정은 코드가, 문구 생성은 AI가, 최종 확정은 사람이 하도록 맡겼습니다.
-    만든 뒤에는 <b>틀렸을 때 알아낼 수 있는 장치</b>를 함께 설계합니다.
-  </p>
-</section>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
 
-<section class="rv">
-  <h2>Workflow</h2>
-  <p class="lead">기획 문서 7단계를 AI 워크플로로 묶고, 단계마다 검토 지점을 넣었습니다</p>
-  <p class="body">
-    기획 문서를 쓸 때마다 앞 문서와 뒤 문서가 어긋나는 것이 문제였습니다.
-    일곱 단계를 하나로 묶되 <b>앞 단계가 검증되지 않으면 다음으로 넘어가지 않게</b> 했습니다.
-    쓰다 보니 AI가 수정 사항을 조용히 빠뜨린다는 것을 알게 됐습니다. 한 곳을 고치면 다른 곳이 빠지고,
-    그것을 고치면 앞에서 되던 것이 깨졌습니다. 그래서 수정을 요청한 뒤에는
-    <b>전체에 반영됐는지 스스로 점검하게 하는 단계</b>를 루틴으로 고정했고 누락이 눈에 띄게 줄었습니다.
-  </p>
-  <div class="flow" id="flow">
-    <div class="step"><span class="i">1</span><span class="t"><b>프로젝트 개요</b> — 무엇을 왜 만드는지 먼저 고정</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">2</span><span class="t"><b>PRD</b> — 범위와 비범위를 나눠 적음</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">3</span><span class="t"><b>IA</b> — 구조가 PRD 범위를 넘지 않는지 대조</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">4</span><span class="t"><b>유저플로우</b> — 예외 경로를 여기서 전부 꺼냄</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">5</span><span class="t"><b>기능명세</b> — input · output · API 규격 · 정책 · 예외</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">6</span><span class="t"><b>와이어프레임</b> — 명세에 없는 화면이 생기지 않게</span><span class="chk">검토 ✓</span></div>
-    <div class="step"><span class="i">7</span><span class="t"><b>QA 체크리스트</b> — 수정 후 전체 반영 여부 자가 점검</span><span class="chk">검토 ✓</span></div>
-  </div>
-  <p class="note">
-    결과: <b>PRD 초안 3일 이상 → 하루 이내.</b>
-    5단계의 다섯 항목은 지킴컴퍼니에서 기획서 양식으로 직접 만들어 쓰던 것을 그대로 옮긴 것입니다.
-  </p>
-</section>
+    <nav class="topbar__nav" id="siteNav" aria-label="주요 메뉴">
+      <ul class="nav-list">
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#how">How I Work</a></li>
+      </ul>
+    </nav>
 
-<section class="rv">
-  <h2>Projects</h2>
-  <p class="lead">직접 만들고, 대부분 지금도 쓰고 있습니다</p>
+    <div class="topbar__auth">
+      <a href="mailto:roseprincess0331@gmail.com" class="btn btn--ghost">이메일</a>
+      <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener" class="btn btn--primary">GitHub</a>
+    </div>
+  </header>
 
-  <div class="proj">
-    <div class="proj-head"><h3>퀴켓 — AI 학습 앱</h3><span class="role">7인 팀 PM · 2026.03~07</span></div>
-    <div class="tags"><span class="tag">PM</span><span class="tag">Next.js</span><span class="tag">Gemini API</span><span class="tag">Figma</span></div>
-    <div class="feat">
-      <div>
-        <div class="demo">
-          <div class="phone">
-            <div class="qk-note">
-              <div class="qk-label">필기 노트</div>
-              <div class="ln w95"></div><div class="ln w80"></div><div class="ln w60"></div>
-              <div class="ln w95"></div><div class="ln w45"></div><div class="ln w80"></div>
+  <div class="container" id="top">
+
+    <header class="page-head">
+      <p class="eyebrow">장인우 · INWOO JANG</p>
+      <h1 class="page-title">요구사항을 정의하고, <em>직접 구현까지 합니다</em></h1>
+      <p class="page-desc">
+        예외가 많은 세무·약국 규정을 직접 기장하며 규칙으로 옮기고, 그것을 시스템으로 만들었습니다.
+        기획서를 넘기는 데서 멈추지 않으려고 지금은 직접 만들고 검증하는 쪽을 채우고 있습니다.
+      </p>
+    </header>
+
+    <main id="main">
+
+      <section class="panel" id="profile">
+        <h2 class="section-title">Basic</h2>
+        <dl class="meta-list meta-list--wide">
+          <dt>한 줄</dt>
+          <dd>요구사항을 명확히 정의하고, 그것을 직접 구현까지 하는 사람</dd>
+          <dt>경력</dt>
+          <dd>총 4년 3개월 · 서비스 기획 PM/PO 1년 9개월</dd>
+          <dt>현재</dt>
+          <dd>SK그룹 SKALA 4기 — AI 서비스 개발 과정 (2026.07~)</dd>
+          <dt>이메일</dt>
+          <dd><a href="mailto:roseprincess0331@gmail.com">roseprincess0331@gmail.com</a></dd>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">github.com/inwoo-jang</a></dd>
+        </dl>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">Numbers</h2>
+        <dl class="meta-list meta-list--wide">
+          <dt>5개 서비스</dt>
+          <dd>세무·약국 B2B SaaS에서 신규 기획·고도화. 다섯 명 팀의 유일한 기획자</dd>
+          <dt>약 30개 거래처</dt>
+          <dd>기획 전에 세무 기장을 직접 수행해 계산 로직과 예외를 규칙으로 문서화</dd>
+          <dt>7인 팀 PM</dt>
+          <dd>3개월 만에 App Store·Google Play 동시 출시, 동아리 PM MVP 선정</dd>
+          <dt>외부 4개사</dt>
+          <dd>삼일회계법인·온라인팜 등과 API 연동 규격을 직접 협의</dd>
+          <dt>1인 설계~배포 5건</dt>
+          <dd>기획부터 구현·배포까지 혼자 완주. 대부분 지금도 매일 사용 중</dd>
+          <dt>직원 10명</dt>
+          <dd>처방전 스캔센터 총괄 — 일 평균 15만 장, 작업 배치·교육·품질관리</dd>
+        </dl>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">Skills</h2>
+        <ul class="tag-row tag-row--big">
+          <li class="tag tag--sky">서비스 기획 · PRD</li>
+          <li class="tag tag--lavender">AI 정책 설계</li>
+          <li class="tag tag--lime">Spring AI · RAG</li>
+          <li class="tag tag--peach">Java · Spring Boot</li>
+          <li class="tag tag--mint">Python · SQL</li>
+          <li class="tag tag--pink">데이터 분석 · ADsP</li>
+          <li class="tag tag--sky">Vue 3 · TypeScript</li>
+          <li class="tag tag--lime">Docker · GitHub Actions</li>
+        </ul>
+        <p class="page-desc" style="margin-top:1rem">
+          어학 — TOEIC 905 · OPIc IH · 중국어 업무 가능.
+          자격 — ADsP, 재경관리사, 전산세무 2급, TESAT 1급.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">Timeline</h2>
+        <ol class="timeline">
+          <li class="timeline__item timeline__item--now">
+            <span class="timeline__year">2026</span>
+            <div class="timeline__body">
+              <p class="timeline__role">SKALA 4기 <span class="timeline__badge">진행 중</span></p>
+              <p class="timeline__desc">Java·Spring AI·데이터 분석·Docker를 배우며, 정한 것을 직접 코드로 만드는 연습을 하고 있습니다.</p>
             </div>
-            <div class="qk-quiz">
-              <div class="qk-label">생성된 문제</div>
-              <div class="qk-q">다음 중 옳은 것은?</div>
-              <div class="qk-opt">① 보기 하나</div>
-              <div class="qk-opt ok">② 정답 보기</div>
-              <div class="qk-opt">③ 보기 셋</div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2024<small>~ 26</small></span>
+            <div class="timeline__body">
+              <p class="timeline__role">지킴컴퍼니 · 프로덕트팀 기획 PM/PO</p>
+              <p class="timeline__desc">세무·약국 B2B SaaS. 다섯 명 팀의 유일한 기획자로 서비스 다섯 개를 기획하고 스캔센터 운영을 총괄했습니다.</p>
             </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2021<small>~ 24</small></span>
+            <div class="timeline__body">
+              <p class="timeline__role">제이머메이드 · 온라인 쇼핑몰 1인 창업</p>
+              <p class="timeline__desc">소싱·촬영·상세페이지·광고·CS·물류를 혼자 돌렸습니다. 중국 도매업체와 중국어로 직접 협상했습니다.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2016<small>~ 20</small></span>
+            <div class="timeline__body">
+              <p class="timeline__role">복단대학교 법학 <span class="flag flag--cn" role="img" aria-label="중국"></span></p>
+              <p class="timeline__desc">중국 상하이에서 공부했습니다. 이때 익힌 중국어를 창업하며 실무로 썼습니다.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <h2 class="section-title" id="projects">Projects</h2>
+
+      <div class="note-shelf">
+
+      <!-- ===================== 팀 프로젝트 연습장 ===================== -->
+      <section class="note-wrap">
+        <h2 class="section-title">함께 만든 프로젝트</h2>
+
+        <div class="note note--team" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
           </div>
-        </div>
-        <div class="demo-cap">노트 → 문제 자동 생성</div>
-      </div>
-      <dl class="par">
-        <div><dt>문제</dt><dd>팀원 전원이 본업이 있어 가용 시간이 주말뿐인데, 사용자 인터뷰 12건으로 정의한 초기 기획안은 그 시간 안에 끝낼 수 없는 분량이었습니다.</dd></div>
-        <div><dt>해결</dt><dd>기능을 삭제하는 대신 <b>데이터 구조는 설계안대로 두고 화면 노출만 줄여</b>, 출시 후 화면만 붙이면 되는 상태로 남겼습니다. 기획 단계에서 핵심 로직만 담은 미니 버전을 직접 구현해 검증한 뒤 본 개발로 넘어갔습니다.</dd></div>
-        <div><dt>결과</dt><dd>3개월 만에 <b>App Store·Google Play 동시 출시</b>. 와이어프레임 100화면 이상 제작, 개발자 4명 스프린트 운영, <b>동아리 PM MVP 선정.</b></dd></div>
-      </dl>
-    </div>
-    <div class="links"><a href="https://github.com/inwoo-jang/note2quiz-mini" target="_blank" rel="noopener">검증용 미니 버전 →</a></div>
-  </div>
 
-  <div class="proj">
-    <div class="proj-head"><h3>에이링크 — AI 링크·QR 북마크</h3><span class="role">2인 팀 · 기획 전반·프로토타입 구현</span></div>
-    <div class="tags"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">PWA</span><span class="tag">AI 자동 분류</span></div>
-    <div class="feat">
-      <div>
-        <div class="demo">
-          <div class="al">
-            <div class="al-bar"><span class="u">https://example.com/…</span></div>
-            <div class="al-card">
-              <div class="al-t">저장한 링크</div>
-              <div class="al-d">AI가 제목·설명·폴더를 채웁니다</div>
-              <div class="al-tags">
-                <span class="al-tag">#기획</span><span class="al-tag">#레퍼런스</span><span class="al-tag">#나중에</span>
-              </div>
-            </div>
-            <div class="al-fail">읽기 실패 → 사용자가 바로 입력</div>
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="Team Projects 목차">
+              <h3 class="note__cover-title">Team<br>Projects</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">퀴켓 — AI 퀴즈 학습 앱</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">에이링크 — AI 링크·QR 북마크</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">AI 세무 챗봇 — 삼일회계법인 협업</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">급여명세서 작성 자동화</span>
+                    <span class="toc__year">2025</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip chip--ko">01 · Team · 7인 · PM</p>
+              <h3>퀴켓 — AI 퀴즈 학습 앱</h3>
+              <p class="note__meta">2026.03 ~ 2026.07 · 기획 담당 · App Store·Google Play 출시</p>
+
+              <p>내 필기를 넣으면 AI가 문제를 만들어 주는 학습 앱입니다.
+                 일곱 명이 넉 달간 만들어 양대 스토어에 올렸습니다.</p>
+
+              <figure class="note__shot">
+                <img src="media/portfolio/quiket-card.png"
+                     alt="앱스토어에 출시된 퀴켓 — AI 퀴즈 생성, 시험 공부 앱 페이지"
+                     width="1000" height="602" loading="lazy">
+                <figcaption>App Store에 출시된 퀴켓 v1.5 · 교육 카테고리</figcaption>
+              </figure>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://play.google.com/store/apps/details?id=com.f1.quiket" target="_blank" rel="noopener">Google Play ↗</a>
+                <a class="btn btn--mini" href="https://apps.apple.com/kr/app/%ED%80%B4%EC%BC%93-quiket-ai-%ED%80%B4%EC%A6%88-%EC%83%9D%EC%84%B1-%EC%8B%9C%ED%97%98-%EA%B3%B5%EB%B6%80/id6787878510" target="_blank" rel="noopener">App Store ↗</a>
+              </p>
+
+              <h4>가장 어려웠던 결정</h4>
+              <p>팀원 전원이 본업이 있어 쓸 수 있는 시간은 주말뿐이었습니다.
+                 인터뷰 12건으로 정의한 기획안은 그 시간 안에 끝낼 분량이 아니었습니다.
+                 기능을 <em>삭제</em>하는 대신 <mark>데이터 구조는 설계안대로 두고 화면 노출만 줄여</mark>,
+                 출시 후 화면만 붙이면 되는 상태로 남겼습니다.</p>
+
+              <h4>내가 한 일</h4>
+              <ul class="note__list">
+                <li>사용자 인터뷰 12건으로 문제 정의를 다시 씀</li>
+                <li>PRD·IA·기능명세·유저플로우 작성, 와이어프레임 100화면 이상</li>
+                <li>기능명세를 스프린트로 나눠 개발자 4명 일정 운영, 백엔드 ERD를 정책과 대조 검토</li>
+                <li>핵심 로직만 담은 <mark>미니 버전을 직접 구현해 검증</mark>한 뒤 본 개발로 넘김</li>
+                <li>사용성 테스트, 스토어 심사 대응, 중간·최종 발표</li>
+              </ul>
+
+              <h4>결과</h4>
+              <p>3개월 만에 App Store·Google Play 동시 출시. 동아리 <mark>PM MVP</mark> 선정.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/note2quiz-mini" target="_blank" rel="noopener">검증용 미니 버전 코드 ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">기획</li>
+                <li class="tag tag--lime">사용자 조사</li>
+                <li class="tag tag--peach">스토어 출시</li>
+                <li class="tag tag--lavender">스코프 조정</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip chip--ko">02 · Team · 2인 · 프로토타입</p>
+              <h3>에이링크 — AI 링크·QR 북마크</h3>
+              <p class="note__meta">2026 · 기획 전반 + 프론트엔드 프로토타입 · <mark>프로토타입 단계(미출시)</mark></p>
+
+              <p>링크와 QR코드를 한곳에 모으는 북마크 서비스입니다.
+                 링크를 넣으면 AI가 폴더·이름·설명·태그를 채웁니다.
+                 <em>정식 서비스가 아니라 2인이 만든 프로토타입</em>이며, 아래 링크에서 직접 눌러 볼 수 있습니다.</p>
+
+              <figure class="note__shot">
+                <img src="media/portfolio/archivelink-home.png"
+                     alt="에이링크 홈 대시보드 — 폴더별 링크 정리, 통합 검색, 최근 저장 링크"
+                     width="3532" height="2076" loading="lazy">
+                <figcaption>에이링크 홈 — 폴더·통합 검색·최근 저장 (프로토타입 화면)</figcaption>
+              </figure>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://archivelink.app/login" target="_blank" rel="noopener">프로토타입 열기 ↗</a>
+              </p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>링크를 추가하면 AI가 폴더 분류·링크명·설명·태그를 자동 생성</li>
+                <li>웹·앱 통합 북마크 + 포털 검색 내장</li>
+                <li>링크에 할 일과 알림을 붙여 기록 관리</li>
+              </ul>
+
+              <h4>QA에서 뒤집은 것</h4>
+              <p>로그인 벽과 봇 차단으로 <mark>AI가 아예 읽지 못하는 링크가 생각보다 많았습니다.</mark>
+                 자동 분류 실패를 예외 처리로 두면 사용자가 그 자리에서 막힙니다.
+                 그래서 <em>실패를 예외가 아니라 기본 경로로 바꿔</em> 바로 직접 채워 넣도록 흐름을 다시 설계했습니다.</p>
+
+              <h4>내 범위</h4>
+              <p>기획 전반과 프론트엔드 프로토타입을 맡았고,
+                 요구사항을 말로 맞추는 대신 <mark>프로토타입을 먼저 배포해 기준으로 고정</mark>한 뒤
+                 React 19·TypeScript로 이관했습니다. 서버·DB 구조와 인프라는 팀 백엔드 개발자가 설계했습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI 자동 분류</li>
+                <li class="tag tag--mint">React 19</li>
+                <li class="tag tag--peach">PWA</li>
+                <li class="tag tag--lavender">프로토타입</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip chip--ko">03 · Team · 외부 협업</p>
+              <h3>AI 세무 챗봇 — 삼일회계법인 협업</h3>
+              <p class="note__meta">2026 · 지킴컴퍼니 · 정책·화면 설계 담당</p>
+
+              <p>약국 운영자가 세무·노무·행정을 물어보는 상담 챗봇입니다.
+                 모델과 Q&amp;A DB는 삼일회계법인이, <mark>답할 수 있는 범위와 정책은 제가</mark> 맡았습니다.</p>
+
+              <h4>내가 정한 것</h4>
+              <ul class="note__list">
+                <li><mark>답변 가능 범위 정책</mark> — 모델이 답해도 되는 질문과 전문가 상담으로 넘길 질문의 경계</li>
+                <li><mark>3단계 응답 로직</mark> — 예상 Q&amp;A DB 매칭 → 에이전트 탐색 → 양쪽 불가 시 전문가 연결</li>
+                <li>응답 불가 4가지 경우의 처리 — 범위 밖 질문은 특화 안내로 되돌림</li>
+                <li>AI 면책 고지 문구와 노출 시점, 근거 조문 표시 규칙</li>
+                <li>대화 이력 보관 정책(7일 자동 삭제)과 북마크 예외 처리</li>
+                <li>토큰 사용량 하드캡을 요구사항으로 정의</li>
+              </ul>
+
+              <h4>배운 것</h4>
+              <p>외부와 함께 AI를 붙일 때 실제로 어려운 것은 모델이 아니라
+                 <em>답하지 않기로 한 것을 누가 어디까지 정하느냐</em>였습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI 정책 설계</li>
+                <li class="tag tag--lavender">외부 협업</li>
+                <li class="tag tag--pink">UX 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="4" hidden>
+              <p class="chip chip--ko">04 · Team · 재기획</p>
+              <h3>급여명세서 작성 자동화</h3>
+              <p class="note__meta">2025 · 지킴컴퍼니 · 서비스 기획</p>
+
+              <p>합류했을 때 이미 기획된 기능이 있었지만 세무 신고 기준을 반영하지 못해
+                 <mark>인사 스케줄 관리 정도로만</mark> 쓰이고 있었습니다.</p>
+
+              <h4>기획 전에 한 일</h4>
+              <p>정규직·일용직·프리랜서의 계산식이 모두 다르고 4대보험과 간이세액표까지 얽혀 있어,
+                 <mark>약 30개 거래처의 세무 기장을 직접 수행</mark>하며
+                 급여·공제 계산 로직과 예외 케이스를 규칙으로 문서화한 뒤 재기획했습니다.</p>
+
+              <h4>내가 한 일</h4>
+              <ul class="note__list">
+                <li>급여·공제 계산 로직과 예외 케이스를 규칙으로 정의</li>
+                <li>유저·어드민 화면 흐름과 데이터 필드 정의, 개발 테스트까지 수행</li>
+                <li>백엔드 ERD를 기획서 규칙과 대조해 검토</li>
+              </ul>
+
+              <h4>결과</h4>
+              <p>스케줄 관리로만 쓰이던 기능이 <mark>실제 급여·공제 계산 용도로 사용되기 시작</mark>했습니다.
+                 함께 일한 개발자들에게 “구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다”는 말을 들었습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--lavender">서비스 기획</li>
+                <li class="tag tag--sky">계산 로직</li>
+                <li class="tag tag--lime">도메인 실무</li>
+              </ul>
+            </article>
+
           </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
         </div>
-        <div class="demo-cap">자동 분류 → 실패 시 직접 입력</div>
+      </section>
+
+      <!-- ===================== 개인 프로젝트 연습장 ===================== -->
+      <section class="note-wrap">
+        <h2 class="section-title">혼자 만든 프로젝트</h2>
+
+        <div class="note note--solo" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="Personal Projects 목차">
+              <h3 class="note__cover-title">Personal<br>Projects</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">SKALA증권 세무상담 데스크</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">마켓데스크 — AI 리포트 분석</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">일경험 운영 트리아지 어드민</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">ClassTrack — 강의·과제 추적</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">관계부 — 관계 기록·AI 분석</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="6">
+                    <span class="toc__no">06</span>
+                    <span class="toc__title">일간 메일 요약 에이전트</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="7">
+                    <span class="toc__no">07</span>
+                    <span class="toc__title">템플릿 허브 · Inwoo.log</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip">01 · Solo · Spring AI</p>
+              <h3>SKALA증권 세무상담 데스크</h3>
+              <p class="note__meta">2026.08 · 1인 설계·개발·검증 · Java · Spring Boot · Spring AI</p>
+
+              <p>금융소득 종합과세 대상인지와 세액을 <mark>법령 근거와 함께</mark> 답하는 상담 AI입니다.
+                 세무 상담에서는 근거 없는 답이 무책임하고, 계산이 빠진 답은 쓸모가 없습니다.</p>
+
+              <h4>역할을 나눈 방식</h4>
+              <ul class="note__list">
+                <li>법령 근거는 <mark>RAG</mark>, 세액 계산은 <mark>Tool Calling</mark>으로 나눠 두 결과를 함께 산출</li>
+                <li>세법 문서 9종을 조문 경계로 잘라 청크 39개를 만들고, 각 청크에 조문 번호를 실어 인용</li>
+                <li>범위 밖 질문은 규칙·모델 2단 라우팅으로 <mark>모델을 부르기 전에 거절</mark></li>
+                <li>서비스 주체를 국세청이 아닌 가상 증권사로 잡음 — 업무 범위가 좁아야 거절이 정직한 답이 되기 때문</li>
+              </ul>
+
+              <h4>만든 다음에 한 일</h4>
+              <p>계산 코드에 <mark>버그 7종을 일부러 심어 테스트가 6종을 잡아내는지</mark> 확인했습니다.
+                 걸러지지 않은 1종은 원인을 끝까지 좇아가
+                 <em>분리과세를 선택하면 값은 계산되지만 결과에 반영되지 않는</em> 문제를 찾았습니다.
+                 세법 원문과 대조하다 개정 전 11%로 남아 있던 Gross-up 율도 10%로 고쳤습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring AI</li>
+                <li class="tag tag--lime">RAG</li>
+                <li class="tag tag--peach">Tool Calling</li>
+                <li class="tag tag--lavender">검증 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip">02 · Solo · 매일 실사용</p>
+              <h3>마켓데스크 — AI 리포트 분석·종목 관리</h3>
+              <p class="note__meta">2026 ~ 진행 중 · 1인 기획~구현 · 매일 실사용(미출시)</p>
+
+              <p>같은 산업 리포트도 취업 준비생과 투자자가 다르게 읽습니다.
+                 <mark>읽는 목적(렌즈)별로</mark> AI가 구조화 요약하고, 산업별 흐름으로 누적해 보여주는 도구입니다.</p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>렌즈별 6항목 구조화 요약, 업로드 시 산업·문서 타입 AI 자동 분류</li>
+                <li>흐름 보드 — 월·년 × 산업·기업·경제흐름으로 누적</li>
+                <li>내 종목 — KIS 실시간 시세, 모의투자 시뮬레이션, 매매 다이어리</li>
+                <li>PDF·Markdown 내보내기, 분석 엔진 선택(BYO 키)</li>
+              </ul>
+
+              <h4>엔지니어링에서 막혔던 것</h4>
+              <p>PDF 파싱이 업로드 응답을 막아 <mark>API 서버와 파싱 워커를 분리해 큐로 연결</mark>했습니다.
+                 중복은 내용 SHA-256으로 막고, 유사본은 SimHash로 잡아 병합을 제안합니다.
+                 커밋 219개로 제가 만든 것 중 가장 큽니다.</p>
+
+              <h4>가드레일</h4>
+              <p>모든 추출 호출에 <mark>“리포트에 없는 숫자·전망을 지어내지 말고, 없는 항목은 비워라”</mark>를 강제했습니다.
+                 추출한 숫자는 인용 페이지 본문과 대조해 검증 플래그를 남깁니다.
+                 투자 의견은 <em>근거를 함께 쓰고 단정하지 않는 형태로만</em> 두고, 투자 조언이 아니라는 면책을 노출합니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/marketdesk" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Next.js · Hono</li>
+                <li class="tag tag--lime">PostgreSQL</li>
+                <li class="tag tag--peach">큐 · 워커 분리</li>
+                <li class="tag tag--lavender">가드레일</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip">03 · Solo · 해커톤 6시간</p>
+              <h3>일경험 운영 트리아지 어드민</h3>
+              <p class="note__meta">2026.06 · AX 해커톤 개인 참가 · 6시간 안에 기획·개발·발표 완주</p>
+
+              <p>운영자 한 명이 참여자 <mark>300명의 8주치 출결</mark>을 수기로 점검하고 있었습니다.
+                 건당 3~5분, 한 번 점검에 15~25시간이 걸렸고 정산 마감 직전에 몰렸습니다.</p>
+
+              <h4>해결</h4>
+              <ul class="note__list">
+                <li>“지금 개입하면 추가로 지킬 수 있는 수당”을 <mark>개입가치</mark>로 정의해 점검 대상을 자동 정렬</li>
+                <li>남은 주차 출석을 넣으면 수당이 재계산되는 What-if 시뮬레이터</li>
+              </ul>
+
+              <h4>먼저 정한 것</h4>
+              <p>무엇을 AI에게 맡길지를 시작할 때 정했습니다.
+                 <mark>계산과 임계 판정은 코드, 요약·안내 문구는 AI, 최종 확정은 사람.</mark>
+                 숫자가 한 번 틀리면 운영자는 그 화면을 다시 믿지 않기 때문입니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://inwoo-jang.github.io/ax-hackathon-ilgyeong-triage/" target="_blank" rel="noopener">라이브 데모 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/ax-hackathon-ilgyeong-triage" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">역할 분리</li>
+                <li class="tag tag--lime">Python</li>
+                <li class="tag tag--peach">프롬프트 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="4" hidden>
+              <p class="chip">04 · Solo · 설계~배포</p>
+              <h3>ClassTrack — 강의·과제 추적 웹앱</h3>
+              <p class="note__meta">2026.08 · 1인 설계~배포 · Spring Boot · Vue 3 · Docker</p>
+
+              <p>듣고 있는 강의와 과제, 결과물 링크를 한곳에서 추적하는 웹앱입니다.
+                 설계부터 배포까지 혼자 했습니다.</p>
+
+              <h4>설계에서 신경 쓴 것</h4>
+              <ul class="note__list">
+                <li>주말·공휴일을 뺀 실제 수업일 캘린더를 <mark>종료일을 저장하지 않고 규칙으로 계산</mark></li>
+                <li>실행 중인 앱에서 API·서비스·DB 구조와 로그를 뽑아내는 <mark>dev 화면</mark>을 붙여 디버깅을 앱 안으로 들여옴</li>
+                <li>AOP 로깅, 비동기 링크 검증</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://classtrack-mu.vercel.app" target="_blank" rel="noopener">배포 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring Boot</li>
+                <li class="tag tag--lime">Vue 3</li>
+                <li class="tag tag--peach">AOP</li>
+                <li class="tag tag--mint">Docker</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="5" hidden>
+              <p class="chip">05 · Solo · 매일 실사용</p>
+              <h3>관계부 — 관계 기록·AI 분석</h3>
+              <p class="note__meta">2026 ~ 진행 중 · 1인 개발 · 매일 실사용(미출시)</p>
+
+              <p>소중한 관계를 놓치지 않도록 사람마다 필요한 걸 한곳에 기록하는 앱입니다.
+                 카톡 대화를 올리면 AI가 <mark>날짜별로 요약</mark>하고 <mark>관계 건강도</mark>를 분석합니다.</p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>인물 카드 — MBTI·인스타·명함·못 먹는 음식 등 자유 메모</li>
+                <li>경조사비·빌려준 돈 기록, 주고받은 잔액 자동 계산</li>
+                <li>AI 관계 건강도 분석 — 소원해진 사람·챙길 사람 추천</li>
+                <li>연락 리마인더 · 경조사 D-day 알림</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/gwangyebu" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Next.js</li>
+                <li class="tag tag--lime">Supabase</li>
+                <li class="tag tag--peach">Capacitor</li>
+                <li class="tag tag--lavender">Claude · Gemini API</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="6" hidden>
+              <p class="chip">06 · Solo · AI Agent</p>
+              <h3>일간 메일 요약 에이전트</h3>
+              <p class="note__meta">2026 · 1인 개발 · 매일 실사용(미출시)</p>
+
+              <p>Gmail을 매일 아침 자동으로 읽어 <mark>중요도별로 요약</mark>한 뒤
+                 Discord 채널로 보내주는 에이전트입니다.
+                 반복해서 확인하던 일부터 먼저 줄였습니다.</p>
+
+              <h4>동작 방식</h4>
+              <ul class="note__list">
+                <li>매일 아침 Gmail 자동 수집 (IMAP)</li>
+                <li>중요도별 요약 생성, 네이버 메일은 별도 채널로 분리</li>
+                <li>Discord 전송 · GitHub Actions로 자동 실행</li>
+              </ul>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Python</li>
+                <li class="tag tag--lime">IMAP</li>
+                <li class="tag tag--lavender">Claude API</li>
+                <li class="tag tag--mint">GitHub Actions</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="7" hidden>
+              <p class="chip">07 · Solo</p>
+              <h3>템플릿 허브 · Inwoo.log · 그 외</h3>
+              <p class="note__meta">2026 · 1인 제작</p>
+
+              <h4>템플릿 허브</h4>
+              <p>PPT·보고서·이력서 템플릿을 카테고리별로 모아두고,
+                 고르면 <mark>AI에 던질 프롬프트가 만들어지는</mark> 허브입니다.
+                 프롬프트는 한 번 잘 나오기보다 매번 같게 나오기가 어렵다는 걸 퀴켓 홍보 이미지를 만들며 알았습니다.</p>
+
+              <h4>Inwoo.log</h4>
+              <p>지금 보고 계신 사이트입니다. 순수 HTML·CSS·JavaScript로 만들었습니다.
+                 색은 CSS 변수로만 관리하고, 사진이 없어도 읽히는 구조로 먼저 만들고,
+                 키보드만으로 모든 기능을 쓸 수 있게 하는 것을 규칙으로 정했습니다.</p>
+
+              <h4>학습으로 만든 것</h4>
+              <ul class="note__list">
+                <li><mark>문자단위 언어모델</mark> — Attention Is All You Need를 읽고 Transformer를 PyTorch로 직접 구현·학습</li>
+                <li><mark>바이브코딩 가이드</mark> — 처음 코딩하는 사람이 기획~배포 8단계를 완주하게 돕는 웹. 빌드가 키 유출 검사를 통과해야 산출물이 나옵니다</li>
+                <li><mark>AI 학습 코치 웹앱 4건</mark> — AI에게 묻는 대신 AI가 나에게 주관식 질문을 던지게 만든 도구</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/templets-hub" target="_blank" rel="noopener">템플릿 허브 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/vibe-coding-guide" target="_blank" rel="noopener">바이브코딩 가이드 ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">HTML · CSS · JS</li>
+                <li class="tag tag--lime">PyTorch</li>
+                <li class="tag tag--peach">프롬프트 설계</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
+        </div>
+      </section>
+
+      <!-- ===================== 일하는 방식 연습장 ===================== -->
+      <section class="note-wrap note-wrap--wide" id="how">
+        <h2 class="section-title">일하는 방식</h2>
+
+        <div class="note note--work" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="How I Work 목차">
+              <h3 class="note__cover-title">How<br>I<br>Work</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">기획 문서 7단계 워크플로</span>
+                    <span class="toc__year">루틴</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">무엇을 AI에게 맡기지 않을지</span>
+                    <span class="toc__year">원칙</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">기획서 다섯 항목 양식</span>
+                    <span class="toc__year">양식</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip chip--ko">01 · 루틴</p>
+              <h3>기획 문서 7단계 워크플로</h3>
+              <p class="note__meta">2026 ~ 현재 · 개인 워크플로 자동화</p>
+
+              <p>기획 문서를 쓸 때마다 앞 문서와 뒤 문서가 어긋나는 것이 문제였습니다.
+                 일곱 단계를 하나로 묶되 <mark>앞 단계가 검증되지 않으면 다음으로 넘어가지 않게</mark> 했습니다.</p>
+
+              <h4>단계와 검토 지점</h4>
+              <ul class="note__list">
+                <li><mark>01 프로젝트 개요</mark> — 무엇을 왜 만드는지 먼저 고정</li>
+                <li><mark>02 PRD</mark> — 범위와 비범위를 나눠 적음</li>
+                <li><mark>03 IA</mark> — 구조가 PRD 범위를 넘지 않는지 대조</li>
+                <li><mark>04 유저플로우</mark> — 예외 경로를 여기서 전부 꺼냄</li>
+                <li><mark>05 기능명세</mark> — input · output · API 규격 · 정책 · 예외</li>
+                <li><mark>06 와이어프레임</mark> — 명세에 없는 화면이 생기지 않게</li>
+                <li><mark>07 QA 체크리스트</mark> — 수정 후 전체 반영 여부 자가 점검</li>
+              </ul>
+
+              <h4>쓰다가 발견한 것</h4>
+              <p>AI가 수정 사항을 조용히 빠뜨린다는 걸 알게 됐습니다.
+                 한 곳을 고치면 다른 곳이 빠지고, 그걸 고치면 앞에서 되던 게 깨졌습니다.
+                 그래서 수정을 요청한 뒤에는 <em>전체에 반영됐는지 스스로 점검하게 하는 단계</em>를
+                 루틴으로 고정했고 누락이 눈에 띄게 줄었습니다.</p>
+
+              <h4>결과</h4>
+              <p>PRD 초안 <mark>3일 이상 → 하루 이내.</mark></p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">워크플로 설계</li>
+                <li class="tag tag--lavender">AI 검증</li>
+                <li class="tag tag--lime">문서 일관성</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip chip--ko">02 · 원칙</p>
+              <h3>무엇을 AI에게 맡기지 않을지</h3>
+
+              <p>AI 서비스에서 어려운 것은 모델을 부르는 일이 아니라
+                 <mark>역할을 나누는 일</mark>이라고 생각합니다.
+                 같은 원칙을 만든 것마다 반복해서 적용했습니다.</p>
+
+              <h4>세 번의 적용</h4>
+              <ul class="note__list">
+                <li><mark>세무상담 AI</mark> — 법령 근거는 RAG, 세액 계산은 코드, 범위 밖 질문의 거절은 규칙</li>
+                <li><mark>해커톤 어드민</mark> — 계산과 임계 판정은 코드, 요약·문구는 AI, 최종 확정은 사람</li>
+                <li><mark>마켓데스크</mark> — 없는 숫자는 생성 금지, 추출한 숫자는 인용 페이지와 대조해 검증 플래그</li>
+              </ul>
+
+              <h4>만든 다음에</h4>
+              <p>정확도를 올리는 것보다 <em>틀렸을 때 알아낼 수 있는 장치</em>를 함께 설계합니다.
+                 세무상담 AI에서는 계산 코드에 버그 7종을 일부러 심어
+                 테스트가 6종을 잡아내는지부터 확인했습니다.</p>
+
+              <h4>AI로 공부하는 방식</h4>
+              <p>AI에게 묻는 대신 <mark>AI가 저에게 주관식 질문을 던지게</mark> 만들었습니다.
+                 물어보면 답은 나오지만 남지 않기 때문입니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">역할 분리</li>
+                <li class="tag tag--peach">가드레일</li>
+                <li class="tag tag--lavender">검증 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip chip--ko">03 · 양식</p>
+              <h3>기획서 다섯 항목 양식</h3>
+
+              <p>처음에는 개발자와 디자이너에게 유저플로우와 구현 결과밖에 설명하지 못했습니다.
+                 무엇을 만들지는 전달했지만, <em>어떤 조건에서 어떻게 동작하고 어떤 예외가 있는지</em>는
+                 전달하지 못했습니다.</p>
+
+              <h4>그래서 만든 것</h4>
+              <p>강의로 IT 기획을 독학해 기준을 스스로 정리한 뒤,
+                 기획서를 <mark>input · output · API 규격 · 정책 · 예외</mark>
+                 다섯 항목으로 고정하는 양식을 만들었습니다.
+                 삼일회계법인·온라인팜 등 외부 네 개사와 API 연동 규격을 협의할 때도
+                 같은 방식으로 항목을 먼저 맞췄습니다.</p>
+
+              <h4>받은 피드백</h4>
+              <p>함께 일한 개발자들에게
+                 “구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다”는 말을 들었습니다.</p>
+
+              <h4>배운 것</h4>
+              <p>계산이 얽힌 서비스는 <em>예외까지 적어야 정의가 끝납니다.</em>
+                 백엔드 개발자가 작성한 ERD를 기획서 규칙과 대조해 검토하는 것도 이때부터 습관이 됐습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">기획서 표준화</li>
+                <li class="tag tag--lime">외부 규격 협의</li>
+                <li class="tag tag--mint">ERD 검토</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
+        </div>
+      </section>
+
       </div>
-      <dl class="par">
-        <div><dt>해결</dt><dd>링크나 QR을 넣으면 AI가 요약해 <b>폴더·링크명·설명·태그를 자동 생성</b>하고, 링크에 할 일과 알림을 연동했습니다. 요구사항을 말로 맞추는 대신 <b>프로토타입을 먼저 배포해 기준으로 고정</b>한 뒤 React 19·TypeScript로 이관했습니다.</dd></div>
-        <div><dt>전환</dt><dd>QA에서 로그인 벽과 봇 차단으로 <b>AI가 읽지 못하는 링크가 많다</b>는 것을 확인했습니다. 자동 분류 실패를 예외 처리로 두면 사용자가 막히므로, <b>실패를 기본 경로로 바꿔</b> 그 자리에서 직접 채워 넣도록 흐름을 다시 설계했습니다.</dd></div>
-        <div><dt>범위</dt><dd>기획 전반과 프론트엔드 프로토타입을 맡았습니다. 서버·DB 구조와 인프라는 팀 백엔드 개발자가 설계했습니다. 웹·앱 통합 배포 후 <b>현재도 실사용 중.</b></dd></div>
-      </dl>
+
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">inwoo<span>.log</span></p>
+        <p class="site-footer__desc">
+          장인우 채용 지원용 포트폴리오입니다.
+          더 많은 기록은 <a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Inwoo.log</a>에 있습니다.
+        </p>
+      </div>
+      <ul class="site-footer__links">
+        <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
     </div>
-  </div>
+    <p class="site-footer__copy">© 2026 장인우</p>
+  </footer>
 
-  <div class="proj">
-    <div class="proj-head"><h3>SKALA증권 세무상담 데스크</h3><span class="role">1인 · 설계·개발·검증 · 2026.08</span></div>
-    <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring AI</span><span class="tag">RAG</span><span class="tag">Tool Calling</span></div>
-    <dl class="par">
-      <div><dt>문제</dt><dd>세무 상담에서는 근거 없는 답이 무책임하고, 계산이 빠진 답은 쓸모가 없습니다.</dd></div>
-      <div><dt>해결</dt><dd>법령 근거는 <b>RAG</b>, 세액은 <b>Tool Calling</b>으로 나눠 두 결과를 함께 냈습니다. 세법 문서 9종을 조문 경계로 잘라 청크 39개를 만들고 조문 번호를 메타데이터에 실어 인용하게 했습니다. 범위 밖 질문은 <b>모델을 부르기 전에 규칙으로 거절</b>합니다.</dd></div>
-      <div><dt>검증</dt><dd>계산 코드에 <b>버그 7종을 일부러 심어 테스트가 6종을 검출</b>하는 것을 확인하고, 걸러지지 않은 1종은 원인을 추적해 분리과세 선택 시 값이 계산되지만 결과에 반영되지 않는 문제를 찾았습니다. 세법 원문 대조로 개정 전 <b>Gross-up 율 11% → 10%</b> 수정.</dd></div>
-    </dl>
-    <div class="links"><span class="locked">저장소 비공개</span></div>
-  </div>
-
-  <div class="proj">
-    <div class="proj-head"><h3>마켓데스크 — AI 리포트 분석·종목 관리</h3><span class="role">1인 · 기획~구현 단독 · 2026.07~</span></div>
-    <div class="tags"><span class="tag">Next.js</span><span class="tag">Hono</span><span class="tag">PostgreSQL</span><span class="tag">Gemini</span><span class="tag">모노레포</span></div>
-    <dl class="par">
-      <div><dt>문제</dt><dd>산업·기업 리포트를 매일 읽지만 목적에 따라 필요한 부분이 다르고, 흐름으로 쌓이지 않았습니다.</dd></div>
-      <div><dt>해결</dt><dd>취업·직무·투자 렌즈별로 6항목 구조화 요약을 만들고 산업별 흐름 보드에 누적했습니다. PDF 파싱이 업로드 응답을 막아 <b>API 서버와 파싱 워커를 분리해 큐로 연결</b>했고, 중복은 SHA-256, 유사본은 SimHash로 잡아 병합을 제안합니다.</dd></div>
-      <div><dt>가드레일</dt><dd><b>리포트에 없는 숫자를 지어내지 못하게</b> 프롬프트에 강제하고, 없는 항목은 비우게 했습니다. 추출한 숫자는 인용 페이지 본문과 대조해 검증 플래그를 남깁니다. <b>매일 실사용 중이며 커밋 219개.</b></dd></div>
-    </dl>
-    <div class="links"><a href="https://github.com/inwoo-jang/marketdesk" target="_blank" rel="noopener">GitHub →</a></div>
-  </div>
-
-  <div class="proj">
-    <div class="proj-head"><h3>일경험 운영 트리아지 어드민</h3><span class="role">개인 · AX 해커톤 6시간 · 2026.06</span></div>
-    <div class="tags"><span class="tag">Python</span><span class="tag">프롬프트 설계</span><span class="tag">역할 분리</span></div>
-    <dl class="par">
-      <div><dt>문제</dt><dd>운영자 한 명이 참여자 <b>300명의 8주치 출결</b>을 수기로 점검했습니다. 건당 3~5분, 1회 15~25시간이 걸렸고 정산 마감 직전에 몰렸습니다.</dd></div>
-      <div><dt>해결</dt><dd>“지금 개입하면 추가로 지킬 수 있는 수당”을 <b>개입가치</b>로 정의해 점검 대상을 자동 정렬하고, 남은 주차 출석을 넣으면 수당이 재계산되는 What-if 시뮬레이터를 붙였습니다.</dd></div>
-      <div><dt>판단</dt><dd>무엇을 AI에게 맡길지 먼저 정했습니다. <b>계산과 임계 판정은 코드, 요약·안내 문구는 AI, 최종 확정은 사람.</b> 숫자가 한 번 틀리면 운영자는 그 화면을 다시 믿지 않기 때문입니다. 6시간 안에 기획·개발·발표·라이브 데모까지 단독 완주.</dd></div>
-    </dl>
-    <div class="links">
-      <a href="https://inwoo-jang.github.io/ax-hackathon-ilgyeong-triage/" target="_blank" rel="noopener">라이브 데모 →</a>
-      <a href="https://github.com/inwoo-jang/ax-hackathon-ilgyeong-triage" target="_blank" rel="noopener">GitHub →</a>
-    </div>
-  </div>
-
-  <div class="proj">
-    <div class="proj-head"><h3>ClassTrack — 강의·과제 추적 웹앱</h3><span class="role">1인 · 설계~배포 · 2026.08</span></div>
-    <div class="tags"><span class="tag">Spring Boot</span><span class="tag">JPA</span><span class="tag">AspectJ</span><span class="tag">Vue 3</span><span class="tag">Docker</span></div>
-    <dl class="par">
-      <div><dt>설계</dt><dd>주말·공휴일을 제외한 실제 수업일 캘린더를 <b>종료일을 저장하지 않고 규칙으로 계산</b>하도록 만들었습니다. 실행 중인 앱에서 API·서비스·DB 구조와 로그를 뽑아내는 dev 화면을 붙여 디버깅을 앱 안으로 들여왔습니다.</dd></div>
-    </dl>
-    <div class="links">
-      <a href="https://classtrack-mu.vercel.app" target="_blank" rel="noopener">배포 →</a>
-      <a href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub →</a>
-    </div>
-  </div>
-
-  <div class="proj">
-    <div class="proj-head"><h3>그 외</h3></div>
-    <dl class="par">
-      <div><dt>도구</dt><dd><b>일간 메일 요약 에이전트</b> — Gmail을 IMAP으로 수집해 중요도별로 요약, 매일 같은 시각 수신. <b>바이브코딩 가이드</b> — 처음 코딩하는 사람이 기획~배포 8단계를 완주하게 돕는 웹, 빌드가 키 유출 검사를 통과해야 산출물이 나옵니다. <b>템플릿 허브</b> · <b>관계부</b>(매일 실사용).</dd></div>
-      <div><dt>학습</dt><dd><b>문자단위 언어모델</b> — Attention Is All You Need를 읽고 Transformer 기반 언어모델을 PyTorch로 직접 구현·학습. <b>데이터 분석 End2End</b> — 인구조사 데이터로 소득 요인을 분석하고 성별 격차를 교란변수로 통제해 재검증.</dd></div>
-    </dl>
-    <div class="links">
-      <a href="https://github.com/inwoo-jang/vibe-coding-guide" target="_blank" rel="noopener">바이브코딩 가이드 →</a>
-      <a href="https://github.com/inwoo-jang/templets-hub" target="_blank" rel="noopener">템플릿 허브 →</a>
-      <a href="https://github.com/inwoo-jang/gwangyebu" target="_blank" rel="noopener">관계부 →</a>
-    </div>
-  </div>
-</section>
-
-<section class="rv">
-  <h2>Experience</h2>
-
-  <div class="job">
-    <div class="job-head"><h3>(주)지킴컴퍼니 · 프로덕트팀 기획 PM/PO</h3><span class="period">2024.10 – 2026.06</span></div>
-    <p style="color:var(--ink-3); font-size:14px; margin:6px 0 0">세무·약국·병의원 도메인 B2B SaaS · 팀 5명 중 기획자는 1명</p>
-    <ul>
-      <li>AI 세무 챗봇, 급여명세서 자동화, 종합소득세 예측, 처방전 보관 앱, 어드민 자동화 <b>5개 서비스</b>의 신규 기획과 고도화</li>
-      <li>급여 기능은 기획돼 있었으나 세무 신고 기준을 반영하지 못해 인사 스케줄 관리 정도로만 쓰였습니다. 기획 전 <b>약 30개 거래처의 세무 기장을 직접 수행</b>해 계산 로직과 예외를 규칙으로 문서화한 뒤 재기획했고, <b>실제 급여·공제 계산 용도로 사용되기 시작</b>했습니다</li>
-      <li>기획서를 <b>input / output / API 규격 / 정책 / 예외</b> 다섯 항목으로 고정하는 양식을 직접 만들었습니다 — 개발자들로부터 “구현 중 판단해야 할 것들이 문서에 정리돼 있어 편하다”는 피드백</li>
-      <li>AI 세무 챗봇(삼일회계법인 협업)에서 <b>답변 가능 범위 정책, 3단계 응답 로직, AI 면책 고지 문구와 노출 시점, 대화 이력 보관 정책</b>을 정의하고 토큰 사용량 하드캡을 요구사항으로 잡았습니다</li>
-      <li>삼일회계법인·온라인팜 등 <b>외부 4개사와 API 연동 규격 협의</b>. 백엔드 ERD를 기획 규칙과 대조해 검토</li>
-      <li>처방전 스캔센터 총괄 — 일 평균 15만 장, <b>직원 10명</b>의 작업 배치·교육·품질관리. 처리 용량 초과 시 인력 배치와 작업 순서를 재설계하고, 상자 단위 추적 불가 문제를 배치 체계 전면 재설계로 해결</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-head"><h3>제이머메이드 · 온라인 쇼핑몰 1인 창업·운영</h3><span class="period">2021.12 – 2024.06</span></div>
-    <ul>
-      <li>네이버 스마트스토어 기반 패션 쇼핑몰. 상품 소싱·촬영·상세페이지 기획·가격 정책·광고·CS·물류 <b>전 과정 단독 수행</b></li>
-      <li>중국 도매업체와 <b>중국어로 직접 협상</b>해 거래처 발굴·관리. <b>창업 4개월 만에 네이버 파워 등급</b> 달성</li>
-      <li>자금난이 발생하자 매입 구조를 <b>구매대행으로 전환</b> — 재고 부담이 줄어 등록 상품 수를 늘렸고, 여러 품목을 동시에 테스트해 실제로 팔리는 상품을 찾았습니다</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-head"><h3>SK그룹 SKALA 4기 · AI 서비스 개발 과정</h3><span class="period">2026.07 – 재학</span></div>
-    <ul>
-      <li>Java·Spring Boot·JPA·SQL / Vue.js / Pandas·Polars·scikit-learn / Docker / <b>Spring AI(RAG·Tool Calling)</b> / LLM·Transformer(PyTorch) / <b>sLLM 파인튜닝(PEFT·LoRA)</b> / Agile·Scrum·MSA</li>
-      <li>차량용 교통표지판 인식 모델 최적화 — 정확도가 이미 98%였고 파라미터가 한 층에 96% 몰려 있어 <b>목표를 성능이 아닌 경량화로 잡았습니다.</b> 정확도를 0.09%p 차이로 유지하며 <b>8.33MB → 2.10MB</b></li>
-    </ul>
-  </div>
-</section>
-
-<section class="rv">
-  <h2>Skills</h2>
-  <dl class="skills">
-    <div class="srow"><dt>Language</dt><dd>Python · Java · SQL</dd></div>
-    <div class="srow"><dt>Backend</dt><dd>Spring Boot · Spring Data JPA · <b>Spring AI (RAG · Tool Calling)</b> · PostgreSQL · Supabase</dd></div>
-    <div class="srow"><dt>AI / Data</dt><dd>PyTorch · Pandas · Polars · scikit-learn · SciPy · LLM API 연동(Gemini · Claude · OpenAI) · 프롬프트 설계 · 가드레일 설계</dd></div>
-    <div class="srow"><dt>Frontend</dt><dd>HTML · CSS · JavaScript · Vue 3 · TypeScript · Vite</dd></div>
-    <div class="srow"><dt>Infra</dt><dd>Docker · GitHub Actions · Vercel · Render</dd></div>
-    <div class="srow"><dt>기획</dt><dd>PRD · IA · 유저플로우 · 상세기능명세서 · 와이어프레임 · QA 체크리스트 · AI 정책 설계(답변 범위 · 면책 고지 · 이력 보관)</dd></div>
-    <div class="srow"><dt>자격 · 어학</dt><dd><b>ADsP</b>(취득 후 코호트별 이탈 분석에 활용) · 재경관리사 · 전산세무 2급 · TESAT 1급 · MOS Excel Expert<br>TOEIC 905 · OPIc IH · 중국어 업무 가능(중국 6년 유학)</dd></div>
-  </dl>
-  <p class="note">
-    AI 페어프로그래밍으로 구현한 경험: React · Next.js · Hono · Drizzle ORM.<br>
-    직접 만들어 <b>매일 쓰는 도구</b>가 여럿 있습니다 — 마켓데스크, 관계부, 메일 요약 에이전트, 학습 코치 웹앱.
-  </p>
-</section>
-
-<footer>
-  <p>
-    장인우 · <a href="mailto:roseprincess0331@gmail.com">roseprincess0331@gmail.com</a> ·
-    <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">github.com/inwoo-jang</a>
-  </p>
-</footer>
-
-</div>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var items = document.querySelectorAll('.rv');
-  var flow = document.getElementById('flow');
-  if (reduce || !('IntersectionObserver' in window)) {
-    items.forEach(function(el){ el.classList.add('in'); });
-    if (flow) flow.classList.add('on');
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-  items.forEach(function(el){ io.observe(el); });
-
-  if (flow) {
-    var fio = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { flow.classList.add('on'); fio.unobserve(flow); }
-      });
-    }, { threshold: 0.25 });
-    fio.observe(flow);
-  }
-})();
-</script>
+  <script src="script/nav.js"></script>
+  <script src="script/portfolio.js"></script>
 </body>
 </html>
