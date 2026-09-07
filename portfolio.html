@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="장인우가 만든 것들 — SKALA 프로젝트, 팀 프로젝트, 개인 프로젝트.">
+  <title>포트폴리오 — 장인우 · Inwoo.log</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flags.css">
+</head>
+<body class="page-portfolio">
+
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="topbar">
+    <a class="topbar__logo" href="index.html">inwoo<span>.log</span></a>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="topbar__nav" id="siteNav" aria-label="주요 메뉴">
+      <ul class="nav-list">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="portfolio.html" class="is-active" aria-current="page">Portfolio</a></li>
+        <li><a href="how.html">How I Work</a></li>
+      </ul>
+    </nav>
+
+    <div class="topbar__auth">
+      <a href="mailto:roseprincess0331@gmail.com" class="btn btn--ghost">이메일</a>
+      <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener" class="btn btn--primary">GitHub</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="index.html">홈</a> <span aria-hidden="true">/</span> <span>포트폴리오</span>
+    </nav>
+
+    <header class="page-head">
+      <p class="eyebrow">기획에서 멈추지 않은 것들</p>
+      <h1 class="page-title">직접 만들고, <em>틀렸는지 확인한 것들</em></h1>
+      <p class="page-desc">
+        각 장에는 무엇을 만들었는지보다 어디서 판단을 바꿨고 무엇을 검증했는지를 적었습니다.
+        제가 맡지 않은 부분은 그렇다고 적었습니다.
+      </p>
+    </header>
+
+    <main id="main">
+
+      <section class="panel">
+        <h2 class="section-title chip--ko">프로젝트 요약</h2>
+        <dl class="meta-list meta-list--wide">
+          <dt>세무상담 데스크</dt>
+          <dd>Spring AI로 법령 근거와 세액 계산을 함께 내는 상담 AI. 계산 코드에 버그 7종을 심어 6종 검출을 확인</dd>
+          <dt>표지판 모델 경량화</dt>
+          <dd>차량 탑재를 기준으로 8.33MB → 2.10MB, 정확도 차이 0.09%p. Test를 모델 선택에 쓰지 않도록 팀 의견 조율</dd>
+          <dt>데이콘 학습 인프라</dt>
+          <dd>월 12달러 브릿지로 GPU 서버를 끄는 걸 잊어도 돈이 새지 않는 구조. 팀 온보딩 문서 5종</dd>
+          <dt>퀴켓</dt>
+          <dd>7인 팀 PM. 3개월 만에 App Store·Google Play 동시 출시, 동아리 PM MVP</dd>
+          <dt>세무·약국 SaaS</dt>
+          <dd>서비스 5개 기획. 삼일회계법인·온라인팜 등 외부 4개사와 API 규격 협의, 기획 전 거래처 30곳 기장 직접 수행</dd>
+          <dt>개인 프로젝트</dt>
+          <dd>1인 설계~배포 5건. 마켓데스크·관계부·메일 요약봇은 지금도 매일 사용</dd>
+        </dl>
+      </section>
+
+      <div class="note-shelf">
+
+      <section class="note-wrap" id="skala">
+        <h2 class="section-title">SKALA 프로젝트</h2>
+
+        <div class="note note--work" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="SKALA 프로젝트 목차">
+              <h3 class="note__cover-title">SKALA<br>Projects</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">SKALA증권 세무상담 데스크</span>
+                    <span class="toc__year">2026.08</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">교통표지판 인식 모델 경량화</span>
+                    <span class="toc__year">2026.09</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">EDU:UP — 교육복지포인트 플랫폼</span>
+                    <span class="toc__year">2026.08</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip">01 · Solo · Spring AI</p>
+              <h3>SKALA증권 세무상담 데스크</h3>
+              <p class="note__meta">2026.08 · 1인 설계·개발·검증 · Java · Spring Boot · Spring AI</p>
+
+              <p>금융소득 종합과세 대상인지와 세액을 <mark>법령 근거와 함께</mark> 답하는 상담 AI입니다.
+                 세무 상담에서는 근거 없는 답이 무책임하고, 계산이 빠진 답은 쓸모가 없습니다.</p>
+
+              <h4>역할을 나눈 방식</h4>
+              <ul class="note__list">
+                <li>법령 근거는 <mark>RAG</mark>, 세액 계산은 <mark>Tool Calling</mark>으로 나눠 두 결과를 함께 산출</li>
+                <li>세법 문서 9종을 조문 경계로 잘라 청크 39개를 만들고, 각 청크에 조문 번호를 실어 인용</li>
+                <li>범위 밖 질문은 규칙·모델 2단 라우팅으로 <mark>모델을 부르기 전에 거절</mark></li>
+                <li>서비스 주체를 국세청이 아닌 가상 증권사로 잡음 — 업무 범위가 좁아야 거절이 정직한 답이 되기 때문</li>
+              </ul>
+
+              <h4>만든 다음에 한 일</h4>
+              <p>계산 코드에 <mark>버그 7종을 일부러 심어 테스트가 6종을 잡아내는지</mark> 확인했습니다.
+                 걸러지지 않은 1종은 원인을 끝까지 좇아가
+                 <em>분리과세를 선택하면 값은 계산되지만 결과에 반영되지 않는</em> 문제를 찾았습니다.
+                 세법 원문과 대조하다 개정 전 11%로 남아 있던 Gross-up 율도 10%로 고쳤습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring AI</li>
+                <li class="tag tag--lime">RAG</li>
+                <li class="tag tag--peach">Tool Calling</li>
+                <li class="tag tag--lavender">검증 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip">02 · Team · 2인</p>
+              <h3>차량용 교통표지판 인식 모델 경량화</h3>
+              <p class="note__meta">2026.09 · 2인 과제 · GTSRB 43클래스 · PyTorch</p>
+
+              <p>정확도가 이미 98.5%였습니다. 더 올릴 방법을 찾다가 모델 구조를 뜯어보고 방향을 바꿨습니다.
+                 파라미터 218만 개 중 <mark>연결만 담당하는 한 층이 96%</mark>를 차지하고 있었습니다.</p>
+
+              <h4>목표를 바꾼 근거</h4>
+              <p>차량에서는 이 모델 하나만 메모리를 쓰지 않습니다.
+                 차선·차량·보행자 인식 모듈이 같이 돌아야 합니다.
+                 그래서 <em>정확도 1%p를 더 올리는 것보다 크기를 절반 이하로 줄이는 편이 탑재 관점에서 이득</em>이라고 보고
+                 목표를 경량화로 잡았습니다.</p>
+
+              <h4>결과</h4>
+              <ul class="note__list">
+                <li>실험 21종 비교 — 최종 파라미터 <mark>25.2%</mark>, 크기 <mark>8.33MB → 2.10MB</mark></li>
+                <li>3개 시드 평균 정확도 차이는 <mark>0.09%p</mark>로 시드 변동폭과 비슷한 수준</li>
+                <li>추론 시간은 직접 재봤습니다. 한 장씩은 작은 모델이 오히려 느리고(0.174ms vs 0.099ms), 배치로는 빨랐습니다(0.080ms vs 0.216ms). <em>파라미터 수만으로 속도를 판단할 수 없었습니다.</em></li>
+              </ul>
+
+              <h4>팀 의견을 되돌린 지점</h4>
+              <p>Test 정확도가 예상보다 낮게 나오자 “모델을 바꾸자”는 의견이 나왔습니다.
+                 하지만 Test를 보고 모델을 고르면 그 시험지에 우연히 맞은 결과가 섞입니다.
+                 원인을 좇아가 보니 모델이 아니라 <mark>데이터 분할</mark>이었습니다.
+                 같은 표지판을 연속 촬영한 30장짜리 묶음 888개가 학습과 검증 양쪽에 걸쳐 있었습니다.
+                 <em>Test는 순위를 정하는 점수가 아니라 격차의 원인을 찾는 자료로만 쓰자</em>고 정리했습니다.</p>
+
+              <h4>다음 사람을 위해 남긴 것</h4>
+              <p>확신하지 못할 때 차량이 어떻게 동작할지, 정지·속도제한처럼 안전과 직결된 클래스를 따로 봐야 한다는 것,
+                 야간·역광·우천은 이번 데이터로 확인하지 못했다는 것을 <mark>미검증 항목으로 명시</mark>했습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">PyTorch</li>
+                <li class="tag tag--lime">모델 경량화</li>
+                <li class="tag tag--peach">실험 설계</li>
+                <li class="tag tag--mint">CNN</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip">03 · SKALA · 4인 팀 · 프론트엔드</p>
+              <h3>EDU:UP — 교육복지포인트 플랫폼</h3>
+              <p class="note__meta">2026.08 · SKALA Agile·MSA 실습 · 프론트엔드 담당</p>
+
+              <p>회사가 배정한 교육복지포인트가 <mark>쓰는 사람만 계속 쓰고</mark> 정작 배워야 할 사람에게는 닿지 않는 문제를 다뤘습니다.
+                 직원 쪽에서는 목록이 수백 개라 고르는 일이 부담이 되어 미루다 분기 말에 포인트가 소멸됩니다.
+                 <em>같은 원인이 직원에게는 미사용으로, 회사에는 편중으로 보였습니다.</em></p>
+
+              <h4>서비스가 대신 고르게</h4>
+              <p>한 번 직무와 관심 분야를 답하면 강의 2개와 도서 2권, <mark>네 건만</mark> 받습니다.
+                 직원이 할 일은 확인하고 신청 버튼을 누르는 것으로 줄었습니다.
+                 성과는 배정한 교육비가 실제로 쓰인 비율과 추천을 보고 신청까지 간 비율 두 가지로 보기로 했습니다.</p>
+
+              <h4>돈이 걸린 흐름만 이벤트로</h4>
+              <ul class="note__list">
+                <li>신청과 확정을 분리 — 신청은 바로 접수로 두고, <mark>차감이 끝났다는 소식을 받은 뒤에만</mark> 확정으로 바꿈</li>
+                <li><em>결과를 모르는 것과 실패는 다르게</em> 처리 — 소식이 오지 않으면 접수로 두고 다시 확인하고, 잔액 부족처럼 분명한 경우만 실패로 남김</li>
+                <li>같은 사람이 동시에 누르면 막아 잔액이 음수로 내려갈 길을 열지 않음</li>
+                <li>취소는 포인트를 되돌리는 처리가 필요해 다음 스프린트로 미룬다고 명시</li>
+              </ul>
+
+              <h4>제 범위</h4>
+              <p>4인 팀에서 프론트엔드를 맡아 Gateway 뒤 다섯 개 서비스를 화면에 붙였습니다.
+                 <em>서비스 경계는 제공된 템플릿 구조를 그대로 두고, 표기 규칙과 값만 바꿔 도메인을 옮겼습니다.</em>
+                 MSA 구조를 제가 설계한 것은 아닙니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">MSA 실습</li>
+                <li class="tag tag--lime">이벤트 설계</li>
+                <li class="tag tag--peach">프론트엔드</li>
+                <li class="tag tag--lavender">Agile · Scrum</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
+        </div>
+      </section>
+
+      <section class="note-wrap" id="team">
+        <h2 class="section-title">팀에서 만든 것</h2>
+
+        <div class="note note--team" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="팀에서 만든 것 목차">
+              <h3 class="note__cover-title">With<br>a Team</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">퀴켓 — AI 퀴즈 학습 앱</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">에이링크 — AI 링크·QR 북마크</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">데이콘 블랙박스 — 팀 학습 인프라</span>
+                    <span class="toc__year">진행 중</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">AI 세무 챗봇 — 삼일회계법인 협업</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">급여명세서 작성 자동화</span>
+                    <span class="toc__year">2025</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip chip--ko">01 · Team · 7인 · PM</p>
+              <h3>퀴켓 — AI 퀴즈 학습 앱</h3>
+              <p class="note__meta">2026.03 ~ 2026.07 · 기획 담당 · App Store·Google Play 출시</p>
+
+              <p>내 필기를 넣으면 AI가 문제를 만들어 주는 학습 앱입니다.
+                 일곱 명이 만들어 양대 스토어에 올렸습니다.</p>
+
+              <figure class="note__shot">
+                <img src="media/portfolio/quiket-card.png"
+                     alt="앱스토어에 출시된 퀴켓 — AI 퀴즈 생성, 시험 공부 앱 페이지"
+                     width="1000" height="602" loading="lazy">
+                <figcaption>App Store에 출시된 퀴켓 v1.5 · 교육 카테고리</figcaption>
+              </figure>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://play.google.com/store/apps/details?id=com.f1.quiket" target="_blank" rel="noopener">Google Play ↗</a>
+                <a class="btn btn--mini" href="https://apps.apple.com/kr/app/%ED%80%B4%EC%BC%93-quiket-ai-%ED%80%B4%EC%A6%88-%EC%83%9D%EC%84%B1-%EC%8B%9C%ED%97%98-%EA%B3%B5%EB%B6%80/id6787878510" target="_blank" rel="noopener">App Store ↗</a>
+              </p>
+
+              <h4>가장 어려웠던 결정</h4>
+              <p>팀원 전원이 본업이 있어 쓸 수 있는 시간은 주말뿐이었습니다.
+                 인터뷰 12건으로 정의한 기획안은 그 시간 안에 끝낼 분량이 아니었습니다.
+                 기능을 <em>삭제</em>하는 대신 <mark>데이터 구조는 설계안대로 두고 화면 노출만 줄여</mark>,
+                 출시 후 화면만 붙이면 되는 상태로 남겼습니다.</p>
+
+              <h4>내가 한 일</h4>
+              <ul class="note__list">
+                <li>사용자 인터뷰 12건으로 문제 정의를 다시 씀</li>
+                <li>PRD·IA·기능명세·유저플로우 작성, 와이어프레임 100화면 이상</li>
+                <li>기능명세를 스프린트로 나눠 개발자 4명 일정 운영, 백엔드 ERD를 정책과 대조 검토</li>
+                <li>핵심 로직만 담은 <mark>미니 버전을 직접 구현해 검증</mark>한 뒤 본 개발로 넘김</li>
+                <li>사용성 테스트, 스토어 심사 대응, 중간·최종 발표</li>
+              </ul>
+
+              <h4>결과</h4>
+              <p>3개월 만에 App Store·Google Play 동시 출시. 동아리 <mark>PM MVP</mark> 선정.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/note2quiz-mini" target="_blank" rel="noopener">검증용 미니 버전 코드 ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">기획</li>
+                <li class="tag tag--lime">사용자 조사</li>
+                <li class="tag tag--peach">스토어 출시</li>
+                <li class="tag tag--lavender">스코프 조정</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip chip--ko">02 · Team · 2인 · 프로토타입</p>
+              <h3>에이링크 — AI 링크·QR 북마크</h3>
+              <p class="note__meta">2026 · 기획 전반 + 프론트엔드 프로토타입 · <mark>프로토타입 단계(미출시)</mark></p>
+
+              <p>링크와 QR코드를 한곳에 모으는 북마크 서비스입니다.
+                 링크를 넣으면 AI가 폴더·이름·설명·태그를 채웁니다.
+                 <em>정식 서비스가 아니라 2인이 만든 프로토타입</em>이며, 아래 링크에서 직접 눌러 볼 수 있습니다.</p>
+
+              <figure class="note__shot">
+                <img src="media/portfolio/archivelink-home.png"
+                     alt="에이링크 홈 대시보드 — 폴더별 링크 정리, 통합 검색, 최근 저장 링크"
+                     width="3532" height="2076" loading="lazy">
+                <figcaption>에이링크 홈 — 폴더·통합 검색·최근 저장 (프로토타입 화면)</figcaption>
+              </figure>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://archivelink.app/login" target="_blank" rel="noopener">프로토타입 열기 ↗</a>
+              </p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>링크를 추가하면 AI가 폴더 분류·링크명·설명·태그를 자동 생성</li>
+                <li>웹·앱 통합 북마크 + 포털 검색 내장</li>
+                <li>링크에 할 일과 알림을 붙여 기록 관리</li>
+              </ul>
+
+              <h4>QA에서 뒤집은 것</h4>
+              <p>로그인 벽과 봇 차단으로 <mark>AI가 아예 읽지 못하는 링크가 생각보다 많았습니다.</mark>
+                 자동 분류 실패를 예외 처리로 두면 사용자가 그 자리에서 막힙니다.
+                 그래서 <em>실패를 예외가 아니라 기본 경로로 바꿔</em> 바로 직접 채워 넣도록 흐름을 다시 설계했습니다.</p>
+
+              <h4>내 범위</h4>
+              <p>기획 전반과 프론트엔드 프로토타입을 맡았고,
+                 요구사항을 말로 맞추는 대신 <mark>프로토타입을 먼저 배포해 기준으로 고정</mark>한 뒤
+                 React 19·TypeScript로 이관했습니다. 서버·DB 구조와 인프라는 팀 백엔드 개발자가 설계했습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI 자동 분류</li>
+                <li class="tag tag--mint">React 19</li>
+                <li class="tag tag--peach">PWA</li>
+                <li class="tag tag--lavender">프로토타입</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip">03 · Team · 인프라 담당</p>
+              <h3>데이콘 블랙박스 대회 — 팀 학습 인프라</h3>
+              <p class="note__meta">2026.09 ~ 진행 중 · 학습 인프라 설계·구축·운용 · AWS</p>
+
+              <p>주행 영상으로 재촬영 여부·사고 시점·주행 상태를 맞히는 3단계 모델 대회입니다.
+                 저는 모델이 아니라 <mark>팀이 학습을 돌릴 판</mark>을 맡았습니다.</p>
+
+              <h4>가장 먼저 막은 것</h4>
+              <p>GPU 인스턴스를 하루 방치하면 <mark>4만 7천 원</mark>이 나가는데,
+                 사람이 끄는 걸 잊는 사고를 막을 장치가 없었습니다.
+                 <em>주의하자고 말하는 대신 구조로 막았습니다.</em>
+                 월 12달러짜리 상시 브릿지 인스턴스를 학습 서버의 유일한 스위치로 두고,
+                 잡 큐가 비면 학습 서버가 스스로 멈추게 했습니다.</p>
+
+              <h4>돈이 새는 자리를 하나씩 계산</h4>
+              <ul class="note__list">
+                <li>EBS gp3 1TB 월 82달러 vs S3 24달러 — <mark>EBS 데이터 볼륨을 아예 만들지 않고</mark> S3와 요금에 포함된 로컬 NVMe 조합으로</li>
+                <li>27일 비용 추정 — 온디맨드 328달러 / 스팟 207달러</li>
+              </ul>
+
+              <h4>다음 사람이 헤매지 않게</h4>
+              <ul class="note__list">
+                <li>브릿지에 액세스 키를 두지 않고 <mark>IAM Role</mark>. 명령은 SSH가 아니라 <mark>SSM Run Command</mark>로 보내 키 관리와 22번 포트 개방을 없앰</li>
+                <li>DB는 인터넷에 열지 않고 SSM 터널 + 2단 인증</li>
+                <li>코드 전송을 <code>git clone --depth 1 &lt;커밋해시&gt;</code>로 고정해 <mark>어떤 코드로 돌린 실험인지 기록이 저절로 쌓이게</mark> 함</li>
+                <li>설계서 전 항목에 <mark>[확인]·[추정]·[미정]</mark>을 표기하고 미해결 7건을 명시 — 뒤에 붙는 사람이 무엇을 믿어도 되는지 알 수 있게</li>
+                <li>팀 온보딩·사용법·데이터 규약 문서 5종 작성</li>
+              </ul>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AWS S3 · EC2</li>
+                <li class="tag tag--lime">IAM · SSM</li>
+                <li class="tag tag--peach">비용 설계</li>
+                <li class="tag tag--lavender">재현성</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="4" hidden>
+              <p class="chip chip--ko">04 · Team · 외부 협업</p>
+              <h3>AI 세무 챗봇 — 삼일회계법인 협업</h3>
+              <p class="note__meta">2026 · 지킴컴퍼니 · 정책·화면 설계 담당</p>
+
+              <p>약국 운영자가 세무·노무·행정을 물어보는 상담 챗봇입니다.
+                 모델과 Q&amp;A DB는 삼일회계법인이, <mark>답할 수 있는 범위와 정책은 제가</mark> 맡았습니다.</p>
+
+              <h4>내가 정한 것</h4>
+              <ul class="note__list">
+                <li><mark>답변 가능 범위 정책</mark> — 모델이 답해도 되는 질문과 전문가 상담으로 넘길 질문의 경계</li>
+                <li><mark>3단계 응답 로직</mark> — 예상 Q&amp;A DB 매칭 → 에이전트 탐색 → 양쪽 불가 시 전문가 연결</li>
+                <li>응답 불가 4가지 경우의 처리 — 범위 밖 질문은 특화 안내로 되돌림</li>
+                <li>AI 면책 고지 문구와 노출 시점, 근거 조문 표시 규칙</li>
+                <li>대화 이력 보관 정책(7일 자동 삭제)과 북마크 예외 처리</li>
+                <li>토큰 사용량 하드캡을 요구사항으로 정의</li>
+              </ul>
+
+              <h4>배운 것</h4>
+              <p>외부와 함께 AI를 붙일 때 실제로 어려운 것은 모델이 아니라
+                 <em>답하지 않기로 한 것을 누가 어디까지 정하느냐</em>였습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI 정책 설계</li>
+                <li class="tag tag--lavender">외부 협업</li>
+                <li class="tag tag--pink">UX 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="5" hidden>
+              <p class="chip chip--ko">05 · Team · 재기획</p>
+              <h3>급여명세서 작성 자동화</h3>
+              <p class="note__meta">2025 · 지킴컴퍼니 · 서비스 기획</p>
+
+              <p>합류했을 때 이미 기획된 기능이 있었지만 세무 신고 기준을 반영하지 못해
+                 <mark>인사 스케줄 관리 정도로만</mark> 쓰이고 있었습니다.</p>
+
+              <h4>기획 전에 한 일</h4>
+              <p>정규직·일용직·프리랜서의 계산식이 모두 다르고 4대보험과 간이세액표까지 얽혀 있어,
+                 <mark>약 30개 거래처의 세무 기장을 직접 수행</mark>하며
+                 급여·공제 계산 로직과 예외 케이스를 규칙으로 문서화한 뒤 재기획했습니다.</p>
+
+              <h4>내가 한 일</h4>
+              <ul class="note__list">
+                <li>급여·공제 계산 로직과 예외 케이스를 규칙으로 정의</li>
+                <li>유저·어드민 화면 흐름과 데이터 필드 정의, 개발 테스트까지 수행</li>
+                <li>백엔드 ERD를 기획서 규칙과 대조해 검토</li>
+              </ul>
+
+              <h4>결과</h4>
+              <p>스케줄 관리로만 쓰이던 기능이 <mark>실제 급여·공제 계산 용도로 사용되기 시작</mark>했습니다.
+                 함께 일한 개발자들에게 “구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다”는 말을 들었습니다.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--lavender">서비스 기획</li>
+                <li class="tag tag--sky">계산 로직</li>
+                <li class="tag tag--lime">도메인 실무</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
+        </div>
+      </section>
+
+      <section class="note-wrap note-wrap--wide" id="solo">
+        <h2 class="section-title">직접 만든 것</h2>
+
+        <div class="note note--solo" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="직접 만든 것 목차">
+              <h3 class="note__cover-title">Built<br>Myself</h3>
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">마켓데스크 — AI 리포트 분석</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">일경험 운영 트리아지 어드민 (AX 해커톤)</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">ClassTrack — 강의·과제 추적</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">관계부 — 관계 기록·AI 분석</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">개인용 툴</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+              </ol>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <p class="chip">01 · Solo · 매일 실사용</p>
+              <h3>마켓데스크 — AI 리포트 분석·종목 관리</h3>
+              <p class="note__meta">2026 ~ 진행 중 · 1인 기획~구현 · 매일 실사용(미출시)</p>
+
+              <p>같은 산업 리포트도 취업 준비생과 투자자가 다르게 읽습니다.
+                 <mark>읽는 목적(렌즈)별로</mark> AI가 구조화 요약하고, 산업별 흐름으로 누적해 보여주는 도구입니다.</p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>렌즈별 6항목 구조화 요약, 업로드 시 산업·문서 타입 AI 자동 분류</li>
+                <li>흐름 보드 — 월·년 × 산업·기업·경제흐름으로 누적</li>
+                <li>내 종목 — KIS 실시간 시세, 모의투자 시뮬레이션, 매매 다이어리</li>
+                <li>PDF·Markdown 내보내기, 분석 엔진 선택(BYO 키)</li>
+              </ul>
+
+              <h4>엔지니어링에서 막혔던 것</h4>
+              <p>PDF 파싱이 업로드 응답을 막아 <mark>API 서버와 파싱 워커를 분리해 큐로 연결</mark>했습니다.
+                 중복은 내용 SHA-256으로 막고, 유사본은 SimHash로 잡아 병합을 제안합니다.
+                 커밋 219개로 제가 만든 것 중 가장 큽니다.</p>
+
+              <h4>가드레일</h4>
+              <p>모든 추출 호출에 <mark>“리포트에 없는 숫자·전망을 지어내지 말고, 없는 항목은 비워라”</mark>를 강제했습니다.
+                 추출한 숫자를 인용 페이지 본문과 대조하는 검증 도구도 만들었는데, 아직 업로드 파이프라인에는 붙이지 않았습니다.
+                 투자 의견은 <em>근거를 함께 쓰고 단정하지 않는 형태로만</em> 두고, 투자 조언이 아니라는 면책을 노출합니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/marketdesk" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Next.js · Hono</li>
+                <li class="tag tag--lime">PostgreSQL</li>
+                <li class="tag tag--peach">큐 · 워커 분리</li>
+                <li class="tag tag--lavender">가드레일</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="2" hidden>
+              <p class="chip">02 · Solo · 해커톤 6시간</p>
+              <h3>일경험 운영 트리아지 어드민</h3>
+              <p class="note__meta">2026.06 · AX 해커톤 개인 참가 · 6시간 안에 기획·개발·발표 완주</p>
+
+              <p>운영자 한 명이 참여자 <mark>300명의 8주치 출결</mark>을 수기로 점검하고 있었습니다.
+                 건당 3~5분, 한 번 점검에 15~25시간이 걸렸고 정산 마감 직전에 몰렸습니다.</p>
+
+              <h4>해결</h4>
+              <ul class="note__list">
+                <li>“지금 개입하면 추가로 지킬 수 있는 수당”을 <mark>개입가치</mark>로 정의해 점검 대상을 자동 정렬</li>
+                <li>남은 주차 출석을 넣으면 수당이 재계산되는 What-if 시뮬레이터</li>
+              </ul>
+
+              <h4>먼저 정한 것</h4>
+              <p>무엇을 AI에게 맡길지를 시작할 때 정했습니다.
+                 <mark>계산과 임계 판정은 코드, 요약·안내 문구는 AI, 최종 확정은 사람.</mark>
+                 숫자가 한 번 틀리면 운영자는 그 화면을 다시 믿지 않기 때문입니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://inwoo-jang.github.io/ax-hackathon-ilgyeong-triage/" target="_blank" rel="noopener">라이브 데모 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/ax-hackathon-ilgyeong-triage" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">역할 분리</li>
+                <li class="tag tag--lime">Python</li>
+                <li class="tag tag--peach">프롬프트 설계</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="3" hidden>
+              <p class="chip">03 · Solo · 설계~배포</p>
+              <h3>ClassTrack — 강의·과제 추적 웹앱</h3>
+              <p class="note__meta">2026.08 · 1인 설계~배포 · Spring Boot · Vue 3 · Docker</p>
+
+              <p>듣고 있는 강의와 과제, 결과물 링크를 한곳에서 추적하는 웹앱입니다.
+                 설계부터 배포까지 혼자 했습니다.</p>
+
+              <h4>설계에서 신경 쓴 것</h4>
+              <ul class="note__list">
+                <li>주말·공휴일을 뺀 실제 수업일 캘린더를 <mark>종료일을 저장하지 않고 규칙으로 계산</mark></li>
+                <li>실행 중인 앱에서 API·서비스·DB 구조와 로그를 뽑아내는 <mark>dev 화면</mark>을 붙여 디버깅을 앱 안으로 들여옴</li>
+                <li>AOP 로깅, 비동기 링크 검증</li>
+              </ul>
+
+              <p class="note__meta">컨테이너는 멀티스테이지 빌드로 이미지를 만들어 배포하는 데까지 썼습니다. 운영 경험은 아직 없습니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring Boot</li>
+                <li class="tag tag--lime">Vue 3</li>
+                <li class="tag tag--peach">AOP</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="4" hidden>
+              <p class="chip">04 · Solo · 매일 실사용</p>
+              <h3>관계부 — 관계 기록·AI 분석</h3>
+              <p class="note__meta">2026 ~ 진행 중 · 1인 개발 · 매일 실사용(미출시)</p>
+
+              <p>소중한 관계를 놓치지 않도록 사람마다 필요한 걸 한곳에 기록하는 앱입니다.
+                 카톡 대화를 올리면 AI가 <mark>날짜별로 요약</mark>하고 <mark>관계 건강도</mark>를 분석합니다.</p>
+
+              <h4>주요 기능</h4>
+              <ul class="note__list">
+                <li>인물 카드 — MBTI·인스타·명함·못 먹는 음식 등 자유 메모</li>
+                <li>경조사비·빌려준 돈 기록, 주고받은 잔액 자동 계산</li>
+                <li>AI 관계 건강도 분석 — 소원해진 사람·챙길 사람 추천</li>
+                <li>연락 리마인더 · 경조사 D-day 알림</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/gwangyebu" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Next.js</li>
+                <li class="tag tag--lime">Supabase</li>
+                <li class="tag tag--peach">Capacitor</li>
+                <li class="tag tag--lavender">Claude · Gemini API</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="5" hidden>
+              <p class="chip">05 · Solo · 매일 실사용</p>
+              <h3>개인용 툴</h3>
+              <p class="note__meta">2026 · 1인 제작 · 대부분 지금도 매일 사용</p>
+
+              <h4>템플릿 허브</h4>
+              <p>PPT·보고서·이력서 템플릿과 오픈소스를 카테고리별로 모아두고,
+                 고르면 <mark>AI에 던질 프롬프트가 만들어지는</mark> 허브입니다.
+                 프롬프트는 한 번 잘 나오기보다 <em>매번 같게 나오기가 어렵다</em>는 걸
+                 퀴켓 홍보 이미지를 만들며 알았습니다. 디자이너가 매번 새로 그리지 않아도 되게 하려던 것입니다.</p>
+
+              <h4>이메일 요약봇</h4>
+              <p>Gmail을 매일 아침 IMAP으로 수집해 <mark>중요도별로 요약</mark>한 뒤 Discord 채널로 보냅니다.
+                 네이버 메일은 별도 채널로 분리했고 GitHub Actions로 자동 실행됩니다.
+                 반복해서 확인하던 일부터 먼저 줄였습니다.</p>
+
+              <h4>바이브코딩 가이드</h4>
+              <p>코딩을 처음 시작하는 사람이 기획부터 배포까지 <mark>8단계를 한 사이클 완주</mark>하도록 돕는 웹입니다.
+                 단계마다 AI에 줄 프롬프트와 쓸 만한 오픈소스를 모아 두었고,
+                 <em>빌드가 키 유출 검사를 통과해야 산출물이 나오게</em> 막아 두었습니다.</p>
+
+              <h4>학습용 AI 코치 웹앱</h4>
+              <p>AI에게 묻는 대신 <mark>AI가 저에게 주관식 질문을 던지게</mark> 만들었습니다.
+                 물어보면 답은 나오지만 남지 않기 때문입니다.
+                 서술형으로 답하면 AI가 채점하고 답안과 통과 여부를 DB에 남깁니다.
+                 파이썬, 자바·스프링부트, 도커 등 과목별로 네 건을 만들어 썼습니다.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/templets-hub" target="_blank" rel="noopener">템플릿 허브 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/vibe-coding-guide" target="_blank" rel="noopener">바이브코딩 가이드 ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Python</li>
+                <li class="tag tag--lime">Spring Boot · Vue</li>
+                <li class="tag tag--peach">프롬프트 설계</li>
+                <li class="tag tag--mint">GitHub Actions</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
+        </div>
+      </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">inwoo<span>.log</span></p>
+        <p class="site-footer__desc">
+          장인우 채용 지원용 포트폴리오입니다.
+          더 많은 기록은 <a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Inwoo.log</a>에 있습니다.
+        </p>
+      </div>
+      <ul class="site-footer__links">
+        <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <p class="site-footer__copy">© 2026 장인우</p>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/portfolio.js"></script>
+</body>
+</html>

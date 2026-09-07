@@ -4136,6 +4136,15 @@ tbody tr:last-child td {
 .note--solo { border-top: 5px solid var(--text-dim); }
 .note--work { border-top: 5px solid var(--lime-ink, var(--text-dim)); }
 
+/* 앵커 이동 — 상단바(sticky)에 가리지 않게 섹션 머리를 창 위에 맞춘다 */
+html { scroll-behavior: smooth; }
+.page-portfolio #profile,
+.page-portfolio #projects,
+.page-portfolio #skala,
+.page-portfolio #team,
+.page-portfolio #solo,
+.page-portfolio #how { scroll-margin-top: 92px; }
+
 /* 히어로 슬라이더 — 여행 세로 사진이 아니라 배포 화면(가로)을 담는다 */
 .page-portfolio .slider__track { aspect-ratio: 16 / 10; }
 .page-portfolio .slider__item img { object-fit: contain; background: var(--surface); }
