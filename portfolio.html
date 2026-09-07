@@ -62,8 +62,8 @@
           <dd>Spring AI로 법령 근거와 세액 계산을 함께 내는 상담 AI. 계산 코드에 버그 7종을 심어 6종 검출을 확인</dd>
           <dt>표지판 모델 경량화</dt>
           <dd>차량 탑재를 기준으로 8.33MB → 2.10MB, 정확도 차이 0.09%p. Test를 모델 선택에 쓰지 않도록 팀 의견 조율</dd>
-          <dt>데이콘 학습 인프라</dt>
-          <dd>월 12달러 브릿지로 GPU 서버를 끄는 걸 잊어도 돈이 새지 않는 구조. 팀 온보딩 문서 5종</dd>
+          <dt>데이콘 라벨링 도구</dt>
+          <dd>팀이 영상을 보고 라벨을 넣는 GUI. 키보드만으로 클립당 20~30초, ±7프레임 미세 조정, 판정 즉시 CSV 저장·이어하기</dd>
           <dt>퀴켓</dt>
           <dd>7인 팀 PM. 3개월 만에 App Store·Google Play 동시 출시, 동아리 PM MVP</dd>
           <dt>세무·약국 SaaS</dt>
@@ -261,7 +261,7 @@
                 <li>
                   <button type="button" class="toc__btn" data-goto="3">
                     <span class="toc__no">03</span>
-                    <span class="toc__title">데이콘 블랙박스 — 팀 학습 인프라</span>
+                    <span class="toc__title">데이콘 블랙박스 — 팀 라벨링 도구</span>
                     <span class="toc__year">진행 중</span>
                   </button>
                 </li>
@@ -377,40 +377,37 @@
             </article>
 
             <article class="note__page" data-page="3" hidden>
-              <p class="chip">03 · Team · 인프라 담당</p>
-              <h3>데이콘 블랙박스 대회 — 팀 학습 인프라</h3>
-              <p class="note__meta">2026.09 ~ 진행 중 · 학습 인프라 설계·구축·운용 · AWS</p>
+              <p class="chip">03 · Team · 라벨링 도구 담당</p>
+              <h3>데이콘 블랙박스 대회 — 팀 라벨링 도구</h3>
+              <p class="note__meta">2026.09 ~ 진행 중 · 라벨링 GUI 설계·구현 · Python · OpenCV</p>
 
               <p>주행 영상으로 재촬영 여부·사고 시점·주행 상태를 맞히는 3단계 모델 대회입니다.
-                 저는 모델이 아니라 <mark>팀이 학습을 돌릴 판</mark>을 맡았습니다.</p>
+                 저는 모델이 아니라 <mark>팀이 영상을 보고 라벨을 넣는 도구</mark>를 만들었습니다.
+                 폴더째 넣으면 클립이 이어서 재생되고, 키보드만으로 판정하면 CSV가 쌓입니다.</p>
 
-              <h4>가장 먼저 막은 것</h4>
-              <p>GPU 인스턴스를 하루 방치하면 <mark>4만 7천 원</mark>이 나가는데,
-                 사람이 끄는 걸 잊는 사고를 막을 장치가 없었습니다.
-                 <em>주의하자고 말하는 대신 구조로 막았습니다.</em>
-                 월 12달러짜리 상시 브릿지 인스턴스를 학습 서버의 유일한 스위치로 두고,
-                 잡 큐가 비면 학습 서버가 스스로 멈추게 했습니다.</p>
+              <h4>사람이 판단하고, AI는 참고만</h4>
+              <p>AI 초벌 라벨과 기존 라벨은 <mark>회색 참고 오버레이로만</mark> 띄우고 자동으로 채워 넣지 않게 했습니다.
+                 판단이 안 서면 UNSURE·NEEDS_REVIEW로 표시하고 넘어가게 해, 망설이는 시간이 라벨 품질을 깎지 않게 했습니다.</p>
 
-              <h4>돈이 새는 자리를 하나씩 계산</h4>
+              <h4>프레임 하나가 라벨을 가른다</h4>
               <ul class="note__list">
-                <li>EBS gp3 1TB 월 82달러 vs S3 24달러 — <mark>EBS 데이터 볼륨을 아예 만들지 않고</mark> S3와 요금에 포함된 로컬 NVMe 조합으로</li>
-                <li>27일 비용 추정 — 온디맨드 328달러 / 스팟 207달러</li>
+                <li>충돌·진입 프레임은 마킹 직후 <mark>±7프레임 미세 조정</mark> 모드로 들어가고, 0.25× 슬로우 재생과 1프레임 이동으로 확정</li>
+                <li>재촬영 판정의 근거인 모아레·스캔라인은 리사이즈 화면에선 안 보여 <mark>원해상도 100% 줌</mark>을 한 키에 둠</li>
+                <li>fps는 컨테이너 메타데이터를 믿지 않고 <mark>프레임수 ÷ 실제 길이</mark>로 다시 계산해 저장 — 메타데이터가 틀린 클립을 겪고 정한 규칙</li>
               </ul>
 
-              <h4>다음 사람이 헤매지 않게</h4>
+              <h4>중간에 꺼져도, 여럿이 해도</h4>
               <ul class="note__list">
-                <li>브릿지에 액세스 키를 두지 않고 <mark>IAM Role</mark>. 명령은 SSH가 아니라 <mark>SSM Run Command</mark>로 보내 키 관리와 22번 포트 개방을 없앰</li>
-                <li>DB는 인터넷에 열지 않고 SSM 터널 + 2단 인증</li>
-                <li>코드 전송을 <code>git clone --depth 1 &lt;커밋해시&gt;</code>로 고정해 <mark>어떤 코드로 돌린 실험인지 기록이 저절로 쌓이게</mark> 함</li>
-                <li>설계서 전 항목에 <mark>[확인]·[추정]·[미정]</mark>을 표기하고 미해결 7건을 명시 — 뒤에 붙는 사람이 무엇을 믿어도 되는지 알 수 있게</li>
-                <li>팀 온보딩·사용법·데이터 규약 문서 5종 작성</li>
+                <li>판정 즉시 CSV에 append — 크래시가 나도 유실이 없고, 다시 실행하면 완료한 클립을 건너뛰고 이어감</li>
+                <li>검수자 이름이 파일명에 들어가 같은 배치를 여러 명이 보면 <mark>불일치율</mark>을 잴 수 있음. 클립당 소요시간도 행마다 기록</li>
+                <li>목표는 클립당 20~30초. 검수 배치 생성 스크립트와 검수 가이드를 함께 넘김</li>
               </ul>
 
               <ul class="tag-row">
-                <li class="tag tag--sky">AWS S3 · EC2</li>
-                <li class="tag tag--lime">IAM · SSM</li>
-                <li class="tag tag--peach">비용 설계</li>
-                <li class="tag tag--lavender">재현성</li>
+                <li class="tag tag--sky">Python · OpenCV</li>
+                <li class="tag tag--lime">키보드 UX</li>
+                <li class="tag tag--peach">프레임 정밀도</li>
+                <li class="tag tag--lavender">이어하기 · CSV</li>
               </ul>
             </article>
 

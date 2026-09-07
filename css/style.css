@@ -4160,11 +4160,19 @@ html { scroll-behavior: smooth; }
 .page-home .slider__item img { object-fit: contain; background: var(--surface); }
 
 
-/* 일하는 방식 — 두 칸을 가로로 채운다 */
-.note-wrap--wide { grid-column: 1 / -1; }
-.note-wrap--wide .note { height: min(620px, 68vh); }
-/* 넓은 종이에서도 한 줄이 너무 길어지지 않게 */
-.note-wrap--wide .note__page > * { max-width: 68ch; }
+/* 한 권만 놓이는 연습장(직접 만든 것 · 일하는 방식) — 두 칸으로 늘리지 않고
+   나란히 놓인 연습장과 같은 가로·세로를 유지한 채 가운데 둔다 */
+.note-wrap--wide {
+  grid-column: 1 / -1;
+  width: calc(50% - var(--sp-6) / 2);   /* = 두 칸 중 한 칸 폭 */
+  justify-self: center;
+}
+.page-portfolio .note-wrap--wide { width: calc(50% - var(--sp-7) / 2); }
+@media (max-width: 1024px) {
+  /* 한 칸으로 쌓이는 구간에서는 다른 연습장과 같이 전체 폭 */
+  .note-wrap--wide,
+  .page-portfolio .note-wrap--wide { width: auto; justify-self: stretch; }
+}
 .note-wrap--wide .note__cover-title { max-width: none; }
 
 
