@@ -670,7 +670,8 @@ main > .home-title:first-child {
 }
 
 .hero-sub {
-  max-width: 34ch;
+  max-width: 100%;      /* 칸 너비를 따라 줄바꿈 — 넓으면 3줄, 좁아지면 자연스럽게 늘어남 */
+  text-wrap: pretty;
   color: var(--text-dim);
   font-size: 0.9375rem;
   line-height: 1.75;
@@ -4145,6 +4146,11 @@ tbody tr:last-child td {
   .page-home .bento { grid-template-columns: minmax(0, 1fr) 360px; }
   .page-home .sidebar { flex-basis: 360px; }
 }
+@media (max-width: 767px) {
+  /* 위 .page-home 규칙이 모바일 한 칸 배치를 덮어쓰지 않게 */
+  .page-home .bento { grid-template-columns: 1fr; }
+  .page-home .sidebar { flex-basis: auto; }
+}
 
 /* 앵커 이동 — 상단바(sticky)에 가리지 않게 섹션 머리를 창 위에 맞춘다 */
 html { scroll-behavior: smooth; }
@@ -6880,4 +6886,18 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .shelf-book:hover { transform: none; }
   .note-wrap.is-entering { animation: none; }
+}
+
+/* 페이지 제목 강조 — 이탤릭·밑줄 대신 본문 글꼴 그대로 형광펜만 */
+.page-title em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+  background-image: linear-gradient(var(--sky-200), var(--sky-200));
+  background-size: 100% 0.5em;
+  background-position: 0 90%;
+  padding: 0 .1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
