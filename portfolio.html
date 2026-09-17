@@ -257,7 +257,7 @@
             <article class="note__page" data-page="4" hidden>
               <p class="chip">04 · Solo · 서비스 설계</p>
               <h3>관계부 — 기능·화면·ERD·API 설계</h3>
-              <p class="note__meta">2026.09 · SKALA AI 웹 서비스 설계 미니프로젝트 · 1인 · 3일</p>
+              <p class="note__meta">2026.09 · SKALA AI 웹 서비스 설계 미니프로젝트 · 1인 · 3일 · 설계 + 프론트엔드 구현(Vue 3)</p>
 
               <p>5월에 만들어 매일 쓰던 관계부를 과제로 다시 설계했습니다.
                  페인 포인트와 기능을 하나씩 맞춰 보니 AI 관계 분석, 카톡 대화 가져오기, 리마인더는 연결되는 곳이 없었습니다.
@@ -280,6 +280,15 @@
                 <figcaption>UI 흐름도 · 화면 11개 (누르면 크게)</figcaption>
               </figure>
 
+              <figure class="note__shot">
+                <a href="media/portfolio/gwangyebu-screens.png" target="_blank" rel="noopener">
+                  <img src="media/portfolio/gwangyebu-screens.png"
+                       alt="관계부 구현 화면 — 홈, 관계 상세, 주고받음 기록 팝업, 내 경조사 명부, 주고받은 장부"
+                       width="1899" height="808" loading="lazy">
+                </a>
+                <figcaption>설계한 화면을 Vue 3로 직접 구현 · 홈 / 관계 상세 / 기록 / 명부 / 장부</figcaption>
+              </figure>
+
               <h4>고민했던 것</h4>
               <ul class="note__list">
                 <li>차액은 계산할 수 있지만 보여 주지 않았습니다. 관계를 숫자로 따지게 될 것 같았습니다. 대신 ‘보내기만 한 / 받기만 한’ 목록을 뒀습니다.</li>
@@ -291,13 +300,14 @@
               <p class="btn-row">
                 <a class="btn btn--mini" href="media/portfolio/gwangyebu-erd.png" target="_blank" rel="noopener">ERD ↗</a>
                 <a class="btn btn--mini" href="media/portfolio/gwangyebu-uiflow.png" target="_blank" rel="noopener">UI 흐름도 ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/relationship-book" target="_blank" rel="noopener">GitHub ↗</a>
               </p>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">요구사항 정의</li>
                 <li class="tag tag--lime">ERD · dbml</li>
                 <li class="tag tag--peach">OpenAPI 3</li>
-                <li class="tag tag--lavender">범위 설계</li>
+                <li class="tag tag--lavender">Vue 3 · Pinia</li>
               </ul>
             </article>
 
