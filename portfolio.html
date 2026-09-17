@@ -62,6 +62,8 @@
           <dd>Spring AI로 법령 근거와 세액 계산을 함께 내는 상담 AI. 계산 코드에 버그 7종을 심어 6종 검출을 확인</dd>
           <dt>표지판 모델 경량화</dt>
           <dd>차량 탑재를 기준으로 8.33MB → 2.10MB, 정확도 차이 0.09%p. Test를 모델 선택에 쓰지 않도록 팀 의견 조율</dd>
+          <dt>관계부 설계</dt>
+          <dd>직접 만든 앱을 페인 포인트 기준으로 다시 설계. 기능 18 · 화면 11 · 테이블 6 · API 33, AI 분석은 범위에서 뺌</dd>
           <dt>데이콘 라벨링 도구</dt>
           <dd>팀이 영상을 보고 라벨을 넣는 GUI. 키보드만으로 클립당 20~30초, ±7프레임 미세 조정, 판정 즉시 CSV 저장·이어하기</dd>
           <dt>퀴켓</dt>
@@ -109,6 +111,13 @@
                     <span class="toc__no">03</span>
                     <span class="toc__title">EDU:UP — 교육복지포인트 플랫폼</span>
                     <span class="toc__year">2026.08</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">관계부 — 기능·화면·ERD·API 설계</span>
+                    <span class="toc__year">2026.09</span>
                   </button>
                 </li>
               </ol>
@@ -215,6 +224,54 @@
                 <li class="tag tag--lime">이벤트 설계</li>
                 <li class="tag tag--peach">프론트엔드</li>
                 <li class="tag tag--lavender">Agile · Scrum</li>
+              </ul>
+            </article>
+
+            <article class="note__page" data-page="4" hidden>
+              <p class="chip">04 · Solo · 웹 서비스 설계</p>
+              <h3>관계부 — 기능·화면·ERD·API 설계</h3>
+              <p class="note__meta">2026.09 · SKALA AI 웹 서비스 설계 미니프로젝트 · 1인 · 3일</p>
+
+              <p>직접 만들어 쓰던 관계부 앱을 과제에서 다시 설계했습니다.
+                 기능을 더하지 않고, <mark>페인 포인트 네 개에 연결되지 않는 기능을 뺐습니다.</mark>
+                 AI 관계 분석, 카톡 대화 가져오기, 리마인더가 여기서 빠졌습니다.
+                 핵심 문제인 받은 금액 확인과 명부 정리는 기록과 조회로 풀리고,
+                 <em>AI는 기록이 쌓인 뒤에야 값이 생기기 때문입니다.</em></p>
+
+              <h4>앞 문서가 뒤 문서의 기준</h4>
+              <ul class="note__list">
+                <li>페인 포인트 4 → 기능 18(MoSCoW) → 화면 11 → 테이블 6 → API 33</li>
+                <li>API 목록에 <mark>호출하는 화면</mark> 열을 두고, 화면에는 보이지만 저장하지 않는 값(건수·하트·명부 합계)은 계산 값 표로 따로 정리</li>
+                <li>뺀 기능은 <mark>지금 스키마·API 위에서 바로 만들 수 있는지</mark>를 기준으로 Phase 1 / Phase 2로 나눔</li>
+              </ul>
+
+              <figure class="note__shot">
+                <a href="media/portfolio/gwangyebu-uiflow.png" target="_blank" rel="noopener">
+                  <img src="media/portfolio/gwangyebu-uiflow.png"
+                       alt="관계부 UI 흐름도 — 화면 11개와 핵심 흐름(관계 상세에서 받은 만큼 확인 후 기록, 내 경조사 명부 연속 입력)"
+                       width="1400" height="778" loading="lazy">
+                </a>
+                <figcaption>UI 흐름도 · 화면 11개 (누르면 크게)</figcaption>
+              </figure>
+
+              <h4>고른 것과 이유</h4>
+              <ul class="note__list">
+                <li><mark>차액을 보여 주지 않음</mark> — 계산은 되지만 관계를 숫자로 따지게 만듭니다. 차액·합계 대신 ‘보내기만 한 / 받기만 한’ 보기를 둠</li>
+                <li><mark>금액은 gifts에만</mark> — 경조사 테이블에도 두면 합계가 두 번 잡힙니다. 명부 한 줄도 받음 기록 1건으로 두어 새 테이블 없이 장부에 바로 반영</li>
+                <li><mark>중복은 화면과 DB 두 곳에서</mark> — 화면만 막으면 동시 입력을 놓치고, DB만 막으면 저장 뒤에야 오류를 봅니다. 이름을 고르는 순간 기존 금액을 보여 주고 서버는 UNIQUE로 409</li>
+                <li><mark>남의 데이터는 403이 아니라 404</mark> — 경조사 금액은 민감해서, 기록이 있다는 사실조차 드러내지 않음</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="media/portfolio/gwangyebu-erd.png" target="_blank" rel="noopener">ERD ↗</a>
+                <a class="btn btn--mini" href="media/portfolio/gwangyebu-uiflow.png" target="_blank" rel="noopener">UI 흐름도 ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">요구사항 정의</li>
+                <li class="tag tag--lime">ERD · dbml</li>
+                <li class="tag tag--peach">OpenAPI 3</li>
+                <li class="tag tag--lavender">범위 설계</li>
               </ul>
             </article>
 
@@ -648,6 +705,7 @@
               </ul>
 
               <p class="btn-row">
+                <a class="btn btn--mini" href="#skala">2026.09 재설계 → SKALA 04</a>
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/gwangyebu" target="_blank" rel="noopener">GitHub ↗</a>
               </p>
 
