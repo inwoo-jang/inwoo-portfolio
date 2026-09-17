@@ -76,7 +76,34 @@
         </dl>
       </section>
 
-      <div class="note-shelf">
+      <nav class="bookshelf" data-bookshelf aria-label="프로젝트 책장">
+        <p class="bookshelf__hint">책을 고르면 아래에 펼쳐집니다</p>
+        <ul class="bookshelf__row">
+          <li>
+            <button type="button" class="shelf-book shelf-book--skala" data-book="skala" aria-controls="skala" aria-pressed="false">
+              <span class="shelf-book__no">01</span>
+              <span class="shelf-book__title">SKALA<br>Projects</span>
+              <span class="shelf-book__meta">4장 · 2026.08–09</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="shelf-book shelf-book--team" data-book="team" aria-controls="team" aria-pressed="false">
+              <span class="shelf-book__no">02</span>
+              <span class="shelf-book__title">With<br>a Team</span>
+              <span class="shelf-book__meta">5장 · 2025–2026</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="shelf-book shelf-book--solo" data-book="solo" aria-controls="solo" aria-pressed="false">
+              <span class="shelf-book__no">03</span>
+              <span class="shelf-book__title">Built<br>Myself</span>
+              <span class="shelf-book__meta">5장 · 2026</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="note-shelf note-shelf--open">
 
       <section class="note-wrap" id="skala">
         <h2 class="section-title">SKALA 프로젝트</h2>
@@ -539,7 +566,7 @@
         </div>
       </section>
 
-      <section class="note-wrap note-wrap--wide" id="solo">
+      <section class="note-wrap" id="solo">
         <h2 class="section-title">직접 만든 것</h2>
 
         <div class="note note--solo" data-note>
@@ -705,7 +732,7 @@
               </ul>
 
               <p class="btn-row">
-                <a class="btn btn--mini" href="#skala">과제로 다시 설계한 버전 →</a>
+                <a class="btn btn--mini" href="#skala" data-open-book="skala" data-open-page="4">과제로 다시 설계한 버전 →</a>
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/gwangyebu" target="_blank" rel="noopener">GitHub ↗</a>
               </p>
 

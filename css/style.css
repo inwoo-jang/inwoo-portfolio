@@ -6686,3 +6686,198 @@ body {
 .finger-zone--active * {
   cursor: none !important;
 }
+
+
+/* ==========================================================
+   포트폴리오 책장 — 위에 세 권을 꽂아 두고, 고른 한 권만 아래에 펼친다.
+   책 표지는 음악 커버플로우 카드와 같은 2톤 그라데이션 + 종이 노이즈.
+   ========================================================== */
+.bookshelf {
+  margin: var(--sp-6) 0 var(--sp-6);
+  scroll-margin-top: 92px;
+}
+
+.bookshelf__hint {
+  margin: 0 0 var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+}
+
+/* 책이 서 있는 선반 — 나무색 판 + 아래 짙은 모서리 */
+.bookshelf__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 170px));
+  justify-content: center;
+  align-items: end;
+  gap: var(--sp-5);
+  margin: 0;
+  padding: var(--sp-5) var(--sp-5) 0;
+  list-style: none;
+  border-bottom: 12px solid var(--shelf-wood);
+  box-shadow: 0 4px 0 var(--shelf-edge), 0 14px 24px rgba(20, 24, 28, .12);
+  border-radius: var(--r-md) var(--r-md) 2px 2px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(116, 102, 87, .06) 100%);
+}
+
+.shelf-book {
+  --c1: #8A8072;
+  --c2: #5B5349;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: var(--sp-4) var(--sp-4) var(--sp-4) calc(var(--sp-4) + 10px);
+  border: none;
+  border-radius: 4px var(--r-md) var(--r-md) 4px;
+  text-align: left;
+  color: #FFFFFF;
+  font-family: var(--font-base);
+  background-color: var(--c2);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E"),
+    linear-gradient(158deg, var(--c1), var(--c2));
+  background-size: 140px 140px, cover;
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0 10px 22px rgba(20, 24, 28, .22),
+              inset 0 1px 0 rgba(255, 255, 255, .14);
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition: transform var(--t-base), box-shadow var(--t-base), filter var(--t-base);
+}
+
+/* 책등 — 왼쪽 접힌 띠 */
+.shelf-book::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  border-radius: 4px 0 0 4px;
+  background: linear-gradient(to right, rgba(0, 0, 0, .28), rgba(255, 255, 255, .08) 70%, rgba(0, 0, 0, .12));
+}
+
+.shelf-book--skala { --c1: #7C9471; --c2: #4C6147; }   /* 연습장 띠 — 라임 잉크 */
+.shelf-book--team  { --c1: #6F97B3; --c2: #2E5678; }   /* 브랜드 하늘색 */
+.shelf-book--solo  { --c1: #8A8072; --c2: #5B5349; }   /* 웜그레이 */
+
+.shelf-book__no {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  color: rgba(255, 255, 255, .78);
+}
+
+.shelf-book__title {
+  margin-top: var(--sp-2);
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+}
+
+.shelf-book__meta {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .02em;
+  color: rgba(255, 255, 255, .82);
+}
+
+.shelf-book:hover {
+  transform: translateY(-4px);
+}
+
+/* 지금 펼친 책 — 선반에서 조금 뽑혀 나오고 아래에 표시 막대 */
+.shelf-book.is-active {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 32px rgba(20, 24, 28, .3),
+              inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.shelf-book:not(.is-active) {
+  filter: saturate(.75);
+}
+
+.shelf-book.is-active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 36%;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: var(--r-full);
+  background-color: var(--ink);
+}
+
+.shelf-book:focus-visible {
+  outline: 3px solid var(--sky-400);
+  outline-offset: 3px;
+  border-radius: 4px var(--r-md) var(--r-md) 4px;
+}
+
+/* 펼친 책은 한 권 — 한 칸 폭으로 가운데 */
+.page-portfolio .note-shelf--open {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.note-shelf--open .note-wrap[hidden] { display: none; }
+
+.note-shelf--open .note-wrap .section-title { text-align: center; }
+
+/* 책이 바뀔 때 살짝 올라온다 */
+.note-wrap.is-entering {
+  animation: shelf-book-open .36s ease both;
+}
+
+@keyframes shelf-book-open {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 끝 장의 넘기기 버튼 — "다음 책 ›" 글자가 들어간 알약 모양 */
+.note__nav.note__nav--book {
+  width: auto;
+  padding: 0 var(--sp-4);
+  font-family: var(--font-base);
+  font-size: .8125rem;
+  font-weight: 700;
+  opacity: 1;
+  color: var(--sky-600);
+  border-color: var(--sky-300);
+  background-color: var(--sky-50);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .bookshelf__row {
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-3) 0;
+  }
+
+  .shelf-book {
+    padding: var(--sp-3) var(--sp-2) var(--sp-3) calc(var(--sp-2) + 8px);
+  }
+
+  .shelf-book::before { width: 8px; }
+
+  .shelf-book__title { font-size: 1.125rem; }
+
+  .shelf-book__meta { font-size: .5625rem; }
+
+  .shelf-book.is-active { transform: translateY(-8px); }
+
+  .shelf-book.is-active::after { bottom: -10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shelf-book:hover { transform: none; }
+  .note-wrap.is-entering { animation: none; }
+}
