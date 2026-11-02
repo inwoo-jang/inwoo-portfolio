@@ -60,17 +60,17 @@
         <h2 class="section-title chip--ko">프로젝트 요약</h2>
         <dl class="meta-list meta-list--wide">
           <dt>세무상담 데스크</dt>
-          <dd>Spring AI로 법령 근거와 세액 계산을 함께 내는 상담 AI. 계산 코드에 버그 7종을 심어 6종 검출을 확인</dd>
+          <dd>교육·개인 프로젝트. Spring AI로 법령 근거 검색과 코드 기반 세액 계산을 구현하고, 계산 코드에 버그 7종을 심어 6종 검출을 확인.</dd>
           <dt>표지판 모델 경량화</dt>
           <dd>차량 탑재를 기준으로 8.33MB → 2.10MB, 정확도 차이 0.09%p. Test를 모델 선택에 쓰지 않도록 팀 의견 조율</dd>
           <dt>관계부 설계</dt>
           <dd>직접 쓰던 앱을 과제로 다시 설계. 기능 18 · 화면 11 · 테이블 6 · API 33, AI 분석은 뺌</dd>
           <dt>데이콘 라벨링 도구</dt>
-          <dd>팀이 영상을 보고 라벨을 넣는 GUI. 키보드만으로 클립당 20~30초, ±7프레임 미세 조정, 판정 즉시 CSV 저장·이어하기</dd>
+          <dd>팀이 영상을 보고 라벨을 넣는 GUI. 클립당 20~30초 내 판정을 목표로 키보드 UX 설계(실측 아님). ±7프레임 미세 조정, 판정 즉시 CSV 저장·이어하기</dd>
           <dt>퀴켓</dt>
-          <dd>7인 팀 PM. 3개월 만에 App Store·Google Play 동시 출시, 동아리 PM MVP</dd>
+          <dd>7인 팀 PM·퀴즈 생성 미니 버전 직접 구현. 정식 앱은 개발팀이 구현해 3개월 만에 App Store·Google Play 출시, 동아리 PM MVP</dd>
           <dt>세무·약국 SaaS</dt>
-          <dd>서비스 5개 기획. 삼일회계법인·온라인팜 등 외부 4개사 API 정의서 검토·기능 기획, 기획 전 거래처 30곳 기장 직접 수행</dd>
+          <dd>서비스 5개 기획. 외부 4개사 API 정의서 검토·기능 기획, 기획 전 거래처 30곳 기장 직접 수행. AI 세무 챗봇은 정책·화면 설계 담당, 모델 개발은 삼일회계법인 담당</dd>
           <dt>개인 프로젝트</dt>
           <dd>1인 설계~배포 5건. 마켓데스크·관계부·메일 요약봇은 지금도 매일 사용</dd>
         </dl>
@@ -152,7 +152,7 @@
             <article class="note__page" data-page="1" hidden>
               <p class="chip">01 · Solo · Spring AI</p>
               <h3>SKALA증권 세무상담 데스크</h3>
-              <p class="note__meta">2026.08 · 1인 설계·개발·검증 · Java · Spring Boot · Spring AI</p>
+              <p class="note__meta">2026.08 · 교육·개인 프로젝트 · 1인 설계·개발·검증 · Java · Spring Boot · Spring AI</p>
 
               <p>금융소득 종합과세 대상인지와 세액을 <mark>법령 근거와 함께</mark> 답하는 상담 AI입니다.
                  세무 상담에서는 근거 없는 답이 무책임하고, 계산이 빠진 답은 쓸모가 없습니다.</p>
@@ -377,10 +377,11 @@
             <article class="note__page" data-page="1" hidden>
               <p class="chip chip--ko">01 · Team · 7인 · PM</p>
               <h3>퀴켓 — AI 퀴즈 학습 앱</h3>
-              <p class="note__meta">2026.03 ~ 2026.07 · 기획 담당 · App Store·Google Play 출시</p>
+              <p class="note__meta">2026.03 ~ 2026.07 · PM·미니 버전 구현 담당 · App Store·Google Play 출시</p>
 
               <p>내 필기를 넣으면 AI가 문제를 만들어 주는 학습 앱입니다.
-                 일곱 명이 만들어 양대 스토어에 올렸습니다.</p>
+                 7인 팀에서 저는 요구사항·사용자 흐름·출시 범위를 조율하는 PM을 맡았습니다.
+                 검증용 미니 버전은 직접 만들었고, <mark>정식 앱 구현은 개발팀이 담당</mark>했습니다.</p>
 
               <figure class="note__shot">
                 <img src="media/portfolio/quiket-card.png"
@@ -405,7 +406,7 @@
                 <li>사용자 인터뷰 12건으로 문제 정의를 다시 씀</li>
                 <li>PRD·IA·기능명세·유저플로우 작성, 와이어프레임 100화면 이상</li>
                 <li>기능명세를 스프린트로 나눠 개발자 4명 일정 운영, 백엔드 ERD를 정책과 대조 검토</li>
-                <li>핵심 로직만 담은 <mark>미니 버전을 직접 구현해 검증</mark>한 뒤 본 개발로 넘김</li>
+                <li>Next.js·Gemini로 <mark>퀴즈 생성 미니 버전을 직접 구현</mark>하고, 자료 분량에 따른 품질을 확인해 입력 글자 수별 생성 문항 수 기준을 정함</li>
                 <li>사용성 테스트, 스토어 심사 대응, 중간·최종 발표</li>
               </ul>
 
@@ -494,7 +495,7 @@
               <ul class="note__list">
                 <li>판정 즉시 CSV에 append — 크래시가 나도 유실이 없고, 다시 실행하면 완료한 클립을 건너뛰고 이어감</li>
                 <li>검수자 이름이 파일명에 들어가 같은 배치를 여러 명이 보면 <mark>불일치율</mark>을 잴 수 있음. 클립당 소요시간도 행마다 기록</li>
-                <li>목표는 클립당 20~30초. 검수 배치 생성 스크립트와 검수 가이드를 함께 넘김</li>
+                <li>클립당 <mark>20~30초 내 판정은 설계 목표</mark>이며, 실제 처리 속도나 절감 효과를 측정한 결과는 아님. 검수 배치 생성 스크립트와 검수 가이드를 함께 넘김</li>
               </ul>
 
               <ul class="tag-row">
@@ -511,7 +512,8 @@
               <p class="note__meta">2026 · 지킴컴퍼니 · 정책·화면 설계 담당</p>
 
               <p>약국 운영자가 세무·노무·행정을 물어보는 상담 챗봇입니다.
-                 모델과 Q&amp;A DB는 삼일회계법인이, <mark>답할 수 있는 범위와 정책은 제가</mark> 맡았습니다.</p>
+                 모델 개발과 Q&amp;A DB는 삼일회계법인이 담당했고,
+                 저는 <mark>상담 범위·서비스 정책·화면·사용자 흐름 설계</mark>를 맡았습니다.</p>
 
               <h4>내가 정한 것</h4>
               <ul class="note__list">
@@ -669,10 +671,12 @@
             <article class="note__page" data-page="2" hidden>
               <p class="chip">02 · Solo · 해커톤 6시간</p>
               <h3>일경험 운영 트리아지 어드민</h3>
-              <p class="note__meta">2026.06 · AX 해커톤 개인 참가 · 6시간 안에 기획·개발·발표 완주</p>
+              <p class="note__meta">2026.06 · AX 해커톤 개인 참가 · 6시간 안에 기획·데모 구현·발표 완주</p>
 
-              <p>운영자 한 명이 참여자 <mark>300명의 8주치 출결</mark>을 수기로 점검하고 있었습니다.
-                 건당 3~5분, 한 번 점검에 15~25시간이 걸렸고 정산 마감 직전에 몰렸습니다.</p>
+              <p>운영자 한 명이 참여자 <mark>300명의 8주치 출결을 수기로 점검하는 시나리오</mark>를 바탕으로
+                 점검 우선순위를 정렬하는 데모를 구현했습니다.
+                 <mark>300명 × 건당 3~5분 = 15~25시간</mark>으로 문제 규모를 추정했으며,
+                 실제 운영에 걸린 시간이나 절감 효과를 실측한 수치는 아닙니다.</p>
 
               <h4>해결</h4>
               <ul class="note__list">
@@ -698,12 +702,12 @@
             </article>
 
             <article class="note__page" data-page="3" hidden>
-              <p class="chip">03 · Solo · 설계~배포</p>
+              <p class="chip">03 · Solo · 구현·배포 실습</p>
               <h3>ClassTrack — 강의·과제 추적 웹앱</h3>
-              <p class="note__meta">2026.08 · 1인 설계~배포 · Spring Boot · Vue 3 · Docker</p>
+              <p class="note__meta">2026.08 · 교육·개인 프로젝트 · 1인 설계·구현·배포 실습 · Spring Boot · Vue 3 · Docker</p>
 
               <p>듣고 있는 강의와 과제, 결과물 링크를 한곳에서 추적하는 웹앱입니다.
-                 설계부터 배포까지 혼자 했습니다.</p>
+                 화면·서버·데이터를 직접 연결하고 컨테이너 기반 배포를 실습했습니다.</p>
 
               <h4>설계에서 신경 쓴 것</h4>
               <ul class="note__list">
@@ -712,7 +716,7 @@
                 <li>AOP 로깅, 비동기 링크 검증</li>
               </ul>
 
-              <p class="note__meta">컨테이너는 멀티스테이지 빌드로 이미지를 만들어 배포하는 데까지 썼습니다. 운영 경험은 아직 없습니다.</p>
+              <p class="note__meta">멀티스테이지 빌드로 컨테이너 이미지를 만들어 배포하는 과정을 실습했습니다. 상용 서비스의 장기 운영 경험은 아직 없습니다.</p>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub ↗</a>
