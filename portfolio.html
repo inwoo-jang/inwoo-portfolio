@@ -46,11 +46,11 @@
     </nav>
 
     <header class="page-head">
-      <p class="eyebrow">기획에서 멈추지 않은 것들</p>
-      <h1 class="page-title">직접 만들고, <em>틀렸는지 확인한 것들</em></h1>
+      <p class="eyebrow">프로젝트 기록</p>
+      <h1 class="page-title">서비스 기획과 <em>개발 프로젝트</em></h1>
       <p class="page-desc">
-        각 장에는 무엇을 만들었는지보다 어디서 판단을 바꿨고 무엇을 검증했는지를 적었습니다.
-        제가 맡지 않은 부분은 그렇다고 적었습니다.
+        실무에서 기획한 서비스와 팀·개인 프로젝트를 모았습니다.
+        프로젝트마다 제가 맡은 역할, 진행 과정과 결과를 정리했습니다.
       </p>
     </header>
 
@@ -70,9 +70,9 @@
           <dt>퀴켓</dt>
           <dd>7인 팀 PM·퀴즈 생성 미니 버전 직접 구현. 정식 앱은 개발팀이 구현해 3개월 만에 App Store·Google Play 출시, 동아리 PM MVP</dd>
           <dt>세무·약국 SaaS</dt>
-          <dd>서비스 5개 기획. 외부 4개사 API 정의서 검토·기능 기획, 기획 전 거래처 30곳 기장 직접 수행. AI 세무 챗봇은 정책·화면 설계 담당, 모델 개발은 삼일회계법인 담당</dd>
+          <dd>서비스 5개 기획. 외부 4개사 API 정의서 검토·기능 기획, 기획 전 거래처 30곳 기장 직접 수행. AI 세무 챗봇은 정책·화면 설계 담당, 모델 개발은 협력사 담당. 급여 자동화는 베타 운영, 주문 자동화는 실제 운영까지 참여</dd>
           <dt>개인 프로젝트</dt>
-          <dd>1인 설계~배포 5건. 마켓데스크·관계부·메일 요약봇은 지금도 매일 사용</dd>
+          <dd>개인 웹앱과 업무 도구 5건. 마켓데스크·관계부·메일 요약봇은 지금도 매일 사용</dd>
         </dl>
       </section>
 
@@ -155,21 +155,20 @@
               <p class="note__meta">2026.08 · 교육·개인 프로젝트 · 1인 설계·개발·검증 · Java · Spring Boot · Spring AI</p>
 
               <p>금융소득 종합과세 대상인지와 세액을 <mark>법령 근거와 함께</mark> 답하는 상담 AI입니다.
-                 세무 상담에서는 근거 없는 답이 무책임하고, 계산이 빠진 답은 쓸모가 없습니다.</p>
+                 법령을 찾는 과정과 세액을 계산하는 과정을 나눠 구현했습니다.</p>
 
-              <h4>역할을 나눈 방식</h4>
+              <h4>검색과 계산 구현</h4>
               <ul class="note__list">
                 <li>법령 근거는 <mark>RAG</mark>, 세액 계산은 <mark>Tool Calling</mark>으로 나눠 두 결과를 함께 산출</li>
                 <li>세법 문서 9종을 조문 경계로 잘라 청크 39개를 만들고, 각 청크에 조문 번호를 실어 인용</li>
-                <li>범위 밖 질문은 규칙·모델 2단 라우팅으로 <mark>모델을 부르기 전에 거절</mark></li>
-                <li>서비스 주체를 국세청이 아닌 가상 증권사로 잡음 — 업무 범위가 좁아야 거절이 정직한 답이 되기 때문</li>
+                <li>범위 밖 질문은 규칙·모델 2단 라우팅으로 분류해 <mark>상담 응답 생성 전에 안내</mark></li>
+                <li>가상 증권사의 금융소득 상담 서비스로 범위를 정하고, 그 밖의 질문에는 상담 범위를 안내</li>
               </ul>
 
-              <h4>만든 다음에 한 일</h4>
-              <p>계산 코드에 <mark>버그 7종을 일부러 심어 테스트가 6종을 잡아내는지</mark> 확인했습니다.
-                 걸러지지 않은 1종은 원인을 끝까지 좇아가
-                 <em>분리과세를 선택하면 값은 계산되지만 결과에 반영되지 않는</em> 문제를 찾았습니다.
-                 세법 원문과 대조하다 개정 전 11%로 남아 있던 Gross-up 율도 10%로 고쳤습니다.</p>
+              <h4>계산 로직 테스트</h4>
+              <p>계산 코드에 버그 7종을 넣어 <mark>테스트가 6종을 검출하는 것</mark>을 확인했습니다.
+                 검출하지 못한 경계값 조건은 추가 테스트가 필요한 항목으로 기록했습니다.
+                 계산 기준도 세법 원문과 대조해 적용 연도가 다른 부분을 수정했습니다.</p>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">Spring AI</li>
@@ -177,6 +176,7 @@
                 <li class="tag tag--peach">Tool Calling</li>
                 <li class="tag tag--lavender">검증 설계</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="taxdesk" hidden></div>
             </article>
 
             <article class="note__page" data-page="2" hidden>
@@ -187,7 +187,7 @@
               <p>정확도가 이미 98.5%였습니다. 더 올릴 방법을 찾다가 모델 구조를 뜯어보고 방향을 바꿨습니다.
                  파라미터 218만 개 중 <mark>연결만 담당하는 한 층이 96%</mark>를 차지하고 있었습니다.</p>
 
-              <h4>목표를 바꾼 근거</h4>
+              <h4>경량화 목표</h4>
               <p>차량에서는 이 모델 하나만 메모리를 쓰지 않습니다.
                  차선·차량·보행자 인식 모듈이 같이 돌아야 합니다.
                  그래서 <em>정확도 1%p를 더 올리는 것보다 크기를 절반 이하로 줄이는 편이 탑재 관점에서 이득</em>이라고 보고
@@ -200,14 +200,14 @@
                 <li>추론 시간은 직접 재봤습니다. 한 장씩은 작은 모델이 오히려 느리고(0.174ms vs 0.099ms), 배치로는 빨랐습니다(0.080ms vs 0.216ms). <em>파라미터 수만으로 속도를 판단할 수 없었습니다.</em></li>
               </ul>
 
-              <h4>팀 의견을 되돌린 지점</h4>
+              <h4>데이터 분할 점검</h4>
               <p>Test 정확도가 예상보다 낮게 나오자 “모델을 바꾸자”는 의견이 나왔습니다.
                  하지만 Test를 보고 모델을 고르면 그 시험지에 우연히 맞은 결과가 섞입니다.
                  원인을 좇아가 보니 모델이 아니라 <mark>데이터 분할</mark>이었습니다.
                  같은 표지판을 연속 촬영한 30장짜리 묶음 888개가 학습과 검증 양쪽에 걸쳐 있었습니다.
                  <em>Test는 순위를 정하는 점수가 아니라 격차의 원인을 찾는 자료로만 쓰자</em>고 정리했습니다.</p>
 
-              <h4>다음 사람을 위해 남긴 것</h4>
+              <h4>추가 검증 항목</h4>
               <p>확신하지 못할 때 차량이 어떻게 동작할지, 정지·속도제한처럼 안전과 직결된 클래스를 따로 봐야 한다는 것,
                  야간·역광·우천은 이번 데이터로 확인하지 못했다는 것을 <mark>미검증 항목으로 명시</mark>했습니다.</p>
 
@@ -217,6 +217,7 @@
                 <li class="tag tag--peach">실험 설계</li>
                 <li class="tag tag--mint">CNN</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="gtsrb" hidden></div>
             </article>
 
             <article class="note__page" data-page="3" hidden>
@@ -252,6 +253,7 @@
                 <li class="tag tag--peach">프론트엔드</li>
                 <li class="tag tag--lavender">Agile · Scrum</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="edu-up" hidden></div>
             </article>
 
             <article class="note__page" data-page="4" hidden>
@@ -263,7 +265,7 @@
                  페인 포인트와 기능을 하나씩 맞춰 보니 AI 관계 분석, 카톡 대화 가져오기, 리마인더는 연결되는 곳이 없었습니다.
                  받은 금액을 확인하고 명부를 정리하는 데는 <mark>기록과 조회면 충분해서</mark> 뺐습니다.</p>
 
-              <h4>순서대로 맞춘 것</h4>
+              <h4>기능·화면·데이터 설계</h4>
               <ul class="note__list">
                 <li>페인 포인트 4개 → 기능 18개 → 화면 11개 → 테이블 6개 → API 33개</li>
                 <li>API마다 어느 화면에서 부르는지 적었습니다</li>
@@ -271,25 +273,7 @@
                 <li>뺀 기능은 지금 테이블과 API로 바로 만들 수 있으면 Phase 1, 외부 연동이 필요하면 Phase 2로 나눴습니다</li>
               </ul>
 
-              <figure class="note__shot">
-                <a href="media/portfolio/gwangyebu-uiflow.png" target="_blank" rel="noopener">
-                  <img src="media/portfolio/gwangyebu-uiflow.png"
-                       alt="관계부 UI 흐름도 — 화면 11개와 핵심 흐름(관계 상세에서 받은 만큼 확인 후 기록, 내 경조사 명부 연속 입력)"
-                       width="1400" height="778" loading="lazy">
-                </a>
-                <figcaption>UI 흐름도 · 화면 11개 (누르면 크게)</figcaption>
-              </figure>
-
-              <figure class="note__shot">
-                <a href="media/portfolio/gwangyebu-screens.png" target="_blank" rel="noopener">
-                  <img src="media/portfolio/gwangyebu-screens.png"
-                       alt="관계부 구현 화면 — 홈, 관계 상세, 주고받음 기록 팝업, 내 경조사 명부, 주고받은 장부"
-                       width="1899" height="808" loading="lazy">
-                </a>
-                <figcaption>설계한 화면을 Vue 3로 직접 구현 · 홈 / 관계 상세 / 기록 / 명부 / 장부</figcaption>
-              </figure>
-
-              <h4>고민했던 것</h4>
+              <h4>정책과 예외 처리</h4>
               <ul class="note__list">
                 <li>차액은 계산할 수 있지만 보여 주지 않았습니다. 관계를 숫자로 따지게 될 것 같았습니다. 대신 ‘보내기만 한 / 받기만 한’ 목록을 뒀습니다.</li>
                 <li>축의금은 경조사보다 주고받은 돈에 가깝다고 보고 gifts에만 뒀습니다. 두 곳에 두면 합계가 두 번 잡힙니다.</li>
@@ -309,6 +293,7 @@
                 <li class="tag tag--peach">OpenAPI 3</li>
                 <li class="tag tag--lavender">Vue 3 · Pinia</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="relationship-design" hidden></div>
             </article>
 
           </div>
@@ -383,27 +368,19 @@
                  7인 팀에서 저는 요구사항·사용자 흐름·출시 범위를 조율하는 PM을 맡았습니다.
                  검증용 미니 버전은 직접 만들었고, <mark>정식 앱 구현은 개발팀이 담당</mark>했습니다.</p>
 
-              <figure class="note__shot">
-                <img src="media/portfolio/quiket-card.png"
-                     alt="앱스토어에 출시된 퀴켓 — AI 퀴즈 생성, 시험 공부 앱 페이지"
-                     width="1000" height="602" loading="lazy">
-                <figcaption>App Store에 출시된 퀴켓 v1.5 · 교육 카테고리</figcaption>
-              </figure>
-
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://play.google.com/store/apps/details?id=com.f1.quiket" target="_blank" rel="noopener">Google Play ↗</a>
                 <a class="btn btn--mini" href="https://apps.apple.com/kr/app/%ED%80%B4%EC%BC%93-quiket-ai-%ED%80%B4%EC%A6%88-%EC%83%9D%EC%84%B1-%EC%8B%9C%ED%97%98-%EA%B3%B5%EB%B6%80/id6787878510" target="_blank" rel="noopener">App Store ↗</a>
               </p>
 
-              <h4>가장 어려웠던 결정</h4>
-              <p>팀원 전원이 본업이 있어 쓸 수 있는 시간은 주말뿐이었습니다.
-                 인터뷰 12건으로 정의한 기획안은 그 시간 안에 끝낼 분량이 아니었습니다.
-                 기능을 <em>삭제</em>하는 대신 <mark>데이터 구조는 설계안대로 두고 화면 노출만 줄여</mark>,
-                 출시 후 화면만 붙이면 되는 상태로 남겼습니다.</p>
+              <h4>출시 범위 조율</h4>
+              <p>개발자 4명, 디자이너 2명과 각자의 작업 일정을 확인하고 출시 범위를 협의했습니다.
+                 MoSCoW 방식으로 필수 기능의 우선순위를 정하고,
+                 <mark>준비되지 않은 기능은 출시 화면에서 제외</mark>했습니다.</p>
 
               <h4>내가 한 일</h4>
               <ul class="note__list">
-                <li>사용자 인터뷰 12건으로 문제 정의를 다시 씀</li>
+                <li>설문과 사용자 테스트 2회로 사용 흐름을 확인</li>
                 <li>PRD·IA·기능명세·유저플로우 작성, 와이어프레임 100화면 이상</li>
                 <li>기능명세를 스프린트로 나눠 개발자 4명 일정 운영, 백엔드 ERD를 정책과 대조 검토</li>
                 <li>Next.js·Gemini로 <mark>퀴즈 생성 미니 버전을 직접 구현</mark>하고, 자료 분량에 따른 품질을 확인해 입력 글자 수별 생성 문항 수 기준을 정함</li>
@@ -424,6 +401,7 @@
                 <li class="tag tag--peach">스토어 출시</li>
                 <li class="tag tag--lavender">스코프 조정</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="quiket" hidden></div>
             </article>
 
             <article class="note__page" data-page="2" hidden>
@@ -434,13 +412,6 @@
               <p>링크와 QR코드를 한곳에 모으는 북마크 서비스입니다.
                  링크를 넣으면 AI가 폴더·이름·설명·태그를 채웁니다.
                  <em>정식 서비스가 아니라 2인이 만든 프로토타입</em>이며, 아래 링크에서 직접 눌러 볼 수 있습니다.</p>
-
-              <figure class="note__shot">
-                <img src="media/portfolio/archivelink-home.png"
-                     alt="에이링크 홈 대시보드 — 폴더별 링크 정리, 통합 검색, 최근 저장 링크"
-                     width="3532" height="2076" loading="lazy">
-                <figcaption>에이링크 홈 — 폴더·통합 검색·최근 저장 (프로토타입 화면)</figcaption>
-              </figure>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://archivelink.app/login" target="_blank" rel="noopener">프로토타입 열기 ↗</a>
@@ -453,10 +424,10 @@
                 <li>링크에 할 일과 알림을 붙여 기록 관리</li>
               </ul>
 
-              <h4>QA에서 뒤집은 것</h4>
+              <h4>링크 분석 실패 처리</h4>
               <p>로그인 벽과 봇 차단으로 <mark>AI가 아예 읽지 못하는 링크가 생각보다 많았습니다.</mark>
                  자동 분류 실패를 예외 처리로 두면 사용자가 그 자리에서 막힙니다.
-                 그래서 <em>실패를 예외가 아니라 기본 경로로 바꿔</em> 바로 직접 채워 넣도록 흐름을 다시 설계했습니다.</p>
+                 분석하지 못한 링크도 저장할 수 있도록 사용자가 정보를 직접 입력하는 흐름을 설계했습니다.</p>
 
               <h4>내 범위</h4>
               <p>기획 전반과 프론트엔드 프로토타입을 맡았고,
@@ -469,6 +440,7 @@
                 <li class="tag tag--peach">PWA</li>
                 <li class="tag tag--lavender">프로토타입</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="archivelink" hidden></div>
             </article>
 
             <article class="note__page" data-page="3" hidden>
@@ -477,23 +449,23 @@
               <p class="note__meta">2026.09 ~ 진행 중 · 라벨링 GUI 설계·구현 · Python · OpenCV</p>
 
               <p>주행 영상으로 재촬영 여부·사고 시점·주행 상태를 맞히는 3단계 모델 대회입니다.
-                 저는 모델이 아니라 <mark>팀이 영상을 보고 라벨을 넣는 도구</mark>를 만들었습니다.
+                 저는 <mark>팀이 영상을 보고 라벨을 입력하는 도구</mark>를 만들었습니다.
                  폴더째 넣으면 클립이 이어서 재생되고, 키보드만으로 판정하면 CSV가 쌓입니다.</p>
 
-              <h4>사람이 판단하고, AI는 참고만</h4>
+              <h4>라벨 입력 방식</h4>
               <p>AI 초벌 라벨과 기존 라벨은 <mark>회색 참고 오버레이로만</mark> 띄우고 자동으로 채워 넣지 않게 했습니다.
                  판단이 안 서면 UNSURE·NEEDS_REVIEW로 표시하고 넘어가게 해, 망설이는 시간이 라벨 품질을 깎지 않게 했습니다.</p>
 
-              <h4>프레임 하나가 라벨을 가른다</h4>
+              <h4>프레임 선택과 확대</h4>
               <ul class="note__list">
                 <li>충돌·진입 프레임은 마킹 직후 <mark>±7프레임 미세 조정</mark> 모드로 들어가고, 0.25× 슬로우 재생과 1프레임 이동으로 확정</li>
                 <li>재촬영 판정의 근거인 모아레·스캔라인은 리사이즈 화면에선 안 보여 <mark>원해상도 100% 줌</mark>을 한 키에 둠</li>
                 <li>fps는 컨테이너 메타데이터를 믿지 않고 <mark>프레임수 ÷ 실제 길이</mark>로 다시 계산해 저장 — 메타데이터가 틀린 클립을 겪고 정한 규칙</li>
               </ul>
 
-              <h4>중간에 꺼져도, 여럿이 해도</h4>
+              <h4>저장과 공동 검수</h4>
               <ul class="note__list">
-                <li>판정 즉시 CSV에 append — 크래시가 나도 유실이 없고, 다시 실행하면 완료한 클립을 건너뛰고 이어감</li>
+                <li>판정마다 CSV에 저장하고, 다시 실행하면 완료한 클립을 건너뛰어 이어서 작업</li>
                 <li>검수자 이름이 파일명에 들어가 같은 배치를 여러 명이 보면 <mark>불일치율</mark>을 잴 수 있음. 클립당 소요시간도 행마다 기록</li>
                 <li>클립당 <mark>20~30초 내 판정은 설계 목표</mark>이며, 실제 처리 속도나 절감 효과를 측정한 결과는 아님. 검수 배치 생성 스크립트와 검수 가이드를 함께 넘김</li>
               </ul>
@@ -504,6 +476,7 @@
                 <li class="tag tag--peach">프레임 정밀도</li>
                 <li class="tag tag--lavender">이어하기 · CSV</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="dacon" hidden></div>
             </article>
 
             <article class="note__page" data-page="4" hidden>
@@ -512,7 +485,7 @@
               <p class="note__meta">2026 · 지킴컴퍼니 · 정책·화면 설계 담당</p>
 
               <p>약국 운영자가 세무·노무·행정을 물어보는 상담 챗봇입니다.
-                 모델 개발과 Q&amp;A DB는 삼일회계법인이 담당했고,
+                 모델 개발과 Q&amp;A DB는 협력사가 담당했고,
                  저는 <mark>상담 범위·서비스 정책·화면·사용자 흐름 설계</mark>를 맡았습니다.</p>
 
               <h4>내가 정한 것</h4>
@@ -525,24 +498,24 @@
                 <li>토큰 사용량 하드캡을 요구사항으로 정의</li>
               </ul>
 
-              <h4>배운 것</h4>
-              <p>외부와 함께 AI를 붙일 때 실제로 어려운 것은 모델이 아니라
-                 <em>답하지 않기로 한 것을 누가 어디까지 정하느냐</em>였습니다.</p>
+              <h4>진행 단계</h4>
+              <p>FAQ 응답 테스트까지 확인했고, 베타 테스트 시점에 퇴사했습니다.</p>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">AI 정책 설계</li>
                 <li class="tag tag--lavender">외부 협업</li>
                 <li class="tag tag--pink">UX 설계</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="samil" hidden></div>
             </article>
 
             <article class="note__page" data-page="5" hidden>
               <p class="chip chip--ko">05 · Team · 재기획</p>
               <h3>급여명세서 작성 자동화</h3>
-              <p class="note__meta">2025 · 지킴컴퍼니 · 서비스 기획</p>
+              <p class="note__meta">2025~2026 · 지킴컴퍼니 · 서비스 기획 · 베타 운영</p>
 
-              <p>합류했을 때 이미 기획된 기능이 있었지만 세무 신고 기준을 반영하지 못해
-                 <mark>인사 스케줄 관리 정도로만</mark> 쓰이고 있었습니다.</p>
+              <p>약국장은 급여명세서를 요청해 받아 직원에게 전달해야 했고,
+                 내부 담당자는 계산과 보험 고지액을 반복해서 확인해야 했습니다. 이 과정을 줄이기 위해 급여명세서 자동화를 기획했습니다.</p>
 
               <h4>기획 전에 한 일</h4>
               <p>정규직·일용직·프리랜서의 계산식이 모두 다르고 4대보험과 간이세액표까지 얽혀 있어,
@@ -557,14 +530,15 @@
               </ul>
 
               <h4>결과</h4>
-              <p>스케줄 관리로만 쓰이던 기능이 <mark>실제 급여·공제 계산 용도로 사용되기 시작</mark>했습니다.
-                 함께 일한 개발자들에게 “구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다”는 말을 들었습니다.</p>
+              <p>현업 과장님과 계산 규칙·예외를 검토하고 개발팀과 구현을 진행해 <mark>베타 운영까지 참여</mark>했습니다.
+                 현업 관리자로부터 실수령제 계산 로직과 보험 고지액 확인 부담을 줄인 부분에 긍정적인 피드백을 받았습니다.</p>
 
               <ul class="tag-row">
                 <li class="tag tag--lavender">서비스 기획</li>
                 <li class="tag tag--sky">계산 로직</li>
                 <li class="tag tag--lime">도메인 실무</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="payroll" hidden></div>
             </article>
 
           </div>
@@ -646,12 +620,12 @@
                 <li>PDF·Markdown 내보내기, 분석 엔진 선택(BYO 키)</li>
               </ul>
 
-              <h4>엔지니어링에서 막혔던 것</h4>
+              <h4>구현 과정</h4>
               <p>PDF 파싱이 업로드 응답을 막아 <mark>API 서버와 파싱 워커를 분리해 큐로 연결</mark>했습니다.
                  중복은 내용 SHA-256으로 막고, 유사본은 SimHash로 잡아 병합을 제안합니다.
                  커밋 219개로 제가 만든 것 중 가장 큽니다.</p>
 
-              <h4>가드레일</h4>
+              <h4>응답 기준</h4>
               <p>모든 추출 호출에 <mark>“리포트에 없는 숫자·전망을 지어내지 말고, 없는 항목은 비워라”</mark>를 강제했습니다.
                  추출한 숫자를 인용 페이지 본문과 대조하는 검증 도구도 만들었는데, 아직 업로드 파이프라인에는 붙이지 않았습니다.
                  투자 의견은 <em>근거를 함께 쓰고 단정하지 않는 형태로만</em> 두고, 투자 조언이 아니라는 면책을 노출합니다.</p>
@@ -664,8 +638,9 @@
                 <li class="tag tag--sky">Next.js · Hono</li>
                 <li class="tag tag--lime">PostgreSQL</li>
                 <li class="tag tag--peach">큐 · 워커 분리</li>
-                <li class="tag tag--lavender">가드레일</li>
+                <li class="tag tag--lavender">응답 기준</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="marketdesk" hidden></div>
             </article>
 
             <article class="note__page" data-page="2" hidden>
@@ -699,6 +674,7 @@
                 <li class="tag tag--lime">Python</li>
                 <li class="tag tag--peach">프롬프트 설계</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="triage" hidden></div>
             </article>
 
             <article class="note__page" data-page="3" hidden>
@@ -716,7 +692,7 @@
                 <li>AOP 로깅, 비동기 링크 검증</li>
               </ul>
 
-              <p class="note__meta">멀티스테이지 빌드로 컨테이너 이미지를 만들어 배포하는 과정을 실습했습니다. 상용 서비스의 장기 운영 경험은 아직 없습니다.</p>
+              <p class="note__meta">멀티스테이지 빌드로 컨테이너 이미지를 만들어 배포하는 과정을 실습했습니다.</p>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub ↗</a>
@@ -727,6 +703,7 @@
                 <li class="tag tag--lime">Vue 3</li>
                 <li class="tag tag--peach">AOP</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="classtrack" hidden></div>
             </article>
 
             <article class="note__page" data-page="4" hidden>
@@ -756,6 +733,7 @@
                 <li class="tag tag--peach">Capacitor</li>
                 <li class="tag tag--lavender">Claude · Gemini API</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="relationship" hidden></div>
             </article>
 
             <article class="note__page" data-page="5" hidden>
@@ -796,6 +774,7 @@
                 <li class="tag tag--peach">프롬프트 설계</li>
                 <li class="tag tag--mint">GitHub Actions</li>
               </ul>
+              <div class="project-gallery" data-project-gallery="personal-tools" hidden></div>
             </article>
 
           </div>
@@ -834,5 +813,7 @@
 
   <script src="script/nav.js"></script>
   <script src="script/portfolio.js"></script>
+  <script src="script/project-images.js"></script>
+  <script src="script/gallery.js"></script>
 </body>
 </html>

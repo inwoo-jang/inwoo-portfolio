@@ -6923,3 +6923,21 @@ body {
   background-image: none;
   padding: 0;
 }
+
+/* Project images retain the notebook layout. */
+.project-gallery[hidden] { display: none; }
+.project-gallery__open { display: block; width: 100%; padding: 0; border: 0; border-radius: 12px; background: transparent; cursor: zoom-in; }
+.project-gallery__open:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+.project-gallery__open img { display: block; width: 100%; height: auto; max-height: 360px; object-fit: contain; }
+.image-viewer { box-sizing: border-box; width: min(1100px, 94vw); max-height: 92dvh; padding: 20px; border: 1px solid #ccc; border-radius: 16px; background: #faf8f3; color: #272722; overflow: auto; }
+.image-viewer::backdrop { background: rgba(20, 20, 20, .72); }
+.image-viewer__close { display: block; margin: 0 0 12px auto; }
+.image-viewer img { display: block; max-width: 100%; height: auto; margin: auto; }
+.image-viewer p { margin: 12px 0 0; font-size: 14px; }
+@media (max-width: 600px) { .image-viewer { padding: 12px; } }
+
+@media (max-width: 600px) {
+  .page-portfolio .meta-list--wide { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .page-portfolio .meta-list--wide dt { margin-top: 12px; }
+  .page-portfolio .meta-list--wide dd { margin-bottom: 8px; }
+}
