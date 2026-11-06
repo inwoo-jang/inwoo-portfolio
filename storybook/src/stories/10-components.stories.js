@@ -5,8 +5,8 @@ import { HERO, PROJECTS, NOTES, TIMELINE, SKILLS } from "../data.js";
 export default { title: "컴포넌트/내비게이션", parameters: { layout: "fullscreen" } };
 
 export const 헤더 = {
-  args: { current: "How I Work" },
-  argTypes: { current: { control: "select", options: ["Home", "Profile", "Portfolio", "How I Work", "Dev Notes"] } },
+  args: { current: "How I Work", dark: true },
+  argTypes: { current: { control: "select", options: ["Home", "Profile", "Portfolio", "How I Work", "Dev Notes"] }, dark: { control: "boolean" } },
   render: (a) => C.siteHeader(a),
   parameters: { docs: { description: { story: "로고 끝 커서(_)가 유일한 장식 모션. 모바일에서는 햄버거 메뉴." } } },
 };

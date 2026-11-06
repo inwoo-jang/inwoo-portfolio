@@ -8,6 +8,7 @@ import profile from "../../../profile.html?raw";
 import portfolio from "../../../portfolio.html?raw";
 import how from "../../../how.html?raw";
 import notes from "../../../notes.html?raw";
+import homeWhite from "../archive/home-white-20261106.html?raw";
 
 export default { title: "페이지", parameters: { layout: "fullscreen" } };
 
@@ -21,6 +22,11 @@ const frame = (html, hash = "") => {
 };
 
 export const Home = { render: () => frame(home) };
+export const Home_화이트 = {
+  name: "Home · 화이트(이전 디자인)",
+  render: () => frame(homeWhite),
+  parameters: { docs: { description: { story: "2026-11-06 차콜 디자인 적용 전의 흰색 홈. storybook/src/archive/에 보관한 HTML을 그대로 띄운다(스타일은 현재 ds.css)." } } },
+};
 export const Profile = { render: () => frame(profile) };
 export const Portfolio_QuickView = { name: "Portfolio · Quick View", render: () => frame(portfolio) };
 export const Portfolio_상세 = { name: "Portfolio · 프로젝트 상세", render: () => frame(portfolio, "#p-order-sync") };

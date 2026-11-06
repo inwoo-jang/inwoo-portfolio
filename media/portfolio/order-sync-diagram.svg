@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="t d">
+  <title id="t">의약품 도매몰 주문·박스 상태 연동 설명도</title>
+  <desc id="d">외부 도매몰의 주문·상품 단위를 내부 운영의 박스 단위와 연결하고, 박스별로 수거 완료·수거 연기 상태를 구분해 도매몰의 부분배송 상태에 대응하는 구조. 설명도이며 실제 화면이 아니다.</desc>
+  <style>
+    text { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; fill: #2B2F36; }
+    .h { font-size: 15px; font-weight: 700; fill: #111418; }
+    .s { font-size: 12.5px; fill: #545B66; }
+    .k { font-size: 12px; font-weight: 700; fill: #1B4F8F; }
+    .box { fill: #FFFFFF; stroke: #C8CDD4; stroke-width: 1.2; }
+    .ok { fill: #E8F3EC; stroke: #1E6B45; }
+    .wait { fill: #FDF3E6; stroke: #B45309; }
+    .line { stroke: #8E96A3; stroke-width: 1.4; fill: none; marker-end: url(#a); }
+  </style>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8E96A3"/></marker></defs>
+  <rect width="800" height="450" fill="#F5F6F8"/>
+
+  <text x="40" y="44" class="k">외부 · 도매몰</text>
+  <rect x="40" y="60" width="200" height="120" rx="8" class="box"/>
+  <text x="60" y="92" class="h">주문 1건</text>
+  <text x="60" y="116" class="s">주문번호 기준으로 관리</text>
+  <text x="60" y="136" class="s">상품 순번 1 · 2</text>
+
+  <text x="300" y="44" class="k">연결 기준 (기획)</text>
+  <rect x="300" y="60" width="200" height="120" rx="8" class="box"/>
+  <text x="320" y="92" class="h">주문번호 + 상품 순번</text>
+  <text x="320" y="116" class="s">→ 내부 박스 식별자</text>
+  <text x="320" y="136" class="s">어드민에서 주문번호로 조회</text>
+
+  <text x="560" y="44" class="k">내부 · 박스 단위 운영</text>
+  <rect x="560" y="60" width="200" height="54" rx="8" class="box ok"/>
+  <text x="580" y="84" class="h">박스 A</text><text x="580" y="103" class="s">수거 완료</text>
+  <rect x="560" y="126" width="200" height="54" rx="8" class="box wait"/>
+  <text x="580" y="150" class="h">박스 B</text><text x="580" y="169" class="s">수거 연기</text>
+
+  <path d="M240 120H296" class="line"/>
+  <path d="M500 100L556 88" class="line"/>
+  <path d="M500 140L556 152" class="line"/>
+
+  <rect x="300" y="236" width="460" height="64" rx="8" class="box"/>
+  <text x="320" y="262" class="h">일부 박스만 수거 → 도매몰의 ‘부분배송’ 상태에 대응</text>
+  <text x="320" y="284" class="s">배송 현황은 내부 어드민에서 도매몰로 자동 반영</text>
+  <path d="M660 182V232" class="line"/>
+
+  <text x="40" y="342" class="k">검증에서 찾은 오류 (개발팀에 전달)</text>
+  <text x="40" y="368" class="s">① 호출 시간의 경계에 걸린 주문 누락   ② 여러 박스 주문에서 첫 박스에만 배송정보 적용</text>
+
+  <text x="40" y="420" class="s" style="font-size:11.5px">설명도 · 실제 화면이 아닙니다 · 구현: 개발팀</text>
+</svg>

@@ -15,6 +15,8 @@ window.PROJECTS = [
     id: "order-sync",
     status: "운영 적용",
     statusKind: "live",
+    image: "media/portfolio/order-sync-diagram.svg",
+    imageAlt: "주문·상품 단위와 박스 단위를 연결하는 구조 설명도(직접 작성)",
     book: "work",
     title: "의약품 도매몰 주문·박스 상태 연동",
     scope: "(주)지킴컴퍼니 · 운영 적용",
@@ -36,6 +38,8 @@ window.PROJECTS = [
   },
   {
     id: "payroll",
+    image: "media/portfolio/payroll-slip.jpg",
+    imageAlt: "급여명세서 화면 예시(회사 공개 소개 이미지, 예시 데이터)",
     status: "내부 사용 · 시범 운영",
     statusKind: "live",
     headline: "쓰이지 않던 기능을 실제 사용까지",
@@ -178,6 +182,8 @@ window.PROJECTS = [
   },
   {
     id: "gtsrb",
+    image: "media/portfolio/gtsrb-tradeoff.png",
+    imageAlt: "후보 모델별 정확도와 파라미터 수 비교 그래프",
     status: "교육 과제",
     statusKind: "edu",
     book: "skala",
@@ -202,6 +208,8 @@ window.PROJECTS = [
   },
   {
     id: "edu-up",
+    image: "media/portfolio/eduup-home.png",
+    imageAlt: "EDU:UP 메인 화면 — 맞춤 추천 강의와 도서(모의 데이터)",
     status: "교육 실습",
     statusKind: "edu",
     headline: "Gateway 하나로 5개 서비스",
@@ -281,6 +289,8 @@ window.PROJECTS = [
   },
   {
     id: "archivelink",
+    image: "media/portfolio/qlink-web.png",
+    imageAlt: "에이링크 웹 프로토타입 화면(샘플 링크)",
     status: "프로토타입",
     statusKind: "other",
     headline: "분석 실패를 기본 흐름으로",

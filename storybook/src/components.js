@@ -16,8 +16,8 @@ const NAV = [
 ];
 
 /* ---------- 내비게이션 ---------- */
-export function siteHeader({ current = "Home" } = {}) {
-  return `<header class="site-header">
+export function siteHeader({ current = "Home", dark = true } = {}) {
+  return `<header class="site-header${dark ? " site-header--dark" : ""}">
   <div class="site-header__inner">
     <a class="wordmark" href="index.html" aria-label="inwoo.log 홈">inwoo<span>.log</span></a>
     <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" onclick="document.body.classList.toggle('nav-open')">
