@@ -522,3 +522,6 @@ mark {
 /* 요약 카드 — 긴 이메일 주소가 단어 중간에서 끊기지 않게 */
 .profile-card dd a { word-break: keep-all; overflow-wrap: anywhere; font-size: var(--fs-caption); }
 .profile-card dl { grid-template-columns: 3.5rem minmax(0, 1fr); }
+
+/* 요약 카드 머리 — 사진 자리 대신 제목 한 줄 */
+.profile-card__head { margin: calc(var(--s5) * -1) calc(var(--s5) * -1) var(--s4); padding: var(--s3) var(--s5); border-bottom: 1px solid var(--rule); background: var(--paper-2); border-radius: 8px 8px 0 0; font-size: var(--fs-small); font-weight: 700; letter-spacing: 0; color: var(--ink); }

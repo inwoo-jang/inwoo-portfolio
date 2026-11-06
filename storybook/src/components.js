@@ -103,7 +103,7 @@ export function hero({ name, role, title, summary = [], actions = [], profile })
 
 export function profileCard({ initial = "프로필", rows = [] } = {}) {
   return `<aside class="profile-card" aria-label="요약 정보">
-  <div class="profile-card__photo" role="img" aria-label="프로필 사진 자리" style="display:grid;place-items:center;font-size:var(--fs-caption);font-weight:600;color:var(--muted)">${esc(initial)}</div>
+  <h2 class="profile-card__head">Profile</h2>
   <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
 </aside>`;
 }
