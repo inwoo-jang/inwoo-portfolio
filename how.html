@@ -3,231 +3,289 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="장인우가 일하는 방식 — 기획 문서 7단계, 역할 분리 원칙, 기획서 양식.">
-  <title>일하는 방식 — 장인우 · Inwoo.log</title>
+  <meta name="description" content="장인우가 일하는 방식 — 현장에서 문제를 찾는 기획, 스펙을 정하고 확인하며 만드는 개발, 상대가 다음 일을 할 수 있게 넘기는 협업, 그리고 AI를 쓰는 기준.">
+  <title>일하는 방식 — 장인우 · inwoo.log</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/flags.css">
+  <link rel="stylesheet" href="css/ds.css">
 </head>
-<body class="page-portfolio">
+<body>
 
   <a class="skip" href="#main">본문으로 건너뛰기</a>
 
-  <header class="topbar">
-    <a class="topbar__logo" href="index.html">inwoo<span>.log</span></a>
-
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="topbar__nav" id="siteNav" aria-label="주요 메뉴">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="how.html" class="is-active" aria-current="page">How I Work</a></li>
-        <li><a href="notes.html">Notes</a></li>
-      </ul>
-    </nav>
-
-    <div class="topbar__auth">
-      <a href="mailto:roseprincess0331@gmail.com" class="btn btn--ghost">이메일</a>
-      <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener" class="btn btn--primary">GitHub</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="wordmark" href="index.html" aria-label="inwoo.log 홈">inwoo<span>.log</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="how.html" aria-current="page">How I Work</a></li>
+          <li><a href="notes.html">Dev Notes</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <div class="container">
-
-    <nav class="crumb" aria-label="현재 위치">
-      <a href="index.html">홈</a> <span aria-hidden="true">/</span> <span>일하는 방식</span>
-    </nav>
+  <div class="page">
 
     <header class="page-head">
-      <p class="eyebrow">반복해서 적용한 것</p>
-      <h1 class="page-title">기획 문서를 정리하고 <em>함께 확인하는 방법</em></h1>
-      <p class="page-desc">
-        기획 문서 일곱 단계마다 검토 지점을 두고, 무엇을 AI에게 맡기지 않을지 먼저 정하고,
-        기획서를 다섯 항목으로 고정했습니다. 세 가지 모두 프로젝트마다 되풀이해서 썼습니다.
+      <p class="eyebrow">How I Work</p>
+      <h1 class="display">기획으로 시작해,<br>만들고 확인하기까지</h1>
+      <p class="lead">
+        현장에서 문제를 찾아 문서로 고정하고, 개발팀과 함께 또는 AI 코딩 도구로 직접 만든 뒤 화면과 데이터로 확인합니다.
+        회사에서는 기획·운영을 맡았고, 교육 과정과 개인 프로젝트에서는 구현까지 하고 있습니다.
       </p>
+      <p class="meta"><span>최종 수정 2026.11.06</span><span>읽는 시간 약 8분</span></p>
     </header>
 
-    <main id="main">
+    <div class="article-layout">
 
-      <div class="note-shelf">
+      <nav class="toc" aria-label="이 글의 목차" data-toc>
+        <p class="toc__title">목차</p>
+        <ol>
+          <li><a href="#planning">01 기획</a></li>
+          <li class="toc__sub"><a href="#planning-find">현장에서 문제 찾기</a></li>
+          <li class="toc__sub"><a href="#planning-process">기획 프로세스</a></li>
+          <li class="toc__sub"><a href="#planning-spec">기능명세</a></li>
+          <li class="toc__sub"><a href="#planning-workflow">문서 워크플로</a></li>
+          <li><a href="#building">02 개발</a></li>
+          <li class="toc__sub"><a href="#building-spec">시작 전에 스펙 정하기</a></li>
+          <li class="toc__sub"><a href="#building-verify">만들면서 확인하기</a></li>
+          <li class="toc__sub"><a href="#building-test">숫자는 코드에</a></li>
+          <li class="toc__sub"><a href="#building-small">작게 먼저 만들기</a></li>
+          <li><a href="#collab">03 협업</a></li>
+          <li class="toc__sub"><a href="#collab-handoff">상대별로 넘기기</a></li>
+          <li class="toc__sub"><a href="#collab-meeting">회의 운영</a></li>
+          <li class="toc__sub"><a href="#collab-conflict">의견이 갈릴 때</a></li>
+          <li class="toc__sub"><a href="#collab-adoption">쓰이게 만들기</a></li>
+          <li><a href="#ax">04 AI 활용</a></li>
+        </ol>
+      </nav>
 
-      <section class="note-wrap note-wrap--wide" id="how">
-        <h2 class="section-title">일하는 방식</h2>
+      <main id="main" class="article">
 
-        <div class="note note--work" data-note>
-          <div class="note__rings" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
+        <!-- ===================== 01 기획 ===================== -->
+        <section class="section" id="planning" aria-labelledby="planning-title">
+          <span class="section__no">01</span>
+          <h2 id="planning-title">기획 — 현장에서 문제를 찾고 문서로 고정하기</h2>
+          <p class="section__lead">기획은 문제를 직접 겪어 보는 데서 시작합니다. 그다음 무엇을 만들지, 어떤 조건에서 어떻게 동작하고 무엇이 예외인지를 문서로 고정합니다.</p>
+
+          <h3 id="planning-find">현장에서 문제 찾기</h3>
+          <p>지킴컴퍼니에서 다룬 아래 문제들은 그 업무를 직접 해 보거나 담당자 옆에서 보며 찾았습니다.</p>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th scope="col">어떻게 봤는지</th><th scope="col">찾은 문제</th><th scope="col">이어진 기획</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">직접 해 보기</th><td>약국마다 급여 기준이 달라 담당자가 세후 금액을 보며 입력값을 맞춤</td><td>약 30개 거래처의 기장을 직접 하며 급여 계산 기준을 다시 정의</td></tr>
+                <tr><th scope="row">원격지원</th><td>약국이 네 기관을 각각 따로 연결해야 함</td><td>인증 방식에 따라 연결 흐름을 나눔</td></tr>
+                <tr><th scope="row">담당자 관찰</th><td>도매몰 주문을 Excel로 내려받아 하나씩 옮겨 적음</td><td>주문·박스 상태 연동 정책</td></tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="note__body">
+          <h3 id="planning-process">기획 프로세스</h3>
+          <p>처음 출시하는 서비스는 아래 순서로 진행합니다. 애자일로 진행할 때는 메인 기능 하나씩 범위를 짧게 잡아 같은 과정을 반복합니다.</p>
+          <ol class="flow">
+            <li class="flow__step"><span class="flow__title">해결할 문제와 타깃 사용자 정의</span></li>
+            <li class="flow__step"><span class="flow__title">서비스 정의</span></li>
+            <li class="flow__step"><span class="flow__title">핵심 기능과 유저플로우 정리</span></li>
+            <li class="flow__step"><span class="flow__title">PRD 작성</span><span class="flow__desc">기능 목록을 포함합니다</span></li>
+            <li class="flow__step"><span class="flow__title">중요도 판단</span><span class="flow__desc">MoSCoW로 분류하고, 같은 표시를 PRD·와이어프레임·명세·작업 순서에 그대로 씁니다</span></li>
+            <li class="flow__step"><span class="flow__title">IA와 기능명세서 작성</span></li>
+            <li class="flow__step flow__step--parallel"><span class="flow__title">DB 스키마 검토와 큰 화면 와이어프레임</span><span class="flow__desc">회사에서는 백엔드 개발자가 만든 ERD를 기획 규칙과 대조했고, 개인 과제에서는 DB 스키마를 직접 설계했습니다</span></li>
+            <li class="flow__step"><span class="flow__title">디자이너 작업 시작, 상세 분기 와이어프레임 보완</span></li>
+          </ol>
+          <p>출시 뒤에는 사용자 테스트·베타·초기 운영에서 나온 개선사항을 정리해 다음 단계로 넘기고, 긴급 오류는 이슈 티켓을 직접 써서 짧은 주기로 고칩니다.</p>
 
-            <article class="note__page is-current" data-page="0" aria-label="일하는 방식 목차">
-              <h3 class="note__cover-title">How I Work</h3>
-              <ol class="toc">
-                <li>
-                  <button type="button" class="toc__btn" data-goto="1">
-                    <span class="toc__no">01</span>
-                    <span class="toc__title">기획 문서 7단계 워크플로</span>
-                    <span class="toc__year">루틴</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="toc__btn" data-goto="2">
-                    <span class="toc__no">02</span>
-                    <span class="toc__title">무엇을 AI에게 맡기지 않을지</span>
-                    <span class="toc__year">원칙</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="toc__btn" data-goto="3">
-                    <span class="toc__no">03</span>
-                    <span class="toc__title">기획서 다섯 항목 양식</span>
-                    <span class="toc__year">양식</span>
-                  </button>
-                </li>
-              </ol>
-            </article>
-            <article class="note__page" data-page="1" hidden>
-              <p class="chip chip--ko">01 · 루틴</p>
-              <h3>기획 문서 7단계 워크플로</h3>
-              <p class="note__meta">2026 ~ 현재 · 개인 워크플로 자동화</p>
-
-              <p>기획 문서를 쓸 때마다 앞 문서와 뒤 문서가 어긋나는 것이 문제였습니다.
-                 일곱 단계를 하나로 묶되 <mark>앞 단계가 검증되지 않으면 다음으로 넘어가지 않게</mark> 했습니다.</p>
-
-              <h4>단계와 검토 지점</h4>
-              <ul class="note__list">
-                <li><mark>01 프로젝트 개요</mark> — 무엇을 왜 만드는지 먼저 고정</li>
-                <li><mark>02 PRD</mark> — 범위와 비범위를 나눠 적음</li>
-                <li><mark>03 IA</mark> — 구조가 PRD 범위를 넘지 않는지 대조</li>
-                <li><mark>04 유저플로우</mark> — 예외 경로를 여기서 전부 꺼냄</li>
-                <li><mark>05 기능명세</mark> — input · output · API 규격 · 정책 · 예외</li>
-                <li><mark>06 와이어프레임</mark> — 명세에 없는 화면이 생기지 않게</li>
-                <li><mark>07 QA 체크리스트</mark> — 수정 후 전체 반영 여부 자가 점검</li>
-              </ul>
-
-              <h4>쓰다가 발견한 것</h4>
-              <p>AI가 수정 사항을 조용히 빠뜨린다는 걸 알게 됐습니다.
-                 한 곳을 고치면 다른 곳이 빠지고, 그걸 고치면 앞에서 되던 게 깨졌습니다.
-                 그래서 수정을 요청한 뒤에는 <em>전체에 반영됐는지 스스로 점검하게 하는 단계</em>를
-                 루틴으로 고정했고 누락이 눈에 띄게 줄었습니다.</p>
-
-              <h4>결과</h4>
-              <p>PRD 초안 <mark>3일 이상 → 하루 이내.</mark></p>
-
-              <ul class="tag-row">
-                <li class="tag tag--sky">워크플로 설계</li>
-                <li class="tag tag--lavender">AI 검증</li>
-                <li class="tag tag--lime">문서 일관성</li>
-              </ul>
-            </article>
-
-            <article class="note__page" data-page="2" hidden>
-              <p class="chip chip--ko">02 · 원칙</p>
-              <h3>무엇을 AI에게 맡기지 않을지</h3>
-
-              <p>AI 서비스에서 어려운 것은 모델을 부르는 일이 아니라
-                 <mark>역할을 나누는 일</mark>이라고 생각합니다.
-                 같은 원칙을 만든 것마다 반복해서 적용했습니다.</p>
-
-              <h4>세 번의 적용</h4>
-              <ul class="note__list">
-                <li><mark>세무상담 AI</mark> — 법령 근거는 RAG, 세액 계산은 코드, 범위 밖 질문의 거절은 규칙</li>
-                <li><mark>해커톤 어드민</mark> — 계산과 임계 판정은 코드, 요약·문구는 AI, 최종 확정은 사람</li>
-                <li><mark>마켓데스크</mark> — 없는 숫자는 생성 금지, 추출한 숫자는 인용 페이지와 대조해 검증 플래그</li>
-              </ul>
-
-              <h4>만든 다음에</h4>
-              <p>정확도를 올리는 것보다 <em>틀렸을 때 알아낼 수 있는 장치</em>를 함께 설계합니다.
-                 세무상담 AI에서는 계산 코드에 버그 7종을 일부러 심어
-                 테스트가 6종을 잡아내는지부터 확인했습니다.</p>
-
-              <h4>AI로 공부하는 방식</h4>
-              <p>AI에게 묻는 대신 <mark>AI가 저에게 주관식 질문을 던지게</mark> 만들었습니다.
-                 물어보면 답은 나오지만 남지 않기 때문입니다.</p>
-
-              <ul class="tag-row">
-                <li class="tag tag--sky">역할 분리</li>
-                <li class="tag tag--peach">가드레일</li>
-                <li class="tag tag--lavender">검증 설계</li>
-              </ul>
-            </article>
-
-            <article class="note__page" data-page="3" hidden>
-              <p class="chip chip--ko">03 · 양식</p>
-              <h3>기획서 다섯 항목 양식</h3>
-
-              <p>처음에는 개발자와 디자이너에게 유저플로우와 구현 결과밖에 설명하지 못했습니다.
-                 무엇을 만들지는 전달했지만, <em>어떤 조건에서 어떻게 동작하고 어떤 예외가 있는지</em>는
-                 전달하지 못했습니다.</p>
-
-              <h4>그래서 만든 것</h4>
-              <p>강의로 IT 기획을 독학해 기준을 스스로 정리한 뒤,
-                 기획서를 <mark>input · output · API 규격 · 정책 · 예외</mark>
-                 다섯 항목으로 고정하는 양식을 만들었습니다.
-                 삼일회계법인·온라인팜 등 외부 네 개사의 API 정의서를 검토해
-                 정책과 기능으로 옮기는 일도 맡았습니다.</p>
-
-              <h4>받은 피드백</h4>
-              <p>함께 일한 개발자들에게
-                 “구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다”는 말을 들었습니다.</p>
-
-              <h4>배운 것</h4>
-              <p>계산이 얽힌 서비스는 <em>예외까지 적어야 정의가 끝납니다.</em>
-                 백엔드 개발자가 작성한 ERD를 기획서 규칙과 대조해 검토하는 것도 이때부터 습관이 됐습니다.</p>
-
-              <ul class="tag-row">
-                <li class="tag tag--sky">기획서 표준화</li>
-                <li class="tag tag--lime">API 정의서 검토</li>
-                <li class="tag tag--mint">ERD 검토</li>
-              </ul>
-            </article>
-
+          <h3 id="planning-spec">기능명세 — 예외까지 적어야 정의가 끝납니다</h3>
+          <p>지킴컴퍼니 초반에는 유저플로우와 구현 결과밖에 설명하지 못했습니다. 개발자·디자이너에게 어떤 문서가 편한지 물어 기능명세를 <mark>입력 · 출력 · API 규격 · 정책 · 예외</mark>로 나누는 양식을 만들었고, 지금은 케이스 분기를 함께 적습니다.</p>
+          <div class="table-wrap">
+            <table class="table table--spec">
+              <caption>퀴켓 기획을 바탕으로 공개용으로 재구성한 예시입니다. 기능 ID와 API 이름은 예시입니다.</caption>
+              <thead><tr><th scope="col">QUIZ-01 문항 생성</th><th scope="col">내용</th><th scope="col">API 연동</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">입력</th><td>자료 범위 · 문제 수 · 난이도</td><td>문항 생성 API</td></tr>
+                <tr><th scope="row">출력</th><td>문제 · 정답 · 해설 목록</td><td>결과 조회 API</td></tr>
+                <tr><th scope="row">케이스 분기</th><td>요청한 수만큼 생성 가능 → 생성 진행<br>요청한 수를 만들기 어려움 → 가능한 수를 안내</td><td>—</td></tr>
+                <tr><th scope="row">정책</th><td>선택한 자료 범위 안에서만 출제</td><td>—</td></tr>
+                <tr><th scope="row">예외</th><td class="is-key">생성 요청이 실패하면 오류 안내와 재시도를 제공</td><td>문항 생성 API</td></tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="note__controls">
-            <button type="button" class="note__nav" data-prev aria-label="이전 장">‹</button>
-            <p class="note__count" aria-live="polite"></p>
-            <button type="button" class="note__nav" data-next aria-label="다음 장">›</button>
+          <h3 id="planning-workflow">문서 워크플로</h3>
+          <p>기획 문서를 쓸 때마다 앞 문서와 뒤 문서가 어긋나는 것이 문제였습니다. 개요 → PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 → QA 체크리스트 일곱 단계를 하나로 묶고, 단계마다 제가 검토하는 지점을 넣었습니다.</p>
+          <p>쓰다 보니 AI가 수정 사항을 조용히 빠뜨린다는 걸 알게 됐습니다. 한 곳을 고치면 다른 곳이 빠졌습니다. 그래서 수정을 요청한 뒤에는 <mark>전체에 반영됐는지 스스로 점검하게 하는 단계</mark>를 고정했습니다.</p>
+          <div class="figures">
+            <p class="figure-num"><span class="figure-num__value">3일+ → 하루</span><span class="figure-num__label">PRD 초안 작성 시간</span><span class="figure-num__scope">개인 워크플로 기록</span></p>
+            <p class="figure-num"><span class="figure-num__value">7단계</span><span class="figure-num__label">개요부터 QA 체크리스트까지</span><span class="figure-num__scope">단계마다 본인 검토</span></p>
           </div>
-          <button type="button" class="note__back" data-back hidden>↩ 목록으로</button>
-        </div>
-      </section>
+        </section>
 
-      </div>
+        <!-- ===================== 02 개발 ===================== -->
+        <section class="section" id="building" aria-labelledby="building-title">
+          <span class="section__no">02</span>
+          <h2 id="building-title">개발 — 스펙을 먼저 정하고, 만들면서 확인하기</h2>
+          <p class="section__lead">교육 과정과 개인 프로젝트에서는 직접 만듭니다. 코드는 AI 코딩 도구를 활용해 작성하고, 무엇을 막을지와 어디에 넣을지는 제가 정하며, 동작은 화면과 테스트로 확인합니다.</p>
 
-    </main>
+          <h3 id="building-spec">시작 전에 스펙 정하기</h3>
+          <p>개인 프로젝트 마켓데스크는 PRD부터 PoC까지 기획 문서 6종을 먼저 쓰고 시작했습니다. 노션에 스프린트와 태스크를 두고, 되돌리기 비싼 결정부터 이유와 함께 결정 기록에 남겼습니다.</p>
+          <div class="table-wrap">
+            <table class="table">
+              <caption>마켓데스크 결정 기록 중 일부 (2026.06–07, 전체 15건)</caption>
+              <thead><tr><th scope="col">결정할 것</th><th scope="col">정한 방향</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">리포트 수집</th><td>스크래핑이 약관상 금지인 것을 확인하고, 사용자가 직접 올리는 방식으로</td></tr>
+                <tr><th scope="row">시세 데이터</th><td>증권사 화면 크롤링 대신 공식 Open API만</td></tr>
+                <tr><th scope="row">출처 검증</th><td>규칙 기반 매칭</td></tr>
+                <tr><th scope="row">모의투자 초기화</th><td>삭제가 아니라 종료 처리 — 기록을 남김</td></tr>
+                <tr><th scope="row">성능</th><td>캐시를 기본으로, 실시간 조회는 사용자가 명시적으로 요청할 때만</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>태스크는 같은 여섯 항목으로 씁니다.</p>
+          <ol class="flow">
+            <li class="flow__step"><span class="flow__title">작업 목적</span></li>
+            <li class="flow__step"><span class="flow__title">범위</span><span class="flow__desc">포함하는 것과 제외하는 것</span></li>
+            <li class="flow__step"><span class="flow__title">구현 메모</span></li>
+            <li class="flow__step"><span class="flow__title">예외 · 고려사항</span></li>
+            <li class="flow__step"><span class="flow__title">테스트</span><span class="flow__desc">성공 조건과 실패 조건</span></li>
+            <li class="flow__step"><span class="flow__title">완료 기준</span></li>
+          </ol>
 
+          <h3 id="building-verify">만들면서 확인하기 — AI와 나의 역할</h3>
+          <div class="split">
+            <div class="split__col">
+              <span class="split__head">AI 코딩 도구</span>
+              <ul>
+                <li>태스크 구현</li>
+                <li>완료 여부와 통과 기준 1차 확인</li>
+                <li>비고에 구현 일시와 결정할 사항 기록</li>
+              </ul>
+            </div>
+            <div class="split__col">
+              <span class="split__head">나</span>
+              <ul>
+                <li>비고의 결정할 사항 확인</li>
+                <li>로컬 화면에서 2차 확인</li>
+                <li>모르는 항목은 AI에게 되물어 추적</li>
+                <li>완료 기준에 못 미치면 수정 태스크 작성</li>
+              </ul>
+            </div>
+          </div>
+          <p>화면에서 확인하다 AI가 리포트 발간일을 모르면 <mark>업로드 날짜를 발간일로 채워 넣는 것</mark>을 발견했습니다. 모르는 값은 사용자가 직접 입력하도록 바꿨습니다.</p>
+          <p>기획이 바뀔 때 이미 만든 것 중 무엇을 고쳐야 하는지 미리 판단하기 어려웠고, AI도 그걸 먼저 짚어 주지 않아 작업이 꼬인 적이 있습니다. 그 뒤로는 기획을 바꾸면 영향을 파악하는 태스크를 따로 만듭니다.</p>
+
+          <h3 id="building-test">숫자는 코드에, 확인은 테스트로</h3>
+          <p>교육 과정에서 만든 세무상담 AI에서는 법령 근거는 검색(RAG)으로 찾고, 세액은 계산 코드(Tool Calling)가 맡게 해 <mark>숫자를 모델이 만들지 않게</mark> 했습니다.</p>
+          <ul>
+            <li>테스트 17개를 통과시켰습니다.</li>
+            <li>계산 코드에 오류 7종을 넣은 시험(오류 주입은 AI 코딩 도구가 수행)에서 테스트가 6종을 잡았고, 놓친 경계값 조건은 추가 검증 항목으로 남겼습니다.</li>
+            <li>LLM은 적용 연도를 주지 않으면 이전 기준을 쓸 수 있어, 계산 기준을 세법 원문과 대조했습니다. 이때 배당 가산율이 11%로 남아 있던 것을 10%로 고쳤습니다.</li>
+          </ul>
+
+          <h3 id="building-small">확신이 없으면 작게 먼저 만들기</h3>
+          <ul>
+            <li><strong>퀴켓</strong> — 본 개발 전에 문항 생성 미니 버전을 직접 만들어 보니 짧은 자료에서도 문항이 과도하게 생성됐습니다. 입력 분량별 문항 수 기준을 정한 뒤 본 개발에 넘겼습니다.</li>
+            <li><strong>에이링크</strong> — 2인 팀에서 요구사항을 말로 맞추는 대신 프로토타입을 먼저 배포해 디자인과 흐름의 기준으로 삼았습니다.</li>
+          </ul>
+        </section>
+
+        <!-- ===================== 03 협업 ===================== -->
+        <section class="section" id="collab" aria-labelledby="collab-title">
+          <span class="section__no">03</span>
+          <h2 id="collab-title">협업 — 상대가 다음 일을 할 수 있게 넘기기</h2>
+          <p class="section__lead">같은 기획도 받는 사람에 따라 필요한 정보가 다릅니다. 문서를 넘기는 데서 끝내지 않고, 실제로 쓰이는 데까지 확인합니다.</p>
+
+          <h3 id="collab-handoff">상대별로 다르게 넘기기</h3>
+          <div class="table-wrap">
+            <table class="table">
+              <caption>지킴컴퍼니에서 기획자로 일할 때 기준</caption>
+              <thead><tr><th scope="col">상대</th><th scope="col">넘기는 것</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">디자이너</th><td>화면 ID와 삭제·추가·변경 내용</td></tr>
+                <tr><th scope="row">개발자</th><td>입출력, API·DB 명칭, 정책과 예외. 백엔드 ERD는 기획 규칙과 대조해 의견 전달</td></tr>
+                <tr><th scope="row">대표</th><td>핵심 기능과 결정해야 할 쟁점</td></tr>
+                <tr><th scope="row">현업 담당자</th><td>계산 기준 설명과 사용·확인 가이드</td></tr>
+                <tr><th scope="row">파트너사</th><td>가입·연동·이용 조건 문의 응대, 내부·외부 가이드와 교육 자료</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <blockquote class="quote">
+            <p>“구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다.”</p>
+            <cite>지킴컴퍼니에서 함께 일한 개발자와 디자이너</cite>
+          </blockquote>
+
+          <h3 id="collab-meeting">회의 운영</h3>
+          <p>퀴켓은 팀원 모두 직장인인 7인 사이드 프로젝트였습니다. 회의를 매주 일요일 밤으로 고정하고, 안건을 미리 정리해 안건마다 꼭 참석할 사람을 정했습니다. 첫 아이디어 회의를 빼고 모든 회의를 30분 안에 끝냈습니다.</p>
+
+          <h3 id="collab-conflict">의견이 갈릴 때</h3>
+          <ul>
+            <li><strong>퀴켓</strong> — 디자이너는 게임 요소를 키우고 싶어 했고, 개발자는 핵심 흐름부터 끝내야 했습니다. 문제 생성·풀이·오답 흐름을 먼저 출시하고, 도토리 창고 이미지는 남긴 채 준비되지 않은 메뉴에는 “겨울잠을 자고 있어요. 기다려주세요” 안내를 넣었습니다. 데이터 구조는 설계대로 남겨 다음 단계에서 이어 쓸 수 있게 했습니다.</li>
+            <li><strong>EDU:UP</strong>(교육 과정 4인 팀) — 발표 직전 팀이 백엔드 구현 범위만 남기자고 했을 때, 문제 정의의 핵심 화면은 모의 데이터로라도 남기자고 제안했습니다. 일부를 유지하고, 본 설계·현재 대체 구현·다음 스프린트 계획을 표로 정리해 발표했습니다.</li>
+          </ul>
+
+          <h3 id="collab-adoption">쓰이게 만들기까지</h3>
+          <p>급여명세서 기능은 배포 뒤에도 담당자들이 계산이 틀릴까 걱정해 쓰지 않았습니다. 회의에서 화면을 띄워 계산 기준을 직접 설명하고 사용·확인 가이드를 전달한 뒤, 내부에서 실제 급여 계산에 쓰이기 시작했습니다.</p>
+          <p>문제를 찾았을 때는 근거와 함께 넘깁니다. 주문 연동에서는 양쪽 데이터를 대조해 시간 경계의 주문 누락과 첫 박스에만 배송정보가 적용되는 오류를 찾아 QA로 등록했습니다.</p>
+        </section>
+
+        <!-- ===================== 04 AI 활용 ===================== -->
+        <section class="section" id="ax" aria-labelledby="ax-title">
+          <span class="section__no">04</span>
+          <h2 id="ax-title">AI 활용 — 무엇을 맡기고, 무엇을 직접 판단하는지</h2>
+          <p class="section__lead">AI 서비스에서 어려운 것은 모델을 부르는 일보다 역할을 나누는 일이라고 봅니다. 아래는 교육 과정과 개인 프로젝트에서 반복한 기준입니다.</p>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th scope="col">프로젝트</th><th scope="col">코드·규칙</th><th scope="col">AI</th><th scope="col">사람</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">세무상담 AI</th><td>세액 계산, 범위 밖 질문 안내</td><td>근거를 찾아 답변 작성</td><td>계산 기준을 원문과 대조</td></tr>
+                <tr><th scope="row">해커톤 어드민</th><td>계산과 임계 판정</td><td>요약·안내 문구</td><td>최종 확정</td></tr>
+                <tr><th scope="row">마켓데스크</th><td>중복·유사본 판별</td><td>목적별 요약 — 없는 숫자·전망은 비우고 종목은 추천하지 않음</td><td>화면에서 2차 확인</td></tr>
+                <tr><th scope="row">라벨링 도구</th><td>프레임 계산, 저장</td><td>초벌 라벨은 참고 표시만</td><td>판정 입력</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>기획 업무에 AI를 쓰는 방식</h3>
+          <ul>
+            <li><strong>재사용</strong> — 자주 쓰는 프롬프트와 디자인 레퍼런스를 정리해 다시 씁니다. 템플릿을 고르면 프롬프트를 만들어 주는 템플릿 허브도 이 목적으로 만들었습니다.</li>
+            <li><strong>작성 기준</strong> — 문서 종류별 작성 기준과 예시를 AI 작업 지침으로 두고 같은 기준으로 초안을 만들게 합니다.</li>
+            <li><strong>검토</strong> — AI가 만든 기획 초안은 사용자·개발자·디자이너 입장에서 다시 검토하게 하고, 사실과 판단은 제가 확인합니다.</li>
+            <li><strong>구현 확인</strong> — 태스크를 목적·범위·예외·완료 기준으로 쓰고, AI가 구현하면 화면에서 다시 확인합니다.</li>
+            <li><strong>공부</strong> — AI에게 묻는 대신 AI가 저에게 주관식 질문을 던지게 만들어 씁니다. 물어보면 답은 나오지만 남지 않기 때문입니다.</li>
+          </ul>
+
+          <nav class="pager" aria-label="다른 페이지">
+            <a href="portfolio.html"><small>← 이전</small><strong>프로젝트 기록</strong></a>
+            <a class="pager__next" href="notes.html"><small>다음 →</small><strong>Dev Notes</strong></a>
+          </nav>
+        </section>
+
+      </main>
+    </div>
   </div>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <div>
-        <p class="site-footer__brand">inwoo<span>.log</span></p>
-        <p class="site-footer__desc">
-          장인우 채용 지원용 포트폴리오입니다.
-          더 많은 기록은 <a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Inwoo.log</a>에 있습니다.
-        </p>
-      </div>
-      <ul class="site-footer__links">
+      <p>inwoo.log — 장인우의 기획·개발 기록 · © 2026</p>
+      <ul>
         <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
         <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Inwoo.log 원본</a></li>
       </ul>
     </div>
-    <p class="site-footer__copy">© 2026 장인우</p>
   </footer>
 
   <script src="script/nav.js"></script>
-  <script src="script/portfolio.js"></script>
+  <script src="script/toc.js"></script>
 </body>
 </html>

@@ -1,15 +1,16 @@
 /* ==========================================================
    script/portfolio-quick.js — Quick View / Book View 전환
-   - Quick View(기본): 프로젝트 카드 목록 + 분류·유형 필터 + 읽기 화면
-   - Book View: 기존 책장·연습장(script/portfolio.js)을 그대로 보여준다
-   - 읽기 화면의 "상세 기록"은 연습장 장(<article class="note__page">)을
+   - Quick View(기본): 프로젝트 카드 + 분류·유형 필터 + 읽기 화면
+   - Book View: 기존 책장·연습장(script/portfolio.js)
+   - 마크업은 디자인 시스템(css/ds.css, storybook/src/components.js)과 같다
+   - 읽기 화면의 “상세 기록”은 연습장 장(<article class="note__page">)을
      복제해 쓴다. 내용의 원본은 portfolio.html 한 곳뿐이다.
 
    주소(해시) 규칙
-     (없음) · #list         → Quick View 목록
-     #p-<id>                → Quick View 읽기 화면 (id = data-project-gallery 값)
-     #skala · #team · #solo → Book View, 해당 책 (기존 링크 호환)
-     #book                  → Book View
+     (없음) · #list                → Quick View 목록
+     #p-<id>                       → 읽기 화면 (id = data-project-gallery 값)
+     #work · #skala · #team · #solo → Book View, 해당 책 (기존 링크 호환)
+     #book                         → Book View
    ========================================================== */
 (function () {
   var projects = window.PROJECTS || [];
@@ -22,19 +23,21 @@
   var gridEl = quickPanel.querySelector("[data-quick-grid]");
   var countEl = quickPanel.querySelector("[data-quick-count]");
   var readerEl = quickPanel.querySelector("[data-reader]");
+  var pageHead = document.querySelector("[data-page-head]");
   var switchBtns = document.querySelectorAll(".view-switch [data-view]");
 
   var BOOKS = {
-    skala: { label: "SKALA", name: "SKALA 프로젝트" },
-    team: { label: "Team", name: "팀에서 만든 것" },
-    solo: { label: "Solo", name: "직접 만든 것" }
+    work: { label: "실무", name: "실무 — 지킴컴퍼니" },
+    skala: { label: "교육", name: "SKALA 교육 과정" },
+    team: { label: "팀", name: "팀에서 만든 것" },
+    solo: { label: "개인", name: "직접 만든 것" }
   };
   var BOOK_IDS = Object.keys(BOOKS);
 
   var filter = { book: "all", type: "all" };
   var lastOpenedId = null;
 
-  /* ---------- 작은 도우미 ---------- */
+  /* ---------- 도우미 ---------- */
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -50,13 +53,11 @@
     return null;
   }
 
-  /** 프로젝트 id → 연습장 장(article) */
   function articleOf(id) {
     var mount = document.querySelector('.note__page [data-project-gallery="' + id + '"]');
     return mount ? mount.closest(".note__page") : null;
   }
 
-  /** 연습장 장(article) → { book, page } */
   function locate(article) {
     var wrap = article && article.closest(".note-wrap");
     return wrap ? { book: wrap.id, page: Number(article.getAttribute("data-page")) || 0 } : null;
@@ -66,14 +67,31 @@
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
+  function statusEl(p) {
+    var kind = p.statusKind || "other";
+    var cls = kind === "live" ? "status status--live" : kind === "edu" ? "status status--edu" : "status";
+    return el("span", cls, p.status || "");
+  }
+
+  function tagsEl(items) {
+    var ul = el("ul", "tags");
+    ul.setAttribute("aria-label", "기술·키워드");
+    items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    return ul;
+  }
+
   /* ---------- 필터 ---------- */
 
   function renderFilterButtons() {
+    var counts = { all: projects.length };
+    BOOK_IDS.forEach(function (id) {
+      counts[id] = projects.filter(function (p) { return p.book === id; }).length;
+    });
     var groups = {
-      book: [{ value: "all", label: "전체" }].concat(BOOK_IDS.map(function (id) {
-        return { value: id, label: BOOKS[id].label };
+      book: [{ value: "all", label: "전체", count: counts.all }].concat(BOOK_IDS.map(function (id) {
+        return { value: id, label: BOOKS[id].label, count: counts[id] };
       })),
-      type: [{ value: "all", label: "전체" }].concat(types.map(function (t) {
+      type: [{ value: "all", label: "모든 유형" }].concat(types.map(function (t) {
         return { value: t, label: t };
       }))
     };
@@ -82,18 +100,21 @@
       var box = quickPanel.querySelector('[data-filter="' + key + '"]');
       if (!box) { return; }
       groups[key].forEach(function (opt) {
-        var btn = el("button", "filter-btn", opt.label);
+        var li = el("li");
+        var btn = el("button", "chip-btn", opt.label);
         btn.type = "button";
         btn.dataset.value = opt.value;
+        if (opt.count != null) { btn.appendChild(el("small", null, String(opt.count))); }
         btn.setAttribute("aria-pressed", String(filter[key] === opt.value));
         btn.addEventListener("click", function () {
           filter[key] = opt.value;
-          box.querySelectorAll(".filter-btn").forEach(function (b) {
+          box.querySelectorAll(".chip-btn").forEach(function (b) {
             b.setAttribute("aria-pressed", String(b.dataset.value === opt.value));
           });
           renderGrid();
         });
-        box.appendChild(btn);
+        li.appendChild(btn);
+        box.appendChild(li);
       });
     });
   }
@@ -105,61 +126,41 @@
     });
   }
 
-  /* ---------- 카드 목록 ---------- */
-
-  function bookBadge(bookId) {
-    var badge = el("span", "book-badge book-badge--" + bookId, BOOKS[bookId].label);
-    return badge;
-  }
-
-  function metricNode(m, className) {
-    var box = el("div", className || "metric");
-    box.appendChild(el("strong", "metric__value", m.value));
-    box.appendChild(el("span", "metric__label", m.label));
-    if (m.scope) { box.appendChild(el("span", "metric__scope", m.scope)); }
-    return box;
-  }
+  /* ---------- 카드 ---------- */
 
   function card(p) {
-    var li = el("li", "pcard pcard--" + p.book);
+    var li = el("li", "card");
 
-    var kicker = el("p", "pcard__kicker");
-    kicker.appendChild(bookBadge(p.book));
-    kicker.appendChild(el("span", "pcard__scope", p.scope.replace(/^SKALA\s·\s/, "") + " · " + p.period));
-    li.appendChild(kicker);
+    var thumb;
+    if (p.image) {
+      thumb = el("div", "card__thumb");
+      var img = el("img");
+      img.src = p.image; img.alt = p.imageAlt || ""; img.loading = "lazy";
+      thumb.appendChild(img);
+    } else {
+      thumb = el("div", "card__thumb card__thumb--text");
+      var m = !p.headline && p.metrics && p.metrics[0];
+      thumb.appendChild(el("strong", null, m ? m.value : p.headline || p.title));
+      thumb.appendChild(el("span", null, m ? (m.label + (m.scope ? " · " + m.scope : "")) : (p.headlineScope || "")));
+    }
+    li.appendChild(thumb);
 
-    var h = el("h3", "pcard__title");
-    var link = el("a", "pcard__link", p.title);
+    var body = el("div", "card__body");
+    var top = el("p", "card__top");
+    top.appendChild(el("span", null, BOOKS[p.book].label + " · " + p.period));
+    top.appendChild(statusEl(p));
+    body.appendChild(top);
+
+    var h = el("h3", "card__title");
+    var link = el("a", null, p.title);
     link.href = "#p-" + p.id;
     h.appendChild(link);
-    li.appendChild(h);
+    body.appendChild(h);
 
-    var typeRow = el("p", "pcard__types");
-    typeRow.textContent = p.types.join(" · ");
-    li.appendChild(typeRow);
-
-    var facts = el("dl", "pcard__facts");
-    [["문제", p.problem], ["역할", p.role]].forEach(function (pair) {
-      var row = el("div", "pcard__fact");
-      row.appendChild(el("dt", null, pair[0]));
-      row.appendChild(el("dd", null, pair[1]));
-      facts.appendChild(row);
-    });
-    li.appendChild(facts);
-
-    if (p.metrics.length) {
-      li.appendChild(metricNode(p.metrics[0], "metric metric--card"));
-    } else if (p.resultNote) {
-      var note = el("p", "pcard__result", p.resultNote);
-      li.appendChild(note);
-    }
-
-    var tags = el("ul", "tag-row pcard__tags");
-    tags.setAttribute("aria-label", "기술 스택");
-    p.stack.slice(0, 4).forEach(function (t) { tags.appendChild(el("li", "tag", t)); });
-    li.appendChild(tags);
-
-    li.appendChild(el("span", "pcard__more", "자세히 보기 →")).setAttribute("aria-hidden", "true");
+    body.appendChild(el("p", "card__result", p.problem));
+    body.appendChild(el("p", "card__role", p.role));
+    body.appendChild(tagsEl(p.stack.slice(0, 4)));
+    li.appendChild(body);
     return li;
   }
 
@@ -174,30 +175,31 @@
 
   /* ---------- 읽기 화면 ---------- */
 
-  /** 연습장 장을 복제해 읽기 화면용 본문으로 다듬는다 */
   function proseFrom(article) {
     var copy = article.cloneNode(true);
     copy.removeAttribute("hidden");
-    // 머리(칩·제목·메타)와 태그·링크 줄은 요약 영역에서 따로 보여준다
     var firstMeta = copy.querySelector(":scope > .note__meta");
     if (firstMeta) { firstMeta.remove(); }
     copy.querySelectorAll(":scope > .chip, :scope > h3, :scope > .tag-row, :scope > .btn-row")
       .forEach(function (n) { n.remove(); });
-    // 비어 있는 갤러리 자리 제거
     copy.querySelectorAll("[data-project-gallery]").forEach(function (g) {
       g.removeAttribute("data-project-gallery");
       if (g.hidden || !g.children.length) { g.remove(); }
     });
-    var prose = el("div", "reader__prose");
+    // 연습장의 소제목(h4)은 읽기 화면에서 한 단계 위(h3)로
+    copy.querySelectorAll("h4").forEach(function (h4) {
+      var h3 = el("h3"); h3.innerHTML = h4.innerHTML; h4.replaceWith(h3);
+    });
+    var prose = el("div", "reader-view__prose");
     while (copy.firstChild) { prose.appendChild(copy.firstChild); }
     return prose;
   }
 
-  /** 연습장 장 안의 링크 — 다른 장으로 가는 링크는 읽기 화면 주소로 바꾼다 */
   function linksFrom(article) {
     var out = [];
     article.querySelectorAll(".btn-row a").forEach(function (a) {
       var copy = a.cloneNode(true);
+      copy.className = "btn btn--quiet";
       if (copy.hasAttribute("data-open-book")) {
         var wrap = document.getElementById(copy.getAttribute("data-open-book"));
         var target = wrap && wrap.querySelector('.note__page[data-page="' + (copy.getAttribute("data-open-page") || 0) + '"] [data-project-gallery]');
@@ -210,24 +212,7 @@
     return out;
   }
 
-  function factRow(no, label) {
-    var row = el("div", "reader__fact");
-    var dt = el("dt");
-    dt.appendChild(el("span", "reader__no", no));
-    dt.appendChild(document.createTextNode(label));
-    row.appendChild(dt);
-    var dd = el("dd");
-    row.appendChild(dd);
-    return { row: row, dd: dd };
-  }
-
-  function pagerLink(p, dir) {
-    var a = el("a", "reader__step reader__step--" + dir);
-    a.href = "#p-" + p.id;
-    a.appendChild(el("span", "reader__step-label", dir === "prev" ? "‹ 이전 프로젝트" : "다음 프로젝트 ›"));
-    a.appendChild(el("span", "reader__step-title", p.title));
-    return a;
-  }
+  function heading(text) { return el("h2", null, text); }
 
   function renderReader(p) {
     var article = articleOf(p.id);
@@ -237,97 +222,100 @@
 
     readerEl.textContent = "";
 
-    /* 상단 막대 — 목록으로 · 위치 */
-    var bar = el("div", "reader__bar");
-    var back = el("a", "reader__back", "← 프로젝트 목록");
+    var bar = el("div", "reader-view__bar");
+    var back = el("a", null, "← 프로젝트 목록");
     back.href = "#list";
     bar.appendChild(back);
-    bar.appendChild(el("span", "reader__pos", (index + 1) + " / " + order.length));
+    bar.appendChild(el("span", "count", (index + 1) + " / " + order.length));
     readerEl.appendChild(bar);
 
-    /* 머리 */
-    var head = el("header", "reader__head");
-    var kicker = el("p", "pcard__kicker");
-    kicker.appendChild(bookBadge(p.book));
-    kicker.appendChild(el("span", "pcard__scope", p.types.join(" · ")));
-    head.appendChild(kicker);
-    var title = el("h2", "reader__title", p.title);
+    var head = el("header");
+    head.appendChild(el("p", "eyebrow", BOOKS[p.book].name));
+    var title = el("h1", null, p.title);
     title.id = "reader-title";
     title.tabIndex = -1;
     head.appendChild(title);
     var meta = article && article.querySelector(".note__meta");
-    head.appendChild(el("p", "reader__meta", meta ? meta.textContent.trim() : p.period));
+    if (meta) { head.appendChild(el("p", "meta", meta.textContent.trim())); }
+
+    var facts = el("dl", "facts");
+    [["기간", p.period], ["구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
+      var d = el("div");
+      d.appendChild(el("dt", null, pair[0]));
+      d.appendChild(el("dd", null, pair[1]));
+      facts.appendChild(d);
+    });
+    var sd = el("div");
+    sd.appendChild(el("dt", null, "상태"));
+    var dd = el("dd"); dd.appendChild(statusEl(p)); sd.appendChild(dd);
+    facts.appendChild(sd);
+    head.appendChild(facts);
     readerEl.appendChild(head);
 
     /* 요약 — 개요 → 문제 → 역할 → 설계·구현 → 결과 → 스택·링크 */
-    var summary = el("section", "reader__summary");
-    summary.setAttribute("aria-labelledby", "reader-summary-title");
-    var sumTitle = el("h3", "reader__label", "요약");
-    sumTitle.id = "reader-summary-title";
-    summary.appendChild(sumTitle);
-    var dl = el("dl", "reader__facts");
+    readerEl.appendChild(heading("한눈에 보기"));
+    readerEl.appendChild(el("p", "lead", p.overview));
 
-    var f1 = factRow("01", "프로젝트 개요"); f1.dd.textContent = p.overview; dl.appendChild(f1.row);
-    var f2 = factRow("02", "해결하려는 문제"); f2.dd.textContent = p.problem; dl.appendChild(f2.row);
-    var f3 = factRow("03", "담당 역할"); f3.dd.textContent = p.role; dl.appendChild(f3.row);
+    readerEl.appendChild(el("h3", null, "해결하려는 문제"));
+    readerEl.appendChild(el("p", null, p.problem));
 
-    var f4 = factRow("04", "핵심 설계·구현");
-    var ul = el("ul", "reader__list");
+    readerEl.appendChild(el("h3", null, "핵심 설계·구현"));
+    var ul = el("ul");
     p.build.forEach(function (b) { ul.appendChild(el("li", null, b)); });
-    f4.dd.appendChild(ul); dl.appendChild(f4.row);
+    readerEl.appendChild(ul);
 
-    var f5 = factRow("05", "결과 및 검증");
+    readerEl.appendChild(el("h3", null, "결과 및 검증"));
     if (p.metrics.length) {
-      var metrics = el("div", "metrics");
-      p.metrics.forEach(function (m) { metrics.appendChild(metricNode(m)); });
-      f5.dd.appendChild(metrics);
+      var figs = el("div", "figures");
+      p.metrics.forEach(function (m) {
+        var f = el("p", "figure-num");
+        f.appendChild(el("span", "figure-num__value", m.value));
+        f.appendChild(el("span", "figure-num__label", m.label));
+        if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
+        figs.appendChild(f);
+      });
+      readerEl.appendChild(figs);
     }
-    if (p.resultNote) { f5.dd.appendChild(el("p", "reader__note", p.resultNote)); }
-    if (!p.metrics.length && !p.resultNote) { f5.dd.appendChild(el("p", "reader__note", "상세 기록을 참고해 주세요.")); }
-    dl.appendChild(f5.row);
+    if (p.resultNote) { readerEl.appendChild(el("p", null, p.resultNote)); }
 
-    var f6 = factRow("06", "기술 스택 · 관련 링크");
-    var tags = el("ul", "tag-row");
-    tags.setAttribute("aria-label", "기술 스택");
-    p.stack.forEach(function (t) { tags.appendChild(el("li", "tag tag--sky", t)); });
-    f6.dd.appendChild(tags);
+    readerEl.appendChild(el("h3", null, "기술 · 관련 링크"));
+    readerEl.appendChild(tagsEl(p.stack));
     var links = article ? linksFrom(article) : [];
     if (links.length) {
-      var row = el("p", "btn-row reader__links");
+      var row = el("p", "reader-view__actions");
+      row.style.marginTop = "var(--s4)";
       links.forEach(function (a) { row.appendChild(a); });
-      f6.dd.appendChild(row);
+      readerEl.appendChild(row);
     }
-    dl.appendChild(f6.row);
 
-    summary.appendChild(dl);
-    readerEl.appendChild(summary);
-
-    /* 상세 기록 — 연습장 본문 */
     if (article) {
-      var detail = el("section", "reader__detail");
-      detail.setAttribute("aria-labelledby", "reader-detail-title");
-      var detTitle = el("h3", "reader__label", "상세 기록");
-      detTitle.id = "reader-detail-title";
-      detail.appendChild(detTitle);
-      detail.appendChild(proseFrom(article));
-      readerEl.appendChild(detail);
+      readerEl.appendChild(heading("상세 기록"));
+      readerEl.appendChild(proseFrom(article));
     }
 
-    /* 아래 — 이전·다음 프로젝트, 목록, 연습장에서 보기 */
-    var pager = el("nav", "reader__pager");
+    var pager = el("nav", "pager");
     pager.setAttribute("aria-label", "프로젝트 이동");
-    if (index > 0) { pager.appendChild(pagerLink(order[index - 1], "prev")); }
-    else { pager.appendChild(el("span", "reader__step reader__step--empty")); }
-    if (index < order.length - 1) { pager.appendChild(pagerLink(order[index + 1], "next")); }
+    if (index > 0) {
+      var prev = el("a"); prev.href = "#p-" + order[index - 1].id;
+      prev.appendChild(el("small", null, "← 이전 프로젝트"));
+      prev.appendChild(el("strong", null, order[index - 1].title));
+      pager.appendChild(prev);
+    } else { pager.appendChild(el("span")); }
+    if (index < order.length - 1) {
+      var next = el("a", "pager__next"); next.href = "#p-" + order[index + 1].id;
+      next.appendChild(el("small", null, "다음 프로젝트 →"));
+      next.appendChild(el("strong", null, order[index + 1].title));
+      pager.appendChild(next);
+    }
     readerEl.appendChild(pager);
 
-    var foot = el("p", "reader__foot");
-    var back2 = el("a", "btn btn--mini", "← 목록으로");
+    var foot = el("p", "reader-view__actions");
+    var back2 = el("a", "btn btn--quiet", "← 목록으로");
     back2.href = "#list";
     foot.appendChild(back2);
     var where = locate(article);
     if (where) {
-      var inBook = el("button", "btn btn--mini", "연습장(Book View)에서 보기");
+      var inBook = el("button", "btn btn--quiet", "연습장(Book View)에서 보기");
       inBook.type = "button";
       inBook.addEventListener("click", function () {
         showView("book");
@@ -355,12 +343,13 @@
     showView("quick");
     readerEl.hidden = true;
     listEl.hidden = false;
-    document.title = "포트폴리오 — 장인우 · Inwoo.log";
+    if (pageHead) { pageHead.hidden = false; }
+    document.title = "포트폴리오 — 장인우 · inwoo.log";
     if (restoreFocus && lastOpenedId) {
       var link = gridEl.querySelector('a[href="#p-' + lastOpenedId + '"]');
       if (link) {
         link.focus({ preventScroll: true });
-        link.closest(".pcard").scrollIntoView({ block: "center" });
+        link.closest(".card").scrollIntoView({ block: "center" });
       }
     }
   }
@@ -370,9 +359,10 @@
     renderReader(p);
     listEl.hidden = true;
     readerEl.hidden = false;
+    if (pageHead) { pageHead.hidden = true; }
     lastOpenedId = p.id;
-    document.title = p.title + " — 포트폴리오 · Inwoo.log";
-    quickPanel.scrollIntoView({ block: "start", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    document.title = p.title + " — 포트폴리오 · inwoo.log";
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
     var title = document.getElementById("reader-title");
     if (title) { title.focus({ preventScroll: true }); }
   }
@@ -387,6 +377,7 @@
 
     if (BOOK_IDS.indexOf(hash) >= 0 || hash === "book") {
       showView("book");
+      if (pageHead) { pageHead.hidden = false; }
       return;
     }
     if (hash.indexOf("p-") === 0) {
@@ -400,7 +391,7 @@
     btn.addEventListener("click", function () {
       if (btn.getAttribute("aria-pressed") === "true") { return; }
       if (btn.dataset.view === "book") {
-        var id = window.portfolioBookshelf ? window.portfolioBookshelf.activeId() : "skala";
+        var id = window.portfolioBookshelf ? window.portfolioBookshelf.activeId() : "work";
         location.hash = id;   // portfolio.js가 해시를 보고 해당 책을 펼친다
       } else {
         location.hash = "list";

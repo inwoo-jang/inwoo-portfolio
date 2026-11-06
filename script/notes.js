@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/notes.js — Engineering Notes
+   script/notes.js — Dev Notes
    - 목록: notes/index.json (tools/build-notes-index.mjs 로 생성)
    - 본문: notes/<slug>.md 를 읽어 script/markdown.js 로 안전하게 렌더링
    - 주소: (없음)·#list → 목록 / #n-<slug> → 노트 상세
@@ -57,22 +57,23 @@
     opts.forEach(function (c) {
       var count = c.id === "all" ? notes.length
         : notes.filter(function (n) { return n.category === c.id; }).length;
-      var btn = el("button", "filter-btn");
+      var li = el("li");
+      var btn = el("button", "chip-btn");
       btn.type = "button";
       btn.dataset.value = c.id;
       btn.setAttribute("aria-pressed", String(state.category === c.id));
-      btn.appendChild(document.createTextNode(c.label + " "));
-      var num = el("span", "filter-btn__count", String(count));
-      btn.appendChild(num);
+      btn.appendChild(document.createTextNode(c.label));
+      btn.appendChild(el("small", null, String(count)));
+      li.appendChild(btn);
       if (c.desc) { btn.title = c.desc; }
       btn.addEventListener("click", function () {
         state.category = c.id;
-        catBox.querySelectorAll(".filter-btn").forEach(function (b) {
+        catBox.querySelectorAll(".chip-btn").forEach(function (b) {
           b.setAttribute("aria-pressed", String(b.dataset.value === c.id));
         });
         renderList();
       });
-      catBox.appendChild(btn);
+      catBox.appendChild(li);
     });
   }
 
@@ -85,30 +86,28 @@
     return q.split(/\s+/).every(function (word) { return hay.indexOf(word) >= 0; });
   }
 
-  function noteCard(n) {
-    var li = el("li", "ncard");
-    var top = el("p", "ncard__kicker");
-    top.appendChild(el("span", "ncard__cat", categoryOf(n.category).label));
-    if (n.sample) { top.appendChild(el("span", "badge-sample", "샘플")); }
-    li.appendChild(top);
+  function tagList(n) {
+    var ul = el("ul", "tags");
+    ul.setAttribute("aria-label", "분류와 태그");
+    [categoryOf(n.category).label].concat(n.tags).forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    if (n.sample) { ul.appendChild(el("li", null, "샘플")); }
+    return ul;
+  }
 
-    var h = el("h3", "ncard__title");
-    var a = el("a", "ncard__link", n.title);
+  function noteCard(n) {
+    var li = el("li", "entry");
+    var time = el("time", "entry__date", formatDate(n.date));
+    time.dateTime = n.date;
+    li.appendChild(time);
+    var body = el("div");
+    var h = el("h3", "entry__title");
+    var a = el("a", null, n.title);
     a.href = "#n-" + n.slug;
     h.appendChild(a);
-    li.appendChild(h);
-
-    li.appendChild(el("p", "ncard__summary", n.summary));
-
-    var foot = el("div", "ncard__foot");
-    var tags = el("ul", "tag-row");
-    tags.setAttribute("aria-label", "태그");
-    n.tags.forEach(function (t) { tags.appendChild(el("li", "tag", t)); });
-    foot.appendChild(tags);
-    var time = el("time", "ncard__date", formatDate(n.date));
-    time.dateTime = n.date;
-    foot.appendChild(time);
-    li.appendChild(foot);
+    body.appendChild(h);
+    body.appendChild(el("p", "entry__summary", n.summary));
+    body.appendChild(tagList(n));
+    li.appendChild(body);
     return li;
   }
 
@@ -142,44 +141,42 @@
   function renderReader(note) {
     readerEl.textContent = "";
 
-    var bar = el("div", "reader__bar");
-    var back = el("a", "reader__back", "← 노트 목록");
+    var bar = el("div", "reader-view__bar");
+    var back = el("a", null, "← 노트 목록");
     back.href = "#list";
     bar.appendChild(back);
-    bar.appendChild(el("span", "reader__pos", categoryOf(note.category).label));
+    bar.appendChild(el("span", "count", categoryOf(note.category).label));
     readerEl.appendChild(bar);
 
-    var head = el("header", "reader__head");
-    var kicker = el("p", "ncard__kicker");
-    kicker.appendChild(el("span", "ncard__cat", categoryOf(note.category).label));
-    if (note.sample) { kicker.appendChild(el("span", "badge-sample", "샘플")); }
-    head.appendChild(kicker);
-    var title = el("h2", "reader__title", note.title);
+    var head = el("header");
+    head.appendChild(el("p", "eyebrow", categoryOf(note.category).label));
+    var title = el("h1", null, note.title);
     title.id = "note-title";
     title.tabIndex = -1;
     head.appendChild(title);
-    var meta = el("p", "reader__meta");
-    var time = el("time", null, formatDate(note.date));
+    var meta = el("p", "meta");
+    var time = el("time", null, "작성 " + formatDate(note.date));
     time.dateTime = note.date;
-    meta.appendChild(document.createTextNode("작성 "));
     meta.appendChild(time);
     head.appendChild(meta);
-    var tags = el("ul", "tag-row");
-    tags.setAttribute("aria-label", "태그");
-    note.tags.forEach(function (t) { tags.appendChild(el("li", "tag tag--sky", t)); });
-    head.appendChild(tags);
+    var flags = el("ul", "doc-flags");
+    flags.style.marginTop = "var(--s4)";
+    note.tags.forEach(function (t) { flags.appendChild(el("li", null, t)); });
+    if (note.sample) { flags.appendChild(el("li", "is-sample", "샘플 — 구조만 잡아 둔 글")); }
+    head.appendChild(flags);
     readerEl.appendChild(head);
 
-    var prose = el("div", "reader__prose md");
+    var prose = el("div", "md");
+    prose.style.marginTop = "var(--s6)";
     prose.setAttribute("aria-busy", "true");
-    prose.appendChild(el("p", "reader__note", "노트를 불러오는 중…"));
+    prose.appendChild(el("p", "count", "노트를 불러오는 중…"));
     readerEl.appendChild(prose);
 
-    var foot = el("p", "reader__foot");
-    var back2 = el("a", "btn btn--mini", "← 목록으로");
+    var foot = el("p", "reader-view__actions");
+    var back2 = el("a", "btn btn--quiet", "← 목록으로");
     back2.href = "#list";
     foot.appendChild(back2);
-    var src = el("a", "btn btn--mini", "GitHub에서 원본 보기 ↗");
+    var src = el("a", "btn btn--quiet", "GitHub에서 원본 보기 ↗");
     src.href = REPO_BLOB + note.file;
     src.target = "_blank";
     src.rel = "noopener noreferrer";
@@ -193,7 +190,7 @@
       prose.removeAttribute("aria-busy");
     }).catch(function () {
       prose.textContent = "";
-      prose.appendChild(el("p", "reader__note", "노트를 불러오지 못했습니다. 잠시 후 다시 시도하거나 GitHub에서 원본을 확인해 주세요."));
+      prose.appendChild(el("p", "count", "노트를 불러오지 못했습니다. 잠시 후 다시 시도하거나 GitHub에서 원본을 확인해 주세요."));
       prose.removeAttribute("aria-busy");
     });
   }
@@ -203,12 +200,12 @@
   function showList(restoreFocus) {
     readerEl.hidden = true;
     listEl.hidden = false;
-    document.title = "Engineering Notes — 장인우 · Inwoo.log";
+    document.title = "Dev Notes — 장인우 · Inwoo.log";
     if (restoreFocus && lastOpened) {
       var link = gridEl.querySelector('a[href="#n-' + lastOpened + '"]');
       if (link) {
         link.focus({ preventScroll: true });
-        link.closest(".ncard").scrollIntoView({ block: "center" });
+        link.closest(".entry").scrollIntoView({ block: "center" });
       }
     }
   }

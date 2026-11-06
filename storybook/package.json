@@ -1,0 +1,16 @@
+{
+  "name": "inwoo-log-storybook",
+  "private": true,
+  "version": "1.0.0",
+  "description": "inwoo.log 디자인 시스템 — 컴포넌트와 페이지 템플릿 (사이트 배포와 별개)",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static"
+  },
+  "devDependencies": {
+    "@storybook/html-vite": "^10.6.6",
+    "storybook": "^10.6.6",
+    "vite": "^8.3.6"
+  }
+}

@@ -14,19 +14,20 @@
 |---|---|
 | `index.html` | 홈 — 벤토 히어로(워드마크 + 배포 화면 슬라이더 4장) · 바로가기 · Now 사이드바 |
 | `profile.html` | Basic · Skills · Timeline |
-| `portfolio.html` | 프로젝트 요약 · 연습장 3권 — SKALA 프로젝트 4장 / 팀에서 만든 것 5장 / 직접 만든 것 5장 |
-| `how.html` | 연습장 1권 — 기획 문서 7단계 워크플로 · 역할 분리 원칙 · 기획서 다섯 항목 양식 |
-| `notes.html` | Engineering Notes — 개발 도구·기술 개념·실습·트러블슈팅 (Markdown) |
+| `portfolio.html` | Quick View(카드·필터·읽기 화면) / Book View 연습장 4권 — 실무(지킴) 6장 / SKALA 교육 4장 / 팀 3장 / 개인 5장 |
+| `how.html` | 긴 글 + 목차 — 01 기획 · 02 개발 · 03 협업 · 04 AI 활용. 새 디자인 시스템(`css/ds.css`)을 처음 적용한 페이지 |
+| `storybook/index.html` | 디자인 시스템 시안 — 원칙 · 기초 요소 · 컴포넌트 · 템플릿 (내부용, 메뉴에 없음) |
+| `notes.html` | Dev Notes — 개발 도구·기술 개념·실습·트러블슈팅 (Markdown) |
 
 ### Portfolio 보기 방식
 
-- **Quick View(기본)** — 프로젝트 카드 14개를 분류(SKALA/Team/Solo)·유형(AI Engineering/Product/Frontend/Backend/Tool)으로 거른다.
+- **Quick View(기본)** — 프로젝트 카드 18개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
   카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 요약(개요→문제→역할→설계·구현→결과→스택·링크) 뒤에 연습장 본문을 그대로 보여 준다.
 - **Book View** — 기존 책장·연습장. `#skala` · `#team` · `#solo` 주소는 그대로 Book View로 열린다.
 - 카드 요약은 `script/projects-data.js`, 상세 본문의 원본은 `portfolio.html`의 연습장 장이다(id = `data-project-gallery` 값).
   요약에는 본문에 적힌 사실만 쓰고, 팀 결과·설계 목표·추정치는 `metrics[].scope`에 범위를 적는다.
 
-### Engineering Notes 추가
+### Dev Notes 추가
 
 1. `notes/_template.md`를 복사해 `notes/영문-슬러그.md`로 저장하고 front matter(title · category · tags · date · summary · sample)를 채운다.
 2. `node tools/build-notes-index.mjs` — `notes/index.json`(목록)을 다시 만든다. GitHub Pages는 폴더 목록을 주지 않아서 필요하다.
@@ -43,7 +44,7 @@ Calendar · Trip · Reading · Guestbook · 로그인/회원가입 · 날씨/미
 
 ## 사실 기준
 
-내용은 `~/Desktop/자기계발/지원/자소서&포트폴리오/자소서_작성가이드.md` 팩트시트를 따른다.
+내용은 `포트폴리오_전체_프로젝트_소재집_20261106.md`(비공개 작업 자료)와 `~/Desktop/자기계발/지원/자소서&포트폴리오/자소서_작성가이드.md` 팩트시트의 최신 정정을 따른다. 내부 프로젝트(ADchecky)·내부 정책 수치·고객 자료는 싣지 않는다.
 L2 기술(Docker·Supabase·MSA)은 스킬 태그에 넣지 않고, 프로젝트 안에서 한계와 함께만 언급한다.
 
 ## 파일

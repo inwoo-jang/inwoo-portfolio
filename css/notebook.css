@@ -1,0 +1,961 @@
+/* ==========================================================
+   css/notebook.css — Portfolio의 Book View(연습장·책장) 전용
+   - css/style.css의 연습장 규칙을 옮겨 왔고, 예전 변수 이름을
+     디자인 시스템(css/ds.css) 토큰 값에 연결해 색·글꼴을 통일한다.
+   - 반드시 css/ds.css 다음에 불러온다.
+   ========================================================== */
+.page-portfolio {
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+  --sp-6: 32px; --sp-7: 48px; --sp-8: 72px; --sp-9: 96px;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-full: 999px;
+  --t-fast: .18s ease; --t-base: .32s ease;
+  --font-base: var(--font); --font-mono: var(--font); --font-serif: var(--font);
+  --bg: var(--paper); --surface: #FFFFFF; --surface-2: var(--paper-2); --paper-white: #FFFFFF;
+  --line: var(--rule); --line-2: var(--rule-strong); --text-dim: var(--muted);
+  --grid-line: #F2F4F6; --pink-bg: #F6DDE2;
+  --sky-50: var(--accent-soft); --sky-100: #DCE6F2; --sky-200: #C2D5EB; --sky-300: #97B6DA;
+  --sky-400: #5C8AC2; --sky-500: #2F65A6; --sky-600: var(--accent); --sky-700: var(--accent-strong);
+  --lime-ink: #4F6326; --shelf-wood: #DCD6CC; --shelf-edge: #8A7F70;
+  --sh-sm: 0 1px 2px rgba(17, 20, 24, .06);
+}
+
+/* ---------- 24-3. 연습장 (추가 실습) ---------- */
+
+/* 두 권을 나란히 — 좁아지면 세로로 쌓인다 */
+.note-shelf {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+.note-wrap {
+  margin-bottom: var(--sp-6);
+}
+
+.note-wrap .section-title {
+  display: block;
+  width: auto;
+  margin: 0 0 var(--sp-4);
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-base);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.note {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* 페이지마다 높이가 달라지지 않도록 고정 — 넘치면 페이지 안에서 스크롤 */
+  height: min(860px, 82vh);
+  padding: var(--sp-4) var(--sp-3) var(--sp-4) var(--sp-7);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md) var(--r-lg) var(--r-lg) var(--r-md);
+
+  /* 연한 모눈 + 종이 결 + 가장자리 그늘 */
+  background-image:
+    repeating-linear-gradient(to right,
+      var(--grid-line) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(to bottom,
+      var(--grid-line) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(115deg,
+      rgba(120, 105, 85, .022) 0 2px, transparent 2px 5px),
+    radial-gradient(120% 90% at 18% 0%,
+      rgba(255, 255, 255, .9) 0%, rgba(140, 125, 105, .07) 100%);
+  background-position: var(--sp-5) var(--sp-5), var(--sp-5) var(--sp-5), 0 0, 0 0;
+
+  /* 오른쪽으로 겹쳐 쌓인 종이 — 두께감 */
+  box-shadow:
+    3px 0 0 -1px var(--surface),  4px 0 0 -1px var(--line),
+    7px 0 0 -2px var(--surface),  8px 0 0 -2px var(--line),
+    11px 0 0 -3px var(--surface), 12px 0 0 -3px var(--line),
+    0 22px 44px rgba(20, 24, 28, .10);
+}
+
+/* 무드 컬러 — 팀은 브랜드 네이비, 개인은 웜그레이 */
+.note--team { border-top: 5px solid var(--sky-500); }
+.note--solo { border-top: 5px solid var(--text-dim); }
+.note--work { border-top: 5px solid var(--lime-ink, var(--text-dim)); }
+
+/* 앵커 이동 — 상단바(sticky)에 가리지 않게 섹션 머리를 창 위에 맞춘다 */
+html { scroll-behavior: smooth; }
+.page-portfolio #profile,
+.page-portfolio #projects,
+.page-portfolio #skala,
+.page-portfolio #team,
+.page-portfolio #solo,
+.page-portfolio #how { scroll-margin-top: 92px; }
+
+/* 히어로 슬라이더 — 여행 세로 사진이 아니라 배포 화면(가로)을 담는다 */
+.page-home .slider__track { aspect-ratio: 16 / 10; }
+.page-home .slider__item img { object-fit: contain; background: var(--surface); }
+
+
+/* 한 권만 놓이는 연습장(직접 만든 것 · 일하는 방식) — 두 칸으로 늘리지 않고
+   나란히 놓인 연습장과 같은 가로·세로를 유지한 채 가운데 둔다 */
+.note-wrap--wide {
+  grid-column: 1 / -1;
+  width: calc(50% - var(--sp-6) / 2);   /* = 두 칸 중 한 칸 폭 */
+  justify-self: center;
+}
+.page-portfolio .note-wrap--wide { width: calc(50% - var(--sp-7) / 2); }
+@media (max-width: 1024px) {
+  /* 한 칸으로 쌓이는 구간에서는 다른 연습장과 같이 전체 폭 */
+  .note-wrap--wide,
+  .page-portfolio .note-wrap--wide { width: auto; justify-self: stretch; }
+}
+.note-wrap--wide .note__cover-title { max-width: none; }
+
+
+/* 연습장에 붙여 둔 스크린샷 한 장 */
+.note__shot {
+  margin: var(--sp-4) 0;
+  transform: rotate(-0.4deg);
+  text-align: center;
+}
+
+.note__shot img {
+  width: auto;
+  max-width: 100%;
+  max-height: 220px;   /* 연습장 안에 들어오도록 크기 축소 */
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-sm);
+  background-color: var(--surface);
+}
+
+.note__shot figcaption {
+  margin-top: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: .04em;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* 왼쪽 제본 여백 — 세로 빨간 줄 */
+.note::before {
+  content: "";
+  position: absolute;
+  left: var(--sp-7);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--pink-bg);
+}
+
+/* 스프링 제본 */
+.note__rings {
+  position: absolute;
+  z-index: 2;
+  left: 6px;
+  top: var(--sp-5);
+  bottom: var(--sp-5);
+  width: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+/* 링 하나 — 종이 왼쪽 끝을 감아 도는 철사 */
+.note__rings span {
+  position: relative;
+  display: block;
+  width: 34px;
+  height: 13px;
+  border: 3px solid var(--line-2);
+  border-radius: var(--r-full);
+  background-color: var(--bg);
+  transform: rotate(-9deg);
+}
+
+/* 철사에 비치는 빛 */
+.note__rings span::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 14px;
+  height: 2px;
+  border-radius: var(--r-full);
+  background-color: var(--surface);
+  opacity: .9;
+}
+
+/* 종이에 뚫린 구멍 */
+.note__rings span::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: var(--r-full);
+  background-color: var(--line);
+}
+
+/* 종이 넘김 무대 */
+.note__body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;        /* flex 안에서 body가 정해진 높이를 갖도록 */
+  overflow: hidden;
+  perspective: 1600px;
+  perspective-origin: 0 center;
+}
+
+.note__page {
+  /* 페이지는 body를 가득 채우고, 내용이 넘치면 안에서 스크롤 */
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding-right: 2px;   /* 스크롤바를 오른쪽 끝에 가깝게 */
+  /* 넘김 기준선 = 스프링 중심 (종이 바깥 왼쪽) */
+  transform-origin: 0 center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  /* 무드에 맞는 얇은 스크롤바 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+}
+
+.note__page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.note__page::-webkit-scrollbar-thumb {
+  background-color: var(--line-2);
+  border-radius: var(--r-full);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.note__page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 종이 절반 클릭으로 넘기기 — 방향을 가리키는 손가락 커서.
+   이모지를 SVG 안에서 흰색 실루엣으로 마스킹(feComposite)하고 그림자로 가시성 확보 */
+.note.zone-next {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cfilter id='w' x='-40%25' y='-40%25' width='180%25' height='180%25'%3E%3CfeFlood flood-color='white' result='f'/%3E%3CfeComposite in='f' in2='SourceGraphic' operator='in' result='s'/%3E%3CfeDropShadow in='s' dx='0' dy='1' stdDeviation='1.2' flood-color='black' flood-opacity='0.5'/%3E%3C/filter%3E%3Ctext x='4' y='31' font-size='30' filter='url(%23w)'%3E%F0%9F%91%89%3C/text%3E%3C/svg%3E") 20 20, e-resize;
+}
+
+.note.zone-prev {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cfilter id='w' x='-40%25' y='-40%25' width='180%25' height='180%25'%3E%3CfeFlood flood-color='white' result='f'/%3E%3CfeComposite in='f' in2='SourceGraphic' operator='in' result='s'/%3E%3CfeDropShadow in='s' dx='0' dy='1' stdDeviation='1.2' flood-color='black' flood-opacity='0.5'/%3E%3C/filter%3E%3Ctext x='4' y='31' font-size='30' filter='url(%23w)'%3E%F0%9F%91%88%3C/text%3E%3C/svg%3E") 20 20, w-resize;
+}
+
+/* 넘어가는 종이는 아래 장 위에 겹쳐 놓는다 */
+.note__page.is-flipping-out,
+.note__page.is-flipping-in {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: var(--surface);
+  background-image:
+    repeating-linear-gradient(to right,
+      var(--grid-line) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(to bottom,
+      var(--grid-line) 0 1px, transparent 1px 24px);
+  box-shadow: 10px 0 30px rgba(20, 24, 28, .14);
+}
+
+.note__page.is-flipping-out {
+  animation: pageFlipOut .62s cubic-bezier(.36, .05, .28, 1) both;
+}
+
+.note__page.is-flipping-in {
+  animation: pageFlipIn .62s cubic-bezier(.36, .05, .28, 1) both;
+}
+
+/* 왼쪽 스프링을 축으로 종이가 젖혀진다 */
+@keyframes pageFlipOut {
+  0%   { transform: rotateY(0deg);    opacity: 1; }
+  55%  { transform: rotateY(-92deg);  opacity: .85; }
+  100% { transform: rotateY(-165deg); opacity: 0; }
+}
+
+@keyframes pageFlipIn {
+  0%   { transform: rotateY(-165deg); opacity: 0; }
+  45%  { transform: rotateY(-92deg);  opacity: .85; }
+  100% { transform: rotateY(0deg);    opacity: 1; }
+}
+
+/* 젖혀질 때 종이에 지는 그림자 */
+.note__page.is-flipping-out::after,
+.note__page.is-flipping-in::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to right,
+    rgba(30, 90, 140, .18) 0%,
+    rgba(30, 90, 140, 0) 45%
+  );
+}
+
+.note__cover-title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 var(--sp-6);
+}
+
+.note__meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.note__list {
+  padding-left: var(--sp-5);
+  font-size: 0.9375rem;
+}
+
+.note__list li {
+  margin-bottom: var(--sp-1);
+}
+
+.note__page h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.note__page h4 {
+  color: var(--sky-600);
+}
+
+/* 목차 */
+.toc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: none;
+}
+
+/* 목차 */
+.toc li {
+  margin: 0;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.toc li:last-child {
+  border-bottom: none;
+}
+
+.toc__btn {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr auto;
+  align-items: baseline;
+  gap: var(--sp-4);
+  width: 100%;
+  padding: var(--sp-5) var(--sp-2);
+  border: none;
+  border-radius: var(--r-sm);
+  background: none;
+  font-family: inherit;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--t-fast), padding-left var(--t-base);
+}
+
+.toc__btn:hover {
+  background-color: var(--sky-50);
+  padding-left: var(--sp-5);
+}
+
+.toc__no {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--sky-600);
+}
+
+.toc__title {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.toc__year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.note__controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;   /* ‹ · 가운데 · › */
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+
+/* ‹ › 넘기기 버튼 — 평소엔 옅게, 호버 시 또렷하게 */
+.note__nav {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+  background-color: transparent;
+  color: var(--text-dim);
+  opacity: .5;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--t-fast), border-color var(--t-fast),
+              color var(--t-fast), opacity var(--t-fast), transform .16s ease;
+}
+
+.note__nav:hover {
+  opacity: 1;
+  background-color: var(--sky-50);
+  border-color: var(--sky-300);
+  color: var(--sky-600);
+  transform: translateY(-1px);
+}
+
+.note__nav:active {
+  transform: translateY(0) scale(.94);
+}
+
+.note__nav:disabled {
+  opacity: .25;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 목록으로 — 버튼 티 없이 작은 글자만 */
+.note__back {
+  display: block;
+  width: fit-content;
+  margin: var(--sp-4) auto 0;   /* 연습장 아래 가운데 */
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: .04em;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.note__back:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.note__count {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.note__controls .btn:disabled {
+  opacity: .45;
+}
+
+
+
+@media (max-width: 767px) {
+  /* 연습장 세로로 쌓아 스크롤 */
+  .note-shelf {
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+
+  .note {
+    min-height: 0;
+    padding-left: var(--sp-7);
+  }
+
+  .note__body,
+  .page-portfolio .note__body {
+    perspective-origin: -16px center;
+  }
+
+  .note__page,
+  .page-portfolio .note__page {
+    transform-origin: -16px center;
+  }
+
+  .note__rings {
+    left: 4px;
+    width: 26px;
+  }
+
+  .note__rings span {
+    width: 26px;
+    height: 11px;
+  }
+
+  .note::before {
+    left: var(--sp-6);
+  }
+
+  /* 좁은 화면에서는 목차가 두 줄이 되므로 줄 맞춤을 푼다 */
+  .toc li,
+  .toc__btn {
+    height: auto;
+  }
+
+  .toc__btn {
+    grid-template-columns: 2.25rem 1fr;
+    grid-template-areas:
+      "no title"
+      "no year";
+    gap: 4px var(--sp-3);
+    padding: var(--sp-4) var(--sp-2);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .toc__no    { grid-area: no; align-self: start; padding-top: 4px; }
+  .toc__title { grid-area: title; }
+  .toc__year  { grid-area: year; }
+
+}
+
+
+/* 포트폴리오 — 세로로 긴 스프링 연습장 */
+
+.page-portfolio .note-shelf {
+  gap: var(--sp-7);
+}
+
+.page-portfolio .note-wrap .section-title {
+  margin-bottom: var(--sp-3);
+  font-size: .8125rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--text-dim);
+}
+
+/* 길쭉한 비율 + 줄노트 유지 */
+.page-portfolio .note {
+  min-height: 860px;
+  padding: var(--sp-6) var(--sp-6) var(--sp-6) var(--sp-9);
+  /* 모눈 시작점을 안쪽 여백에 맞춘다 */
+  background-position: var(--sp-9) var(--sp-6),
+                       var(--sp-9) var(--sp-6),
+                       0 0, 0 0;
+}
+
+.page-portfolio .note__body {
+  perspective-origin: -48px center;
+}
+
+.page-portfolio .note__page {
+  transform-origin: -48px center;
+}
+
+.page-portfolio .note__cover-title {
+  margin: 0 0 var(--sp-6);
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 4.4vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+.page-portfolio .toc__btn:hover {
+  background: transparent;
+  color: var(--sky-600);
+}
+
+.page-portfolio .note__page h3:not(.note__cover-title) {
+  margin-bottom: var(--sp-2);
+  font-size: 1.375rem;
+  letter-spacing: -.03em;
+}
+
+.page-portfolio .note__page h4 {
+  margin-top: var(--sp-5);
+  color: var(--sky-600);
+  font-size: .75rem;
+  letter-spacing: .08em;
+}
+
+
+
+@media (max-width: 767px) {
+  .page-portfolio .note {
+    min-height: 620px;
+    padding: var(--sp-5) var(--sp-4) var(--sp-5) var(--sp-7);
+    background-position: var(--sp-7) var(--sp-5),
+                         var(--sp-7) var(--sp-5),
+                         0 0, 0 0;
+  }
+
+}
+
+
+/* ==========================================================
+   포트폴리오 책장 — 위에 세 권을 꽂아 두고, 고른 한 권만 아래에 펼친다.
+   책 표지는 음악 커버플로우 카드와 같은 2톤 그라데이션 + 종이 노이즈.
+   ========================================================== */
+.bookshelf {
+  margin: var(--sp-6) 0 var(--sp-6);
+  scroll-margin-top: 92px;
+}
+
+.bookshelf__hint {
+  margin: 0 0 var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+}
+
+/* 책이 서 있는 선반 — 나무색 판 + 아래 짙은 모서리 */
+.bookshelf__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 170px));
+  justify-content: center;
+  align-items: end;
+  gap: var(--sp-5);
+  margin: 0;
+  padding: var(--sp-5) var(--sp-5) 0;
+  list-style: none;
+  border-bottom: 12px solid var(--shelf-wood);
+  box-shadow: 0 4px 0 var(--shelf-edge), 0 14px 24px rgba(20, 24, 28, .12);
+  border-radius: var(--r-md) var(--r-md) 2px 2px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(116, 102, 87, .06) 100%);
+}
+
+.shelf-book {
+  --c1: #8A8072;
+  --c2: #5B5349;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: var(--sp-4) var(--sp-4) var(--sp-4) calc(var(--sp-4) + 10px);
+  border: none;
+  border-radius: 4px var(--r-md) var(--r-md) 4px;
+  text-align: left;
+  color: #FFFFFF;
+  font-family: var(--font-base);
+  background-color: var(--c2);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E"),
+    linear-gradient(158deg, var(--c1), var(--c2));
+  background-size: 140px 140px, cover;
+  background-blend-mode: soft-light, normal;
+  box-shadow: 0 10px 22px rgba(20, 24, 28, .22),
+              inset 0 1px 0 rgba(255, 255, 255, .14);
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition: transform var(--t-base), box-shadow var(--t-base), filter var(--t-base);
+}
+
+/* 책등 — 왼쪽 접힌 띠 */
+.shelf-book::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  border-radius: 4px 0 0 4px;
+  background: linear-gradient(to right, rgba(0, 0, 0, .28), rgba(255, 255, 255, .08) 70%, rgba(0, 0, 0, .12));
+}
+
+.shelf-book--skala { --c1: #7C9471; --c2: #4C6147; }   /* 연습장 띠 — 라임 잉크 */
+.shelf-book--team  { --c1: #6F97B3; --c2: #2E5678; }   /* 브랜드 하늘색 */
+.shelf-book--solo  { --c1: #8A8072; --c2: #5B5349; }   /* 웜그레이 */
+
+.shelf-book__no {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  color: rgba(255, 255, 255, .78);
+}
+
+.shelf-book__title {
+  margin-top: var(--sp-2);
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+}
+
+.shelf-book__meta {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .02em;
+  color: rgba(255, 255, 255, .82);
+}
+
+.shelf-book:hover {
+  transform: translateY(-4px);
+}
+
+/* 지금 펼친 책 — 선반에서 조금 뽑혀 나오고 아래에 표시 막대 */
+.shelf-book.is-active {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 32px rgba(20, 24, 28, .3),
+              inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.shelf-book:not(.is-active) {
+  filter: saturate(.75);
+}
+
+.shelf-book.is-active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 36%;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: var(--r-full);
+  background-color: var(--ink);
+}
+
+.shelf-book:focus-visible {
+  outline: 3px solid var(--sky-400);
+  outline-offset: 3px;
+  border-radius: 4px var(--r-md) var(--r-md) 4px;
+}
+
+/* 펼친 책은 한 권 — 한 칸 폭으로 가운데 */
+.page-portfolio .note-shelf--open {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.note-shelf--open .note-wrap[hidden] { display: none; }
+
+.note-shelf--open .note-wrap .section-title { text-align: center; }
+
+/* 책이 바뀔 때 살짝 올라온다 */
+.note-wrap.is-entering {
+  animation: shelf-book-open .36s ease both;
+}
+
+@keyframes shelf-book-open {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 끝 장의 넘기기 버튼 — "다음 책 ›" 글자가 들어간 알약 모양 */
+.note__nav.note__nav--book {
+  width: auto;
+  padding: 0 var(--sp-4);
+  font-family: var(--font-base);
+  font-size: .8125rem;
+  font-weight: 700;
+  opacity: 1;
+  color: var(--sky-600);
+  border-color: var(--sky-300);
+  background-color: var(--sky-50);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .bookshelf__row {
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-3) 0;
+  }
+
+  .shelf-book {
+    padding: var(--sp-3) var(--sp-2) var(--sp-3) calc(var(--sp-2) + 8px);
+  }
+
+  .shelf-book::before { width: 8px; }
+
+  .shelf-book__title { font-size: 1.125rem; }
+
+  .shelf-book__meta { font-size: .5625rem; }
+
+  .shelf-book.is-active { transform: translateY(-8px); }
+
+  .shelf-book.is-active::after { bottom: -10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shelf-book:hover { transform: none; }
+  .note-wrap.is-entering { animation: none; }
+}
+
+/* 페이지 제목 강조 — 이탤릭·밑줄 대신 본문 글꼴 그대로 형광펜만 */
+.page-title em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+  background-image: linear-gradient(var(--sky-200), var(--sky-200));
+  background-size: 100% 0.5em;
+  background-position: 0 90%;
+  padding: 0 .1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* 연습장 본문 강조 — 글꼴은 본문 그대로.
+   mark = 연한 형광펜, em = 굵게만 */
+.note__page mark {
+  background-color: transparent;
+  background-image: linear-gradient(color-mix(in srgb, var(--sky-200) 70%, transparent), color-mix(in srgb, var(--sky-200) 70%, transparent));
+  background-repeat: no-repeat;
+  background-size: 100% 0.55em;
+  background-position: 0 88%;
+  color: inherit;
+  font-weight: inherit;
+  padding: 0 .08em;
+  border-radius: 0;
+}
+.note__page em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  color: inherit;
+  background-image: none;
+  padding: 0;
+}
+
+
+
+/* Project images retain the notebook layout. */
+.project-gallery[hidden] { display: none; }
+.project-gallery__open { display: block; width: 100%; padding: 0; border: 0; border-radius: 12px; background: transparent; cursor: zoom-in; }
+.project-gallery__open:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+.project-gallery__open img { display: block; width: 100%; height: auto; max-height: 360px; object-fit: contain; }
+.image-viewer { box-sizing: border-box; width: min(1100px, 94vw); max-height: 92dvh; padding: 20px; border: 1px solid #ccc; border-radius: 16px; background: #faf8f3; color: #272722; overflow: auto; }
+.image-viewer::backdrop { background: rgba(20, 20, 20, .72); }
+.image-viewer__close { display: block; margin: 0 0 12px auto; }
+.image-viewer img { display: block; max-width: 100%; height: auto; margin: auto; }
+.image-viewer p { margin: 12px 0 0; font-size: 14px; }
+@media (max-width: 600px) { .image-viewer { padding: 12px; } }
+
+
+
+/* ---------- 32-9. Book View(연습장) 가독성 ---------- */
+/* 연습장이 화면 높이를 넘지 않게 — 페이지 스크롤과 장 안 스크롤이 겹치지 않도록 */
+.page-portfolio .note {
+  height: min(860px, calc(100vh - 120px));
+  height: min(860px, calc(100dvh - 120px));
+  min-height: 560px;
+  scroll-margin-top: 80px;
+}
+
+.page-portfolio .note__page p:not(.chip):not(.note__meta),
+.page-portfolio .note__list {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.page-portfolio .note__list li { margin-bottom: var(--sp-2); }
+
+.page-portfolio .note__page h4 {
+  margin: var(--sp-6) 0 var(--sp-2);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.page-portfolio .note__meta,
+.page-portfolio .note__page p.note__meta {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.page-portfolio .note__page .tag-row { margin-top: var(--sp-5); }
+
+.note__back {
+  min-height: 36px;
+  padding: 0 var(--sp-3);
+  font-size: 0.8125rem;
+}
+
+.note__nav { width: 40px; height: 40px; opacity: .7; }
+
+.shelf-book__meta { font-size: 0.6875rem; }
+
+/* 장 안 스크롤 끝에서 페이지가 덜컥 같이 움직이지 않게 */
+.page-portfolio .note__page { overscroll-behavior-y: contain; }
+
+
+
+@media (max-width: 767px) {
+  /* Book View — 모바일은 연습장 높이를 풀어 페이지째 스크롤한다(내부 스크롤 없음) */
+  .page-portfolio .note { height: auto; min-height: 0; }
+  .page-portfolio .note__page {
+    position: relative;
+    inset: auto;
+    overflow: visible;
+    overscroll-behavior: auto;
+  }
+  .page-portfolio .note__page.is-flipping-in { position: relative; inset: auto; }
+  .page-portfolio .note__page.is-flipping-out { position: absolute; inset: 0; overflow: hidden; }
+
+  /* 넘기기 버튼은 화면 아래에 붙여 긴 글을 읽은 뒤 바로 넘길 수 있게 */
+  .page-portfolio .note__controls {
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    margin: var(--sp-4) calc(var(--sp-4) * -1) 0 0;
+    padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom));
+    background-color: var(--surface);
+    box-shadow: 0 -8px 16px -10px rgba(20, 24, 28, .18);
+  }
+  .note__nav { width: 44px; height: 44px; }
+}
+
+
+
+/* ---------- 32-11. 실무 책(지킴) · 책장 4권 ---------- */
+.bookshelf__row { grid-template-columns: repeat(4, minmax(0, 160px)); }
+.shelf-book--work { --c1: #5E5A55; --c2: #2B2825; }   /* 실무 — 잉크색 */
+.note--career { border-top: 5px solid var(--ink); }
+.pcard--work { --book-c: var(--ink); }
+.book-badge--work { background-color: var(--ink); color: var(--surface); }
+.page-portfolio #work { scroll-margin-top: 92px; }
+@media (max-width: 767px) {
+  .bookshelf__row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); padding: var(--sp-4) var(--sp-2) 0; }
+  .shelf-book__title { font-size: 1rem; }
+}
+
+
+/* ---------- 디자인 시스템과 맞추기 ---------- */
+/* 연습장 목차는 글 목차(.toc)와 이름이 같으므로 연습장 안에서 되돌린다 */
+.note .toc { position: static; font-size: inherit; border: 0; }
+.note .toc li { border-bottom: 1px solid var(--rule); }
+
+/* 연습장 안 표시 — 칩은 작은 회색 글자, 태그는 · 구분, 버튼은 디자인 시스템 버튼과 같은 모양 */
+.note__page .chip { display: inline-block; margin: 0 0 var(--s3); font-size: var(--fs-caption); font-weight: 600; color: var(--accent); }
+.note__page h3 { color: var(--ink); }
+.note__page .tag-row { display: flex; flex-wrap: wrap; list-style: none; margin: var(--s5) 0 0; padding: 0; font-size: var(--fs-caption); color: var(--muted); }
+.note__page .tag-row .tag { margin: 0; padding: 0; background: none; color: inherit; font-size: inherit; }
+.note__page .tag-row .tag + .tag::before { content: "·"; margin: 0 var(--s2); color: var(--rule-strong); }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s4) 0; }
+.btn--mini { min-height: 36px; padding: 0 var(--s3); border: 1px solid var(--rule-strong); border-radius: var(--radius); background: #fff; color: var(--ink); font-size: var(--fs-caption); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
+.btn--mini:hover { border-color: var(--ink); }
+.note__cover-title { font-weight: 800 !important; letter-spacing: -0.04em !important; }
+.shelf-book__title { font-family: var(--font); font-weight: 700; letter-spacing: -0.03em; }
+.note-wrap .section-title { display: block; margin: 0 0 var(--s3); text-align: center; font-size: var(--fs-small); font-weight: 600; color: var(--muted); }

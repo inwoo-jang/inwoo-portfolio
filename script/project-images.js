@@ -1,5 +1,9 @@
 // 실제 프로젝트 이미지 목록. 빈 배열은 화면에 표시되지 않습니다.
 window.PROJECT_IMAGES = {
+  "order-sync": [],
+  "pharmacy-link": [],
+  "rx-ops": [],
+  "jikim-etc": [],
   "taxdesk": [],
   "gtsrb": [],
   "edu-up": [],

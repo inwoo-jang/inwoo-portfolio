@@ -7733,3 +7733,16 @@ html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .pcard:hover, .ncard:hover { transform: none; }
 }
+
+
+/* ---------- 32-11. 실무 책(지킴) · 책장 4권 ---------- */
+.bookshelf__row { grid-template-columns: repeat(4, minmax(0, 160px)); }
+.shelf-book--work { --c1: #5E5A55; --c2: #2B2825; }   /* 실무 — 잉크색 */
+.note--career { border-top: 5px solid var(--ink); }
+.pcard--work { --book-c: var(--ink); }
+.book-badge--work { background-color: var(--ink); color: var(--surface); }
+.page-portfolio #work { scroll-margin-top: 92px; }
+@media (max-width: 767px) {
+  .bookshelf__row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); padding: var(--sp-4) var(--sp-2) 0; }
+  .shelf-book__title { font-size: 1rem; }
+}
