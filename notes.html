@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="장인우의 Engineering Notes — 개발 도구, 기술 개념, 실습 기록, 트러블슈팅.">
+  <title>Engineering Notes — 장인우 · Inwoo.log</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flags.css">
+</head>
+<body class="page-notes">
+
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="topbar">
+    <a class="topbar__logo" href="index.html">inwoo<span>.log</span></a>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="topbar__nav" id="siteNav" aria-label="주요 메뉴">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="how.html">How I Work</a></li>
+        <li><a href="notes.html" class="is-active" aria-current="page">Notes</a></li>
+      </ul>
+    </nav>
+
+    <div class="topbar__auth">
+      <a href="mailto:roseprincess0331@gmail.com" class="btn btn--ghost">이메일</a>
+      <a href="https://github.com/inwoo-jang" target="_blank" rel="noopener" class="btn btn--primary">GitHub</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="index.html">홈</a> <span aria-hidden="true">/</span> <span>Engineering Notes</span>
+    </nav>
+
+    <header class="page-head">
+      <p class="eyebrow">기술 기록</p>
+      <h1 class="page-title">무엇을 이해했고 <em>어떻게 해결했는지</em></h1>
+      <p class="page-desc">
+        Portfolio가 무엇을 만들었는지 보여준다면, Notes는 개발 도구·기술 개념·실습·트러블슈팅을 정리하는 기록입니다.
+        ‘샘플’ 표시가 있는 노트는 구조만 잡아 둔 상태이며, 직접 확인한 내용만 채워 나갑니다.
+      </p>
+    </header>
+
+    <main id="main">
+      <section class="notes" data-notes aria-labelledby="notes-title">
+        <h2 class="visually-hidden" id="notes-title">노트 목록</h2>
+
+        <div class="notes__list" data-notes-list>
+          <div class="filters">
+            <div class="filters__group filters__group--search">
+              <label class="filters__label" for="note-search">검색</label>
+              <input class="search-input" id="note-search" type="search" placeholder="제목·요약·태그로 찾기" autocomplete="off" aria-describedby="note-search-hint">
+              <span class="visually-hidden" id="note-search-hint">입력하면 아래 목록이 바로 걸러집니다.</span>
+            </div>
+            <div class="filters__group" role="group" aria-labelledby="note-cat-label">
+              <span class="filters__label" id="note-cat-label">카테고리</span>
+              <div class="filters__options" data-note-cats></div>
+            </div>
+          </div>
+
+          <p class="quick__count" data-notes-count aria-live="polite">노트를 불러오는 중…</p>
+          <ul class="ncard-grid" data-notes-grid></ul>
+        </div>
+
+        <article class="reader reader--note" data-note-reader aria-labelledby="note-title" hidden></article>
+      </section>
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">inwoo<span>.log</span></p>
+        <p class="site-footer__desc">
+          장인우 채용 지원용 포트폴리오입니다.
+          더 많은 기록은 <a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Inwoo.log</a>에 있습니다.
+        </p>
+      </div>
+      <ul class="site-footer__links">
+        <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <p class="site-footer__copy">© 2026 장인우</p>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/markdown.js"></script>
+  <script src="script/notes.js"></script>
+</body>
+</html>

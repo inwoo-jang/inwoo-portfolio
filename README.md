@@ -16,6 +16,22 @@
 | `profile.html` | Basic · Skills · Timeline |
 | `portfolio.html` | 프로젝트 요약 · 연습장 3권 — SKALA 프로젝트 4장 / 팀에서 만든 것 5장 / 직접 만든 것 5장 |
 | `how.html` | 연습장 1권 — 기획 문서 7단계 워크플로 · 역할 분리 원칙 · 기획서 다섯 항목 양식 |
+| `notes.html` | Engineering Notes — 개발 도구·기술 개념·실습·트러블슈팅 (Markdown) |
+
+### Portfolio 보기 방식
+
+- **Quick View(기본)** — 프로젝트 카드 14개를 분류(SKALA/Team/Solo)·유형(AI Engineering/Product/Frontend/Backend/Tool)으로 거른다.
+  카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 요약(개요→문제→역할→설계·구현→결과→스택·링크) 뒤에 연습장 본문을 그대로 보여 준다.
+- **Book View** — 기존 책장·연습장. `#skala` · `#team` · `#solo` 주소는 그대로 Book View로 열린다.
+- 카드 요약은 `script/projects-data.js`, 상세 본문의 원본은 `portfolio.html`의 연습장 장이다(id = `data-project-gallery` 값).
+  요약에는 본문에 적힌 사실만 쓰고, 팀 결과·설계 목표·추정치는 `metrics[].scope`에 범위를 적는다.
+
+### Engineering Notes 추가
+
+1. `notes/_template.md`를 복사해 `notes/영문-슬러그.md`로 저장하고 front matter(title · category · tags · date · summary · sample)를 채운다.
+2. `node tools/build-notes-index.mjs` — `notes/index.json`(목록)을 다시 만든다. GitHub Pages는 폴더 목록을 주지 않아서 필요하다.
+3. 본문은 브라우저에서 `script/markdown.js`가 렌더링한다. 원문 HTML은 쓰지 않고 모두 이스케이프하며, 링크는 http(s)·mailto·상대 경로만 허용한다.
+4. `fetch`를 쓰므로 로컬 확인은 파일 더블클릭이 아니라 `python3 -m http.server`로 연다.
 
 연습장은 표지(목차)에서 항목을 누르면 해당 장이 펼쳐진다.
 종이 오른쪽 절반을 누르면 다음 장, 왼쪽 절반을 누르면 이전 장. 방향키(← →)로도 넘긴다.
@@ -33,12 +49,18 @@ L2 기술(Docker·Supabase·MSA)은 스킬 태그에 넣지 않고, 프로젝트
 ## 파일
 
 ```
-index.html · profile.html · portfolio.html · how.html
+index.html · profile.html · portfolio.html · how.html · notes.html
 css/style.css        Inwoo.log 원본 스타일 (+ 연습장 3권 배치·슬라이더 비율·앵커 여백 몇 줄)
 css/flags.css
 script/nav.js        모바일 햄버거 메뉴
 script/slider.js     히어로 슬라이더
 script/portfolio.js  연습장 넘기기
+script/portfolio-quick.js  Quick View · 필터 · 읽기 화면 · 보기 전환
+script/projects-data.js    Quick View 카드 요약 데이터
+script/markdown.js   노트용 안전한 경량 Markdown 렌더러
+script/notes.js      노트 목록 · 검색 · 카테고리 · 상세
+notes/               노트 Markdown + index.json
+tools/build-notes-index.mjs  notes/index.json 생성
 media/
 ```
 

@@ -30,6 +30,7 @@
         <li><a href="profile.html">Profile</a></li>
         <li><a href="portfolio.html" class="is-active" aria-current="page">Portfolio</a></li>
         <li><a href="how.html">How I Work</a></li>
+        <li><a href="notes.html">Notes</a></li>
       </ul>
     </nav>
 
@@ -55,6 +56,47 @@
     </header>
 
     <main id="main">
+
+      <div class="view-switch" role="group" aria-label="포트폴리오 보기 방식">
+        <button type="button" class="view-switch__btn" data-view="quick" aria-pressed="true" aria-controls="quick-view">
+          <span class="view-switch__name">Quick View</span>
+          <span class="view-switch__desc">카드로 빠르게 훑기</span>
+        </button>
+        <button type="button" class="view-switch__btn" data-view="book" aria-pressed="false" aria-controls="book-view">
+          <span class="view-switch__name">Book View</span>
+          <span class="view-switch__desc">연습장을 넘기며 읽기</span>
+        </button>
+      </div>
+
+      <noscript>
+        <p class="panel">이 페이지의 프로젝트 목록과 연습장은 JavaScript로 동작합니다. 브라우저에서 JavaScript를 켜 주세요.</p>
+      </noscript>
+
+      <!-- Quick View — 카드 목록과 읽기 화면. 내용은 script/projects-data.js + 아래 연습장 본문에서 만든다 -->
+      <section class="quick" id="quick-view" data-view-panel="quick" aria-labelledby="quick-title">
+        <h2 class="visually-hidden" id="quick-title">프로젝트 빠르게 탐색</h2>
+
+        <div class="quick__list" data-quick-list>
+          <div class="filters" data-filters>
+            <div class="filters__group" role="group" aria-labelledby="filter-book-label">
+              <span class="filters__label" id="filter-book-label">분류</span>
+              <div class="filters__options" data-filter="book"></div>
+            </div>
+            <div class="filters__group" role="group" aria-labelledby="filter-type-label">
+              <span class="filters__label" id="filter-type-label">유형</span>
+              <div class="filters__options" data-filter="type"></div>
+            </div>
+          </div>
+
+          <p class="quick__count" data-quick-count aria-live="polite"></p>
+          <ul class="pgrid" data-quick-grid></ul>
+        </div>
+
+        <article class="reader" data-reader aria-labelledby="reader-title" hidden></article>
+      </section>
+
+      <!-- Book View — 기존 책장·연습장 그대로 -->
+      <div class="book-view" id="book-view" data-view-panel="book" hidden>
 
       <section class="panel">
         <h2 class="section-title chip--ko">프로젝트 요약</h2>
@@ -790,6 +832,8 @@
 
       </div>
 
+      </div>
+
     </main>
 
   </div>
@@ -815,5 +859,7 @@
   <script src="script/portfolio.js"></script>
   <script src="script/project-images.js"></script>
   <script src="script/gallery.js"></script>
+  <script src="script/projects-data.js"></script>
+  <script src="script/portfolio-quick.js"></script>
 </body>
 </html>

@@ -1,0 +1,61 @@
+{
+  "notes": [
+    {
+      "slug": "docker-image-vs-container",
+      "file": "notes/docker-image-vs-container.md",
+      "title": "Docker 이미지와 컨테이너의 차이",
+      "category": "infra",
+      "tags": [
+        "Docker",
+        "컨테이너",
+        "이미지"
+      ],
+      "date": "2026-11-06",
+      "summary": "이미지는 실행 전의 읽기 전용 틀, 컨테이너는 그 틀로 띄운 실행 단위. 개념과 기본 명령을 정리한 노트.",
+      "sample": true
+    },
+    {
+      "slug": "kiro-ide-guide",
+      "file": "notes/kiro-ide-guide.md",
+      "title": "Kiro IDE 사용 가이드",
+      "category": "tools",
+      "tags": [
+        "Kiro",
+        "IDE",
+        "Spec",
+        "AI 코딩"
+      ],
+      "date": "2026-11-06",
+      "summary": "Kiro IDE를 쓰며 정리할 항목의 뼈대. 기능 설명은 공식 문서로 확인한 뒤 채운다.",
+      "sample": true
+    },
+    {
+      "slug": "mcp-basics",
+      "file": "notes/mcp-basics.md",
+      "title": "MCP 기본 개념",
+      "category": "ai",
+      "tags": [
+        "MCP",
+        "Agent",
+        "Tool Calling"
+      ],
+      "date": "2026-11-06",
+      "summary": "Model Context Protocol의 구성 요소(호스트·클라이언트·서버)와 서버가 제공하는 세 가지 기능을 정리한 개념 노트.",
+      "sample": true
+    },
+    {
+      "slug": "vscode-tips",
+      "file": "notes/vscode-tips.md",
+      "title": "VS Code 활용 팁",
+      "category": "tools",
+      "tags": [
+        "VS Code",
+        "단축키",
+        "생산성"
+      ],
+      "date": "2026-11-06",
+      "summary": "자주 쓰는 기본 단축키와 설정 정리의 뼈대. macOS 기본 키 배열 기준.",
+      "sample": true
+    }
+  ]
+}

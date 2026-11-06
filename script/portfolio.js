@@ -100,6 +100,7 @@ function initNotebook(note) {
 
     to.hidden = false;
     to.classList.remove("is-flipping-out", "is-flipping-in");
+    to.scrollTop = 0;   // 새로 펼친 장은 항상 처음부터 읽는다
 
     if (direction === "next") {
       // 지금 장이 왼쪽으로 넘어간다. 아래에서 다음 장이 드러난다.
@@ -130,6 +131,17 @@ function initNotebook(note) {
     }, 700);
 
     syncUi();
+    revealTop();
+  }
+
+  /**
+   * 연습장 머리가 화면 위로 올라가 있으면(모바일처럼 페이지째 스크롤하는 경우)
+   * 새 장의 첫 줄이 보이도록 연습장 위쪽으로 돌아간다.
+   */
+  function revealTop() {
+    if (note.getBoundingClientRect().top < 0) {
+      note.scrollIntoView({ block: "start" });
+    }
   }
 
   /**
@@ -185,6 +197,9 @@ function initNotebook(note) {
   note.addEventListener("click", function (event) {
     // 목차·넘기기 버튼·링크 클릭은 각자 동작에 맡긴다
     if (event.target.closest("button, a")) { return; }
+    // 글을 드래그해 선택한 경우는 넘기지 않는다
+    var selection = window.getSelection && window.getSelection();
+    if (selection && !selection.isCollapsed && note.contains(selection.anchorNode)) { return; }
 
     if (isRightHalf(event)) {
       openPage(current + 1, "next");
@@ -363,6 +378,17 @@ for (var n = 0; n < notebooks.length; n++) {
   }
 
   window.addEventListener("hashchange", openFromHash);
+
+  // Quick View(script/portfolio-quick.js)에서 특정 책·장을 열 때 쓴다
+  window.portfolioBookshelf = {
+    open: function (id, page) {
+      var target = indexOfId(id);
+      if (target < 0) { return false; }
+      openBook(target, page || 0, { updateHash: true, focusNote: true });
+      return true;
+    },
+    activeId: function () { return active >= 0 ? books[active].id : books[0].id; }
+  };
 
   if (!openFromHash()) {
     openBook(0, 0);
