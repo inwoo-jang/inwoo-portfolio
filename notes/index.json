@@ -541,7 +541,7 @@
     {
       "slug": "model-selection",
       "file": "notes/model-selection.md",
-      "title": "AI 모델은 성능이 높을수록 좋은 선택일까?",
+      "title": "LLM 모델은 어떤 기준으로 선택해야 할까? — 성능·추론·비용의 균형",
       "category": "planning",
       "categories": [
         "planning",
@@ -555,7 +555,7 @@
         "AI Service Planning"
       ],
       "date": "2026-09-05",
-      "summary": "파라미터가 많고 추론을 오래 하는 모델이 늘 맞는 선택은 아니다. 파라미터·추론·비용을 따로 보고, 성공 업무당 비용과 필수 품질 조건으로 모델을 고르는 기준과 비교 실험 방법을 정리했다.",
+      "summary": "성능과 비용은 양자택일이 아니다. 품질·안전 기준을 먼저 충족한 뒤 응답 시간과 성공 업무당 총비용을 최적화한다. 파라미터 수·추론·비용을 따로 보고, 모델 라우팅과 비교 실험으로 모델을 고르는 기준을 정리했다.",
       "sample": false,
       "related": [
         "why-sllm",
