@@ -888,3 +888,11 @@ mark {
 .wireframe-examples a { display: block; cursor: zoom-in; }
 .wireframe-examples img { display: block; width: 100%; height: auto; border-radius: 14px; }
 .wireframe-examples figcaption { margin-top: var(--s2); color: var(--muted); font-size: var(--fs-caption); line-height: 1.6; }
+
+.doc-sample__format { margin: var(--s4) 0 var(--s2); font-size: var(--fs-small); font-weight: 700; color: var(--ink); }
+.doc-sample__format span { display: block; margin-top: 3px; font-size: var(--fs-caption); font-weight: 400; color: var(--muted); }
+.doc-sample__figure { margin: 0; }
+.doc-sample__figure a { display: block; cursor: zoom-in; }
+.doc-sample__figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; }
+.doc-sample__figure figcaption { margin-top: var(--s2); font-size: var(--fs-caption); line-height: 1.6; color: var(--muted); }
+.doc-sample__pre code { font: inherit; color: inherit; background: none; padding: 0; }

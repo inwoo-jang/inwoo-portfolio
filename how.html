@@ -131,7 +131,7 @@
           <details class="more">
             <summary>기획 문서 예시 — PRD · IA · 유저플로우 · 기능명세 · 와이어프레임</summary>
             <div class="more__body">
-              <p>마켓데스크의 기획 내용을 짧게 정리한 예시와 퀴켓 와이어프레임의 양식 예시입니다. PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 순서로 작성하며, 단계마다 앞 문서와 맞는지 확인합니다.</p>
+              <p>마켓데스크의 기획 내용을 짧게 정리한 Markdown 예시와 퀴켓의 Figma 양식 예시입니다. PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 순서로 작성하며, 단계마다 앞 문서와 맞는지 확인합니다.</p>
 
               <div class="doc-sample">
                 <p class="doc-sample__head"><strong>PRD</strong></p>
@@ -145,27 +145,43 @@
 
               <div class="doc-sample">
                 <p class="doc-sample__head"><strong>IA</strong></p>
-                <pre class="doc-sample__pre">홈 = 내 산업 목록
-산업 (반도체 / AI / 자동차 …)    ← 업로드 문서는 AI가 자동 매칭
- ├─ 문서 타입:  산업리포트 · 기업리포트 · 경제뉴스
- ├─ 입력 형식:  PDF · 텍스트
- ├─ 렌즈:       취업(직무 선택) · 주식투자 참고   (복수 선택)
- └─ 시간 뷰:
-     ├─ 일별:  그날 문서 요약 (출처 페이지 인용)
-     ├─ 월별:  그 달 요약을 모은 "이 달의 흐름"
-     └─ 연별:  연간 회고 (2단계)</pre>
+                <p class="doc-sample__format">Figma 예시 <span>퀴켓 · 내용 비운 양식</span></p>
+                <figure class="doc-sample__figure"><a href="media/portfolio/ia-figma-example.png" target="_blank" rel="noopener" aria-label="IA Figma 예시 확대"><img src="media/portfolio/ia-figma-example.png" alt="내용을 비운 퀴켓 IA 도식 — 주요 메뉴 계층과 가입·로그인 구조" width="1600" height="683" loading="lazy" decoding="async"></a><figcaption>퀴켓 · 주요 메뉴 계층과 가입·로그인 구조 일부 · 도형·연결선은 유지하고 내용은 회색 막대로 비웠습니다.</figcaption></figure>
+                <p class="doc-sample__format">Markdown 예시 <span>마켓데스크 · 공개용 요약</span></p>
+                <pre class="doc-sample__pre"><code># IA — 마켓데스크
+
+- 홈: 내 산업 목록
+- 산업: 반도체 / AI / 자동차 등
+  - 문서 타입: 산업리포트 / 기업리포트 / 경제뉴스
+  - 입력 형식: PDF / 텍스트
+  - 렌즈: 취업(직무 선택) / 주식투자 참고 — 복수 선택
+  - 시간별 보기
+    - 일별: 그날 문서 요약과 출처 페이지
+    - 월별: 일별 요약을 모은 이 달의 흐름
+    - 연별: 연간 회고 — 2단계 범위</code></pre>
               </div>
 
               <div class="doc-sample">
-                <p class="doc-sample__head"><strong>유저플로우</strong> — 최초 사용, 업로드부터 첫 요약까지</p>
-                <pre class="doc-sample__pre">로그인 → 첫 사용이면 렌즈 선택 → 대시보드 → 산업 선택 → PDF 업로드
-  └ 텍스트 추출 가능?
-      ├ 실패(스캔본) → OCR 경로 안내 → 파싱
-      └ 성공 → 파싱 + 렌즈별 구조화 요약
-  └ 핵심 숫자 출처 확인
-      ├ 출처 있음 → 요약 검토 화면
-      └ 출처 불명 → "명시 없음" 처리 → 요약 검토 화면
-→ 사용자 검토·수정 → 일별 저장 → 일별 뷰에 누적</pre>
+                <p class="doc-sample__head"><strong>유저플로우</strong></p>
+                <p class="doc-sample__format">Figma 예시 <span>퀴켓 · 내용 비운 양식</span></p>
+                <figure class="doc-sample__figure"><a href="media/portfolio/userflow-figma-example.png" target="_blank" rel="noopener" aria-label="유저플로우 Figma 예시 확대"><img src="media/portfolio/userflow-figma-example.png" alt="내용을 비운 퀴켓 유저플로우 — 앱 시작과 가입·로그인의 조건 분기" width="1600" height="1218" loading="lazy" decoding="async"></a><figcaption>퀴켓 · 앱 시작, 가입·로그인의 조건 분기 · 도형·연결선은 유지하고 내용은 회색 막대로 비웠습니다.</figcaption></figure>
+                <p class="doc-sample__format">Markdown 예시 <span>마켓데스크 · 공개용 요약</span></p>
+                <pre class="doc-sample__pre"><code># 유저플로우 — 마켓데스크
+
+## 기본 흐름
+로그인 → 첫 사용이면 렌즈 선택 → 대시보드
+→ 산업 선택 → PDF 업로드
+
+## 텍스트 추출
+- 성공: 파싱 후 렌즈별 구조화 요약
+- 실패(스캔본): OCR 경로 안내 후 파싱
+
+## 핵심 숫자 출처 확인
+- 출처 있음: 요약 검토 화면
+- 출처 불명: ‘명시 없음’으로 표시한 뒤 요약 검토 화면
+
+## 저장
+사용자 검토·수정 → 일별 저장 → 일별 보기에 누적</code></pre>
               </div>
 
               <div class="doc-sample">
