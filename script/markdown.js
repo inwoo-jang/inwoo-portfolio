@@ -10,7 +10,7 @@
    - 외부 링크는 새 탭 + rel="noopener noreferrer".
 
    지원 문법: # 제목(h1은 h2로 낮춤) · 문단 · - / * / 1. 목록 · - [ ] 체크 ·
-   > 인용 · ``` 코드 블록 · `코드` · **굵게** · *기울임* · [링크](주소) ·
+   > 인용 · > [!예시] 제목(예시 상자) · ``` 코드 블록 · `코드` · **굵게** · *기울임* · [링크](주소) ·
    ![대체 텍스트](주소) · | 표 | · ---
    ========================================================== */
 (function (global) {
@@ -209,6 +209,13 @@
       if (/^>\s?/.test(line)) {
         var quote = [];
         while (i < lines.length && /^>\s?/.test(lines[i])) { quote.push(lines[i].replace(/^>\s?/, "")); i++; }
+        // > [!예시] 제목 — 설명을 위한 예시 상자(인용과 구분)
+        var callout = /^\[!예시\]\s*(.*)$/.exec(quote[0]);
+        if (callout) {
+          html.push('<aside class="md-example"><p class="md-example__label">예시' + (callout[1] ? " · " + inline(callout[1]) : "") + "</p>" +
+            renderMarkdown(quote.slice(1).join("\n"), { idPrefix: prefix + "x-" }) + "</aside>");
+          continue;
+        }
         html.push("<blockquote>" + renderMarkdown(quote.join("\n"), { idPrefix: prefix + "q-" }) + "</blockquote>");
         continue;
       }

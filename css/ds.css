@@ -965,3 +965,9 @@ mark {
 .reader-gallery .note__shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper-2); }
 .reader-gallery figcaption { margin-top: var(--s2); font-size: var(--fs-caption); color: var(--muted); line-height: 1.55; }
 .reader-related { margin: var(--s3) 0 0; font-size: var(--fs-small); color: var(--muted); }
+
+/* 노트 본문의 예시 상자 — `> [!예시] 제목` */
+.md .md-example { margin: var(--s5) 0; padding: var(--s4) var(--s5); background: var(--white); border: 1px dashed var(--rule-strong); border-radius: 8px; font-size: var(--fs-small); }
+.md .md-example__label { margin: 0 0 var(--s2); font-size: var(--fs-caption); font-weight: 700; color: var(--muted); letter-spacing: .02em; }
+.md .md-example > :last-child { margin-bottom: 0; }
+.md .md-example h4 { margin-top: var(--s3); }
