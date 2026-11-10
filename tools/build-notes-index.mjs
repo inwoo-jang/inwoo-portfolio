@@ -14,7 +14,16 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const notesDir = join(root, "notes");
-const CATEGORIES = ["tools", "ai", "backend", "infra", "testing", "troubleshooting"];
+const categories = JSON.parse(await readFile(join(notesDir, "categories.json"), "utf8"));
+const categoryIds = new Set();
+for (const category of categories) {
+  if (!/^[a-z][a-z0-9-]*$/.test(category.id) || categoryIds.has(category.id)
+      || !category.label || !category.description
+      || !["ink", "soft", "tape"].every((key) => /^#[0-9A-Fa-f]{6}$/.test(category.color?.[key]))) {
+    throw new Error(`categories.json의 분류 정의를 확인하세요: ${category.id}`);
+  }
+  categoryIds.add(category.id);
+}
 
 /** "---" 사이의 key: value 줄을 읽는다. 값이 [a, b] 면 배열로. */
 function parseFrontMatter(text) {
@@ -47,16 +56,26 @@ for (const file of files) {
     if (!meta[key]) problems.push(`${file}: ${key} 없음`);
   }
   if (!/^[a-z0-9-]+$/.test(slug)) problems.push(`${file}: 파일명은 영문 소문자·숫자·하이픈만`);
-  if (meta.category && !CATEGORIES.includes(meta.category)) {
-    problems.push(`${file}: category는 ${CATEGORIES.join(" · ")} 중 하나`);
+  if (meta.category && !categoryIds.has(meta.category)) {
+    problems.push(`${file}: category는 ${[...categoryIds].join(" · ")} 중 하나`);
+  }
+  if (meta.categories != null && !Array.isArray(meta.categories)) {
+    problems.push(`${file}: categories는 [planning, data] 형태의 배열`);
+  }
+  const noteCategories = [...new Set([meta.category, ...(Array.isArray(meta.categories) ? meta.categories : [])].filter(Boolean))];
+  for (const id of noteCategories) {
+    if (!categoryIds.has(id)) problems.push(`${file}: 알 수 없는 분류 ${id}`);
   }
   notes.push({
     slug,
     file: `notes/${file}`,
     title: meta.title || slug,
-    category: meta.category || "troubleshooting",
+    category: meta.category || "tools",
+    categories: noteCategories,
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     date: meta.date || "",
+    ...(meta.date_end ? { dateEnd: meta.date_end } : {}),
+    ...(meta.date_type ? { dateType: meta.date_type } : {}),
     summary: meta.summary || "",
     sample: meta.sample === true
   });
@@ -69,5 +88,5 @@ if (problems.length) {
 
 // 완성 글을 먼저, 샘플은 뒤로. 같은 묶음 안에서는 최신순
 notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, "ko"));
-await writeFile(join(notesDir, "index.json"), JSON.stringify({ notes }, null, 2) + "\n");
+await writeFile(join(notesDir, "index.json"), JSON.stringify({ categories, notes }, null, 2) + "\n");
 console.log(`notes/index.json — 노트 ${notes.length}개`);

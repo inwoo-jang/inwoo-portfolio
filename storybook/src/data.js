@@ -7,11 +7,10 @@
 export const HERO = {
   name: "장인우",
   role: "서비스 기획 · IT 기획 · AX",
-  title: "현장을 직접 해 보고 규칙으로 만드는 서비스 기획자",
+  title: "현장에서 발견한 문제를 사용자 흐름과 기능으로 설계하는 기획자",
   summary: [
-    "도메인을 알려고 거래처 30곳의 기장을 직접 한 서비스 기획자입니다.",
-    "주문 연동에서 ‘주문’과 ‘박스’의 단위 차이를 찾아 담당자 수기 입력을 하루 1시간에서 10분으로 줄였습니다.",
-    "배포 후에도 쓰이지 않던 급여 기능을 쓰이게 만들었고, 지금은 RAG·Tool Calling으로 AI 서비스를 직접 구현합니다.",
+    "업무와 사용자의 문제를 직접 살펴 화면·기능·운영 기준을 설계합니다.",
+    "개발자와 함께 구현을 조율하고, 실제 사용과 검증을 통해 개선합니다.",
   ],
   actions: [
     { label: "대표 프로젝트 보기", href: "portfolio.html", variant: "primary" },
@@ -54,7 +53,7 @@ export const PROJECTS = [
     title: "SKALA증권 세무상담 데스크", headline: "숫자는 코드가 계산", headlineScope: "RAG + Tool Calling · Spring AI",
     result: "법령 근거는 검색으로, 세액은 계산 코드로 나눴습니다. 오류 주입 시험 7종 중 6종을 테스트가 검출했습니다(주입은 AI 도구).",
     role: "1인 설계·구현·검증 · AI 코딩 도구 활용", tags: ["Spring AI", "RAG", "Tool Calling"] },
-  { id: "marketdesk", group: "개인", kind: "개인 프로젝트", period: "2026.06 –", status: other("개인 사용"),
+  { id: "marketdesk", group: "개인", kind: "개인 프로젝트", period: "2026.06 시작", status: other("개발 완료 · 개인 사용 중"),
     title: "마켓데스크 — AI 리포트 분석", headline: "목적별 리포트 요약", headlineScope: "태스크 46개 · 결정 기록 15건",
     result: "스펙을 태스크 6항목으로 정하고, AI 구현 뒤 화면에서 다시 확인했습니다. 발간일을 지어내던 문제를 찾아 고쳤습니다.",
     role: "1인 기획·AI 활용 구현·검증", tags: ["Next.js", "PostgreSQL", "가드레일"] },
@@ -81,8 +80,36 @@ export const WAYS = [
 ];
 
 export const NOTES = [
-  { date: "2026.11.06", title: "AI 개발 도구 비교 — VS Code vs Kiro vs Cursor", summary: "세 도구의 AI 기능을 같은 기준으로 비교 — 작업 방식, 프로젝트 규칙 파일, MCP, 모델 선택.", tags: ["Tools & IDE", "AI 코딩"] },
-  { date: "2026.07.15", title: "프롬프트 기법 정리", summary: "자주 쓰는 프롬프트 기법 10가지 — 언제 쓰는지, 한 줄 예시, 쓸 때 주의점.", tags: ["AI Engineering", "Prompt Engineering"] },
+  {
+    "date": "2026.09.11",
+    "title": "왜 AI 서비스를 만들까? — 사용자 문제와 도입 효과를 먼저 정의하기",
+    "href": "notes.html#n-why-ai-service",
+    "summary": "사용자의 어떤 작업을 개선할지부터 정의합니다. 기존 방식과 비교할 기준, AI가 맡을 범위, 도입 효과를 확인할 방법을 정리했습니다.",
+    "tags": [
+      "기획·기술 선택",
+      "도입 판단"
+    ]
+  },
+  {
+    "date": "2026.11.06",
+    "title": "AI 개발 도구 비교 — VS Code·Kiro·Cursor의 작업 방식과 규칙 설정",
+    "href": "notes.html#n-ai-dev-tools-compare",
+    "summary": "VS Code·Kiro·Cursor의 AI 작업 방식, 프로젝트 규칙 파일, 외부 도구 연결(MCP), 모델 선택 방법을 비교합니다.",
+    "tags": [
+      "개발 도구",
+      "AI 코딩"
+    ]
+  },
+  {
+    "date": "2026.07.15",
+    "title": "프롬프트 기법 10가지 — 사용 상황과 작성 예시",
+    "href": "notes.html#n-prompt-techniques",
+    "summary": "프롬프트 기법 10가지를 사용 상황별로 정리했습니다. 역할·지시·배경·예시를 구분하는 RICE 틀과 기법별 작성 예시를 담았습니다.",
+    "tags": [
+      "AI·에이전트",
+      "Few-shot"
+    ]
+  }
 ];
 
 export const TIMELINE = [

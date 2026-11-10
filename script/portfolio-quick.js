@@ -14,7 +14,7 @@
    ========================================================== */
 (function () {
   var projects = window.PROJECTS || [];
-  var types = window.PROJECT_TYPES || [];
+  var types = window.PROJECT_ROLES || [];
   var quickPanel = document.querySelector('[data-view-panel="quick"]');
   var bookPanel = document.querySelector('[data-view-panel="book"]');
   if (!quickPanel || !bookPanel || !projects.length) { return; }
@@ -91,8 +91,8 @@
       book: [{ value: "all", label: "전체", count: counts.all }].concat(BOOK_IDS.map(function (id) {
         return { value: id, label: BOOKS[id].label, count: counts[id] };
       })),
-      type: [{ value: "all", label: "모든 유형" }].concat(types.map(function (t) {
-        return { value: t, label: t };
+      type: [{ value: "all", label: "모든 역할" }].concat(types.map(function (t) {
+        return { value: t, label: t, count: projects.filter(function (p) { return (p.roles || []).indexOf(t) >= 0; }).length };
       }))
     };
 
@@ -122,7 +122,7 @@
   function visibleProjects() {
     return projects.filter(function (p) {
       return (filter.book === "all" || p.book === filter.book) &&
-             (filter.type === "all" || p.types.indexOf(filter.type) >= 0);
+             (filter.type === "all" || (p.roles || []).indexOf(filter.type) >= 0);
     });
   }
 
@@ -156,12 +156,21 @@
     link.href = "#p-" + p.id;
     h.appendChild(link);
     body.appendChild(h);
+    if (p.roles && p.roles.length) { body.appendChild(rolesEl(p.roles)); }
 
     body.appendChild(el("p", "card__result", p.build[0]));
     body.appendChild(el("p", "card__role", p.role));
     body.appendChild(tagsEl(p.stack.slice(0, 4)));
     li.appendChild(body);
     return li;
+  }
+
+  /* 내 역할 키워드 — 기획 · PM · 엔지니어링 구분 */
+  function rolesEl(roles) {
+    var ul = el("ul", "roles");
+    ul.setAttribute("aria-label", "내 역할");
+    roles.forEach(function (r) { ul.appendChild(el("li", null, r)); });
+    return ul;
   }
 
   function renderGrid() {
@@ -235,11 +244,14 @@
     title.id = "reader-title";
     title.tabIndex = -1;
     head.appendChild(title);
+    if (p.roles && p.roles.length) { head.appendChild(rolesEl(p.roles)); }
     var meta = article && article.querySelector(".note__meta");
     if (meta) { head.appendChild(el("p", "meta", meta.textContent.trim())); }
 
     var facts = el("dl", "facts");
-    [["기간", p.period], ["구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
+    var factPairs = [["기간", p.period], ["구분", p.scope]];
+    if (!p.summary) { factPairs.push(["내 역할", p.role]); }   // 요약에 내 역할이 있으면 위에선 생략
+    factPairs.forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
@@ -262,13 +274,36 @@
       row.appendChild(dd);
       summary.appendChild(row);
     }
-    summaryRow("내 역할", p.role);
-    var ul = el("ul", "reader-summary__list");
-    p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
-    summaryRow(p.book === "work" ? "내가 정한 정책 · 검증" : "핵심 판단 · 구현", ul);
+    // 요약 4줄(문제 · 내 역할 · 핵심 판단 · 확인한 결과)을 따로 정한 프로젝트
+    var S = p.summary;
+    if (S) {
+      summaryRow("문제", S.problem);
+      summaryRow("내 역할", S.role);
+      summaryRow("핵심 판단", S.decision);
+    } else {
+      summaryRow("내 역할", p.role);
+      var ul = el("ul", "reader-summary__list");
+      p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
+      summaryRow(p.book === "work" ? "내가 정한 정책 · 검증" : "핵심 판단 · 구현", ul);
+    }
 
     // 결과 — 수치나 확인된 사실이 있을 때만
-    if (p.metrics.length || p.resultNote) {
+    if (S && S.result) {
+      var rs = el("div");
+      if (p.metrics.length) {
+        var fg = el("div", "figures");
+        p.metrics.forEach(function (m) {
+          var f = el("p", "figure-num");
+          f.appendChild(el("span", "figure-num__value", m.value));
+          f.appendChild(el("span", "figure-num__label", m.label));
+          if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
+          fg.appendChild(f);
+        });
+        rs.appendChild(fg);
+      }
+      rs.appendChild(el("p", "reader-summary__note", S.result));
+      summaryRow("확인한 결과", rs);
+    } else if (p.metrics.length || p.resultNote) {
       var res = el("div");
       if (p.metrics.length) {
         var figs = el("div", "figures");

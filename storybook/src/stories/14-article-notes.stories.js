@@ -1,5 +1,9 @@
 import * as C from "../components.js";
-import { NOTES } from "../data.js";
+import NOTE_INDEX from "../../../notes/index.json";
+
+const categoryStyle = (c) => `--note-ink:${c.color.ink};--note-soft:${c.color.soft};--tape:${c.color.tape}`;
+const noteCards = NOTE_INDEX.notes.map((n) => ({ ...n, date: n.date.replace(/-/g, ".") + (n.dateEnd ? "–" + n.dateEnd.replace(/-/g, ".").slice(n.date.slice(0, 4) === n.dateEnd.slice(0, 4) ? 5 : 0) : ""), href: `notes.html#n-${n.slug}`, category: NOTE_INDEX.categories.find((c) => c.id === n.category), categories: (n.categories || [n.category]).map((id) => NOTE_INDEX.categories.find((c) => c.id === id)) }));
+const categoryFilters = () => `<ul class="chips" data-note-cats><li><button class="chip-btn" type="button" data-value="all" aria-pressed="true">전체<small>${NOTE_INDEX.notes.length}</small></button></li>${NOTE_INDEX.categories.map((c) => `<li><button class="chip-btn" type="button" data-value="${c.id}" aria-pressed="false" title="${c.description}" style="${categoryStyle(c)}">${c.label}<small>${NOTE_INDEX.notes.filter((n) => (n.categories || [n.category]).includes(c.id)).length}</small></button></li>`).join("")}</ul>`;
 
 export default { title: "컴포넌트/글" };
 
@@ -39,7 +43,12 @@ export const 목차 = {
 /* Dev Notes */
 export const 노트목록 = {
   name: "Dev Notes · 목록",
-  render: () => `<div style="max-width:880px">${C.search({})}<div style="height:16px"></div>${C.chips({ items: [["전체", 4], ["Tools & IDE", 2], ["AI Engineering", 1], ["Infrastructure", 1], ["Troubleshooting", 0]], label: "카테고리" })}<div style="height:24px"></div>${C.entries(NOTES)}</div>`,
+  render: () => `<div style="max-width:880px">${C.search({})}<div style="height:16px"></div>${categoryFilters()}<div style="height:24px"></div>${C.entries(noteCards).replace('<ol class="entries">', '<ol class="entries" data-notes-grid>')}</div>`,
+};
+
+export const 분류와색상 = {
+  name: "Dev Notes · 분류와 색상",
+  render: () => `<div style="max-width:880px">${categoryFilters()}<ul class="notes-guide__grid">${NOTE_INDEX.categories.map((c) => `<li><span class="note-category" style="${categoryStyle(c)}">${c.label}</span><p>${c.description}</p></li>`).join("")}</ul></div>`,
 };
 
 export const 글정보 = {
