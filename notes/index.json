@@ -138,7 +138,8 @@
         "agent-kpi",
         "agent-autonomy",
         "ai-failure-tracing",
-        "agent-guardrails"
+        "agent-guardrails",
+        "agent-memory"
       ]
     },
     {
@@ -167,7 +168,8 @@
         "agent-eval",
         "agent-governance",
         "agent-kpi",
-        "multi-agent-vs-single"
+        "multi-agent-vs-single",
+        "prompt-injection"
       ]
     },
     {
@@ -325,6 +327,31 @@
       ]
     },
     {
+      "slug": "when-rag",
+      "file": "notes/when-rag.md",
+      "title": "RAG는 언제 필요하고, 언제 오히려 독이 되는가?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "RAG",
+        "Long Context",
+        "Architecture",
+        "Retrieval",
+        "AI Service Planning"
+      ],
+      "date": "2026-09-28",
+      "summary": "검색 단계를 더한다고 답변이 정확해지는 건 아니다. RAG 캡스톤 경험과 RAG·Long Context 비교 연구를 바탕으로, 정보의 형태·규모·질문 특성에 따라 RAG와 다른 방식을 고르는 기준과 검증 방법을 정리했다.",
+      "sample": false,
+      "related": [
+        "rag-citation-rules",
+        "data-preprocessing",
+        "context-engineering"
+      ]
+    },
+    {
       "slug": "rag-citation-rules",
       "file": "notes/rag-citation-rules.md",
       "title": "근거가 없으면 답하지 않게 하기 — RAG 인용 검증 규칙",
@@ -345,7 +372,60 @@
         "agent-eval",
         "ai-failure-tracing",
         "context-engineering",
-        "data-preprocessing"
+        "data-preprocessing",
+        "prompt-injection",
+        "when-rag"
+      ]
+    },
+    {
+      "slug": "prompt-injection",
+      "file": "notes/prompt-injection.md",
+      "title": "Prompt Injection은 프롬프트 수정만으로 막을 수 있는가?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "testing"
+      ],
+      "tags": [
+        "Prompt Injection",
+        "AI Security",
+        "Trust Boundary",
+        "Guardrails",
+        "Tool Calling"
+      ],
+      "date": "2026-09-15",
+      "summary": "Prompt Injection은 악의적인 문장을 찾는 문제가 아니라, 신뢰할 수 없는 정보가 AI의 행동을 바꾸지 못하게 하는 문제다. 직접·간접 공격, 신뢰 경계, 단계별 방어, 공격 시도·차단·실행을 나눠 기록하는 테스트 설계를 정리했다.",
+      "sample": false,
+      "related": [
+        "agent-guardrails",
+        "agent-hitl",
+        "agent-autonomy",
+        "rag-citation-rules"
+      ]
+    },
+    {
+      "slug": "agent-memory",
+      "file": "notes/agent-memory.md",
+      "title": "AI Agent는 무엇을 기억하고, 언제 잊어야 하는가?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "AI Agent",
+        "Agent Memory",
+        "Memory Lifecycle",
+        "Context Engineering",
+        "Data Governance"
+      ],
+      "date": "2026-09-12",
+      "summary": "AI가 잘 기억하는 것만큼 잘못된 정보를 계속 기억하지 않는 것이 중요하다. 선호 저장 도구를 만든 실습에서 출발해, 무엇을 저장하고 언제 갱신·비활성화·삭제할지, 삭제가 실제로 지켜지는지 어떻게 검증할지 정리했다.",
+      "sample": false,
+      "related": [
+        "context-engineering",
+        "agent-hitl",
+        "agent-governance"
       ]
     },
     {
@@ -396,6 +476,8 @@
       "related": [
         "agent-autonomy",
         "agent-guardrails",
+        "agent-memory",
+        "prompt-injection",
         "why-ai-agent"
       ]
     },
@@ -423,6 +505,7 @@
         "ai-failure-tracing",
         "context-engineering",
         "multi-agent-vs-single",
+        "prompt-injection",
         "why-ai-agent"
       ]
     },
@@ -528,7 +611,8 @@
       "related": [
         "why-ml-model",
         "context-engineering",
-        "rag-citation-rules"
+        "rag-citation-rules",
+        "when-rag"
       ]
     },
     {
@@ -606,7 +690,9 @@
         "rag-citation-rules",
         "ai-failure-tracing",
         "agent-guardrails",
-        "data-preprocessing"
+        "agent-memory",
+        "data-preprocessing",
+        "when-rag"
       ]
     },
     {
