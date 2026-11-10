@@ -297,7 +297,7 @@
 
     // 기간 · 팀 · 내 역할 · 현재 상태 — 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
-    [["기간", p.period], ["팀·구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
+    [["기간", p.periodDetail || p.period], ["팀·구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
