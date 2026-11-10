@@ -81,10 +81,8 @@ export const WAYS = [
 ];
 
 export const NOTES = [
-  { date: "2026.11.06", title: "Docker 이미지와 컨테이너의 차이", summary: "이미지는 실행 전의 읽기 전용 틀, 컨테이너는 그 틀로 띄운 실행 단위. 개념과 기본 명령.", tags: ["Infrastructure", "개념", "샘플"] },
-  { date: "2026.11.06", title: "Kiro IDE 사용 가이드", summary: "Kiro IDE를 쓰며 정리할 항목의 뼈대. 기능 설명은 공식 문서로 확인한 뒤 채웁니다.", tags: ["Tools & IDE", "도구 가이드", "샘플"] },
-  { date: "2026.11.06", title: "MCP 기본 개념", summary: "호스트·클라이언트·서버의 구성과 서버가 제공하는 세 가지 기능.", tags: ["AI Engineering", "개념", "샘플"] },
-  { date: "2026.11.06", title: "VS Code 활용 팁", summary: "자주 쓰는 기본 단축키와 설정. macOS 기본 키 배열 기준.", tags: ["Tools & IDE", "도구 가이드", "샘플"] },
+  { date: "2026.11.06", title: "AI 개발 도구 비교 — VS Code vs Kiro vs Cursor", summary: "세 도구의 AI 기능을 같은 기준으로 비교 — 작업 방식, 프로젝트 규칙 파일, MCP, 모델 선택.", tags: ["Tools & IDE", "AI 코딩"] },
+  { date: "2026.07.15", title: "프롬프트 기법 정리", summary: "자주 쓰는 프롬프트 기법 10가지 — 언제 쓰는지, 한 줄 예시, 쓸 때 주의점.", tags: ["AI Engineering", "Prompt Engineering"] },
 ];
 
 export const TIMELINE = [

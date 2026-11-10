@@ -1,61 +1,34 @@
 {
   "notes": [
     {
-      "slug": "docker-image-vs-container",
-      "file": "notes/docker-image-vs-container.md",
-      "title": "Docker 이미지와 컨테이너의 차이",
-      "category": "infra",
-      "tags": [
-        "Docker",
-        "컨테이너",
-        "이미지"
-      ],
-      "date": "2026-11-06",
-      "summary": "이미지는 실행 전의 읽기 전용 틀, 컨테이너는 그 틀로 띄운 실행 단위. 개념과 기본 명령을 정리한 노트.",
-      "sample": true
-    },
-    {
-      "slug": "kiro-ide-guide",
-      "file": "notes/kiro-ide-guide.md",
-      "title": "Kiro IDE 사용 가이드",
-      "category": "tools",
-      "tags": [
-        "Kiro",
-        "IDE",
-        "Spec",
-        "AI 코딩"
-      ],
-      "date": "2026-11-06",
-      "summary": "Kiro IDE를 쓰며 정리할 항목의 뼈대. 기능 설명은 공식 문서로 확인한 뒤 채운다.",
-      "sample": true
-    },
-    {
-      "slug": "mcp-basics",
-      "file": "notes/mcp-basics.md",
-      "title": "MCP 기본 개념",
-      "category": "ai",
-      "tags": [
-        "MCP",
-        "Agent",
-        "Tool Calling"
-      ],
-      "date": "2026-11-06",
-      "summary": "Model Context Protocol의 구성 요소(호스트·클라이언트·서버)와 서버가 제공하는 세 가지 기능을 정리한 개념 노트.",
-      "sample": true
-    },
-    {
-      "slug": "vscode-tips",
-      "file": "notes/vscode-tips.md",
-      "title": "VS Code 활용 팁",
+      "slug": "ai-dev-tools-compare",
+      "file": "notes/ai-dev-tools-compare.md",
+      "title": "AI 개발 도구 비교 — VS Code vs Kiro vs Cursor",
       "category": "tools",
       "tags": [
         "VS Code",
-        "단축키",
-        "생산성"
+        "Kiro",
+        "Cursor",
+        "AI 코딩"
       ],
       "date": "2026-11-06",
-      "summary": "자주 쓰는 기본 단축키와 설정 정리의 뼈대. macOS 기본 키 배열 기준.",
-      "sample": true
+      "summary": "세 도구의 AI 기능을 같은 기준으로 비교 — 작업 방식, 프로젝트 규칙 파일, MCP, 모델 선택.",
+      "sample": false
+    },
+    {
+      "slug": "prompt-techniques",
+      "file": "notes/prompt-techniques.md",
+      "title": "프롬프트 기법 정리",
+      "category": "ai",
+      "tags": [
+        "Prompt Engineering",
+        "RICE",
+        "CoT",
+        "Few-shot"
+      ],
+      "date": "2026-07-15",
+      "summary": "자주 쓰는 프롬프트 기법 10가지 — 언제 쓰는지, 한 줄 예시, 쓸 때 주의점.",
+      "sample": false
     }
   ]
 }

@@ -10,7 +10,28 @@ window.PROJECT_IMAGES = {
   "pharmacy-link": [],
   "rx-ops": [],
   "jikim-etc": [],
-  "taxdesk": [],
+  "taxdesk": [
+    {
+      "src": "media/portfolio/taxdesk-answer.png",
+      "alt": "종합과세 대상 여부 질문에 근거 조문과 호출한 도구를 함께 보여 주는 응답",
+      "caption": "근거 조문 인용 + 도구 호출(고객 소득 조회·과세 분류) · 교육 실습 · 로컬 실행 캡처(2026-08, 저장소 REPORT 수록) · 시드로 넣은 가상 고객"
+    },
+    {
+      "src": "media/portfolio/taxdesk-calc.png",
+      "alt": "세액 질문에 계산 도구가 단계별 계산 전개와 결정세액을 보여 주는 응답",
+      "caption": "세액은 계산 도구가 산출하고 계산 전개를 그대로 보여 줌 · 교육 실습 · 로컬 실행 캡처(2026-08, 저장소 REPORT 수록) · 시드로 넣은 가상 고객"
+    },
+    {
+      "src": "media/portfolio/taxdesk-reask.png",
+      "alt": "계산에 필요한 다른 소득 정보가 없을 때 다시 묻는 응답",
+      "caption": "계산에 필요한 정보가 없으면 계산하지 않고 다시 물음 · 교육 실습 · 로컬 실행 캡처(2026-08, 저장소 REPORT 수록) · 시드로 넣은 가상 고객"
+    },
+    {
+      "src": "media/portfolio/taxdesk-no-source.png",
+      "alt": "제공된 근거에서 확인되지 않는 질문에 답하지 않고 안내하는 응답",
+      "caption": "근거에서 확인되지 않으면 지어내지 않고 안내 · 교육 실습 · 로컬 실행 캡처(2026-08, 저장소 REPORT 수록) · 시드로 넣은 가상 고객"
+    }
+  ],
   "gtsrb": [
     {
       "src": "media/portfolio/gtsrb-tradeoff.png",

@@ -57,6 +57,7 @@
     opts.forEach(function (c) {
       var count = c.id === "all" ? notes.length
         : notes.filter(function (n) { return n.category === c.id; }).length;
+      if (c.id !== "all" && count === 0) { return; }   // 글이 없는 분류는 숨김 — 글을 추가하면 다시 나타남
       var li = el("li");
       var btn = el("button", "chip-btn");
       btn.type = "button";
