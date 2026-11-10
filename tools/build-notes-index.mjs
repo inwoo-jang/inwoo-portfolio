@@ -77,8 +77,26 @@ for (const file of files) {
     ...(meta.date_end ? { dateEnd: meta.date_end } : {}),
     ...(meta.date_type ? { dateType: meta.date_type } : {}),
     summary: meta.summary || "",
-    sample: meta.sample === true
+    sample: meta.sample === true,
+    related: Array.isArray(meta.related) ? meta.related : []
   });
+}
+
+// 관련 노트: 한쪽에만 적어도 양쪽에 표시한다. 없는 슬러그·자기 자신은 오류
+const bySlug = new Map(notes.map((n) => [n.slug, n]));
+for (const note of notes) {
+  for (const target of note.related) {
+    if (target === note.slug) problems.push(`${note.slug}.md: related에 자기 자신`);
+    else if (!bySlug.has(target)) problems.push(`${note.slug}.md: related의 ${target} 노트가 없음`);
+  }
+}
+if (!problems.length) {
+  for (const note of notes) {
+    for (const target of note.related) {
+      const other = bySlug.get(target);
+      if (!other.related.includes(note.slug)) other.related.push(note.slug);
+    }
+  }
 }
 
 if (problems.length) {

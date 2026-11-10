@@ -50,7 +50,7 @@ export const PROJECTS = [
     result: "미니 버전으로 문항 수 기준을 먼저 정하고, MoSCoW로 첫 출시 범위를 조율해 App Store·Google Play에 출시했습니다(팀 결과).",
     role: "본인: PM·기획 · 정식 앱 구현: 개발팀", tags: ["PM", "사용자 테스트", "PM MVP"] },
   { id: "taxdesk", group: "교육", kind: "교육 실습 · 1인", period: "2026.08", status: edu(),
-    title: "SKALA증권 세무상담 데스크", headline: "숫자는 코드가 계산", headlineScope: "RAG + Tool Calling · Spring AI",
+    title: "TaxDesk — 금융소득 세무상담", headline: "숫자는 코드가 계산", headlineScope: "서버 제어 흐름 · RAG · Spring AI",
     result: "법령 근거는 검색으로, 세액은 계산 코드로 나눴습니다. 오류 주입 시험 7종 중 6종을 테스트가 검출했습니다(주입은 AI 도구).",
     role: "1인 설계·구현·검증 · AI 코딩 도구 활용", tags: ["Spring AI", "RAG", "Tool Calling"] },
   { id: "marketdesk", group: "개인", kind: "개인 프로젝트", period: "2026.06 시작", status: other("개발 완료 · 개인 사용 중"),
@@ -121,8 +121,8 @@ export const TIMELINE = [
 
 export const SKILLS = [
   ["기획", "PRD · IA · 유저플로우 · 기능명세 · Figma", "지킴컴퍼니 서비스 기획, 퀴켓"],
-  ["AI", "Spring AI (RAG · Tool Calling), LLM API", "세무상담 데스크, 퀴켓 미니 버전"],
-  ["백엔드", "Java · Spring Boot · JPA", "세무상담 데스크, ClassTrack"],
+  ["AI", "Spring AI (RAG · @Tool로 정의한 기능을 서버가 순서대로 호출), LLM API", "TaxDesk, 퀴켓 미니 버전"],
+  ["백엔드", "Java · Spring Boot · JPA", "TaxDesk, ClassTrack"],
   ["데이터", "SQL · PostgreSQL · Python", "마켓데스크, 라벨링 도구, 해커톤 데모"],
   ["프론트엔드", "Vue 3 · React · TypeScript · Next.js", "EDU:UP, 관계부 설계, 에이링크, 마켓데스크"],
   ["협업", "Notion · Figma · Git/GitHub", "태스크·결정 기록, 화면 설계, 팀 코드 관리"],

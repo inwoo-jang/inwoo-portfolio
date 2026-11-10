@@ -1,0 +1,34 @@
+Generated with the built-in image_gen tool on 2026-11-10.
+Used in notes/ai-failure-tracing.md.
+
+ai-failure-pipeline.png
+Use case: infographic-diagram
+Asset type: inline illustration for a Korean technical blog, landscape 3:2.
+Primary request: Draw a refined hand-drawn educational illustration explaining the six stages of an AI agent. Soft flowing rounded pen lines, warm approachable ChatGPT-generated explanatory sketch aesthetic, tasteful muted pastel washes, restrained editorial quality.
+Scene/backdrop: clean white paper (#ffffff), no paper grain, generous whitespace.
+Composition: six clearly separated illustrated stations in a 3-column, 2-row serpentine flow. Top row left-to-right stages 01, 02, 03. Bottom row right-to-left stages 04, 05, 06. Curving hand-drawn arrows connect in numbered order: top-left → top-center → top-right → bottom-right → bottom-center → bottom-left. Arrows must be unambiguous, outside illustrations and labels. A very small light dashed return arrow from stage 03 to stage 02 indicates possible repetition.
+Title centered top, exact Korean: "답변이 만들어지는 과정".
+Stage 01: a friendly question speech bubble and small magnifier; label "01 질문 해석"; small caption "의도 파악".
+Stage 02: a magnifier over a few source document pages; label "02 근거 검색"; small caption "관련 문서 찾기".
+Stage 03: a small rounded tool and connected API blocks; label "03 도구 호출"; small caption "외부 시스템 조회".
+Stage 04 (bottom right): shield with check and a small key; label "04 정책·권한 검증"; small caption "허용 범위 확인".
+Stage 05 (bottom center): document snippets converging into a softly outlined response card, no robot character; label "05 답변 생성"; small caption "근거를 종합해 작성".
+Stage 06 (bottom left): clean speech bubble with check; label "06 최종 응답"; small caption "사용자에게 전달".
+Small exact caption centered along bottom: "검색과 도구 호출은 반복될 수 있어요".
+Style: natural slightly imperfect graphite-gray / charcoal rounded linework, gentle watercolor-like flat pastel sage, pale blue, warm peach and lavender accents. No hard rectangular boxes, no computer-generated rigid vector aesthetic, no sharp black outlines, no glossy 3D, no gradients. Calm and clear, mature rather than childish. Each icon about the size of its label area. Large highly readable neatly hand-lettered Korean, excellent spelling, readable when image is displayed at 640px width. Main Korean labels visually prominent, captions secondary. Do not add extra text. Keep substantial white margin around the whole art. Crisp high-resolution raster image.
+
+ai-failure-triage.png
+Use case: infographic-diagram
+Asset type: inline illustration for a Korean technical blog, landscape 3:2.
+Primary request: Draw a refined hand-drawn educational flow diagram showing how to trace an incorrect AI answer to an investigation path and then validate a fix. Soft flowing rounded pen lines, warm approachable ChatGPT-generated explanatory sketch aesthetic, tasteful muted pastel washes, restrained editorial quality.
+Scene/backdrop: pure white (#ffffff) paper, no grain, generous whitespace.
+Title centered top, exact Korean: "틀린 답변, 어디서부터 확인할까?"
+Composition: clear top-down branching flow diagram, all text large and readable at a 640px display width. Only use the exact short Korean labels given below. No long prose.
+At top center: a small reply speech bubble with a muted coral exclamation icon, labeled "잘못된 답변 발견".
+A soft curved arrow leads down to a wide rounded hand-drawn question bubble containing "올바른 근거를 찾았나?" with a small magnifying-glass-on-document icon.
+Branch down-left with label "아니요", to a pale peach softly outlined rounded card containing a folder and magnifier illustration, main label "검색·데이터 확인", smaller caption "검색어 · 문서 누락 · 최신성".
+Branch down-right with label "예", to a pale blue softly outlined rounded card containing document snippets and a reply bubble illustration, main label "컨텍스트·생성 확인", smaller caption "전달된 문서 · 프롬프트 · 해석".
+The two branches curve down and merge into a single centered stage with small circular replay arrow and tiny comparison pages, labeled "같은 조건에서 재현·비교".
+One arrow leads down to a final wide sage-tinted rounded banner with a small wrench and check mark icon, labeled "수정 → 회귀 테스트 → 모니터링".
+Small footer text centered at bottom, exact: "실행 기록은 단서, 원인 확인은 재현과 비교로".
+Style: natural slightly imperfect graphite-gray / charcoal rounded linework, gentle watercolor-like flat pastel sage, pale blue, warm peach and lavender accents. Hand-drawn connectors with rounded arrowheads. No rigid rectangles, no sharp black outlines, no glossy 3D, no gradients. Calm, clear and mature rather than childish. Large highly readable neatly hand-lettered Korean with accurate spelling. Text must fit each stage without overlaps. Keep substantial white outer margin. Crisp high-resolution raster image.

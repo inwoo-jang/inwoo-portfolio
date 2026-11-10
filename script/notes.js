@@ -189,6 +189,32 @@
     });
   }
 
+  function relatedBlock(note) {
+    var items = (note.related || []).map(function (slug) {
+      for (var i = 0; i < notes.length; i++) { if (notes[i].slug === slug) { return notes[i]; } }
+      return null;
+    }).filter(Boolean);
+    if (!items.length) { return null; }
+    var nav = el("nav", "related-notes");
+    nav.setAttribute("aria-labelledby", "related-notes-title");
+    var h = el("h2", "related-notes__title", "관련 노트");
+    h.id = "related-notes-title";
+    nav.appendChild(h);
+    var ul = el("ul", "related-notes__list");
+    items.forEach(function (n) {
+      var li = el("li");
+      var a = el("a", null, n.title);
+      a.href = "#n-" + n.slug;
+      li.appendChild(a);
+      var time = el("time", "related-notes__date", formatNoteDate(n));
+      time.dateTime = n.date;
+      li.appendChild(time);
+      ul.appendChild(li);
+    });
+    nav.appendChild(ul);
+    return nav;
+  }
+
   function renderReader(note) {
     readerEl.textContent = "";
     applyCategory(readerEl, categoryOf(note.category));
@@ -224,6 +250,9 @@
     prose.setAttribute("aria-busy", "true");
     prose.appendChild(el("p", "count", "노트를 불러오는 중…"));
     readerEl.appendChild(prose);
+
+    var related = relatedBlock(note);
+    if (related) { readerEl.appendChild(related); }
 
     var foot = el("p", "reader-view__actions");
     var back2 = el("a", "btn btn--quiet", "← 목록으로");
@@ -287,6 +316,19 @@
       // 노트 본문 안 제목 앵커(#n-<slug>-<제목>)는 이미 열린 노트 안에서만 쓰인다
     }
     showList(prev !== null && prev.indexOf("n-") === 0);
+  }
+
+  var guideToggle = root.querySelector("[data-notes-guide-toggle]");
+  var guidePanel = root.querySelector("#notes-guide");
+  if (guideToggle && guidePanel) {
+    var setGuide = function (open) {
+      guidePanel.hidden = !open;
+      guideToggle.setAttribute("aria-expanded", String(open));
+    };
+    guideToggle.addEventListener("click", function () { setGuide(guidePanel.hidden); });
+    guidePanel.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { setGuide(false); guideToggle.focus(); }
+    });
   }
 
   searchEl.addEventListener("input", function () {

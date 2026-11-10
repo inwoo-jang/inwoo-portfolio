@@ -38,14 +38,8 @@
 
     <header class="page-head page-head--compact" data-page-head>
       <p class="eyebrow">Portfolio</p>
-      <h1 class="display">프로젝트 20개</h1>
-      <p class="lead">실무 기획·운영과 교육·개인 프로젝트. 카드마다 내 역할, 구현 담당, 진행 상태를 적었습니다.</p>
-      <div class="view-switch" role="group" aria-label="보기 방식">
-        <ul class="chips">
-          <li><button type="button" class="chip-btn" data-view="quick" aria-pressed="true" aria-controls="quick-view">카드로 보기</button></li>
-          <li><button type="button" class="chip-btn" data-view="book" aria-pressed="false" aria-controls="book-view">연습장으로 넘겨 보기</button></li>
-        </ul>
-      </div>
+      <h1 class="display">프로젝트</h1>
+      <p class="lead">실무 기획·운영과 교육·개인 프로젝트 20개. 내 역할과 구현 담당을 나눠 적었습니다.</p>
     </header>
 
     <main id="main">
@@ -76,6 +70,14 @@
 
         <article class="reader-view" data-reader aria-labelledby="reader-title" hidden></article>
       </section>
+
+      <div class="view-switch view-switch--below" role="group" aria-label="보기 방식" data-view-switch>
+        <p class="view-switch__label">다른 보기</p>
+        <ul class="chips">
+          <li><button type="button" class="chip-btn" data-view="quick" aria-pressed="true" aria-controls="quick-view">카드로 보기</button></li>
+          <li><button type="button" class="chip-btn" data-view="book" aria-pressed="false" aria-controls="book-view">연습장으로 넘겨 보기</button></li>
+        </ul>
+      </div>
 
       <!-- Book View — 기존 책장·연습장 그대로 -->
       <div class="book-view" id="book-view" data-view-panel="book" hidden>
@@ -211,7 +213,7 @@
 
               <h4>내가 정한 정책</h4>
               <ul class="note__list">
-                <li>외부 주문번호·상품 정보를 내부 박스 식별자와 연결하는 기준</li>
+                <li>주문번호와 상품 순번(주문 안의 상품 항목 번호)으로 처리 대상을 식별하고, 이를 내부 박스와 연결하는 기준</li>
                 <li>부분 수거·수거 연기를 별도 상태로 구분하고, 부분 수거는 도매몰의 기존 ‘부분배송’ 상태에 대응</li>
                 <li>어드민에서 도매몰 주문번호로 바로 조회되도록 검색 흐름 개선</li>
               </ul>
@@ -227,7 +229,7 @@
                   </tbody>
                 </table>
               </div>
-              <p>주문번호만으로는 박스마다 다른 상태를 나타낼 수 없어서, <mark>주문번호 + 상품 순번</mark>을 박스와 연결하는 기준을 먼저 정했습니다. 일부 박스만 수거된 주문은 도매몰의 기존 ‘부분배송’ 상태로 보내고, 수거된 건만 정산 대상에 들어가게 했습니다.</p>
+              <p>주문번호만으로는 박스마다 다른 상태를 나타낼 수 없어서, <mark>주문번호 + 상품 순번</mark>으로 처리 대상을 식별하고 박스와 연결하는 기준을 먼저 정했습니다. 상품 순번은 도매몰 주문 안의 상품 항목 번호이고, 박스에 새로 붙인 번호가 아닙니다. 일부 박스만 수거된 주문은 도매몰의 기존 ‘부분배송’ 상태로 보내고, 수거된 건만 정산 대상에 들어가게 했습니다.</p>
 
               <h4>검증</h4>
               <p>API 호출 결과와 양쪽 화면을 직접 대조해 두 가지 오류를 찾아 개발팀에 전달했습니다.</p>
@@ -311,6 +313,7 @@
 
               <h4>베타에서 확인한 범위</h4>
               <p>베타 테스트에서 일부 FAQ 질문에 10초 이내로 답하는 것을 직접 확인했습니다. 일부 질문을 관찰한 값이며 전체 평균이 아닙니다. 베타 단계에서 퇴사해 정식 운영 성과는 확인하지 못했습니다.</p>
+              <p>이 사례에서는 답변 범위 정책을 정해 협력사에 넘기는 데까지 했습니다. 그 정책이 코드에서 어떻게 지켜지는지는 이후 개인 프로젝트 <a href="#p-taxdesk">TaxDesk</a>에서 직접 만들어 확인했습니다.</p>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">AI 서비스 정책</li>
@@ -461,7 +464,7 @@
                 <li>
                   <button type="button" class="toc__btn" data-goto="1">
                     <span class="toc__no">01</span>
-                    <span class="toc__title">SKALA증권 세무상담 데스크</span>
+                    <span class="toc__title">TaxDesk — 금융소득 세무상담</span>
                     <span class="toc__year">2026.08</span>
                   </button>
                 </li>
@@ -490,19 +493,19 @@
             </article>
             <article class="note__page" data-page="1" hidden>
               <p class="chip chip--ko">01 · 교육 · 1인</p>
-              <h3>SKALA증권 세무상담 데스크</h3>
-              <p class="note__meta">2026.08 시작 · 2026.11 개선 · SKALA 교육 실습에서 시작한 개인 프로젝트 · 1인 설계·구현·검증(AI 코딩 도구 활용) · Java · Spring Boot · Spring AI · 합성 계좌 데이터</p>
+              <h3>TaxDesk — 금융소득 세무상담</h3>
+              <p class="note__meta">2026.08 구축(8.20–21) · 2026.11 개선(11.10) · SKALA 교육 실습에서 시작한 개인 프로젝트 · 1인 설계, AI 코딩 도구를 활용한 구현·검증 · Java · Spring Boot · Spring AI · 합성 계좌 데이터</p>
 
-              <p>가상 증권사 고객이 이자·배당소득의 종합과세 여부와 예상 세액을 묻는 상담 데모입니다.
+              <p>가상 증권사(SKALA증권) 고객이 이자·배당소득의 종합과세 여부와 예상 세액을 묻는 상담 데모입니다.
                  회사 챗봇에서는 답변 범위 정책을 정해 넘기는 데까지였기 때문에, <mark>그 정책이 코드에서 어떻게 지켜지는지</mark> 직접 만들어 봤습니다.</p>
 
               <h4>실제 처리 순서</h4>
-              <p>처리 순서는 서버가 정합니다. 모델에는 도구가 등록돼 있지 않아, 모델이 도구를 골라 부르지 않습니다.</p>
+              <p>처리 순서는 서버가 정합니다. 조회·판정·계산 기능은 Spring AI의 <code>@Tool</code>로 정의했지만 모델에는 등록하지 않았고, 서버가 정해진 순서로 직접 호출합니다. 모델이 도구를 골라 부르는 Tool Calling 구조가 아닙니다.</p>
               <div class="table-wrap">
                 <table class="table">
                   <thead><tr><th scope="col">단계</th><th scope="col">누가</th><th scope="col">하는 일</th></tr></thead>
                   <tbody>
-                    <tr><th scope="row">1. 질문 분류</th><td>규칙 → 모델</td><td>양도세·투자자문·타인 계좌 등 범위 밖 질문은 규칙으로 바로 거절(모델 호출 없음). 나머지는 저비용 모델이 한 번 분류하고, 모델이 실패하면 규칙으로 대신 분류</td></tr>
+                    <tr><th scope="row">1. 질문 분류</th><td>규칙 → 모델</td><td>양도세·투자자문·타인 계좌 등 범위 밖 질문은 규칙으로 바로 거절(모델 호출 없음). 시뮬레이션·신청 같은 질문도 규칙으로 분류하고, 규칙으로 정해지지 않는 질문만 저비용 모델이 한 번 분류. 모델이 실패하면 규칙으로 대신 분류</td></tr>
                     <tr><th scope="row">2. 조회·판정·계산</th><td>서버 → 도구 코드</td><td>계좌 소득 조회 → 2천만원 기준 종합과세 판정 → 조건이 맞을 때만 세액 계산 또는 한도 시뮬레이션</td></tr>
                     <tr><th scope="row">3. 근거 검색</th><td>RAG</td><td>법령 요약 문서 9개에서 조문 검색. 세액 계산 질문은 검색하지 않음</td></tr>
                     <tr><th scope="row">4. 답변</th><td>모델 → 코드 검사</td><td>모델이 조회·계산 결과와 근거를 설명 문장으로 엮고, 검색되지 않은 조문을 인용하면 코드가 그 답을 내보내지 않음</td></tr>
@@ -512,7 +515,7 @@
 
               <h4>확인되지 않은 값의 처리</h4>
               <ul class="note__list">
-                <li><b>다른 종합소득을 모를 때 — 세액 계산</b>: 계산하지 않고, 모델도 부르지 않고 소득금액을 되묻습니다. "모름"과 고객이 "없다"고 답한 경우를 구분합니다.</li>
+                <li><b>다른 종합소득을 모를 때 — 세액 계산</b>: 종합과세 대상이면 계산하지 않고, 답변 생성 모델도 부르지 않고(질문 분류는 수행) 소득금액을 되묻습니다. "모름"과 고객이 "없다"고 답한 경우를 구분합니다.</li>
                 <li><b>같은 상황 — 한도 시뮬레이션</b>: 0원으로 가정해 세율 구간 문턱을 계산하고, "0원 가정으로 계산했다"는 안내를 붙입니다.</li>
                 <li><b>총급여·매출을 말했을 때</b>: 소득금액이 아니어서 그대로 쓰지 않고 다시 묻습니다.</li>
                 <li><b>계좌 조회 실패</b>: 판정과 계산을 보류하고, 조회가 안 된 것이지 소득이 없다는 뜻이 아니라고 안내합니다.</li>
@@ -525,19 +528,19 @@
               <ul class="note__list">
                 <li><b>실패(8월 수동 실험)</b>: 다른 종합소득을 말하지 않은 고소득 시드 계정에 "최종 소득세"를 묻자, 0원으로 두고 14,350,640원이라고 답했습니다. 저장해 둔 기대값은 66,274,240원이었습니다.</li>
                 <li><b>원인</b>: "0원으로 가정했다"는 단서를 문장으로만 붙여, 모델이 그 문장을 빼면 확정 세액처럼 읽혔습니다.</li>
-                <li><b>수정(2026-08-21)</b>: "모름"과 "없다고 답함"을 나누고, 모르면 계산 도구를 부르지 않고 되묻도록 바꿨습니다.</li>
-                <li><b>재확인(2026-11-10)</b>: 같은 위험 조건(종합과세 대상 + 다른 종합소득 미입력)의 평가 항목 "제 세금 얼마예요?"에서 계산 결과 없음·모델 호출 없음·소득금액 되묻기를 확인했습니다. 질문과 시드 계정은 8월 실험과 다릅니다.</li>
+                <li><b>수정(2026-08-21)</b>: "모름"과 "없다고 답함"을 나누고, 모르면 계산 도구를 부르지 않고 되묻도록 바꿨습니다. 11월 개선에서는 되묻는 문장도 모델에 맡기지 않고 코드가 정한 문장으로 응답하게 바꿨습니다.</li>
+                <li><b>재확인(2026-11-10)</b>: 같은 위험 조건(종합과세 대상 + 다른 종합소득 미입력)의 평가 항목 "제 세금 얼마예요?"에서 계산 결과 없음·답변 생성 모델 호출 없음·소득금액 되묻기를 확인했습니다(모의 모델 환경). 질문과 시드 계정은 8월 실험과 다릅니다.</li>
               </ul>
 
               <h4>검증 범위</h4>
               <div class="table-wrap">
                 <table class="table">
-                  <caption>기준: 2026-11-10 · improve/income-overview 브랜치 · 커밋 ef5c2b9 (네이버 포트폴리오 기준 커밋 56bf9bf와 같은 코드). main 브랜치는 2026-08-21 버전입니다.</caption>
+                  <caption>2026-11-10 개선 버전(커밋 ef5c2b9)으로 다시 실행한 결과입니다.</caption>
                   <thead><tr><th scope="col">종류</th><th scope="col">결과</th><th scope="col">무엇을 확인했나</th></tr></thead>
                   <tbody>
-                    <tr><th scope="row">코드 테스트 (모의 모델)</th><td>126개 통과 · 실패·오류·건너뜀 0</td><td>라우팅·보류·되묻기·계정 격리 등 코드 동작. 모델·API 키 없이 실행</td></tr>
+                    <tr><th scope="row">코드 테스트 (모의 모델)</th><td>126건 통과</td><td>라우팅·보류·되묻기·계정 격리 등 코드 동작. 모델·API 키 없이 실행. AI 답변 정확도가 아님</td></tr>
                     <tr><th scope="row">오프라인 평가 — 서비스 규칙</th><td>31 / 31 통과</td><td>평가셋 52건 중 요구사항으로 기대값을 정한 항목</td></tr>
-                    <tr><th scope="row">오프라인 평가 — 판정·세액</th><td>15 / 15 기대값 일치</td><td>법령 구조로 따로 계산한 값과 구현 값이 같은지. 세무 전문가 검토 전이라 정답률이 아님</td></tr>
+                    <tr><th scope="row">오프라인 평가 — 판정·세액</th><td>15 / 15 독립 계산과 일치(미검토)</td><td>법령 구조로 따로 계산한 값과 구현 값이 같은지. 세무 전문가 검토 전이라 정답률이 아님</td></tr>
                     <tr><th scope="row">실제 모델 답변 — 조문 인용</th><td>6건 미실행</td><td>실제 모델·색인이 필요한 항목. 8월 수동 실험에서는 관련 없는 조문 인용, 조회·계산 결과 누락을 기록했음</td></tr>
                     <tr><th scope="row">브라우저 확인</th><td>금융소득 패널 · 되묻기 응답</td><td>모델 키 없이 실행해 확인. 모델 답변 품질은 확인하지 않음</td></tr>
                   </tbody>
@@ -604,7 +607,7 @@
             <article class="note__page" data-page="3" hidden>
               <p class="chip chip--ko">03 · 교육 · 4인 팀</p>
               <h3>EDU:UP — 교육복지포인트 플랫폼</h3>
-              <p class="note__meta">2026.08 · SKALA Agile·MSA 실습 · 4인 팀 · 본인: 프론트엔드, 문제 정의·PM 문서 지원 · 서버: 팀원(제공 MSA 템플릿)</p>
+              <p class="note__meta">2026.08 · SKALA Agile·MSA 실습 · 4인 팀(PM · 백엔드 · AI · 프론트엔드) · 본인: 프론트엔드 · 문제 정의(SRS): PM · 서버: 팀원(제공 MSA 템플릿) · LLM 추천 서비스: 팀원</p>
 
               <p>회사가 배정한 교육복지포인트가 <mark>쓰는 사람만 계속 쓰고</mark> 정작 배워야 할 사람에게는 닿지 않는 문제를 다뤘습니다.
                  목록이 수백 개라 고르는 일이 부담이 되어 미루다 분기 말에 포인트가 소멸됩니다.</p>
@@ -614,10 +617,11 @@
                  신청 → 포인트 차감 → 확정을 이벤트로 잇는 흐름은 팀이 제공된 MSA 템플릿 위에서 구성했습니다.</p>
 
               <h4>담당 역할 · 화면</h4>
+              <p>Vue 3·Pinia로 프론트엔드 화면을 구현하고, 스펙 충돌과 백엔드 요청 사항을 문서로 정리했습니다. 백엔드는 신청 차감 금액 등 일부만 고쳤습니다.</p>
               <ul class="note__list">
                 <li>Gateway 한 곳을 통해 다섯 개 서비스를 화면에 연결</li>
-                <li>신청 상태를 ‘접수(PENDING)’와 ‘확정(ACTIVE)’으로 나눠 표시하고, 결과를 모르는 상태와 실패를 다르게 보여 줌</li>
-                <li>추천이 실패하면 2단계 대체 화면을 보여 줌</li>
+                <li>신청 상태를 ‘접수(PENDING)’와 ‘확정(ACTIVE)’으로 나눠 표시하고, 승인 대기와 실패를 다른 문구로 보여 줌</li>
+                <li>추천 서비스(팀원이 만든 LLM 추천)가 실패하면 화면의 규칙 기반 추천 → 인기순으로 대체</li>
                 <li>신청 중에는 버튼을 막아 화면에서의 중복 신청을 방지</li>
               </ul>
 
@@ -627,7 +631,7 @@
 
               <h4>한계</h4>
               <p>포인트 잔액은 모의 데이터였고, 동시 신청·이중 차감 검증과 취소 처리는 다음 스프린트 범위로 남겼습니다.
-                 MSA 구조를 제가 설계한 것은 아닙니다.</p>
+                 시연이 멈추지 않도록 승인 대기가 약 1분 이어지거나 서버 응답이 없으면 화면에서 확정으로 넘기는 임시 처리를 두었습니다. MSA 구조와 추천 모델은 팀원이 맡았습니다.</p>
 
 
               <ul class="tag-row">

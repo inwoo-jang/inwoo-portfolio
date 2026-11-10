@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 372" role="img" aria-labelledby="t d">
+  <title id="t">AI 에이전트의 처리 과정</title>
+  <desc id="d">사용자 질문 해석, 검색, 도구 호출, 정책·권한 검증, LLM 답변 생성, 최종 응답의 여섯 단계. 검색과 도구 호출은 반복될 수 있다.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L8 4 L0 8" fill="none" stroke="#545B66" stroke-width="1.3"/>
+    </marker>
+  </defs>
+  <rect width="640" height="372" fill="#fff"/>
+  <g font-family="-apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif">
+    <line x1="66" y1="40" x2="66" y2="330" stroke="#C8CDD4" stroke-width="1.5"/>
+
+    <g font-size="12" fill="#6F7682" font-family="Menlo, Consolas, monospace">
+      <text x="22" y="44">01</text><text x="22" y="102">02</text><text x="22" y="160">03</text>
+      <text x="22" y="218">04</text><text x="22" y="276">05</text><text x="22" y="334">06</text>
+    </g>
+    <g fill="#fff" stroke="#111418" stroke-width="1.5">
+      <rect x="61" y="35" width="10" height="10"/><rect x="61" y="93" width="10" height="10"/>
+      <rect x="61" y="151" width="10" height="10"/><rect x="61" y="209" width="10" height="10"/>
+      <rect x="61" y="267" width="10" height="10"/><rect x="61" y="325" width="10" height="10" fill="#111418"/>
+    </g>
+
+    <g font-size="15" font-weight="600" fill="#111418">
+      <text x="92" y="45">사용자 질문 해석</text>
+      <text x="92" y="103">검색 · Retrieval</text>
+      <text x="92" y="161">도구 호출 · Tool Calling</text>
+      <text x="92" y="219">정책 · 권한 검증</text>
+      <text x="92" y="277">LLM 답변 생성</text>
+      <text x="92" y="335">최종 응답</text>
+    </g>
+    <g font-size="13" fill="#545B66">
+      <text x="300" y="45">의도와 필요한 정보 파악</text>
+      <text x="300" y="103">관련 문서와 근거 탐색</text>
+      <text x="300" y="161">외부 API 및 내부 시스템 조회</text>
+      <text x="300" y="219">허용 범위와 승인 필요 여부 판단</text>
+      <text x="300" y="277">근거 종합 및 응답 작성</text>
+      <text x="300" y="335">사용자에게 결과 전달</text>
+    </g>
+
+    <path d="M560 156 C 600 150, 600 104, 566 99" fill="none" stroke="#545B66" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <text x="596" y="132" font-size="12" fill="#545B66">반복</text>
+  </g>
+</svg>

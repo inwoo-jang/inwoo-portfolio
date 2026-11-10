@@ -21,8 +21,9 @@
 
 ### Portfolio 보기 방식
 
-- **Quick View(기본)** — 프로젝트 카드 18개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
-  카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 요약(개요→문제→역할→설계·구현→결과→스택·링크) 뒤에 연습장 본문을 그대로 보여 준다.
+- **먼저 볼 프로젝트** — 목록 맨 위에 대표 4개(주문 연동 · 급여명세서 · 퀴켓 · TaxDesk)를 `script/projects-data.js`의 `window.FEATURED`로 보여 준다. 카드는 프로젝트명 → 판단 → 결과·현재 상태 순서이고, 홈(`index.html`)의 대표 프로젝트와 같은 문장을 쓴다.
+- **Quick View(기본)** — 프로젝트 카드 20개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
+  카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 프로젝트명 → 한 줄 설명 → 기간·팀·내 역할·현재 상태 → 문제·내 판단·확인한 결과 → 화면과 자료 → 상세 과정(연습장 본문) → 기술과 관련 자료 순서. 역할은 상단 메타에서 한 번만 말한다.
 - **Book View** — 기존 책장·연습장. `#skala` · `#team` · `#solo` 주소는 그대로 Book View로 열린다.
 - 카드 요약은 `script/projects-data.js`, 상세 본문의 원본은 `portfolio.html`의 연습장 장이다(id = `data-project-gallery` 값).
   요약에는 본문에 적힌 사실만 쓰고, 팀 결과·설계 목표·추정치는 `metrics[].scope`에 범위를 적는다.

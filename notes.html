@@ -52,16 +52,15 @@
             <span class="visually-hidden" id="note-search-hint">제목·요약·태그·분류에서 검색합니다. 입력하면 아래 목록에 바로 반영됩니다.</span>
           </div>
           <div class="toolbar__row" role="group" aria-labelledby="note-cat-label">
-            <span class="toolbar__label" id="note-cat-label">분류</span>
+            <span class="toolbar__label toolbar__label--help"><span id="note-cat-label">분류</span><button class="help-btn" type="button" aria-expanded="false" aria-controls="notes-guide" aria-label="분류 기준과 색상 보기" title="분류 기준과 색상 보기" data-notes-guide-toggle>?</button></span>
             <ul class="chips" data-note-cats></ul>
           </div>
         </div>
 
-        <details class="notes-guide">
-          <summary>분류 기준과 색상 보기</summary>
+        <div class="notes-guide" id="notes-guide" hidden>
           <p>여러 주제를 다루는 글은 관련 분류에 함께 표시합니다. 카드 상단의 세로 테이프 색이 각 분류를 나타내며, 마우스를 올리면 분류명을 확인할 수 있습니다. 카드 아래에는 기술 키워드와 글의 유형(비교·사용 가이드·오류 해결)을 표시합니다. 분류별 글 수에는 중복이 포함됩니다.</p>
           <ul class="notes-guide__grid" data-note-category-guide></ul>
-        </details>
+        </div>
 
         <p class="count" data-notes-count aria-live="polite">노트를 불러오는 중…</p>
         <ol class="entries" data-notes-grid></ol>

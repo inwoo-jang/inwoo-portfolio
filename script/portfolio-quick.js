@@ -173,16 +173,58 @@
     return ul;
   }
 
+  /* 먼저 볼 프로젝트 — 프로젝트명 → 핵심 판단 → 결과·현재 상태 */
+  function renderFeatured() {
+    var box = quickPanel.querySelector("[data-featured-grid]");
+    if (!box) { return; }
+    (window.FEATURED || []).forEach(function (f, i) {
+      var p = byId(f.id);
+      if (!p) { return; }
+      var li = el("li", "pick");
+      var top = el("p", "pick__top");
+      top.appendChild(el("span", "pick__no", String(i + 1).padStart(2, "0")));
+      top.appendChild(el("span", null, BOOKS[p.book].label + " · " + p.period));
+      top.appendChild(statusEl(p));
+      li.appendChild(top);
+      var h = el("h3", "pick__title");
+      var a = el("a", null, p.title);
+      a.href = "#p-" + p.id;
+      h.appendChild(a);
+      li.appendChild(h);
+      var dl = el("dl", "pick__lines");
+      [["판단", f.decision], ["결과", f.result]].forEach(function (pair) {
+        var row = el("div");
+        row.appendChild(el("dt", null, pair[0]));
+        row.appendChild(el("dd", null, pair[1]));
+        dl.appendChild(row);
+      });
+      li.appendChild(dl);
+      li.appendChild(el("p", "pick__split", f.split));
+      box.appendChild(li);
+    });
+  }
+
   function renderGrid() {
     var list = visibleProjects();
     gridEl.textContent = "";
     list.forEach(function (p) { gridEl.appendChild(card(p)); });
     countEl.textContent = list.length
-      ? "프로젝트 " + list.length + "개"
+      ? list.length + "개 표시 중"
       : "조건에 맞는 프로젝트가 없습니다. 필터를 ‘전체’로 바꿔 보세요.";
   }
 
   /* ---------- 읽기 화면 ---------- */
+
+  /* 연습장 장의 이미지 갤러리를 복제해 ‘화면과 자료’로 먼저 보여 준다 */
+  function galleryFrom(article) {
+    var mount = article.querySelector("[data-project-gallery]");
+    if (!mount || mount.hidden || !mount.children.length) { return null; }
+    var copy = mount.cloneNode(true);
+    copy.removeAttribute("data-project-gallery");
+    copy.removeAttribute("hidden");
+    copy.className = "reader-gallery";
+    return copy;
+  }
 
   function proseFrom(article) {
     var copy = article.cloneNode(true);
@@ -191,9 +233,16 @@
     if (firstMeta) { firstMeta.remove(); }
     copy.querySelectorAll(":scope > .chip, :scope > h3, :scope > .tag-row, :scope > .btn-row")
       .forEach(function (n) { n.remove(); });
-    copy.querySelectorAll("[data-project-gallery]").forEach(function (g) {
-      g.removeAttribute("data-project-gallery");
-      if (g.hidden || !g.children.length) { g.remove(); }
+    // 이미지는 위의 ‘화면과 자료’에서 보여 주므로 본문에서는 뺀다
+    copy.querySelectorAll("[data-project-gallery]").forEach(function (g) { g.remove(); });
+    // 요약과 메타에서 이미 말한 ‘담당 역할’ 단락은 읽기 화면에서 생략(연습장에는 그대로 둔다)
+    copy.querySelectorAll(":scope > h4").forEach(function (h4) {
+      if (h4.textContent.trim() !== "담당 역할") { return; }
+      var next = h4.nextElementSibling;
+      while (next && next.tagName !== "H4" && !next.classList.contains("tag-row")) {
+        var after = next.nextElementSibling; next.remove(); next = after;
+      }
+      h4.remove();
     });
     // 연습장의 소제목(h4)은 읽기 화면에서 한 단계 위(h3)로
     copy.querySelectorAll("h4").forEach(function (h4) {
@@ -244,27 +293,24 @@
     title.id = "reader-title";
     title.tabIndex = -1;
     head.appendChild(title);
-    if (p.roles && p.roles.length) { head.appendChild(rolesEl(p.roles)); }
-    var meta = article && article.querySelector(".note__meta");
-    if (meta) { head.appendChild(el("p", "meta", meta.textContent.trim())); }
+    if (p.overview) { head.appendChild(el("p", "reader-view__lede", p.overview)); }
 
+    // 기간 · 팀 · 내 역할 · 현재 상태 — 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
-    var factPairs = [["기간", p.period], ["구분", p.scope]];
-    if (!p.summary) { factPairs.push(["내 역할", p.role]); }   // 요약에 내 역할이 있으면 위에선 생략
-    factPairs.forEach(function (pair) {
+    [["기간", p.period], ["팀·구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
       facts.appendChild(d);
     });
     var sd = el("div");
-    sd.appendChild(el("dt", null, "상태"));
+    sd.appendChild(el("dt", null, "현재 상태"));
     var dd = el("dd"); dd.appendChild(statusEl(p)); sd.appendChild(dd);
     facts.appendChild(sd);
     head.appendChild(facts);
     readerEl.appendChild(head);
 
-    /* 요약 — 내 역할 · 핵심 판단 · 결과만 짧게. 근거는 아래 상세 기록에서 */
+    /* 문제 · 내 판단 · 확인한 결과 */
     var summary = el("dl", "reader-summary");
     function summaryRow(label, node) {
       var row = el("div", "reader-summary__row");
@@ -274,54 +320,51 @@
       row.appendChild(dd);
       summary.appendChild(row);
     }
-    // 요약 4줄(문제 · 내 역할 · 핵심 판단 · 확인한 결과)을 따로 정한 프로젝트
+    function figures() {
+      var fg = el("div", "figures");
+      p.metrics.forEach(function (m) {
+        var f = el("p", "figure-num");
+        f.appendChild(el("span", "figure-num__value", m.value));
+        f.appendChild(el("span", "figure-num__label", m.label));
+        if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
+        fg.appendChild(f);
+      });
+      return fg;
+    }
     var S = p.summary;
+    summaryRow("문제", S ? S.problem : p.problem);
     if (S) {
-      summaryRow("문제", S.problem);
-      summaryRow("내 역할", S.role);
-      summaryRow("핵심 판단", S.decision);
+      summaryRow("내 판단", S.decision);
     } else {
-      summaryRow("내 역할", p.role);
       var ul = el("ul", "reader-summary__list");
       p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
-      summaryRow(p.book === "work" ? "내가 정한 정책 · 검증" : "핵심 판단 · 구현", ul);
+      summaryRow("내 판단", ul);
     }
-
-    // 결과 — 수치나 확인된 사실이 있을 때만
-    if (S && S.result) {
+    var resultText = S && S.result ? S.result : p.resultNote;
+    if (p.metrics.length || resultText) {
       var rs = el("div");
-      if (p.metrics.length) {
-        var fg = el("div", "figures");
-        p.metrics.forEach(function (m) {
-          var f = el("p", "figure-num");
-          f.appendChild(el("span", "figure-num__value", m.value));
-          f.appendChild(el("span", "figure-num__label", m.label));
-          if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
-          fg.appendChild(f);
-        });
-        rs.appendChild(fg);
-      }
-      rs.appendChild(el("p", "reader-summary__note", S.result));
+      if (p.metrics.length) { rs.appendChild(figures()); }
+      if (resultText) { rs.appendChild(el("p", "reader-summary__note", resultText)); }
       summaryRow("확인한 결과", rs);
-    } else if (p.metrics.length || p.resultNote) {
-      var res = el("div");
-      if (p.metrics.length) {
-        var figs = el("div", "figures");
-        p.metrics.forEach(function (m) {
-          var f = el("p", "figure-num");
-          f.appendChild(el("span", "figure-num__value", m.value));
-          f.appendChild(el("span", "figure-num__label", m.label));
-          if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
-          figs.appendChild(f);
-        });
-        res.appendChild(figs);
-      }
-      if (p.resultNote) { res.appendChild(el("p", "reader-summary__note", p.resultNote)); }
-      summaryRow("결과 · 현재 상태", res);
     }
     readerEl.appendChild(summary);
 
+    // 화면과 자료 — 실제 화면 · 팀 산출물 · 예시 데이터 · 설명도는 캡션에 구분해 적는다
+    var gallery = article ? galleryFrom(article) : null;
+    if (gallery) {
+      readerEl.appendChild(heading("화면과 자료"));
+      readerEl.appendChild(gallery);
+    }
+
+    if (article) {
+      readerEl.appendChild(heading("상세 과정"));
+      readerEl.appendChild(proseFrom(article));
+    }
+
+    // 기술 · 관련 자료 · 관련 프로젝트
     var links = article ? linksFrom(article) : [];
+    var related = (p.related || []).map(byId).filter(Boolean);
+    readerEl.appendChild(heading("기술과 관련 자료"));
     var linkRow = el("div", "reader-summary__links");
     linkRow.appendChild(tagsEl(p.stack));
     if (links.length) {
@@ -330,12 +373,16 @@
       links.forEach(function (a) { row.appendChild(a); });
       linkRow.appendChild(row);
     }
-    readerEl.appendChild(linkRow);
-
-    if (article) {
-      readerEl.appendChild(heading("상세 기록"));
-      readerEl.appendChild(proseFrom(article));
+    if (related.length) {
+      var rel = el("p", "reader-related");
+      rel.appendChild(el("span", null, "관련 프로젝트 "));
+      related.forEach(function (r, i) {
+        if (i) { rel.appendChild(document.createTextNode(" · ")); }
+        var ra = el("a", null, r.title); ra.href = "#p-" + r.id; rel.appendChild(ra);
+      });
+      linkRow.appendChild(rel);
     }
+    readerEl.appendChild(linkRow);
 
     var pager = el("nav", "pager");
     pager.setAttribute("aria-label", "프로젝트 이동");
@@ -383,17 +430,20 @@
     });
   }
 
+  var viewSwitch = document.querySelector("[data-view-switch]");
+
   function showList(restoreFocus) {
     showView("quick");
+    if (viewSwitch) { viewSwitch.hidden = false; }
     readerEl.hidden = true;
     listEl.hidden = false;
     if (pageHead) { pageHead.hidden = false; }
     document.title = "포트폴리오 — 장인우 · inwoo.log";
     if (restoreFocus && lastOpenedId) {
-      var link = gridEl.querySelector('a[href="#p-' + lastOpenedId + '"]');
+      var link = quickPanel.querySelector('[data-quick-list] a[href="#p-' + lastOpenedId + '"]');
       if (link) {
         link.focus({ preventScroll: true });
-        link.closest(".card").scrollIntoView({ block: "center" });
+        link.closest(".card, .pick").scrollIntoView({ block: "center" });
       }
     }
   }
@@ -404,6 +454,7 @@
     listEl.hidden = true;
     readerEl.hidden = false;
     if (pageHead) { pageHead.hidden = true; }
+    if (viewSwitch) { viewSwitch.hidden = true; }
     lastOpenedId = p.id;
     document.title = p.title + " — 포트폴리오 · inwoo.log";
     window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
@@ -422,6 +473,7 @@
     if (BOOK_IDS.indexOf(hash) >= 0 || hash === "book") {
       showView("book");
       if (pageHead) { pageHead.hidden = false; }
+      if (viewSwitch) { viewSwitch.hidden = false; }
       return;
     }
     if (hash.indexOf("p-") === 0) {
@@ -451,6 +503,7 @@
 
   window.addEventListener("hashchange", route);
 
+  renderFeatured();
   renderFilterButtons();
   renderGrid();
   route();

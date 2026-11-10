@@ -31,7 +31,7 @@
       button.setAttribute('aria-label', item.alt + ' 확대보기');
       button.dataset.src = item.src; button.dataset.alt = item.alt; button.dataset.caption = item.caption || item.alt;
       var img = document.createElement('img'); img.alt = item.alt; img.loading = 'eager';
-      var label = document.createElement('figcaption'); label.textContent = (item.caption || item.alt) + ' · 눌러서 확대';
+      var label = document.createElement('figcaption'); label.textContent = item.caption || item.alt;
       img.addEventListener('error', function () { figure.remove(); mount.hidden = !mount.children.length; });
       img.src = item.src;
       button.append(img); figure.append(button, label); mount.append(figure); mount.hidden = false;
