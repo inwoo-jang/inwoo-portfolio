@@ -194,7 +194,8 @@
         "agent-autonomy",
         "multi-agent-vs-single",
         "why-ai-service",
-        "agent-governance"
+        "agent-governance",
+        "model-selection"
       ]
     },
     {
@@ -293,7 +294,8 @@
         "rag-citation-rules",
         "agent-guardrails",
         "agent-governance",
-        "context-engineering"
+        "context-engineering",
+        "model-selection"
       ]
     },
     {
@@ -348,7 +350,8 @@
       "related": [
         "rag-citation-rules",
         "data-preprocessing",
-        "context-engineering"
+        "context-engineering",
+        "model-selection"
       ]
     },
     {
@@ -452,6 +455,7 @@
         "agent-guardrails",
         "agent-eval",
         "agent-kpi",
+        "model-selection",
         "tech-stack-choice",
         "why-python-ai"
       ]
@@ -535,6 +539,34 @@
       ]
     },
     {
+      "slug": "model-selection",
+      "file": "notes/model-selection.md",
+      "title": "AI 모델은 성능이 높을수록 좋은 선택일까?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "LLM",
+        "Model Selection",
+        "Reasoning",
+        "Inference Cost",
+        "AI Service Planning"
+      ],
+      "date": "2026-09-05",
+      "summary": "파라미터가 많고 추론을 오래 하는 모델이 늘 맞는 선택은 아니다. 파라미터·추론·비용을 따로 보고, 성공 업무당 비용과 필수 품질 조건으로 모델을 고르는 기준과 비교 실험 방법을 정리했다.",
+      "sample": false,
+      "related": [
+        "why-sllm",
+        "why-ml-model",
+        "multi-agent-vs-single",
+        "agent-kpi",
+        "when-rag",
+        "ai-failure-tracing"
+      ]
+    },
+    {
       "slug": "why-ml-model",
       "file": "notes/why-ml-model.md",
       "title": "DL·LLM이 있는데 왜 전통적인 ML을 선택할까?",
@@ -559,6 +591,7 @@
       "related": [
         "why-sllm",
         "data-preprocessing",
+        "model-selection",
         "why-ai-service",
         "why-python-ai"
       ]
@@ -584,6 +617,7 @@
       "sample": false,
       "related": [
         "why-ai-agent",
+        "model-selection",
         "why-ai-service",
         "why-ml-model",
         "why-python-ai"
