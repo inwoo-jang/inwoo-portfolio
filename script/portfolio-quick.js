@@ -157,7 +157,7 @@
     h.appendChild(link);
     body.appendChild(h);
 
-    body.appendChild(el("p", "card__result", p.problem));
+    body.appendChild(el("p", "card__result", p.build[0]));
     body.appendChild(el("p", "card__role", p.role));
     body.appendChild(tagsEl(p.stack.slice(0, 4)));
     li.appendChild(body);
@@ -252,41 +252,50 @@
     head.appendChild(facts);
     readerEl.appendChild(head);
 
-    /* 요약 — 개요 → 문제 → 역할 → 설계·구현 → 결과 → 스택·링크 */
-    readerEl.appendChild(heading("한눈에 보기"));
-    readerEl.appendChild(el("p", "lead", p.overview));
-
-    readerEl.appendChild(el("h3", null, "해결하려는 문제"));
-    readerEl.appendChild(el("p", null, p.problem));
-
-    readerEl.appendChild(el("h3", null, "핵심 설계·구현"));
-    var ul = el("ul");
-    p.build.forEach(function (b) { ul.appendChild(el("li", null, b)); });
-    readerEl.appendChild(ul);
-
-    readerEl.appendChild(el("h3", null, "결과 및 검증"));
-    if (p.metrics.length) {
-      var figs = el("div", "figures");
-      p.metrics.forEach(function (m) {
-        var f = el("p", "figure-num");
-        f.appendChild(el("span", "figure-num__value", m.value));
-        f.appendChild(el("span", "figure-num__label", m.label));
-        if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
-        figs.appendChild(f);
-      });
-      readerEl.appendChild(figs);
+    /* 요약 — 내 역할 · 핵심 판단 · 결과만 짧게. 근거는 아래 상세 기록에서 */
+    var summary = el("dl", "reader-summary");
+    function summaryRow(label, node) {
+      var row = el("div", "reader-summary__row");
+      row.appendChild(el("dt", null, label));
+      var dd = el("dd");
+      if (typeof node === "string") { dd.textContent = node; } else { dd.appendChild(node); }
+      row.appendChild(dd);
+      summary.appendChild(row);
     }
-    if (p.resultNote) { readerEl.appendChild(el("p", null, p.resultNote)); }
+    summaryRow("내 역할", p.role);
+    var ul = el("ul", "reader-summary__list");
+    p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
+    summaryRow(p.book === "work" ? "내가 정한 정책 · 검증" : "핵심 판단 · 구현", ul);
 
-    readerEl.appendChild(el("h3", null, "기술 · 관련 링크"));
-    readerEl.appendChild(tagsEl(p.stack));
+    // 결과 — 수치나 확인된 사실이 있을 때만
+    if (p.metrics.length || p.resultNote) {
+      var res = el("div");
+      if (p.metrics.length) {
+        var figs = el("div", "figures");
+        p.metrics.forEach(function (m) {
+          var f = el("p", "figure-num");
+          f.appendChild(el("span", "figure-num__value", m.value));
+          f.appendChild(el("span", "figure-num__label", m.label));
+          if (m.scope) { f.appendChild(el("span", "figure-num__scope", m.scope)); }
+          figs.appendChild(f);
+        });
+        res.appendChild(figs);
+      }
+      if (p.resultNote) { res.appendChild(el("p", "reader-summary__note", p.resultNote)); }
+      summaryRow("결과 · 현재 상태", res);
+    }
+    readerEl.appendChild(summary);
+
     var links = article ? linksFrom(article) : [];
+    var linkRow = el("div", "reader-summary__links");
+    linkRow.appendChild(tagsEl(p.stack));
     if (links.length) {
       var row = el("p", "reader-view__actions");
-      row.style.marginTop = "var(--s4)";
+      row.style.marginTop = "var(--s3)";
       links.forEach(function (a) { row.appendChild(a); });
-      readerEl.appendChild(row);
+      linkRow.appendChild(row);
     }
+    readerEl.appendChild(linkRow);
 
     if (article) {
       readerEl.appendChild(heading("상세 기록"));

@@ -33,4 +33,4 @@ export const Portfolio_상세 = { name: "Portfolio · 프로젝트 상세", rend
 export const Portfolio_BookView = { name: "Portfolio · Book View", render: () => frame(portfolio, "#work") };
 export const HowIWork = { name: "How I Work", render: () => frame(how) };
 export const DevNotes = { name: "Dev Notes · 목록", render: () => frame(notes) };
-export const DevNotes_상세 = { name: "Dev Notes · 상세", render: () => frame(notes, "#n-vscode-tips") };
+export const DevNotes_상세 = { name: "Dev Notes · 상세", render: () => frame(notes, "#n-prompt-techniques") };

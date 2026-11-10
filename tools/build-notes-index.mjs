@@ -67,6 +67,7 @@ if (problems.length) {
   process.exit(1);
 }
 
-notes.sort((a, b) => (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, "ko"));
+// 완성 글을 먼저, 샘플은 뒤로. 같은 묶음 안에서는 최신순
+notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, "ko"));
 await writeFile(join(notesDir, "index.json"), JSON.stringify({ notes }, null, 2) + "\n");
 console.log(`notes/index.json — 노트 ${notes.length}개`);

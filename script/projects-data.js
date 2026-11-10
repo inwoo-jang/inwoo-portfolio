@@ -93,7 +93,7 @@ window.PROJECTS = [
     book: "work",
     title: "약국가계부 연결 흐름 개선 · 제휴 사이트 연동",
     scope: "(주)지킴컴퍼니 · 운영 적용",
-    period: "재직 중",
+    period: "2024.10–2026.06 중",
     types: ["Product", "Operations"],
     overview: "기관별로 따로 하던 연결을 인증 방식에 따라 정리하고, 제휴 사이트 안에서 리포트를 보이게 기획.",
     problem: "원격지원에서 약국이 홈택스·여신금융·요양기관·4대보험을 각각 따로 연결해야 하는 불편을 확인했습니다.",
@@ -114,7 +114,7 @@ window.PROJECTS = [
     book: "work",
     title: "처방전 보관 서비스 운영 · 스캔센터",
     scope: "(주)지킴컴퍼니",
-    period: "재직 중",
+    period: "2024.10–2026.06 중",
     types: ["Operations"],
     overview: "처방전 수거·스캔·보관 업무의 반복 작업 자동화를 기획하고, 새로 연 스캔센터를 운영.",
     problem: "주문·수거·스캔·보관 단계에서 같은 박스를 추적하기 어려웠고, 스캔 업로드가 주문번호와 어긋나는 경우가 있었습니다.",
@@ -157,6 +157,8 @@ window.PROJECTS = [
   /* ---------- SKALA 교육 과정 ---------- */
   {
     id: "taxdesk",
+    image: "media/portfolio/taxdesk-answer.png",
+    imageAlt: "근거 조문과 도구 호출을 함께 보여 주는 세무상담 응답 화면(가상 고객)",
     status: "교육 실습",
     statusKind: "edu",
     headline: "숫자는 코드가 계산",
@@ -273,7 +275,7 @@ window.PROJECTS = [
     period: "2026.03–07",
     types: ["Product"],
     overview: "공부 자료를 올리면 AI가 문제를 만들고 오답을 다시 풀게 하는 학습 앱.",
-    problem: "개발자 4명·디자이너 2명의 일정 안에서 첫 출시 범위를 정해야 했습니다. 게임 요소를 늘리자는 의견과 핵심 흐름에 집중하자는 의견이 갈렸습니다.",
+    problem: "학습자는 강의 노트·필기를 복습 문제로 바꾸는 데 부담이 있었습니다. 출시 과정에서는 개발자 4명·디자이너 2명의 일정 안에서 첫 출시 범위를 정해야 했습니다.",
     role: "PM·기획·사용자 테스트, 검증용 미니 버전 직접 구현. 정식 앱 구현은 개발팀",
     build: [
       "미니 버전으로 짧은 자료에서 문항이 과도하게 생성되는 것을 확인해 입력 분량별 문항 수 기준을 정함",
@@ -405,7 +407,7 @@ window.PROJECTS = [
       "AOP 로깅, 비동기 링크 검증, 멀티스테이지 빌드"
     ],
     metrics: [],
-    resultNote: "",
+    resultNote: "1인으로 배포 실습까지 진행했습니다. 지금은 배포 주소가 열리지 않습니다(2026-11 확인).",
     stack: ["Spring Boot", "Vue 3", "AOP", "Docker"]
   },
   {
@@ -428,12 +430,12 @@ window.PROJECTS = [
       "AI 관계 분석, 연락 리마인더·경조사 D-day 알림"
     ],
     metrics: [],
-    resultNote: "",
+    resultNote: "직접 쓰려고 만든 앱이며 출시하지 않았습니다. 개인 기록이 담긴 앱이라 화면은 싣지 않았습니다.",
     stack: ["Next.js", "Supabase", "Capacitor", "Claude · Gemini API"]
   },
   {
     id: "personal-tools",
-    status: "작은 도구",
+    status: "개인 사용",
     statusKind: "other",
     image: "media/portfolio/demo-vibe.png",
     imageAlt: "바이브코딩 가이드 첫 화면",
@@ -451,7 +453,7 @@ window.PROJECTS = [
       "API 키는 서버리스 함수에서만 쓰고 빌드 전 키 유출 검사를 거치는 바이브코딩 가이드"
     ],
     metrics: [],
-    resultNote: "",
+    resultNote: "템플릿 허브와 바이브코딩 가이드는 공개 주소에서 열립니다(2026-11 확인). 메일 요약봇이 지금도 자동 실행되는지는 확인하지 않았습니다.",
     stack: ["Python", "Spring Boot · Vue", "GitHub Actions", "프롬프트 설계"]
   }
 ];
