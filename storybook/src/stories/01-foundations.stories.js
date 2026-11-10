@@ -22,7 +22,7 @@ ${COLORS.map(([v, hex, use]) => `<li style="margin:0;font-size:13px;line-height:
 };
 
 const TYPE = [
-  ["Display 30–46", "display", "현장을 직접 해 보고 규칙으로 만드는 서비스 기획자"],
+  ["Display 30–46", "display", "현장에서 발견한 문제를 사용자 흐름과 기능으로 설계하는 기획자"],
   ["H2 24–30", "h2", "대표 프로젝트"],
   ["H3 20", "h3", "의약품 도매몰 주문·박스 상태 연동"],
   ["Lead 19", "lead", "현장에서 문제를 찾아 문서로 고정합니다."],

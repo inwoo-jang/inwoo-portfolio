@@ -9,19 +9,13 @@
   if (!root) { return; }
 
   var REPO_BLOB = "https://github.com/inwoo-jang/inwoo-portfolio/blob/main/";
-  var CATEGORIES = [
-    { id: "tools", label: "Tools & IDE", desc: "Kiro · VS Code · Git · GitHub" },
-    { id: "ai", label: "AI Engineering", desc: "RAG · LangGraph · MCP · Agent" },
-    { id: "backend", label: "Backend & Database", desc: "Java · Spring · Python · PostgreSQL" },
-    { id: "infra", label: "Infrastructure & DevOps", desc: "Docker · Kubernetes · CI/CD · AWS" },
-    { id: "testing", label: "Testing & Security", desc: "Playwright · Vitest · Agent 보안" },
-    { id: "troubleshooting", label: "Troubleshooting", desc: "실제 오류 원인과 해결 기록" }
-  ];
+  var categories = [];
 
   var listEl = root.querySelector("[data-notes-list]");
   var gridEl = root.querySelector("[data-notes-grid]");
   var countEl = root.querySelector("[data-notes-count]");
   var catBox = root.querySelector("[data-note-cats]");
+  var guideEl = root.querySelector("[data-note-category-guide]");
   var searchEl = root.querySelector("#note-search");
   var readerEl = root.querySelector("[data-note-reader]");
 
@@ -39,34 +33,75 @@
   }
 
   function categoryOf(id) {
-    for (var i = 0; i < CATEGORIES.length; i++) {
-      if (CATEGORIES[i].id === id) { return CATEGORIES[i]; }
+    for (var i = 0; i < categories.length; i++) {
+      if (categories[i].id === id) { return categories[i]; }
     }
-    return { id: id, label: id, desc: "" };
+    return { id: id, label: id, description: "" };
+  }
+
+  function applyCategory(node, category) {
+    node.dataset.category = category.id;
+    if (!category.color) { return; }
+    node.style.setProperty("--note-ink", category.color.ink);
+    node.style.setProperty("--note-soft", category.color.soft);
+    node.style.setProperty("--tape", category.color.tape);
+  }
+
+  function categoryBadge(category, tag) {
+    var badge = el(tag || "span", "note-category", category.label);
+    applyCategory(badge, category);
+    return badge;
+  }
+
+  function categoriesOf(note) {
+    return note.categories && note.categories.length ? note.categories : [note.category];
+  }
+
+  function categoryTapes(note) {
+    var tapes = el("div", "note-tapes");
+    var labels = categoriesOf(note).map(function (id) { return categoryOf(id).label; });
+    tapes.setAttribute("role", "img");
+    tapes.setAttribute("aria-label", "분류: " + labels.join(", "));
+    categoriesOf(note).forEach(function (id) {
+      var category = categoryOf(id);
+      var tape = el("span", "note-tape");
+      applyCategory(tape, category);
+      tape.title = category.label;
+      tape.setAttribute("aria-hidden", "true");
+      tapes.appendChild(tape);
+    });
+    return tapes;
   }
 
   function formatDate(iso) {
     return iso ? iso.replace(/-/g, ".") : "";
   }
 
+  function formatNoteDate(note) {
+    var start = formatDate(note.date);
+    if (!note.dateEnd || note.dateEnd === note.date) { return start; }
+    var end = formatDate(note.dateEnd);
+    return start + "–" + (note.date.slice(0, 4) === note.dateEnd.slice(0, 4) ? end.slice(5) : end);
+  }
+
   /* ---------- 목록 ---------- */
 
   function renderCategories() {
     catBox.textContent = "";
-    var opts = [{ id: "all", label: "전체" }].concat(CATEGORIES);
+    var opts = [{ id: "all", label: "전체" }].concat(categories);
     opts.forEach(function (c) {
       var count = c.id === "all" ? notes.length
-        : notes.filter(function (n) { return n.category === c.id; }).length;
-      if (c.id !== "all" && count === 0) { return; }   // 글이 없는 분류는 숨김 — 글을 추가하면 다시 나타남
+        : notes.filter(function (n) { return categoriesOf(n).indexOf(c.id) >= 0; }).length;
       var li = el("li");
       var btn = el("button", "chip-btn");
+      applyCategory(btn, c);
       btn.type = "button";
       btn.dataset.value = c.id;
       btn.setAttribute("aria-pressed", String(state.category === c.id));
       btn.appendChild(document.createTextNode(c.label));
       btn.appendChild(el("small", null, String(count)));
       li.appendChild(btn);
-      if (c.desc) { btn.title = c.desc; }
+      if (c.description) { btn.title = c.description; }
       btn.addEventListener("click", function () {
         state.category = c.id;
         catBox.querySelectorAll(".chip-btn").forEach(function (b) {
@@ -78,29 +113,44 @@
     });
   }
 
+  function renderCategoryGuide() {
+    if (!guideEl) { return; }
+    guideEl.textContent = "";
+    categories.forEach(function (category) {
+      var item = el("li");
+      item.appendChild(categoryBadge(category));
+      item.appendChild(el("p", null, category.description));
+      guideEl.appendChild(item);
+    });
+  }
+
   function matches(note) {
-    if (state.category !== "all" && note.category !== state.category) { return false; }
+    if (state.category !== "all" && categoriesOf(note).indexOf(state.category) < 0) { return false; }
     var q = state.query.trim().toLowerCase();
     if (!q) { return true; }
-    var hay = [note.title, note.summary, note.tags.join(" "), categoryOf(note.category).label]
+    var categoryLabels = categoriesOf(note).map(function (id) { return categoryOf(id).label; }).join(" ");
+    var hay = [note.title, note.summary, note.tags.join(" "), categoryLabels]
       .join(" ").toLowerCase();
     return q.split(/\s+/).every(function (word) { return hay.indexOf(word) >= 0; });
   }
 
   function tagList(n) {
     var ul = el("ul", "tags");
-    ul.setAttribute("aria-label", "분류와 태그");
-    [categoryOf(n.category).label].concat(n.tags).forEach(function (t) { ul.appendChild(el("li", null, t)); });
-    if (n.sample) { ul.appendChild(el("li", null, "샘플")); }
+    ul.setAttribute("aria-label", "기술·키워드");
+    n.tags.forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    if (n.sample) { ul.appendChild(el("li", null, "작성 예정")); }
     return ul;
   }
 
   function noteCard(n) {
     var li = el("li", "entry");
-    var time = el("time", "entry__date", formatDate(n.date));
+    applyCategory(li, categoryOf(n.category));
+    li.appendChild(categoryTapes(n));
+    var time = el("time", "entry__date", formatNoteDate(n));
     time.dateTime = n.date;
+    if (n.dateType === "class") { time.setAttribute("aria-label", "수업 " + formatNoteDate(n)); }
     li.appendChild(time);
-    var body = el("div");
+    var body = el("div", "entry__body");
     var h = el("h3", "entry__title");
     var a = el("a", null, n.title);
     a.href = "#n-" + n.slug;
@@ -120,9 +170,9 @@
     if (list.length) {
       countEl.textContent = "노트 " + list.length + "개";
     } else if (state.category !== "all" && !state.query) {
-      countEl.textContent = "‘" + categoryOf(state.category).label + "’ 카테고리에는 아직 작성한 노트가 없습니다.";
+      countEl.textContent = "‘" + categoryOf(state.category).label + "’에 등록된 글은 아직 없습니다. " + categoryOf(state.category).description + "에 관한 글을 모을 분류입니다.";
     } else {
-      countEl.textContent = "검색 결과가 없습니다. 다른 키워드나 ‘전체’ 카테고리로 찾아보세요.";
+      countEl.textContent = "검색 결과가 없습니다. 검색어를 바꾸거나 분류를 ‘전체’로 선택해 보세요.";
     }
   }
 
@@ -141,29 +191,31 @@
 
   function renderReader(note) {
     readerEl.textContent = "";
+    applyCategory(readerEl, categoryOf(note.category));
 
     var bar = el("div", "reader-view__bar");
     var back = el("a", null, "← 노트 목록");
     back.href = "#list";
     bar.appendChild(back);
-    bar.appendChild(el("span", "count", categoryOf(note.category).label));
+    var badges = el("div", "note-categories");
+    categoriesOf(note).forEach(function (id) { badges.appendChild(categoryBadge(categoryOf(id))); });
+    bar.appendChild(badges);
     readerEl.appendChild(bar);
 
     var head = el("header");
-    head.appendChild(el("p", "eyebrow", categoryOf(note.category).label));
     var title = el("h1", null, note.title);
     title.id = "note-title";
     title.tabIndex = -1;
     head.appendChild(title);
     var meta = el("p", "meta");
-    var time = el("time", null, "작성 " + formatDate(note.date));
+    var time = el("time", null, (note.dateType === "class" ? "수업 " : "작성 ") + formatNoteDate(note));
     time.dateTime = note.date;
     meta.appendChild(time);
     head.appendChild(meta);
     var flags = el("ul", "doc-flags");
     flags.style.marginTop = "var(--s4)";
     note.tags.forEach(function (t) { flags.appendChild(el("li", null, t)); });
-    if (note.sample) { flags.appendChild(el("li", "is-sample", "샘플 — 구조만 잡아 둔 글")); }
+    if (note.sample) { flags.appendChild(el("li", "is-sample", "작성 예정 — 목차만 정리한 글")); }
     head.appendChild(flags);
     readerEl.appendChild(head);
 
@@ -248,13 +300,15 @@
       return res.json();
     })
     .then(function (data) {
+      categories = (data && data.categories) || [];
       notes = (data && data.notes) || [];
       renderCategories();
+      renderCategoryGuide();
       renderList();
       window.addEventListener("hashchange", route);
       route();
     })
     .catch(function () {
-      countEl.textContent = "노트 목록을 불러오지 못했습니다. (로컬 파일로 열었다면 `python3 -m http.server` 같은 로컬 서버에서 열어 주세요.)";
+      countEl.textContent = "노트 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.";
     });
 })();

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "planning",
+    "label": "기획·기술 선택",
+    "description": "문제 정의, AI 도입 목적, 대안 비교와 기술 선택 기준",
+    "color": { "ink": "#8A5A12", "soft": "#FFF5DB", "tape": "#F0D48C" }
+  },
+  {
+    "id": "ux",
+    "label": "사용자 경험·설계",
+    "description": "사용자 흐름, 정보 구조, 화면·기능 명세와 사용성 검토",
+    "color": { "ink": "#9C3D65", "soft": "#FCEAF2", "tape": "#EAAFC8" }
+  },
+  {
+    "id": "ai",
+    "label": "AI·에이전트",
+    "description": "프롬프트, RAG, 도구 호출, 에이전트 구현과 평가",
+    "color": { "ink": "#6D4499", "soft": "#F2EBFA", "tape": "#C9B2E4" }
+  },
+  {
+    "id": "data",
+    "label": "데이터·ML",
+    "description": "데이터 수집·분석, 전처리, 모델 학습과 예측 성능 검증",
+    "color": { "ink": "#17675F", "soft": "#E4F4F1", "tape": "#99D5CB" }
+  },
+  {
+    "id": "frontend",
+    "label": "프론트엔드",
+    "description": "웹 화면, 컴포넌트, 상태 관리와 브라우저 동작 구현",
+    "color": { "ink": "#12657C", "soft": "#E4F3F8", "tape": "#96CEE0" }
+  },
+  {
+    "id": "backend",
+    "label": "서버·DB",
+    "description": "API, 서버 로직, 인증과 데이터베이스 설계·조회",
+    "color": { "ink": "#335E9E", "soft": "#EAF0FA", "tape": "#AEC4EA" }
+  },
+  {
+    "id": "infra",
+    "label": "인프라·배포",
+    "description": "실행 환경, 컨테이너, CI/CD, 배포와 모니터링",
+    "color": { "ink": "#9A4F24", "soft": "#FFF0E5", "tape": "#EABD9B" }
+  },
+  {
+    "id": "tools",
+    "label": "개발 도구",
+    "description": "IDE, CLI, Git 등 개발 도구의 사용법과 설정",
+    "color": { "ink": "#4F5E70", "soft": "#EDF1F5", "tape": "#BBC8D7" }
+  },
+  {
+    "id": "testing",
+    "label": "테스트·품질",
+    "description": "단위·통합·화면 테스트, 품질 기준과 보안 점검",
+    "color": { "ink": "#41662C", "soft": "#EEF5E7", "tape": "#BAD59F" }
+  }
+]

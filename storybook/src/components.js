@@ -205,8 +205,12 @@ export function toc({ items = [], current } = {}) {
 }
 
 /* ---------- 글 목록 · Dev Notes ---------- */
-export function entry({ date, title, href = "#", summary, tags: t = [] }) {
-  return `<li class="entry"><span class="entry__date">${esc(date)}</span><div><h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
+export function entry({ date, title, href = "#", summary, tags: t = [], category, categories: related = [] } = {}) {
+  const palette = category?.color;
+  const categoryAttrs = palette ? ` data-category="${esc(category.id)}" style="--note-ink:${esc(palette.ink)};--note-soft:${esc(palette.soft)};--tape:${esc(palette.tape)}"` : "";
+  const allCategories = related.length ? related : category ? [category] : [];
+  const tapes = allCategories.length ? `<div class="note-tapes" role="img" aria-label="${esc('분류: ' + allCategories.map((c) => c.label).join(', '))}">${allCategories.map((c) => `<span class="note-tape" style="--tape:${esc(c.color.tape)}" title="${esc(c.label)}" aria-hidden="true"></span>`).join("")}</div>` : "";
+  return `<li class="entry"${categoryAttrs}>${tapes}<span class="entry__date">${esc(date)}</span><div class="entry__body"><h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
 }
 
 export function entries(list = []) {

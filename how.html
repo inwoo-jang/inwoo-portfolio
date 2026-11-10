@@ -39,230 +39,234 @@
       <p class="eyebrow">How I Work</p>
       <h1 class="display">기획으로 시작해,<br>만들고 확인하기까지</h1>
       <p class="lead">
-        현장에서 문제를 찾아 문서로 고정하고, 개발팀과 함께 또는 AI 코딩 도구로 직접 만든 뒤 화면과 데이터로 확인합니다.
-        회사에서는 기획·운영을 맡았고, 교육 과정과 개인 프로젝트에서는 구현까지 하고 있습니다.
+        직접 업무를 해 보거나 담당자 옆에서 보며 문제를 찾고, 필요한 기능과 처리 기준을 정리합니다.
+        회사에서는 기획·운영을 맡아 개발팀과 함께 만들었고, 교육 과정과 개인 프로젝트에서는 AI 코딩 도구로 직접 구현해 화면과 테스트로 확인합니다.
       </p>
-      <p class="meta"><span>최종 수정 2026.11.06</span><span>읽는 시간 약 8분</span></p>
     </header>
 
-    <div class="article-layout">
+    <div class="article-layout article-layout--how">
 
-      <nav class="toc" aria-label="이 글의 목차" data-toc>
+      <nav class="toc toc--compact" aria-label="이 글의 목차" data-toc>
         <p class="toc__title">목차</p>
         <ol>
-          <li><a href="#planning">01 기획</a></li>
-          <li class="toc__sub"><a href="#planning-find">현장에서 문제 찾기</a></li>
-          <li class="toc__sub"><a href="#planning-process">기획 프로세스</a></li>
-          <li class="toc__sub"><a href="#planning-spec">기능명세</a></li>
-          <li class="toc__sub"><a href="#planning-workflow">문서 워크플로</a></li>
-          <li><a href="#building">02 개발</a></li>
-          <li class="toc__sub"><a href="#building-spec">시작 전에 스펙 정하기</a></li>
-          <li class="toc__sub"><a href="#building-verify">만들면서 확인하기</a></li>
-          <li class="toc__sub"><a href="#building-test">숫자는 코드에</a></li>
-          <li class="toc__sub"><a href="#building-small">작게 먼저 만들기</a></li>
-          <li><a href="#collab">03 협업</a></li>
-          <li class="toc__sub"><a href="#collab-handoff">상대별로 넘기기</a></li>
-          <li class="toc__sub"><a href="#collab-meeting">회의 운영</a></li>
-          <li class="toc__sub"><a href="#collab-conflict">의견이 갈릴 때</a></li>
-          <li class="toc__sub"><a href="#collab-adoption">쓰이게 만들기</a></li>
-          <li><a href="#ax">04 AI 활용</a></li>
+          <li><a href="#cases">대표 사례</a></li>
+          <li><a href="#flow">기획 흐름</a></li>
+          <li><a href="#collab">협업</a></li>
+          <li><a href="#ax">AI 활용</a></li>
         </ol>
       </nav>
 
       <main id="main" class="article">
 
-        <!-- ===================== 01 기획 ===================== -->
-        <section class="section" id="planning" aria-labelledby="planning-title">
-          <span class="section__no">01</span>
-          <h2 id="planning-title">기획 — 현장에서 문제를 찾고 문서로 고정하기</h2>
-          <p class="section__lead">기획은 문제를 직접 겪어 보는 데서 시작합니다. 그다음 무엇을 만들지, 어떤 조건에서 어떻게 동작하고 무엇이 예외인지를 문서로 고정합니다.</p>
+        <!-- ===================== 대표 사례 ===================== -->
+        <section class="section" id="cases" aria-labelledby="cases-title">
+          <h2 id="cases-title">대표 사례</h2>
+          <p class="section__lead">제가 내린 판단과 그 이유를 사례 4개로 정리했습니다. 이름을 누르면 프로젝트 상세로 이동합니다.</p>
 
-          <h3 id="planning-find">현장에서 문제 찾기</h3>
-          <p>지킴컴퍼니에서 다룬 아래 문제들은 그 업무를 직접 해 보거나 담당자 옆에서 보며 찾았습니다.</p>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th scope="col">어떻게 봤는지</th><th scope="col">찾은 문제</th><th scope="col">이어진 기획</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">직접 해 보기</th><td>약국마다 급여 기준이 달라 담당자가 세후 금액을 보며 입력값을 맞춤</td><td>약 30개 거래처의 기장을 직접 하며 급여 계산 기준을 다시 정의</td></tr>
-                <tr><th scope="row">원격지원</th><td>약국이 네 기관을 각각 따로 연결해야 함</td><td>인증 방식에 따라 연결 흐름을 나눔</td></tr>
-                <tr><th scope="row">담당자 관찰</th><td>도매몰 주문을 Excel로 내려받아 하나씩 옮겨 적음</td><td>주문·박스 상태 연동 정책</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 id="planning-process">기획 프로세스</h3>
-          <p>처음 출시하는 서비스는 아래 순서로 진행합니다. 애자일로 진행할 때는 메인 기능 하나씩 범위를 짧게 잡아 같은 과정을 반복합니다.</p>
-          <ol class="flow">
-            <li class="flow__step"><span class="flow__title">해결할 문제와 타깃 사용자 정의</span></li>
-            <li class="flow__step"><span class="flow__title">서비스 정의</span></li>
-            <li class="flow__step"><span class="flow__title">핵심 기능과 유저플로우 정리</span></li>
-            <li class="flow__step"><span class="flow__title">PRD 작성</span><span class="flow__desc">기능 목록을 포함합니다</span></li>
-            <li class="flow__step"><span class="flow__title">중요도 판단</span><span class="flow__desc">MoSCoW로 분류하고, 같은 표시를 PRD·와이어프레임·명세·작업 순서에 그대로 씁니다</span></li>
-            <li class="flow__step"><span class="flow__title">IA와 기능명세서 작성</span></li>
-            <li class="flow__step flow__step--parallel"><span class="flow__title">DB 스키마 검토와 큰 화면 와이어프레임</span><span class="flow__desc">회사에서는 백엔드 개발자가 만든 ERD를 기획 규칙과 대조했고, 개인 과제에서는 DB 스키마를 직접 설계했습니다</span></li>
-            <li class="flow__step"><span class="flow__title">디자이너 작업 시작, 상세 분기 와이어프레임 보완</span></li>
+          <ol class="cases">
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">01</span>
+                <h3 class="case__title"><a href="portfolio.html#p-order-sync">현장의 불편을 기능으로</a></h3>
+                <p class="case__meta">지킴컴퍼니 · 의약품 도매몰 주문·박스 상태 연동</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">주문번호만으로는 박스마다 다른 상태를 나타낼 수 없어, 주문번호와 상품 순번을 박스와 연결하는 기준부터 정했습니다.</p>
+                <p>운영 담당자가 도매몰 주문을 Excel로 내려받아 어드민에 직접 입력하는 것을 보고 연동을 기획했습니다. 일부 박스만 수거하는 주문은 도매몰의 기존 ‘부분배송’ 상태에 대응하고, 수거 연기는 별도 상태로 나눴습니다. 개발 후에는 API 호출 결과와 양쪽 화면을 대조해 시간 경계 주문 누락과 첫 박스에만 배송정보가 적용되는 오류를 QA로 등록했습니다.</p>
+                <p class="case__role">내 역할: 연동 정책 기획 · 데이터 대조 · QA 등록 / 구현: 개발팀 / 결과: 담당자의 해당 수기 입력이 하루 약 1시간에서 10분으로 줄었습니다(본인 확인 기준).</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">02</span>
+                <h3 class="case__title"><a href="portfolio.html#p-client-contract">팀이 구현할 수 있는 기준</a></h3>
+                <p class="case__meta">지킴컴퍼니 · 기능명세 양식</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">개발자·디자이너에게 어떤 문서가 편한지 물어, 기능명세를 입력·출력·API 규격·정책·예외로 나누는 양식을 만들었습니다.</p>
+                <p>입사 초반에는 유저플로우와 구현 결과밖에 설명하지 못해 “왜?”라는 질문을 많이 받았습니다. 양식을 바꾼 뒤에는 케이스 분기까지 함께 적었고, 질문이 “이렇게 해도 될까요?”로 바뀌었습니다. 함께 일한 개발자와 디자이너에게서 구현 중에 판단할 것들이 문서에 정리되어 있어 편하다는 말을 들었습니다.</p>
+                <p class="case__role">내 역할: 기획 문서 작성 · 백엔드 ERD를 기획 규칙과 대조 / 구현: 개발팀</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">03</span>
+                <h3 class="case__title"><a href="portfolio.html#p-quiket">출시 범위 조율</a></h3>
+                <p class="case__meta">퀴켓 · 7인 사이드 프로젝트 · AI 퀴즈 학습 앱</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">기능을 지우는 대신 데이터 구조는 설계대로 남기고 화면 노출만 줄여, 문제 생성·풀이·오답 흐름을 먼저 출시했습니다.</p>
+                <p>디자이너는 게임 요소를 키우고 싶어 했고, 개발자는 핵심 흐름부터 끝내야 했습니다. 도토리 창고 이미지는 남기고 준비되지 않은 메뉴에는 “겨울잠을 자고 있어요. 기다려주세요” 안내를 넣었습니다. 사용자 테스트에서 생성 대기·완료 안내가 없다는 점을 확인해 진행률·완료 안내를 출시 버전에 반영했습니다.</p>
+                <p class="case__role">내 역할: PM·기획, 출시 범위 조율 / 구현: 개발팀 / 결과: App Store·Google Play 출시(팀 결과)</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">04</span>
+                <h3 class="case__title"><a href="portfolio.html#p-marketdesk">AI 결과를 그대로 확정하지 않기</a></h3>
+                <p class="case__meta">마켓데스크 · 개인 프로젝트 · AI 리포트 분석</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">발간일을 알 수 없는 리포트에 업로드 날짜가 발간일처럼 표시되는 것을 화면 확인 중에 발견하고, 모르는 발간일은 비워 두고 사용자가 직접 입력하도록 바꿨습니다.</p>
+                <p>모델은 발간일을 찾지 못하면 비워 두는데, 화면이 그 자리에 업로드 날짜를 대신 보여 주고 있었습니다. 대체 표시를 없애 “발간 -”으로 나타내고, 발간일을 직접 고치는 기능을 넣었습니다. 태스크를 목적·범위·예외·완료 기준으로 쓰고, AI 코딩 도구가 구현하면 로컬 화면에서 다시 확인합니다.</p>
+                <p class="case__role">내 역할: 1인 기획·검증 / 구현: AI 코딩 도구 활용 / 상태: 개인 사용(미출시)</p>
+              </div>
+            </li>
           </ol>
-          <p>출시 뒤에는 사용자 테스트·베타·초기 운영에서 나온 개선사항을 정리해 다음 단계로 넘기고, 긴급 오류는 이슈 티켓을 직접 써서 짧은 주기로 고칩니다.</p>
-
-          <h3 id="planning-spec">기능명세 — 예외까지 적어야 정의가 끝납니다</h3>
-          <p>지킴컴퍼니 초반에는 유저플로우와 구현 결과밖에 설명하지 못했습니다. 개발자·디자이너에게 어떤 문서가 편한지 물어 기능명세를 <mark>입력 · 출력 · API 규격 · 정책 · 예외</mark>로 나누는 양식을 만들었고, 지금은 케이스 분기를 함께 적습니다.</p>
-          <div class="table-wrap">
-            <table class="table table--spec">
-              <caption>퀴켓 기획을 바탕으로 공개용으로 재구성한 예시입니다. 기능 ID와 API 이름은 예시입니다.</caption>
-              <thead><tr><th scope="col">QUIZ-01 문항 생성</th><th scope="col">내용</th><th scope="col">API 연동</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">입력</th><td>자료 범위 · 문제 수 · 난이도</td><td>문항 생성 API</td></tr>
-                <tr><th scope="row">출력</th><td>문제 · 정답 · 해설 목록</td><td>결과 조회 API</td></tr>
-                <tr><th scope="row">케이스 분기</th><td>요청한 수만큼 생성 가능 → 생성 진행<br>요청한 수를 만들기 어려움 → 가능한 수를 안내</td><td>—</td></tr>
-                <tr><th scope="row">정책</th><td>선택한 자료 범위 안에서만 출제</td><td>—</td></tr>
-                <tr><th scope="row">예외</th><td class="is-key">생성 요청이 실패하면 오류 안내와 재시도를 제공</td><td>문항 생성 API</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 id="planning-workflow">문서 워크플로</h3>
-          <p>기획 문서를 쓸 때마다 앞 문서와 뒤 문서가 어긋나는 것이 문제였습니다. 개요 → PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 → QA 체크리스트 일곱 단계를 하나로 묶고, 단계마다 제가 검토하는 지점을 넣었습니다.</p>
-          <p>쓰다 보니 AI가 수정 사항을 조용히 빠뜨린다는 걸 알게 됐습니다. 한 곳을 고치면 다른 곳이 빠졌습니다. 그래서 수정을 요청한 뒤에는 <mark>전체에 반영됐는지 스스로 점검하게 하는 단계</mark>를 고정했습니다.</p>
-          <div class="figures">
-            <p class="figure-num"><span class="figure-num__value">3일+ → 하루</span><span class="figure-num__label">PRD 초안 작성 시간</span><span class="figure-num__scope">개인 워크플로 기록</span></p>
-            <p class="figure-num"><span class="figure-num__value">7단계</span><span class="figure-num__label">개요부터 QA 체크리스트까지</span><span class="figure-num__scope">단계마다 본인 검토</span></p>
-          </div>
         </section>
 
-        <!-- ===================== 02 개발 ===================== -->
-        <section class="section" id="building" aria-labelledby="building-title">
-          <span class="section__no">02</span>
-          <h2 id="building-title">개발 — 스펙을 먼저 정하고, 만들면서 확인하기</h2>
-          <p class="section__lead">교육 과정과 개인 프로젝트에서는 직접 만듭니다. 코드는 AI 코딩 도구를 활용해 작성하고, 무엇을 막을지와 어디에 넣을지는 제가 정하며, 동작은 화면과 테스트로 확인합니다.</p>
+        <!-- ===================== 기획 흐름 ===================== -->
+        <section class="section" id="flow" aria-labelledby="flow-title">
+          <h2 id="flow-title">기획 흐름</h2>
+          <p class="section__lead">새 기능을 만들 때는 아래 순서로 진행합니다. 애자일로 진행할 때는 핵심 기능 하나씩 범위를 짧게 잡아 같은 과정을 반복합니다.</p>
 
-          <h3 id="building-spec">시작 전에 스펙 정하기</h3>
-          <p>개인 프로젝트 마켓데스크는 PRD부터 PoC까지 기획 문서 6종을 먼저 쓰고 시작했습니다. 노션에 스프린트와 태스크를 두고, 되돌리기 비싼 결정부터 이유와 함께 결정 기록에 남겼습니다.</p>
-          <div class="table-wrap">
-            <table class="table">
-              <caption>마켓데스크 결정 기록 중 일부 (2026.06–07, 전체 15건)</caption>
-              <thead><tr><th scope="col">결정할 것</th><th scope="col">정한 방향</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">리포트 수집</th><td>스크래핑이 약관상 금지인 것을 확인하고, 사용자가 직접 올리는 방식으로</td></tr>
-                <tr><th scope="row">시세 데이터</th><td>증권사 화면 크롤링 대신 공식 Open API만</td></tr>
-                <tr><th scope="row">출처 검증</th><td>규칙 기반 매칭</td></tr>
-                <tr><th scope="row">모의투자 초기화</th><td>삭제가 아니라 종료 처리 — 기록을 남김</td></tr>
-                <tr><th scope="row">성능</th><td>캐시를 기본으로, 실시간 조회는 사용자가 명시적으로 요청할 때만</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p>태스크는 같은 여섯 항목으로 씁니다.</p>
           <ol class="flow">
-            <li class="flow__step"><span class="flow__title">작업 목적</span></li>
-            <li class="flow__step"><span class="flow__title">범위</span><span class="flow__desc">포함하는 것과 제외하는 것</span></li>
-            <li class="flow__step"><span class="flow__title">구현 메모</span></li>
-            <li class="flow__step"><span class="flow__title">예외 · 고려사항</span></li>
-            <li class="flow__step"><span class="flow__title">테스트</span><span class="flow__desc">성공 조건과 실패 조건</span></li>
-            <li class="flow__step"><span class="flow__title">완료 기준</span></li>
+            <li class="flow__step"><span class="flow__title">문제·사용자 확인</span><span class="flow__desc">업무를 직접 해 보거나(급여 계산 기준을 정리하려고 약 30개 거래처의 기장을 직접 해 봄), 원격지원 중에 겪거나, 담당자 옆에서 봅니다.</span></li>
+            <li class="flow__step"><span class="flow__title">범위·흐름 결정</span><span class="flow__desc">핵심 기능과 유저플로우를 정하고, MoSCoW 우선순위를 PRD·와이어프레임·명세·작업 순서에 같은 표시로 씁니다.</span></li>
+            <li class="flow__step"><span class="flow__title">정책·예외 명세</span><span class="flow__desc">입력·출력·API 규격·정책·예외와 케이스 분기를 기능명세에 적습니다.</span></li>
+            <li class="flow__step"><span class="flow__title">구현 협의</span><span class="flow__desc">백엔드 개발자가 만든 ERD를 기획 규칙과 대조해 의견을 전달하고, 디자이너에게는 화면 ID별 변경 내용을 넘깁니다.</span></li>
+            <li class="flow__step"><span class="flow__title">확인·개선</span><span class="flow__desc">개발 결과를 데이터와 화면으로 대조해 QA로 등록하고, 사용자 테스트·초기 운영에서 나온 개선사항은 다음 단계로 넘깁니다.</span></li>
           </ol>
 
-          <h3 id="building-verify">만들면서 확인하기 — AI와 나의 역할</h3>
-          <div class="split">
-            <div class="split__col">
-              <span class="split__head">AI 코딩 도구</span>
-              <ul>
-                <li>태스크 구현</li>
-                <li>완료 여부와 통과 기준 1차 확인</li>
-                <li>비고에 구현 일시와 결정할 사항 기록</li>
-              </ul>
-            </div>
-            <div class="split__col">
-              <span class="split__head">나</span>
-              <ul>
-                <li>비고의 결정할 사항 확인</li>
-                <li>로컬 화면에서 2차 확인</li>
-                <li>모르는 항목은 AI에게 되물어 추적</li>
-                <li>완료 기준에 못 미치면 수정 태스크 작성</li>
-              </ul>
-            </div>
-          </div>
-          <p>화면에서 확인하다 AI가 리포트 발간일을 모르면 <mark>업로드 날짜를 발간일로 채워 넣는 것</mark>을 발견했습니다. 모르는 값은 사용자가 직접 입력하도록 바꿨습니다.</p>
-          <p>기획이 바뀔 때 이미 만든 것 중 무엇을 고쳐야 하는지 미리 판단하기 어려웠고, AI도 그걸 먼저 짚어 주지 않아 작업이 꼬인 적이 있습니다. 그 뒤로는 기획을 바꾸면 영향을 파악하는 태스크를 따로 만듭니다.</p>
+          <details class="more">
+            <summary>기획 문서 예시 — PRD · IA · 유저플로우 · 기능명세 · 와이어프레임</summary>
+            <div class="more__body">
+              <p>마켓데스크의 기획 내용을 짧게 정리한 예시와 퀴켓 와이어프레임의 양식 예시입니다. PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 순서로 작성하며, 단계마다 앞 문서와 맞는지 확인합니다.</p>
 
-          <h3 id="building-test">숫자는 코드에, 확인은 테스트로</h3>
-          <p>교육 과정에서 만든 세무상담 AI에서는 법령 근거는 검색(RAG)으로 찾고, 세액은 계산 코드(Tool Calling)가 맡게 해 <mark>숫자를 모델이 만들지 않게</mark> 했습니다.</p>
-          <ul>
-            <li>테스트 17개를 통과시켰습니다.</li>
-            <li>계산 코드에 오류 7종을 넣은 시험(오류 주입은 AI 코딩 도구가 수행)에서 테스트가 6종을 잡았고, 놓친 경계값 조건은 추가 검증 항목으로 남겼습니다.</li>
-            <li>LLM은 적용 연도를 주지 않으면 이전 기준을 쓸 수 있어, 계산 기준을 세법 원문과 대조했습니다. 이때 배당 가산율이 11%로 남아 있던 것을 10%로 고쳤습니다.</li>
-          </ul>
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>PRD</strong></p>
+                <ul>
+                  <li><b>한 줄 정의</b> — 같은 리포트를 사용자의 목적(렌즈)에 맞춰 구조화 요약하고, 일·월·연 단위로 누적해 보여 주는 개인화 리포트 도구</li>
+                  <li><b>문제</b> — 읽는 목적은 사람마다 다른데 기존 요약은 객관 요약 하나뿐이다. 하루치만 보면 흐름이 안 보인다</li>
+                  <li><b>핵심 가설</b> — 렌즈별 요약이 객관 요약보다 쓸모 있다고 느끼면 매일 다시 쓴다. 일별이 쌓여 월별 흐름이 보이면 계속 누적한다</li>
+                  <li><b>그 밖의 항목</b> — 타깃·렌즈, KPI, 가드레일 정책, 운영·법적 리스크, 규칙과 AI의 경계</li>
+                </ul>
+              </div>
 
-          <h3 id="building-small">확신이 없으면 작게 먼저 만들기</h3>
-          <ul>
-            <li><strong>퀴켓</strong> — 본 개발 전에 문항 생성 미니 버전을 직접 만들어 보니 짧은 자료에서도 문항이 과도하게 생성됐습니다. 입력 분량별 문항 수 기준을 정한 뒤 본 개발에 넘겼습니다.</li>
-            <li><strong>에이링크</strong> — 2인 팀에서 요구사항을 말로 맞추는 대신 프로토타입을 먼저 배포해 디자인과 흐름의 기준으로 삼았습니다.</li>
-          </ul>
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>IA</strong></p>
+                <pre class="doc-sample__pre">홈 = 내 산업 목록
+산업 (반도체 / AI / 자동차 …)    ← 업로드 문서는 AI가 자동 매칭
+ ├─ 문서 타입:  산업리포트 · 기업리포트 · 경제뉴스
+ ├─ 입력 형식:  PDF · 텍스트
+ ├─ 렌즈:       취업(직무 선택) · 주식투자 참고   (복수 선택)
+ └─ 시간 뷰:
+     ├─ 일별:  그날 문서 요약 (출처 페이지 인용)
+     ├─ 월별:  그 달 요약을 모은 "이 달의 흐름"
+     └─ 연별:  연간 회고 (2단계)</pre>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>유저플로우</strong> — 최초 사용, 업로드부터 첫 요약까지</p>
+                <pre class="doc-sample__pre">로그인 → 첫 사용이면 렌즈 선택 → 대시보드 → 산업 선택 → PDF 업로드
+  └ 텍스트 추출 가능?
+      ├ 실패(스캔본) → OCR 경로 안내 → 파싱
+      └ 성공 → 파싱 + 렌즈별 구조화 요약
+  └ 핵심 숫자 출처 확인
+      ├ 출처 있음 → 요약 검토 화면
+      └ 출처 불명 → "명시 없음" 처리 → 요약 검토 화면
+→ 사용자 검토·수정 → 일별 저장 → 일별 뷰에 누적</pre>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>기능명세</strong> — 렌즈별 요약 기능 예시</p>
+                <div class="table-wrap">
+                  <table class="table table--spec">
+                    <thead><tr><th scope="col">F07 렌즈별 구조화 요약</th><th scope="col">내용</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">설명</th><td>정해진 틀(신사업 · 기존사업 · 해외 · 핵심 숫자 · 인사이트)로 선택한 렌즈마다 추출</td></tr>
+                      <tr><th scope="row">입력</th><td>페이지 표시가 붙은 문서, 선택한 렌즈 목록</td></tr>
+                      <tr><th scope="row">출력</th><td>렌즈별 요약(JSON). 요약 검토 화면의 렌즈 탭으로 표시</td></tr>
+                      <tr><th scope="row">정책</th><td>렌즈는 관점만 바꾸고 틀은 같게. 파싱은 한 번, 렌즈별 결과는 따로 저장</td></tr>
+                      <tr><th scope="row">API</th><td>POST /reports/{id}/extract</td></tr>
+                      <tr><th scope="row">예외</th><td class="is-key">모델 응답 지연·오류 시 재시도하고 부분 결과는 보존</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>와이어프레임</strong> — 퀴켓 양식 예시</p>
+                <p>화면 구조와 아이콘을 남기고, 내용은 회색 막대로 비웠습니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
+                <div class="wireframe-examples">
+                  <figure><a href="media/portfolio/wireframe-1.png" target="_blank" rel="noopener" aria-label="파트명 입력 화면 양식 예시 확대"><img src="media/portfolio/wireframe-1.png" alt="내용을 비운 파트명 입력 화면 와이어프레임" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>파트명 입력 화면</strong><br>화면 이름 ‘파트명 입력’만 남겼습니다.</figcaption></figure>
+                  <figure><a href="media/portfolio/wireframe-2.png" target="_blank" rel="noopener" aria-label="퀴즈 풀기 화면 양식 예시 확대"><img src="media/portfolio/wireframe-2.png" alt="내용을 비운 퀴즈 풀기 화면 와이어프레임" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>퀴즈 풀기 화면</strong><br>본문과 버튼 문구를 회색 막대로 바꿨습니다.</figcaption></figure>
+                  <figure><a href="media/portfolio/wireframe-3.png" target="_blank" rel="noopener" aria-label="결과·해설 화면 양식 예시 확대"><img src="media/portfolio/wireframe-3.png" alt="내용을 비운 결과·해설 화면 와이어프레임" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>결과·해설 화면</strong><br>정답 상태와 해설 영역의 구조를 남겼습니다.</figcaption></figure>
+                </div>
+              </div>
+            </div>
+          </details>
         </section>
 
-        <!-- ===================== 03 협업 ===================== -->
+        <!-- ===================== 협업 ===================== -->
         <section class="section" id="collab" aria-labelledby="collab-title">
-          <span class="section__no">03</span>
-          <h2 id="collab-title">협업 — 상대가 다음 일을 할 수 있게 넘기기</h2>
-          <p class="section__lead">같은 기획도 받는 사람에 따라 필요한 정보가 다릅니다. 문서를 넘기는 데서 끝내지 않고, 실제로 쓰이는 데까지 확인합니다.</p>
+          <h2 id="collab-title">협업</h2>
+          <p class="section__lead">구현에 필요한 정책·예외와 결정 사항을 협업 상대에 맞춰 전달하고, 실제로 쓰이는지까지 확인합니다.</p>
 
-          <h3 id="collab-handoff">상대별로 다르게 넘기기</h3>
           <div class="table-wrap">
-            <table class="table">
+            <table class="table table--stack">
               <caption>지킴컴퍼니에서 기획자로 일할 때 기준</caption>
-              <thead><tr><th scope="col">상대</th><th scope="col">넘기는 것</th></tr></thead>
+              <thead><tr><th scope="col">상대</th><th scope="col">전달한 것</th></tr></thead>
               <tbody>
-                <tr><th scope="row">디자이너</th><td>화면 ID와 삭제·추가·변경 내용</td></tr>
-                <tr><th scope="row">개발자</th><td>입출력, API·DB 명칭, 정책과 예외. 백엔드 ERD는 기획 규칙과 대조해 의견 전달</td></tr>
-                <tr><th scope="row">대표</th><td>핵심 기능과 결정해야 할 쟁점</td></tr>
-                <tr><th scope="row">현업 담당자</th><td>계산 기준 설명과 사용·확인 가이드</td></tr>
-                <tr><th scope="row">파트너사</th><td>가입·연동·이용 조건 문의 응대, 내부·외부 가이드와 교육 자료</td></tr>
+                <tr><th scope="row">디자이너</th><td data-label="전달한 것">화면 ID와 삭제·추가·변경 내용</td></tr>
+                <tr><th scope="row">개발자</th><td data-label="전달한 것">입출력, API·DB 명칭, 정책과 예외. 백엔드 ERD는 기획 규칙과 대조해 의견 전달</td></tr>
+                <tr><th scope="row">대표</th><td data-label="전달한 것">핵심 기능과 결정해야 할 쟁점</td></tr>
+                <tr><th scope="row">현업 담당자</th><td data-label="전달한 것">계산 기준 설명과 사용·확인 가이드</td></tr>
+                <tr><th scope="row">파트너사</th><td data-label="전달한 것">가입·연동·이용 조건 문의 응대, 내부·외부 가이드와 교육 자료</td></tr>
               </tbody>
             </table>
           </div>
-          <blockquote class="quote">
-            <p>“구현 중에 판단해야 할 것들이 문서에 정리되어 있어 편하다.”</p>
-            <cite>지킴컴퍼니에서 함께 일한 개발자와 디자이너</cite>
-          </blockquote>
 
-          <h3 id="collab-meeting">회의 운영</h3>
-          <p>퀴켓은 팀원 모두 직장인인 7인 사이드 프로젝트였습니다. 회의를 매주 일요일 밤으로 고정하고, 안건을 미리 정리해 안건마다 꼭 참석할 사람을 정했습니다. 첫 아이디어 회의를 빼고 모든 회의를 30분 안에 끝냈습니다.</p>
-
-          <h3 id="collab-conflict">의견이 갈릴 때</h3>
-          <ul>
-            <li><strong>퀴켓</strong> — 디자이너는 게임 요소를 키우고 싶어 했고, 개발자는 핵심 흐름부터 끝내야 했습니다. 문제 생성·풀이·오답 흐름을 먼저 출시하고, 도토리 창고 이미지는 남긴 채 준비되지 않은 메뉴에는 “겨울잠을 자고 있어요. 기다려주세요” 안내를 넣었습니다. 데이터 구조는 설계대로 남겨 다음 단계에서 이어 쓸 수 있게 했습니다.</li>
-            <li><strong>EDU:UP</strong>(교육 과정 4인 팀) — 발표 직전 팀이 백엔드 구현 범위만 남기자고 했을 때, 문제 정의의 핵심 화면은 모의 데이터로라도 남기자고 제안했습니다. 일부를 유지하고, 본 설계·현재 대체 구현·다음 스프린트 계획을 표로 정리해 발표했습니다.</li>
+          <ul class="plain-list">
+            <li><strong>회의 운영</strong> — 퀴켓은 팀원 모두 직장인인 7인 사이드 프로젝트였습니다. 회의를 매주 일요일 밤으로 고정하고, 안건마다 꼭 참석할 사람을 미리 정했습니다. 첫 아이디어 회의를 빼고 모든 회의를 30분 안에 끝냈습니다.</li>
+            <li><strong>의견이 갈릴 때</strong> — EDU:UP(교육 과정 4인 팀)에서 발표 직전 백엔드 구현 범위만 남기자는 의견이 나왔을 때, 문제 정의의 핵심 화면은 모의 데이터로라도 남기자고 제안했습니다. 일부를 유지하고, 본 설계·현재 대체 구현·다음 스프린트 계획을 표로 정리해 발표했습니다.</li>
+            <li><strong>쓰이게 만들기까지</strong> — 급여명세서 기능은 배포 뒤에도 담당자들이 계산이 틀릴까 걱정해 쓰지 않았습니다. 회의에서 화면을 띄워 계산 기준을 설명하고 사용·확인 가이드를 전달한 뒤, 내부에서 실제 급여 계산에 쓰이기 시작했습니다.</li>
           </ul>
-
-          <h3 id="collab-adoption">쓰이게 만들기까지</h3>
-          <p>급여명세서 기능은 배포 뒤에도 담당자들이 계산이 틀릴까 걱정해 쓰지 않았습니다. 회의에서 화면을 띄워 계산 기준을 직접 설명하고 사용·확인 가이드를 전달한 뒤, 내부에서 실제 급여 계산에 쓰이기 시작했습니다.</p>
-          <p>문제를 찾았을 때는 근거와 함께 넘깁니다. 주문 연동에서는 양쪽 데이터를 대조해 시간 경계의 주문 누락과 첫 박스에만 배송정보가 적용되는 오류를 찾아 QA로 등록했습니다.</p>
         </section>
 
-        <!-- ===================== 04 AI 활용 ===================== -->
+        <!-- ===================== AI 활용 ===================== -->
         <section class="section" id="ax" aria-labelledby="ax-title">
-          <span class="section__no">04</span>
-          <h2 id="ax-title">AI 활용 — 무엇을 맡기고, 무엇을 직접 판단하는지</h2>
-          <p class="section__lead">AI 서비스에서 어려운 것은 모델을 부르는 일보다 역할을 나누는 일이라고 봅니다. 아래는 교육 과정과 개인 프로젝트에서 반복한 기준입니다.</p>
+          <h2 id="ax-title">AI 활용</h2>
+          <p class="section__lead">AI 서비스를 만들 때 모델·코드·사람의 역할을 나누는 일과, 제 업무에 AI 도구를 쓰는 일을 구분합니다.</p>
 
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th scope="col">프로젝트</th><th scope="col">코드·규칙</th><th scope="col">AI</th><th scope="col">사람</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">세무상담 AI</th><td>세액 계산, 범위 밖 질문 안내</td><td>근거를 찾아 답변 작성</td><td>계산 기준을 원문과 대조</td></tr>
-                <tr><th scope="row">해커톤 어드민</th><td>계산과 임계 판정</td><td>요약·안내 문구</td><td>최종 확정</td></tr>
-                <tr><th scope="row">마켓데스크</th><td>중복·유사본 판별</td><td>목적별 요약 — 없는 숫자·전망은 비우고 종목은 추천하지 않음</td><td>화면에서 2차 확인</td></tr>
-                <tr><th scope="row">라벨링 도구</th><td>프레임 계산, 저장</td><td>초벌 라벨은 참고 표시만</td><td>판정 입력</td></tr>
-              </tbody>
-            </table>
-          </div>
+          <h3 id="ax-service">AI 서비스를 만들 때 — 역할 나누기</h3>
+          <p>결과가 정해진 계산과 검사는 코드에, 분류·요약·설명은 모델에 맡겼습니다. 그 경계는 직접 정하고 확인했습니다.</p>
 
-          <h3>기획 업무에 AI를 쓰는 방식</h3>
-          <ul>
-            <li><strong>재사용</strong> — 자주 쓰는 프롬프트와 디자인 레퍼런스를 정리해 다시 씁니다. 템플릿을 고르면 프롬프트를 만들어 주는 템플릿 허브도 이 목적으로 만들었습니다.</li>
-            <li><strong>작성 기준</strong> — 문서 종류별 작성 기준과 예시를 AI 작업 지침으로 두고 같은 기준으로 초안을 만들게 합니다.</li>
+          <article class="role-case">
+            <h4 class="role-case__title"><a href="portfolio.html#p-taxdesk">세무상담 데스크</a></h4>
+            <p class="role-case__meta">개인 프로젝트 · 2026.11</p>
+            <dl class="reader-summary">
+              <div class="reader-summary__row"><dt>문제</dt><dd>고객은 자기 이자·배당소득이 종합과세 대상인지, 세금이 얼마인지 알고 싶어 합니다. 법령 근거와 계산이 함께 맞아야 합니다.</dd></div>
+              <div class="reader-summary__row"><dt>코드가 맡은 일</dt><dd>소득 조회, 종합과세 판정, 세액 계산을 서버가 순서대로 실행합니다. 상담 범위 밖 질문은 먼저 거절하고, 계산에 필요한 정보가 없으면 계산하지 않고 다시 묻습니다.</dd></div>
+              <div class="reader-summary__row"><dt>모델이 맡은 일</dt><dd>질문 종류를 분류하고, 계산 결과와 법령 근거를 설명하는 답변을 씁니다. 어떤 계산을 할지는 정하지 않습니다.</dd></div>
+              <div class="reader-summary__row"><dt>내 판단과 확인</dt><dd>다른 소득을 0원으로 두고 계산한 세액이 확정된 답처럼 나가는 것을 보고, 모르면 계산하지 않도록 바꿨습니다. 계산 기준을 세법 원문과 대조해 배당가산율을 11%에서 10%로 고쳤습니다.</dd></div>
+              <div class="reader-summary__row"><dt>한계</dt><dd>세액 계산은 세무 전문가 검토 전이고, 실제 모델 답변의 인용 정확도는 아직 평가하지 않았습니다.</dd></div>
+            </dl>
+          </article>
+
+          <article class="role-case">
+            <h4 class="role-case__title"><a href="portfolio.html#p-marketdesk">마켓데스크</a></h4>
+            <p class="role-case__meta">개인 프로젝트 · 2026.07</p>
+            <dl class="reader-summary">
+              <div class="reader-summary__row"><dt>문제</dt><dd>산업·기업 리포트가 길고 서로 이어지지 않아, 목적에 맞는 요약과 흐름이 필요했습니다.</dd></div>
+              <div class="reader-summary__row"><dt>코드가 맡은 일</dt><dd>같은 파일과 비슷한 리포트를 걸러내고, 흐름 화면에 원문에 자주 나온 종목을 보여 줍니다.</dd></div>
+              <div class="reader-summary__row"><dt>모델이 맡은 일</dt><dd>리포트를 목적별로 요약하고 문서 종류·산업·발간일을 뽑습니다. 리포트에 없는 숫자와 전망은 비워 두도록 지시했습니다.</dd></div>
+              <div class="reader-summary__row"><dt>내 판단과 확인</dt><dd>발간일이 없는 리포트에 업로드 날짜가 발간일처럼 보이는 것을 화면에서 발견하고, 비워 둔 채 직접 입력하도록 바꿨습니다.</dd></div>
+              <div class="reader-summary__row"><dt>한계</dt><dd>숫자를 원문과 대조하는 기능은 만들었지만 아직 연결하지 않았습니다.</dd></div>
+            </dl>
+          </article>
+
+          <p class="role-more"><a href="portfolio.html#p-triage">해커톤 어드민</a>은 코드가 출석률과 수당을 계산하고 AI가 안내 문구 초안을 만들며, 연락과 확정은 운영자가 직접 합니다. <a href="portfolio.html#p-dacon">라벨링 도구</a>는 미리 만든 초벌 라벨을 참고로만 보여 주고, 판정은 사람이 입력합니다.</p>
+
+          <h3 id="ax-work">제 업무에 AI 도구를 쓸 때</h3>
+          <ul class="plain-list">
+            <li><strong>작성 기준</strong> — 문서 종류별 작성 기준과 예시를 AI 작업 지침으로 두고, 같은 기준으로 초안을 만들게 합니다. 수정을 요청한 뒤에는 다른 곳에 빠진 반영이 없는지 다시 점검하게 합니다.</li>
             <li><strong>검토</strong> — AI가 만든 기획 초안은 사용자·개발자·디자이너 입장에서 다시 검토하게 하고, 사실과 판단은 제가 확인합니다.</li>
-            <li><strong>구현 확인</strong> — 태스크를 목적·범위·예외·완료 기준으로 쓰고, AI가 구현하면 화면에서 다시 확인합니다.</li>
-            <li><strong>공부</strong> — AI에게 묻는 대신 AI가 저에게 주관식 질문을 던지게 만들어 씁니다. 물어보면 답은 나오지만 남지 않기 때문입니다.</li>
+            <li><strong>구현 확인</strong> — 태스크를 목적·범위·구현 메모·예외·테스트·완료 기준으로 씁니다. AI 코딩 도구가 구현과 1차 확인을 하면, 제가 로컬 화면에서 다시 확인하고 기준에 못 미치면 수정 태스크를 만듭니다. 기획을 바꿀 때는 이미 만든 것 중 고칠 곳을 파악하는 태스크를 따로 둡니다.</li>
+            <li><strong>재사용</strong> — 자주 쓰는 프롬프트와 디자인 레퍼런스를 정리해 다시 씁니다. 템플릿을 고르면 프롬프트를 만들어 주는 <a href="portfolio.html#p-templets-hub">템플릿 허브</a>도 이 목적으로 만들었습니다.</li>
+            <li><strong>학습</strong> — 기술·도메인 공부와 리서치에서는 AI에게 묻는 대신 AI가 저에게 주관식 질문을 던지게 만들어 씁니다. 물어보면 답은 나오지만 남지 않기 때문입니다.</li>
           </ul>
+          <p class="more-link">도구별 설정과 검증 방법은 <a href="notes.html">Dev Notes</a>에 정리하고 있습니다.</p>
 
           <nav class="pager" aria-label="다른 페이지">
             <a href="portfolio.html"><small>← 이전</small><strong>프로젝트 기록</strong></a>

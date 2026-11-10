@@ -5,9 +5,9 @@ export default { title: "컴포넌트/소개" };
 
 export const 히어로 = {
   name: "첫 화면(히어로)",
-  args: { title: HERO.title, role: HERO.role, summary1: HERO.summary[0], summary2: HERO.summary[1], summary3: HERO.summary[2] },
-  render: (a) => `<div style="max-width:1120px">${C.hero({ ...HERO, title: a.title, role: a.role, summary: [a.summary1, a.summary2, a.summary3] })}</div>`,
-  parameters: { docs: { description: { story: "이름·직무 → 헤드라인 → 결과가 있는 요약 3줄 → 행동 버튼. 오른쪽에 경력·연락 요약." } } },
+  args: { title: HERO.title, role: HERO.role, summary1: HERO.summary[0], summary2: HERO.summary[1] },
+  render: (a) => `<div style="max-width:1120px">${C.hero({ ...HERO, title: a.title, role: a.role, summary: [a.summary1, a.summary2] })}</div>`,
+  parameters: { docs: { description: { story: "이름·직무 → 헤드라인 → 업무 방식 소개 → 행동 버튼. 오른쪽에 경력·연락 요약." } } },
 };
 
 export const 요약카드 = {
@@ -18,7 +18,7 @@ export const 요약카드 = {
 export const 버튼 = {
   args: { label: "대표 프로젝트 보기", variant: "primary" },
   argTypes: { variant: { control: "inline-radio", options: ["primary", "default", "quiet"] } },
-  render: (a) => `${C.button(a)} &nbsp; ${C.linkArrow({ label: "전체 프로젝트 18개" })}`,
+  render: (a) => `${C.button(a)} &nbsp; ${C.linkArrow({ label: "전체 프로젝트 20개" })}`,
 };
 
 export const 수치 = {

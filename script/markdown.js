@@ -107,6 +107,55 @@
    * @param {string} markdown
    * @param {{ idPrefix?: string }} [opts]
    */
+  /* 코드 색 입히기 — 원문을 토큰으로 나눈 뒤 토큰마다 escapeHtml 하고 span으로 감싼다.
+     (이스케이프 전에 자르므로 HTML이 끼어들 틈이 없다) */
+  var HL_KEYWORDS = {
+    python: "and as assert async await break class continue def del elif else except False finally for from global if import in is lambda None nonlocal not or pass raise return True try while with yield",
+    js: "const let var function return if else for while do switch case break continue new class extends import from export default async await try catch finally throw typeof instanceof null undefined true false this",
+    java: "public private protected class interface extends implements static final void return if else for while new try catch finally throw throws import package null true false this int long boolean double String",
+    sql: "select from where and or not insert into values update set delete create table alter drop join left right inner outer on group by order having limit as distinct null is in like between"
+  };
+  HL_KEYWORDS.javascript = HL_KEYWORDS.ts = HL_KEYWORDS.typescript = HL_KEYWORDS.js;
+  HL_KEYWORDS.py = HL_KEYWORDS.python;
+
+  function highlight(code, lang) {
+    var hashComment = /^(python|py|bash|sh|shell|zsh|dotenv|env|yaml|yml|toml)$/.test(lang);
+    var slashComment = /^(js|javascript|ts|typescript|java|c|cpp|go|rust|kotlin)$/.test(lang);
+    var shell = /^(bash|sh|shell|zsh)$/.test(lang);
+    var envLike = /^(dotenv|env|toml|ini)$/.test(lang);
+    if (!hashComment && !slashComment && !HL_KEYWORDS[lang]) { return escapeHtml(code); }
+
+    var kw = {};
+    (HL_KEYWORDS[lang] || "").split(" ").forEach(function (w) { if (w) { kw[lang === "sql" ? w.toLowerCase() : w] = true; } });
+
+    var parts = [];
+    if (hashComment) { parts.push("#[^\\n]*"); }
+    if (slashComment) { parts.push("\\/\\/[^\\n]*"); }
+    if (lang === "sql") { parts.push("--[^\\n]*"); }
+    parts.push('"(?:[^"\\\\\\n]|\\\\.)*"', "'(?:[^'\\\\\\n]|\\\\.)*'");
+    if (envLike) { parts.push("^[A-Za-z_][\\w.]*(?==)"); }
+    if (shell) { parts.push("--?[A-Za-z][\\w-]*"); }
+    parts.push("\\b\\d+(?:\\.\\d+)?\\b", "[A-Za-z_][\\w]*");
+    var re = new RegExp(parts.join("|"), "gm");
+
+    var out = "", last = 0, m;
+    while ((m = re.exec(code))) {
+      var t = m[0], cls = null;
+      if (!t) { re.lastIndex++; continue; }
+      if ((hashComment && t[0] === "#") || (slashComment && t.slice(0, 2) === "//") || (lang === "sql" && t.slice(0, 2) === "--")) { cls = "c"; }
+      else if (t[0] === '"' || t[0] === "'") { cls = "s"; }
+      else if (envLike && code.charAt(m.index + t.length) === "=" && (m.index === 0 || code.charAt(m.index - 1) === "\n")) { cls = "k"; }
+      else if (shell && t[0] === "-" && (m.index === 0 || /\s/.test(code.charAt(m.index - 1)))) { cls = "f"; }
+      else if (/^\d/.test(t)) { cls = "n"; }
+      else if (kw[lang === "sql" ? t.toLowerCase() : t]) { cls = "k"; }
+      else if (code.charAt(m.index + t.length) === "(") { cls = "fn"; }
+      out += escapeHtml(code.slice(last, m.index));
+      out += cls ? '<span class="hl-' + cls + '">' + escapeHtml(t) + "</span>" : escapeHtml(t);
+      last = m.index + t.length;
+    }
+    return out + escapeHtml(code.slice(last));
+  }
+
   function renderMarkdown(markdown, opts) {
     opts = opts || {};
     var prefix = opts.idPrefix || "";
@@ -139,7 +188,7 @@
         while (i < lines.length && !/^```\s*$/.test(lines[i])) { code.push(lines[i]); i++; }
         i++;
         var lang = fence[1] ? ' data-lang="' + escapeHtml(fence[1]) + '"' : "";
-        html.push("<pre" + lang + "><code>" + escapeHtml(code.join("\n")) + "</code></pre>");
+        html.push("<pre" + lang + "><code>" + highlight(code.join("\n"), (fence[1] || "").toLowerCase()) + "</code></pre>");
         continue;
       }
 
