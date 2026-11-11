@@ -147,6 +147,34 @@
       ]
     },
     {
+      "slug": "rag-stack-selection",
+      "file": "notes/en/rag-stack-selection.md",
+      "title": "How should we choose a technology stack for AI search and RAG?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "data",
+        "ai"
+      ],
+      "tags": [
+        "RAG",
+        "Search",
+        "Reranking",
+        "Ontology",
+        "Knowledge Graph",
+        "GraphRAG"
+      ],
+      "date": "2026-11-11",
+      "summary": "Choosing an AI search and RAG stack starts with identifying whether failures occur in candidate retrieval, ranking, or evidence lookup. This note distinguishes the roles and requirements of keyword and vector search, reranking, and SQL and graph queries, and sets out criteria for comparing accuracy and operating costs.",
+      "sample": false,
+      "related": [
+        "when-rag",
+        "data-preprocessing",
+        "rag-citation-rules",
+        "tech-stack-choice"
+      ]
+    },
+    {
       "slug": "agent-governance",
       "file": "notes/en/agent-governance.md",
       "title": "As AI agents multiply, what should a company manage?",
@@ -358,7 +386,8 @@
         "multi-agent-vs-single",
         "why-ai-agent",
         "ai-coding-delivery",
-        "ai-waiting-ux"
+        "ai-waiting-ux",
+        "rag-stack-selection"
       ]
     },
     {
@@ -441,7 +470,8 @@
         "rag-citation-rules",
         "data-preprocessing",
         "context-engineering",
-        "model-selection"
+        "model-selection",
+        "rag-stack-selection"
       ]
     },
     {
@@ -492,6 +522,7 @@
         "context-engineering",
         "data-preprocessing",
         "prompt-injection",
+        "rag-stack-selection",
         "when-rag"
       ]
     },
@@ -766,6 +797,7 @@
         "context-engineering",
         "rag-citation-rules",
         "ai-data-patterns",
+        "rag-stack-selection",
         "when-rag"
       ]
     },

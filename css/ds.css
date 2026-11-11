@@ -834,6 +834,9 @@ mark {
 [data-note-slug="ai-data-patterns"] .md table { min-width: 600px; table-layout: fixed; }
 [data-note-slug="ai-data-patterns"] .md th:first-child { width: 36%; }
 [data-note-slug="ai-data-patterns"] .md tbody td:first-child { white-space: normal; }
+[data-note-slug="rag-stack-selection"] .md table { min-width: 720px; table-layout: fixed; }
+[data-note-slug="rag-stack-selection"] .md th:first-child { width: 24%; }
+[data-note-slug="rag-stack-selection"] .md tbody td:first-child { white-space: normal; }
 /* 인용문 — 본문과 같은 서체, 얇은 회색 선과 들여쓰기로 구분 */
 [data-note-reader] .md blockquote ul li::before { background: var(--muted); }
 [data-note-reader] .md blockquote ul:last-child { margin-bottom: 0; }

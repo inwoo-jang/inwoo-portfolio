@@ -93,6 +93,34 @@
   ],
   "notes": [
     {
+      "slug": "rag-stack-selection",
+      "file": "notes/rag-stack-selection.md",
+      "title": "AI 검색·RAG 기술 스택은 어떻게 고를까?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "data",
+        "ai"
+      ],
+      "tags": [
+        "RAG",
+        "검색",
+        "재랭킹",
+        "온톨로지",
+        "지식그래프",
+        "GraphRAG"
+      ],
+      "date": "2026-11-11",
+      "summary": "AI 검색·RAG의 기술 스택은 후보 검색, 순위 조정, 근거 조회 중 어디서 실패하는지에 따라 골라야 한다. 키워드·벡터 검색, 재랭킹, SQL·그래프 조회의 역할과 적용 조건을 나누고, 정확도와 운영 비용을 비교할 기준을 정리했다.",
+      "sample": false,
+      "related": [
+        "when-rag",
+        "data-preprocessing",
+        "rag-citation-rules",
+        "tech-stack-choice"
+      ]
+    },
+    {
       "slug": "ai-coding-delivery",
       "file": "notes/ai-coding-delivery.md",
       "title": "AI가 코드를 더 빨리 만들수록, 개발 시스템은 무엇이 달라져야 할까?",
@@ -358,7 +386,8 @@
         "multi-agent-vs-single",
         "why-ai-agent",
         "ai-coding-delivery",
-        "ai-waiting-ux"
+        "ai-waiting-ux",
+        "rag-stack-selection"
       ]
     },
     {
@@ -441,7 +470,8 @@
         "rag-citation-rules",
         "data-preprocessing",
         "context-engineering",
-        "model-selection"
+        "model-selection",
+        "rag-stack-selection"
       ]
     },
     {
@@ -492,6 +522,7 @@
         "context-engineering",
         "data-preprocessing",
         "prompt-injection",
+        "rag-stack-selection",
         "when-rag"
       ]
     },
@@ -766,6 +797,7 @@
         "context-engineering",
         "rag-citation-rules",
         "ai-data-patterns",
+        "rag-stack-selection",
         "when-rag"
       ]
     },
