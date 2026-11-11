@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Inwoo Jang: product planning and operations at JEEKIM COMPANY, an AI service development bootcamp, and team and personal projects. Each one lists my role and the result.">
+  <title>Portfolio — Inwoo Jang · inwoo.log</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/ds.css">
+  <link rel="stylesheet" href="css/notebook.css">
+</head>
+<body class="page-portfolio">
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--dark">
+    <div class="site-header__inner">
+      <a class="wordmark" href="index.en.html" aria-label="inwoo.log home">inwoo<span>.log</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main menu">
+        <ul>
+          <li><a href="index.en.html">Home</a></li>
+          <li><a href="profile.en.html">Profile</a></li>
+          <li><a href="portfolio.en.html" aria-current="page">Portfolio</a></li>
+          <li><a href="how.en.html">How I Work</a></li>
+          <li><a href="notes.en.html">Dev Notes</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="portfolio.html" lang="ko" hreflang="ko" data-lang-link>KO</a>
+        <a href="portfolio.en.html" lang="en" hreflang="en" aria-current="true" data-lang-link>EN</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <header class="page-head page-head--compact page-head--wide" data-page-head>
+      <div class="page-head__top">
+        <p class="eyebrow">Portfolio</p>
+        <div class="view-switch view-switch--white" role="group" aria-label="Project view" data-view-switch>
+          <button type="button" class="view-switch__button" data-view="quick" aria-label="View as cards" title="View as cards" aria-pressed="true" aria-controls="quick-view">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="3" y="3" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="17" y="3" width="4" height="4" rx="1"/><rect x="3" y="10" width="4" height="4" rx="1"/><rect x="10" y="10" width="4" height="4" rx="1"/><rect x="17" y="10" width="4" height="4" rx="1"/><rect x="3" y="17" width="4" height="4" rx="1"/><rect x="10" y="17" width="4" height="4" rx="1"/><rect x="17" y="17" width="4" height="4" rx="1"/></svg>
+          </button>
+          <button type="button" class="view-switch__button" data-view="book" aria-label="Flip through as a notebook" title="Flip through as a notebook" aria-pressed="false" aria-controls="book-view">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Z"/><path d="M12 6v15M6 9h3M6 12h3M15 9h3M15 12h3"/></svg>
+          </button>
+        </div>
+      </div>
+      <h1 class="display">Projects</h1>
+      <p class="lead">20 projects: product planning and operations at work, plus bootcamp and personal projects. For each one I separate what I did from who built it.</p>
+    </header>
+
+    <main id="main">
+
+      <noscript>
+        <p class="note-box">The project list and notebook on this page need JavaScript. Please turn on JavaScript in your browser.</p>
+      </noscript>
+
+      <!-- Quick View — card list and reader view. Built from script/projects-data.en.js + the notebook pages below -->
+      <section id="quick-view" data-view-panel="quick" aria-labelledby="quick-title">
+        <h2 class="visually-hidden" id="quick-title">Project list</h2>
+
+        <div data-quick-list>
+          <div class="toolbar">
+            <div class="toolbar__row" role="group" aria-labelledby="filter-book-label">
+              <span class="toolbar__label" id="filter-book-label">Category</span>
+              <ul class="chips" data-filter="book"></ul>
+            </div>
+            <div class="toolbar__row" role="group" aria-labelledby="filter-type-label">
+              <span class="toolbar__label" id="filter-type-label">My role</span>
+              <ul class="chips" data-filter="type"></ul>
+            </div>
+          </div>
+
+          <p class="count" data-quick-count aria-live="polite"></p>
+          <ul class="cards" data-quick-grid></ul>
+        </div>
+
+        <article class="reader-view" data-reader aria-labelledby="reader-title" hidden></article>
+      </section>
+
+      <!-- Book View — the original bookshelf and notebooks -->
+      <div class="book-view" id="book-view" data-view-panel="book" hidden>
+
+      <div class="table-wrap" style="margin-top:0">
+        <table class="table">
+          <tbody>
+            <tr><th scope="row">01 Work</th><td>Product planning and operations for services at JEEKIM COMPANY. I handled planning, rules and verification; the dev team built them.</td></tr>
+            <tr><th scope="row">02 SKALA</th><td>Exercises and assignments from SKALA, an AI service development bootcamp (in progress). Solo work and team assignments are marked separately.</td></tr>
+            <tr><th scope="row">03 Team</th><td>Side projects and a competition. I keep the team's result separate from my role.</td></tr>
+            <tr><th scope="row">04 Personal</th><td>Web apps and tools I made for my own use. I built them with AI coding tools and checked them on screen myself.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <nav class="bookshelf" data-bookshelf aria-label="Project bookshelf">
+        <ul class="bookshelf__row">
+          <li>
+            <button type="button" class="shelf-book shelf-book--work" data-book="work" aria-controls="work" aria-pressed="false">
+              <span class="shelf-book__no">01</span>
+              <span class="shelf-book__title">At<br>Work</span>
+              <span class="shelf-book__meta">7 pages · 2024–2026</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="shelf-book shelf-book--skala" data-book="skala" aria-controls="skala" aria-pressed="false">
+              <span class="shelf-book__no">02</span>
+              <span class="shelf-book__title">SKALA<br>Projects</span>
+              <span class="shelf-book__meta">4 pages · 2026.08–09</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="shelf-book shelf-book--team" data-book="team" aria-controls="team" aria-pressed="false">
+              <span class="shelf-book__no">03</span>
+              <span class="shelf-book__title">With<br>a Team</span>
+              <span class="shelf-book__meta">3 pages · 2026</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="shelf-book shelf-book--solo" data-book="solo" aria-controls="solo" aria-pressed="false">
+              <span class="shelf-book__no">04</span>
+              <span class="shelf-book__title">Built<br>Myself</span>
+              <span class="shelf-book__meta">6 pages · 2026</span>
+            </button>
+            <span class="shelf-help">
+              <button type="button" class="shelf-help__btn" aria-label="How to read the books" aria-describedby="shelf-help-tip">?</button>
+              <span class="shelf-help__tip" id="shelf-help-tip" role="tooltip">Pick a book and its notebook opens below. Click the right side of the page to go forward and the left side to go back (or use the ← → keys).</span>
+            </span>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="note-shelf note-shelf--open">
+
+      <section class="note-wrap" id="work">
+        <h2 class="section-title">Work — JEEKIM COMPANY</h2>
+
+        <div class="note note--career" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="Work — JEEKIM COMPANY, contents">
+              <div class="spread__left">
+              <h3 class="note__cover-title">At<br>Work</h3>
+              </div>
+              <div class="spread__right">
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">Order and box status sync with a pharmaceutical wholesale mall</span>
+                    <span class="toc__year">2026.01</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">Planning a payslip service</span>
+                    <span class="toc__year">2025.12</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">AI tax consultation for pharmacies — with Samil PwC</span>
+                    <span class="toc__year">2026.01</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">Pharmacy Ledger: account connection flow and partner site integration</span>
+                    <span class="toc__year">2024.10–2026.06</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">Running the prescription storage service and scan center</span>
+                    <span class="toc__year">2024.10–2026.06</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="6">
+                    <span class="toc__no">06</span>
+                    <span class="toc__title">Planning a comprehensive income tax estimate</span>
+                    <span class="toc__year">2025.01</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="7">
+                    <span class="toc__no">07</span>
+                    <span class="toc__title">Client management and engagement contract automation</span>
+                    <span class="toc__year">2025–2026</span>
+                  </button>
+                </li>
+              </ol>
+              </div>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">01 · Work · Planning · Verification</p>
+              <h3>Order and box status sync with a pharmaceutical wholesale mall</h3>
+              <p class="note__meta">2026.01 – 02 · JEEKIM COMPANY, prescription storage service · Me: integration rules, data cross-checks · Built by: dev team · Went live</p>
+              </div>
+              <div class="spread__right">
+
+              <p>The service collects pharmacies' paper prescriptions, scans them and stores them. Orders come in from an external pharmaceutical wholesale mall.</p>
+
+              <h4>The problem</h4>
+              <p>The operations staff were downloading mall orders as Excel files and typing them into the admin by hand.
+                 The mall tracks <mark>orders and order items</mark>, while our operations track <mark>boxes</mark>.
+                 So when only some boxes were picked up, or a pickup was postponed, it was hard to keep status and shipping details in sync on both sides.</p>
+
+              <h4>My role</h4>
+              <p>I reviewed the mall's API spec and planned the mapping and status rules. After development, I asked the dev team to run the API calls, cross-checked the results, and logged issues in QA.
+                 The dev team built it, and the external API format was set by the mall.</p>
+
+              <h4>Rules I set</h4>
+              <ul class="note__list">
+                <li>Identify each item to process by order number plus item sequence number (the line-item number within the order), and link it to an internal box on that basis</li>
+                <li>Treat partial pickup and postponed pickup as separate statuses, and map partial pickup to the mall's existing "partially shipped" status</li>
+                <li>Improve the admin search so staff can look up an order directly by the mall's order number</li>
+              </ul>
+
+              <h4>Example — one order, two boxes, partial pickup</h4>
+              <div class="table-wrap">
+                <table class="table">
+                  <caption>Numbers and items are a made-up example for illustration.</caption>
+                  <thead><tr><th scope="col">Mall (per order)</th><th scope="col">Internal (per box)</th><th scope="col">Box status</th><th scope="col">Sent to mall</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Order A · item 1</th><td>Box A-1</td><td>Picked up</td><td rowspan="2">Partially shipped</td></tr>
+                    <tr><th scope="row">Order A · item 2</th><td>Box A-2</td><td>Pickup postponed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>An order number alone can't show a different status for each box. So the first thing I settled was the rule: identify items by <mark>order number + item sequence number</mark> and link them to boxes. The item sequence number is the line-item number inside the mall's order, not a new number we assigned to boxes. Orders where only some boxes were picked up are sent to the mall as its existing "partially shipped" status, and only the picked-up items go into settlement.</p>
+
+              <h4>Verification</h4>
+              <p>I compared the API call results against the screens on both sides and found two bugs, which I passed to the dev team.</p>
+              <ul class="note__list">
+                <li>Orders that fell on the boundary of the call time window were missed</li>
+                <li>For orders with several boxes, shipping details were applied only to the first box</li>
+              </ul>
+
+              <h4>Result</h4>
+              <p>The staff member's manual entry for this task dropped <mark>from about 1 hour a day to 10 minutes</mark>.
+                 Partial pickups were now reflected in settlement, and questions about mismatched statuses went down (based on my own checks).</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">API spec review</li>
+                <li class="tag tag--lime">Status rules</li>
+                <li class="tag tag--peach">Data cross-checks</li>
+                <li class="tag tag--lavender">QA</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="order-sync" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="2" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">02 · Work · Service planning</p>
+              <h3>Planning a payslip service</h3>
+              <p class="note__meta">2025.12 – 2026.05 · JEEKIM COMPANY · Me: calculation standards, rules and screen planning, dev testing · Built by: dev team · Internal use · Pilot with customers</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>The problem</h4>
+              <p>The bookkeeping staff didn't use the existing payslip feature because its calculations were wrong.
+                 Each pharmacy reported pay differently (hourly or monthly, before or after tax), so staff filled in payslips <mark>by adjusting the inputs until the after-tax amount matched</mark>.
+                 When someone new took over, the basis for the numbers wasn't recorded anywhere, which made handovers hard.</p>
+
+              <h4>Learning the work</h4>
+              <p>To plan the solution, I did the bookkeeping for about 30 clients myself and wrote down the payroll and deduction rules and their exceptions.</p>
+
+              <h4>My role and the standards I set</h4>
+              <ul class="note__list">
+                <li>Set two standards: calculation results must match the tax software (WEHAGO), and the flow must follow the actual filing process</li>
+                <li>Built scenarios for each pay type and checked the formulas against WEHAGO's results</li>
+                <li>Moved the Excel calculation logic into <mark>reference code in Google Apps Script</mark> and handed it to the dev team</li>
+                <li>Planned the rules, data fields, user flow and screens, and took part in dev testing</li>
+              </ul>
+
+              <h4>Result</h4>
+              <p>Even after release, staff kept the old method because they worried the numbers might be wrong.
+                 After I explained the calculation standards in a meeting and shared a usage guide, <mark>the team started using it for real payroll calculations</mark>,
+                 and I confirmed it reached a pilot with customers. It also cut down the work of staff downloading social insurance notice statements by hand.</p>
+
+              <h4>Current status</h4>
+              <p>I left the company while it was in the customer pilot stage.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Defining calculation standards</li>
+                <li class="tag tag--lime">Checking against WEHAGO</li>
+                <li class="tag tag--peach">Apps Script</li>
+                <li class="tag tag--lavender">Adoption by staff</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="payroll" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="3" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">03 · Work · AI service policy</p>
+              <h3>AI tax consultation for pharmacies — with Samil PwC</h3>
+              <p class="note__meta">2026.01 – 06 · JEEKIM COMPANY · Me: screens and service rules, coordination with the partner · Model, Q&amp;A DB and API: partner · In beta testing</p>
+              </div>
+              <div class="spread__right">
+
+              <p>An AI consultation service where pharmacy owners ask about tax, labor and administrative matters.</p>
+
+              <h4>When the tuning schedule and data were uncertain</h4>
+              <p>We expected that building on an existing model would let us roll it out quickly, but the partner said tuning would take more than a month. Internally, it was also hard to judge which data would work and in what form to provide it.</p>
+              <ul class="note__list">
+                <li><b>Data to check first</b> — I agreed with the partner to start with the FAQ, which we could prepare right away, use it through RAG to check the answer flow, and tune only if needed.</li>
+                <li><b>Data to hold for later</b> — Recorded consultation audio needed time to collect, clean and sort into cases, so I proposed using it in a later improvement phase, after checking the first version. This stayed a proposal; I couldn't confirm whether it was actually used.</li>
+              </ul>
+
+              <h4>Rules I set and how I checked them</h4>
+              <ul class="note__list">
+                <li>Answer order: look for an answer in the FAQ first, and fall back to the existing generation method if there's no good match</li>
+                <li>Split the cases where the service can't answer into three, each with a next step: if no answer is found, connect to an expert consultation; if the question is outside pharmacy operations, explain what the service covers; if there's a system error, prompt a retry and log the error</li>
+                <li>Rules for showing the source legal provisions, a notice that answers are AI-generated, retention rules for chat history and bookmarks, and a requirement to cap token usage</li>
+                <li>Organized and supplied materials such as past pharmacy tax consultation records and pharmacy operations manuals, and reviewed the Q&amp;A</li>
+              </ul>
+
+              <h4>What I confirmed in beta</h4>
+              <p>In beta testing, I saw for myself that some FAQ questions were answered within 10 seconds. This is what I observed for some questions, not an overall average. I left during the beta stage, so I couldn't confirm results in full operation.</p>
+              <p>In this project, my part ended at setting the answer-scope rules and handing them to the partner. I later checked how such rules hold up in code by building them myself in a personal project, <a href="#p-taxdesk">TaxDesk</a>.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI service policy</li>
+                <li class="tag tag--lime">Edge cases</li>
+                <li class="tag tag--peach">External collaboration</li>
+                <li class="tag tag--lavender">Screen design</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="samil" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="4" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">04 · Work · Integration flow planning</p>
+              <h3>Pharmacy Ledger: account connection flow and partner site integration</h3>
+              <p class="note__meta">During 2024.10 – 2026.06 · JEEKIM COMPANY, Pharmacy Ledger · Me: connection flow and edge case planning, checks in live use · Went live</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>The problem</h4>
+              <p>While doing remote support, I saw how inconvenient it was for pharmacies to connect Hometax, the card sales service (Credit Finance Association), the healthcare provider portal and social insurance <mark>one by one, separately</mark>.
+                 Sales reps at partner companies who introduce the service also kept asking about setup and rules.</p>
+
+              <h4>Rules I set</h4>
+              <ul class="note__list">
+                <li>Hometax, the healthcare provider portal and social insurance were combined into one flow that uses a single certificate</li>
+                <li>The card sales service, which uses a different authentication method, was kept as a separate account connection</li>
+                <li>Defined the edge case where the Hometax certificate doesn't match</li>
+                <li>Took into account how partner sales reps would use it when introducing the service</li>
+              </ul>
+
+              <h4>Result</h4>
+              <p>The improved connection flow <mark>went into production</mark>. I did not build the authentication feature itself or design the security architecture.</p>
+
+              <h4>Partner site integration</h4>
+              <p>I planned an iframe integration so users could view Pharmacy Ledger's profit and loss reports and claims data inside the website of our partner, Onlinepharm.
+                 The integration I planned went live in the actual service. This is a separate case from the wholesale mall order sync above.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Connection flow</li>
+                <li class="tag tag--lime">Defining edge cases</li>
+                <li class="tag tag--peach">Partner integration</li>
+                <li class="tag tag--lavender">Remote support</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="pharmacy-link" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="5" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">05 · Work · Operations planning</p>
+              <h3>Running the prescription storage service and scan center</h3>
+              <p class="note__meta">During 2024.10 – 2026.06 · JEEKIM COMPANY · Me: operations automation planning, running the scan center · Automation built by: dev team</p>
+              </div>
+              <div class="spread__right">
+
+              <p>Pharmacies are required to keep their prescriptions. This service collects the paper prescriptions, scans them, stores them both digitally and physically,
+                 makes them easy to find when needed, and handles disposal once the retention period ends.</p>
+
+              <h4>The problem</h4>
+              <p>It was hard to track the same box through ordering, pickup, scanning and storage, and scan uploads sometimes didn't match the order number.</p>
+
+              <h4>Rules I set</h4>
+              <ul class="note__list">
+                <li>Planned automation for repetitive tasks such as matching waybill numbers, logging pickups and building purchase order lists, and handed it to the dev team</li>
+                <li>Planned changes to the pickup request data fields so the order number clearly appears on the waybill</li>
+                <li>Reorganized pickups so items with the same item sequence number are collected together, and introduced labels visible from the top and side of each box</li>
+              </ul>
+
+              <h4>Running the scan center</h4>
+              <p>At the newly opened scan center, I set target workloads, task checklists, inbound and outbound standards and manuals, and was in charge of staff assignments, training and quality control.
+                 At the time, 10 staff processed about 150,000 sheets a day on average (this is the scale of the service, not throughput I increased).
+                 When orders piled up, I reworked staffing and task order, and with the external warehouse I set up pallet codes, packing units and how we communicate.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Operations automation</li>
+                <li class="tag tag--lime">On-site operations</li>
+                <li class="tag tag--peach">Work standards</li>
+                <li class="tag tag--lavender">Logistics setup</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="rx-ops" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="6" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">06 · Work · Product planning</p>
+              <h3>Planning a comprehensive income tax estimate</h3>
+              <p class="note__meta">2025.01 – 03 · JEEKIM COMPANY · Me: planning · Built by: dev team · Launched (used for marketing)</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>What I planned</h4>
+              <p>I mapped the Hometax API response fields to our internal data structure and laid out the <mark>calculation flow for each income type</mark> and the items shown on screen.
+                 I planned the feature while explaining to developers and designers what each field and calculated result meant.</p>
+
+              <h4>Result</h4>
+              <p>It went into the live service and <mark>ran as a feature used for marketing</mark>.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Hometax API</li>
+                <li class="tag tag--lime">API response mapping</li>
+                <li class="tag tag--peach">Calculation flow</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="income-tax" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="7" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">07 · Work · Planning and design stage</p>
+              <h3>Client management and engagement contract automation</h3>
+              <p class="note__meta">2025 – 2026.06 · JEEKIM COMPANY · Me: planning and ERD review, through to the design stage</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>Improving client management</h4>
+              <p>Several people were editing the bookkeeping status in a shared Excel file, and changes kept getting lost. I planned client status management to fix that.
+                 I listed the business types and industries the team actually distinguishes and the items to track at each stage, and split permissions and the data each user needs by role.
+                 I checked the ERD written by the backend developer against the planning rules and sent back suggested changes.</p>
+
+              <h4>Engagement contract automation (2026.04 – 06)</h4>
+              <p>Member management was built around customers with a business registration number, but contract preparation actually began once an engagement was agreed verbally.
+                 I planned a <mark>separate list for prospective clients</mark> without a business number, and recorded the real customer handling and paper contract process as subtitled videos for the dev team.
+                 I planned it, including the CMS (automatic bank debit) payment connection, and got it as far as being reflected in the design before I left the company.</p>
+
+              <h4>How I write planning docs</h4>
+              <p>I asked developers and designers what kind of document worked best for them and made a spec template that separates <mark>inputs, outputs, API format, rules and edge cases</mark>.
+                 The developers and designers I worked with told me it was easier because "the things we'd have to decide during implementation are already laid out in the doc."</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Separating permissions and data</li>
+                <li class="tag tag--lime">ERD review</li>
+                <li class="tag tag--peach">CMS payments</li>
+                <li class="tag tag--lavender">Spec template</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="client-contract" hidden></div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="Previous page">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="Next page">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ Back to contents</button>
+        </div>
+      </section>
+
+      <section class="note-wrap" id="skala">
+        <h2 class="section-title">SKALA bootcamp</h2>
+
+        <div class="note note--work" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="SKALA bootcamp, contents">
+              <div class="spread__left">
+              <h3 class="note__cover-title">SKALA<br>Projects</h3>
+              </div>
+              <div class="spread__right">
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">TaxDesk — tax consultation on financial income</span>
+                    <span class="toc__year">2026.08</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">Making an in-car traffic sign recognition model lighter</span>
+                    <span class="toc__year">2026.09</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">EDU:UP — an education benefit points platform</span>
+                    <span class="toc__year">2026.08</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">Gwangyebu — designing features, screens, ERD and API</span>
+                    <span class="toc__year">2026.09</span>
+                  </button>
+                </li>
+              </ol>
+              </div>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">01 · Bootcamp · Solo</p>
+              <h3>TaxDesk — tax consultation on financial income</h3>
+              <p class="note__meta">Built 2026.08 (8.20–21) · Improved 2026.11 (11.10) · Personal project that started as a SKALA exercise · Designed solo, built and verified with AI coding tools · Java · Spring Boot · Spring AI · Synthetic account data</p>
+              </div>
+              <div class="spread__right">
+
+              <p>A consultation demo where customers of a fictional brokerage (SKALA Securities) ask whether their interest and dividend income falls under comprehensive taxation and how much tax to expect.
+                 With the company chatbot, my part ended at setting the answer-scope rules and handing them off, so I built this to see <mark>how those rules hold up in code</mark>.</p>
+
+              <h4>How a request is actually processed</h4>
+              <p>The server decides the order of steps. The lookup, eligibility check and calculation functions are defined as Spring AI <code>@Tool</code>s, but they are not registered with the model; the server calls them directly in a fixed order. It is not a Tool Calling setup where the model picks which tool to call.</p>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead><tr><th scope="col">Step</th><th scope="col">Who</th><th scope="col">What happens</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">1. Classify the question</th><td>Rules → model</td><td>Out-of-scope questions (capital gains tax, investment advice, someone else's account, etc.) are rejected by rules right away, with no model call. Questions like simulations or applications are also classified by rules; only questions the rules can't settle go to a low-cost model for one classification pass. If the model fails, rules classify it instead</td></tr>
+                    <tr><th scope="row">2. Look up, check, calculate</th><td>Server → tool code</td><td>Look up the account's income → check comprehensive taxation against the KRW 20 million threshold → only if the conditions are met, calculate the tax or run a limit simulation</td></tr>
+                    <tr><th scope="row">3. Search for evidence</th><td>RAG</td><td>Search provisions in 9 summary documents of the law. No search for tax calculation questions</td></tr>
+                    <tr><th scope="row">4. Answer</th><td>Model → code check</td><td>The model turns the lookup and calculation results and the evidence into an explanation. If it cites a provision that wasn't retrieved, the code blocks that answer</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4>Handling values that aren't confirmed</h4>
+              <ul class="note__list">
+                <li><b>Other comprehensive income unknown — tax calculation</b>: If the customer is subject to comprehensive taxation, it doesn't calculate and doesn't call the answer model (question classification still runs); it asks for the income amount. It tells "unknown" apart from the customer saying they have "none."</li>
+                <li><b>Same situation — limit simulation</b>: It assumes KRW 0, calculates the tax bracket thresholds, and adds a note that it "calculated assuming KRW 0."</li>
+                <li><b>Customer gives total salary or revenue</b>: That isn't taxable income, so it doesn't use the figure as is and asks again.</li>
+                <li><b>Account lookup fails</b>: It holds the check and the calculation, and explains that the lookup failed, which does not mean there is no income.</li>
+                <li><b>No retrieved evidence for a legal question</b>: It holds the answer and points the customer to the National Tax Service consultation center (126) or Hometax.</li>
+                <li><b>Financial income at other firms not confirmed</b>: It still runs the check, but adds a caveat that it's based on data from our firm and linked institutions and could change.</li>
+                <li><b>Values not yet distinguished</b>: Deductions and tax already paid are counted as 0 if the customer doesn't mention them (unconfirmed and 0 are not distinguished).</li>
+              </ul>
+
+              <h4>Key case — a tax figure based on an assumed KRW 0 went out as is</h4>
+              <ul class="note__list">
+                <li><b>Failure (manual test in August)</b>: I asked for the "final income tax" on a high-income seed account that hadn't mentioned other comprehensive income. It assumed KRW 0 and answered KRW 14,350,640. The stored expected value was KRW 66,274,240.</li>
+                <li><b>Cause</b>: The "assumed KRW 0" caveat was only attached as a sentence, so when the model left that sentence out, the figure read like a final tax amount.</li>
+                <li><b>Fix (2026-08-21)</b>: I split "unknown" from "said none," and changed it so that when the value is unknown it doesn't call the calculation tool and asks instead. In the November update, I also stopped leaving the follow-up question to the model; it now replies with a sentence fixed in code.</li>
+                <li><b>Recheck (2026-11-10)</b>: On the evaluation item "How much tax do I owe?" under the same risky condition (subject to comprehensive taxation + other comprehensive income not entered), I confirmed no calculation result, no call to the answer model, and a follow-up question asking for the income amount (mock model environment). The question and seed account differ from the August test.</li>
+              </ul>
+
+              <h4>What was verified</h4>
+              <div class="table-wrap">
+                <table class="table">
+                  <caption>Results from rerunning on the improved version of 2026-11-10 (commit ef5c2b9).</caption>
+                  <thead><tr><th scope="col">Type</th><th scope="col">Result</th><th scope="col">What it checks</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Code tests (mock model)</th><td>126 passed</td><td>Code behavior such as routing, holds, follow-up questions and account isolation. Runs without a model or API key. Not a measure of AI answer accuracy</td></tr>
+                    <tr><th scope="row">Offline evaluation — service rules</th><td>31 / 31 passed</td><td>Items, out of the 52 in the evaluation set, whose expected values come from the requirements</td></tr>
+                    <tr><th scope="row">Offline evaluation — eligibility and tax</th><td>15 / 15 match an independent calculation (not reviewed)</td><td>Whether the implementation matches values calculated separately from the structure of the law. Not an accuracy rate, since no tax expert has reviewed it yet</td></tr>
+                    <tr><th scope="row">Real model answers — citations</th><td>6 not run</td><td>Items that need the real model and index. The August manual test recorded citations of unrelated provisions and missing lookup or calculation results</td></tr>
+                    <tr><th scope="row">Browser check</th><td>Financial income panel · follow-up reply</td><td>Checked by running without a model key. Model answer quality was not checked</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>While putting this site together, I reran the tests and evaluations above on the same commit and got the same results (2026-11-10). In the August version, the tests caught 6 of 7 types of bugs planted in the calculation code (the bugs were planted by an AI coding tool).</p>
+
+              <h4>Tax rates applied</h4>
+              <p>The settings use a 10% dividend gross-up rate, based on income earned in 2026 under the Income Tax Act, Act No. 21221 (effective 2026-07-01). In August, while checking the calculation basis against the original text, I fixed a value that had been left at 11%.
+                 I did not check the application rules in the addenda or the special rule for dividend income from high-dividend companies (Restriction of Special Taxation Act, Article 104-27). The special rule is not applied automatically; the service only mentions it.</p>
+
+              <h4>Current status</h4>
+              <p>This is a demo built for practice. The account data is synthetic, and it isn't connected to any real financial institution or product sign-up system. Tax amounts are estimates that a tax expert has not reviewed, and it doesn't have the security or persistent storage needed to run publicly.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/skala-taxdesk/tree/ef5c2b9" target="_blank" rel="noopener">Code (ef5c2b9) ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/skala-taxdesk/tree/ef5c2b9/src/test" target="_blank" rel="noopener">Test code ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/skala-taxdesk/blob/ef5c2b9/src/test/resources/golden.json" target="_blank" rel="noopener">Evaluation set (52 items) ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring AI</li>
+                <li class="tag tag--lime">RAG</li>
+                <li class="tag tag--peach">Server-controlled flow</li>
+                <li class="tag tag--lavender">Tests · Offline evaluation</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="taxdesk" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="2" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">02 · Bootcamp · Pair</p>
+              <h3>Making an in-car traffic sign recognition model lighter</h3>
+              <p class="note__meta">2026.09 · SKALA pair assignment · Me: chose the model compression direction, ran my own experiments, compared results with my teammate's, presented · GTSRB, 43 classes · PyTorch</p>
+              </div>
+              <div class="spread__right">
+
+              <p>The baseline model was already 98.5% accurate. Of the directions the assignment offered (better accuracy, a smaller model, or a balance of both),
+                 I chose <mark>a smaller model</mark>. In a car, this model doesn't have the memory to itself; lane and pedestrian detection modules run alongside it.</p>
+
+              <h4>Key decisions</h4>
+              <ul class="note__list">
+                <li>Found that <mark>one layer whose only job is connecting held 96%</mark> of the 2.18 million parameters, and compared candidates that shrink that layer</li>
+                <li>Compared 21 controlled experiments across 3 seeds</li>
+                <li>While looking into the gap between Valid and Test, found 888 groups of consecutive shots of the same sign split across both training and validation. Test was not used as a score for picking candidates</li>
+              </ul>
+
+              <h4>Result</h4>
+              <ul class="note__list">
+                <li>Parameters 2,184,107 → 549,547 (25.2%), model size <mark>8.33MB → 2.10MB</mark>, compute 22.75M → 6.13M MACs</li>
+                <li>The two final candidates (4.12MB · 2.10MB) differed by 0.09%p in Valid accuracy, about the same as the variation across seeds, so I chose the smaller model</li>
+                <li>For inference time, the smaller model was actually slower one image at a time (0.174ms vs 0.099ms) but faster in batches (0.080ms vs 0.216ms). <em>Parameter count alone didn't tell me the speed.</em></li>
+              </ul>
+
+              <h4>What's left to verify</h4>
+              <p>Behavior when the model isn't confident, a separate check of safety-critical classes such as stop and speed limit signs, and night, backlit and rainy conditions are
+                 <mark>explicitly listed as not yet verified</mark>.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">PyTorch</li>
+                <li class="tag tag--lime">Model compression</li>
+                <li class="tag tag--peach">Experiment design</li>
+                <li class="tag tag--lavender">CNN</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="gtsrb" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="3" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">03 · Bootcamp · Team of 4</p>
+              <h3>EDU:UP — an education benefit points platform</h3>
+              <p class="note__meta">2026.08 · SKALA Agile and MSA exercise · Team of 4 (PM · Backend · AI · Frontend) · Me: Frontend · Problem definition (SRS): PM · Server: teammate (provided MSA template) · LLM recommendation service: teammate</p>
+              </div>
+              <div class="spread__right">
+
+              <p>We tackled a problem with the learning points a company gives its employees: <mark>the same people keep using them</mark>, and they never reach the people who most need to learn.
+                 With hundreds of options to choose from, picking one feels like a chore, people put it off, and the points expire at the end of the quarter.</p>
+
+              <h4>Service direction (team)</h4>
+              <p>Users answer one question about their job and interests, get just four recommendations (2 courses and 2 books), and can go straight to signing up.
+                 The team built the event-driven flow (application → point deduction → confirmation) on top of the provided MSA template.</p>
+
+              <h4>My role and screens</h4>
+              <p>I built the frontend screens with Vue 3 and Pinia, and documented spec conflicts and requests for the backend. On the backend, I changed only a few things, such as the amount deducted on application.</p>
+              <ul class="note__list">
+                <li>Connected five services to the screens through a single Gateway</li>
+                <li>Showed application status as "Received (PENDING)" and "Confirmed (ACTIVE)," with different messages for awaiting approval and failure</li>
+                <li>If the recommendation service (an LLM recommender a teammate built) fails, the screen falls back to rule-based recommendations, then to most popular</li>
+                <li>Disabled the button while an application is in progress to prevent duplicate submissions from the screen</li>
+              </ul>
+
+              <h4>Collaboration</h4>
+              <p>Right before the presentation, the team wanted to keep only what the backend had implemented. I suggested keeping the key screens from the problem definition (such as the point balance), even with mock data.
+                 We kept some of them and presented a table comparing the intended design, the current stand-in implementation and the plan for the next sprint.</p>
+
+              <h4>Limitations</h4>
+              <p>The point balance was mock data, and testing concurrent applications and double deductions, as well as handling cancellations, was left for the next sprint.
+                 So the demo wouldn't stall, I added a temporary workaround: if approval stayed pending for about a minute or the server didn't respond, the screen moved the application to confirmed. Teammates handled the MSA architecture and the recommendation model.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Vue 3</li>
+                <li class="tag tag--lime">Frontend</li>
+                <li class="tag tag--peach">MSA exercise</li>
+                <li class="tag tag--lavender">Agile · Scrum</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="edu-up" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="4" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">04 · Bootcamp · Solo</p>
+              <h3>Gwangyebu — designing features, screens, ERD and API</h3>
+              <p class="note__meta">2026.09 · SKALA mini project in AI web service design · Solo · 3 days · Design + frontend prototype (Vue 3, mock API)</p>
+              </div>
+              <div class="spread__right">
+
+              <p>For this assignment, I redesigned Gwangyebu, an app I had built and been using since May.
+                 When I matched each pain point to a feature, AI relationship analysis, KakaoTalk chat import and reminders didn't connect to any of them.
+                 Checking amounts received and keeping a contact ledger <mark>only needed recording and lookup</mark>, so I cut them.</p>
+
+              <h4>The original app — 2026.05 –, personal use (not released)</h4>
+              <p>An app I built and used myself to keep what I need to know about each person in one place. Next.js · Supabase · Capacitor, with AI summaries via the Claude and Gemini APIs.</p>
+              <ul class="note__list">
+                <li>Person cards — free-form notes such as MBTI, Instagram, business card, foods they can't eat</li>
+                <li>Records of gifts of money for weddings and funerals and of money lent, with a running balance of what was given and received</li>
+                <li>Upload a KakaoTalk chat and AI summarizes it by date and analyzes how healthy the relationship is</li>
+                <li>Reminders to get in touch · D-day alerts for family events</li>
+              </ul>
+
+              <h4>Designing features, screens and data</h4>
+              <ul class="note__list">
+                <li>4 pain points → 18 features → 11 screens → 6 tables → 33 APIs</li>
+                <li>For each API, noted which screen calls it, and listed separately in a table the values that are only shown on screen and not stored (counts, hearts, ledger totals)</li>
+                <li>Cut features were split into Phase 1 if they could be built with the current tables and APIs, and Phase 2 if they need external integration</li>
+              </ul>
+
+              <h4>Rules set in the design</h4>
+              <ul class="note__list">
+                <li>The difference between amounts given and received can be calculated but isn't shown. I thought it would make people judge relationships by numbers, so there are "only gave" and "only received" lists instead</li>
+                <li>Wedding gift money is treated as money exchanged rather than an event, so it's stored only in gifts. Storing it in both places would count it twice in the totals</li>
+                <li>Designed duplicate entries to be blocked at two levels: a warning on screen and a DB constraint</li>
+                <li>Designed access to someone else's record to return 404, not 403. Even revealing that a record exists can be sensitive</li>
+              </ul>
+
+              <h4>What was built</h4>
+              <p>I built 10 screens in Vue 3 and used a mock API (sample data) to check the flows for viewing and adding records and how the rules above behave.
+                 The server and DB exist only as design documents (API spec and dbml).</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://inwoo-jang.github.io/relationship-book-deck/" target="_blank" rel="noopener">Slides ↗</a>
+                <a class="btn btn--mini" href="media/portfolio/gwangyebu-erd.png" target="_blank" rel="noopener">ERD ↗</a>
+                <a class="btn btn--mini" href="media/portfolio/gwangyebu-uiflow.png" target="_blank" rel="noopener">UI flow ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/relationship-book" target="_blank" rel="noopener">GitHub ↗</a>
+                <a class="btn btn--mini" href="https://gwangyebu.vercel.app" target="_blank" rel="noopener">Original app ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Requirements definition</li>
+                <li class="tag tag--lime">ERD · dbml</li>
+                <li class="tag tag--peach">OpenAPI 3</li>
+                <li class="tag tag--lavender">Vue 3 · Pinia</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="relationship-design" hidden></div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="Previous page">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="Next page">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ Back to contents</button>
+        </div>
+      </section>
+
+      <section class="note-wrap" id="team">
+        <h2 class="section-title">Built with a team</h2>
+
+        <div class="note note--team" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="Built with a team, contents">
+              <div class="spread__left">
+              <h3 class="note__cover-title">With<br>a Team</h3>
+              </div>
+              <div class="spread__right">
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">Quiket — an AI quiz study app</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">ArchiveLink — AI bookmarks for links and QR codes</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">DACON dashcam competition — recapture detection experiments and a labeling tool</span>
+                    <span class="toc__year">2026.09</span>
+                  </button>
+                </li>
+              </ol>
+              </div>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">01 · Team · 7 people · PM</p>
+              <h3>Quiket — an AI quiz study app</h3>
+              <p class="note__meta">2026.03 – 07 · DDD side project, team of 7 (4 developers · 2 designers) · Me: PM and product planning · Production app built by: dev team · Released on the App Store 2026.07.10</p>
+              </div>
+              <div class="spread__right">
+
+              <p>A study app where you upload your study materials, AI writes questions from them, and you retry the ones you got wrong.
+                 As PM, I coordinated requirements, user flows and release scope. <mark>The dev team built the production app.</mark></p>
+
+              <h4>The problem learners had</h4>
+              <p>Turning lecture notes and handwritten notes into review questions felt like a burden. We defined this problem through 12 user interviews and ran two rounds of user testing before release.</p>
+
+              <h4>Validating before development</h4>
+              <p>I built a mini version of question generation with Next.js and Gemini myself to check it (using AI coding tools).
+                 It generated too many questions even from short materials, so I set <mark>a question count based on input length</mark> and reflected it in the settings and guidance.</p>
+
+              <h4>Coordinating the release — setting the first scope within the schedule</h4>
+              <ul class="note__list">
+                <li>Marked MoSCoW priorities with the same criteria across the PRD, wireframes, detailed specs and sprint tasks</li>
+                <li>Weighed the designers' push for more game elements against the developers' view that we should focus on the core flow, and released the question generation, solving and wrong-answer flow first</li>
+                <li>Kept the acorn storehouse image, and put a "Hibernating for now. Please wait for us" message on menus that weren't ready</li>
+                <li>For the wrong-answer notebook and quiz history, kept the data structure as designed and only reduced what's shown on screen, so the next phase can pick it up</li>
+              </ul>
+
+              <h4>After the second user test — the order of uploading materials</h4>
+              <ul class="note__list">
+                <li><b>What we saw</b> — The second UT checked 8 hypotheses with 6 participants: 2 validated, 4 partly validated, 1 unresolved and 1 not measurable. Even after we renamed "part" to "chapter," people were still confused by how materials were organized, and some said they wanted to upload materials first and name them later.</li>
+                <li><b>Decision</b> — Renaming alone wasn't enough, so we made the chapter structure and input order the top items to improve.</li>
+                <li><b>New flow (final presentation demo)</b> — Users enter the subject name first, then upload files at the add-materials step without naming chapters in advance. They review the chapter and part names the AI created and edit them if needed.</li>
+                <li><b>What was confirmed</b> — Checked in final internal QA and the final presentation demo. We did not run another user test on the new flow.</li>
+              </ul>
+              <p>Separately, feedback that there was no message while waiting for generation or when it finished went into the release as a progress indicator and a completion notice. Feedback that it didn't stand out enough from general-purpose AI remained an open issue.</p>
+
+              <h4>What I did</h4>
+              <p>PRD, IA, functional spec and user flows; 100+ wireframe screens in Figma; running the sprint schedule; checking the backend ERD against the rules; handling store review; midterm and final presentations.
+                 I fixed meetings to Sunday nights every week and prepared the agenda in advance, so every meeting except the first ended within 30 minutes.</p>
+
+              <h4>Result and current status</h4>
+              <p>We released it on the App Store (2026.07.10) and Google Play (team result), and I was selected as the club's <mark>PM MVP</mark>.
+                 After launch, teammates' jobs made it hard to keep working on monetization, and the servers are now shut down.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://play.google.com/store/apps/details?id=com.f1.quiket" target="_blank" rel="noopener">Google Play ↗</a>
+                <a class="btn btn--mini" href="https://apps.apple.com/kr/app/%ED%80%B4%EC%BC%93-quiket-ai-%ED%80%B4%EC%A6%88-%EC%83%9D%EC%84%B1-%EC%8B%9C%ED%97%98-%EA%B3%B5%EB%B6%80/id6787878510" target="_blank" rel="noopener">App Store ↗</a>
+                <a class="btn btn--mini" href="https://note2quiz-mini.vercel.app" target="_blank" rel="noopener">Validation mini version ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/note2quiz-mini" target="_blank" rel="noopener">Mini version code ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Product Planning</li>
+                <li class="tag tag--lime">User research</li>
+                <li class="tag tag--peach">Scope management</li>
+                <li class="tag tag--lavender">Store release</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="quiket" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="2" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">02 · Team · 2 people · Launched</p>
+              <h3>ArchiveLink — AI bookmarks for links and QR codes</h3>
+              <p class="note__meta">2026.05 – 06 · Team of 2 · Me: overall product planning, frontend prototype · Server, DB and infrastructure: the team's backend developer · Live on the web · Released on the App Store (2026.07.30)</p>
+              </div>
+              <div class="spread__right">
+
+              <p>A bookmark service that keeps links and QR codes in one place. Add a link and AI fills in the folder, name, description and tags.</p>
+
+              <h4>Key features</h4>
+              <ul class="note__list">
+                <li>When you add a link, AI generates the folder, link name, description and tags</li>
+                <li>One set of bookmarks across web and app, plus built-in portal search</li>
+                <li>Attach to-dos and reminders to links to keep track of them</li>
+              </ul>
+
+              <h4>Key improvement — making analysis failure part of the main flow</h4>
+              <p>Because of login walls and bot blocking, <mark>there were more links the AI couldn't read than we expected.</mark>
+                 If failed auto-classification were treated only as an edge case, users would get stuck right there. So the flow was designed with this as the default: for links the AI can't analyze, users enter the details themselves and save them.</p>
+
+              <h4>My role</h4>
+              <p>Instead of aligning on requirements in conversation, I <mark>deployed a prototype first and locked it in as the reference</mark>, then moved it to React and TypeScript.
+                 The team's backend developer designed the server and DB structure and the infrastructure.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://archivelink.app/login" target="_blank" rel="noopener">Web ↗</a>
+                <a class="btn btn--mini" href="https://apps.apple.com/kr/app/id6788230955" target="_blank" rel="noopener">App Store ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">AI auto-classification</li>
+                <li class="tag tag--lime">React</li>
+                <li class="tag tag--peach">PWA</li>
+                <li class="tag tag--lavender">iOS</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="archivelink" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="3" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">03 · Team · Competition</p>
+              <h3>DACON dashcam competition — recapture detection experiments · labeling tool</h3>
+              <p class="note__meta">2026.08 – 09 · Entered as a team · Final rank 24th of 320 teams (team) · Me: Stage 1 experiments, built the labeling tool · Training infrastructure: teammate</p>
+              </div>
+              <div class="spread__right">
+
+              <p>A three-stage competition analyzing driving footage: whether a video is a recapture (Stage 1), when an accident happens, and the driving state.</p>
+
+              <h4>Recapture detection experiments (Stage 1)</h4>
+              <ul class="note__list">
+                <li>A deep learning model trained on synthetic recapture data missed all 13 real-world recaptures I had collected myself</li>
+                <li>Looking for the cause, I found that 336 of the 836 synthetic training samples were derived from the original evaluation videos, a case of <mark>data leakage</mark>, and removed them</li>
+                <li>I measured and rejected the hypothesis that blur was the signal, and switched from deep learning to video forensic features (high frequency, compression block boundaries, flicker, etc.) + logistic regression</li>
+              </ul>
+              <p>My individual submission reached 16th at the midpoint, and our combined team's final rank was <mark>24th of 320 teams</mark>.</p>
+
+              <h4>Labeling tool</h4>
+              <p>I saw teammates struggling with more than 1,000 labels each, so I built a tool myself (using AI coding tools).
+                 Drop in a whole folder and the clips play back to back; make each call with the keyboard alone and the results build up in a CSV.</p>
+              <ul class="note__list">
+                <li>AI draft labels and existing labels appear <mark>only as a gray reference overlay</mark> and are never filled in automatically. Unclear cases are marked NEEDS_REVIEW</li>
+                <li>Collision and entry frames are confirmed right after marking with a ±7-frame fine-tuning mode and 0.25× playback, and a single key zooms to 100% of the original resolution to look for recapture clues</li>
+                <li>fps is calculated as frame count ÷ actual duration instead of using the container metadata</li>
+                <li>Each call is saved to the CSV, and on rerun it skips finished clips and picks up where you left off. Separate files per reviewer make it possible to measure the disagreement rate</li>
+                <li>20–30 seconds per clip is a design target, not a measured processing time</li>
+              </ul>
+
+              <h4>Team roles</h4>
+              <p>A teammate set up the team's training infrastructure (AWS); I put the decisions that needed making on the meeting agenda and followed up on them.</p>
+
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Python · OpenCV</li>
+                <li class="tag tag--lime">Data leakage check</li>
+                <li class="tag tag--peach">Keyboard UX</li>
+                <li class="tag tag--lavender">Team competition</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="dacon" hidden></div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="Previous page">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="Next page">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ Back to contents</button>
+        </div>
+      </section>
+
+      <section class="note-wrap" id="solo">
+        <h2 class="section-title">Built on my own</h2>
+
+        <div class="note note--solo" data-note>
+          <div class="note__rings" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="note__body">
+
+            <article class="note__page is-current" data-page="0" aria-label="Built on my own, contents">
+              <div class="spread__left">
+              <h3 class="note__cover-title">Built<br>Myself</h3>
+              </div>
+              <div class="spread__right">
+              <ol class="toc">
+                <li>
+                  <button type="button" class="toc__btn" data-goto="1">
+                    <span class="toc__no">01</span>
+                    <span class="toc__title">MarketDesk — AI report analysis</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="2">
+                    <span class="toc__no">02</span>
+                    <span class="toc__title">Work-experience program triage admin (AX hackathon)</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="3">
+                    <span class="toc__no">03</span>
+                    <span class="toc__title">ClassTrack — tracking courses and assignments</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="4">
+                    <span class="toc__no">04</span>
+                    <span class="toc__title">Template Hub</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">Vibe Coding Guide</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="6">
+                    <span class="toc__no">06</span>
+                    <span class="toc__title">Personal tools — other</span>
+                    <span class="toc__year">2026</span>
+                  </button>
+                </li>
+              </ol>
+              </div>
+            </article>
+            <article class="note__page" data-page="1" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">01 · Solo · In real use</p>
+              <h3>MarketDesk — AI report analysis and stock tracking</h3>
+              <p class="note__meta">Started 2026.06 · Planned solo, built with AI and verified · Built · In personal use (not released)</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>The problem</h4>
+              <p>I wanted to study the economy, but even a single report had so much in it that it was hard to read, and industry reports and company reports didn't connect into a bigger picture.
+                 So I built a tool where AI writes a structured summary <mark>for each reading purpose (lens)</mark> and stacks the results into a timeline by industry.</p>
+
+              <h4>Key features</h4>
+              <ul class="note__list">
+                <li>Structured six-item summaries per lens, with industry and document type classified automatically on upload</li>
+                <li>Flow board — builds up by month and year × industry, company and economic trends</li>
+                <li>My stocks — prices from a brokerage Open API, paper trading, a trading journal</li>
+                <li>Export to PDF and Markdown</li>
+              </ul>
+
+              <h4>How I worked</h4>
+              <p>I wrote the planning doc first, then worked from sprints, tasks and a decision log in Notion.
+                 Each task is written as <mark>purpose, scope, implementation notes, edge cases, tests and done criteria</mark>.
+                 AI implements it and records its first check; I then check again on screen locally and create a fix task if it falls short.</p>
+
+              <h4>Implementation and verification</h4>
+              <ul class="note__list">
+                <li>PDF parsing was blocking the upload response, so the API server and the parsing worker were split and connected with a queue</li>
+                <li>Exact duplicates are blocked by a SHA-256 of the content, and near-duplicates are caught with SimHash and offered for merging</li>
+                <li>Found that for reports with no known publication date, the upload date was shown as if it were the publication date (the model leaves the date blank, but the screen filled in the upload date). That fallback was removed, and users now enter the date themselves</li>
+                <li>Every extraction call includes "Don't invent numbers or forecasts that aren't in the report; leave missing items blank." Related companies are shown only as hashtags, and the AI doesn't recommend stocks</li>
+                <li>A function that checks whether extracted numbers appear on the cited page was built, but it isn't connected to the upload flow</li>
+              </ul>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/marketdesk" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Next.js · Hono</li>
+                <li class="tag tag--lime">PostgreSQL</li>
+                <li class="tag tag--peach">Queue · separate worker</li>
+                <li class="tag tag--lavender">Guardrails</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="marketdesk" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="2" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">02 · Solo · 6-hour hackathon</p>
+              <h3>Work-experience program triage admin</h3>
+              <p class="note__meta">2026.06 · AX Arena hackathon, entered solo · Planning, demo build and presentation within 6 hours · Demo</p>
+              </div>
+              <div class="spread__right">
+
+              <p>Based on a <mark>scenario where one operator checks 8 weeks of attendance for 300 participants by hand</mark>,
+                 I built a demo that sorts who to check first.
+                 I estimated the size of the problem as 300 people × 3–5 minutes each = 15–25 hours; this is not a measured saving.</p>
+
+              <h4>Key improvements</h4>
+              <ul class="note__list">
+                <li>Defined <mark>intervention value</mark> as "the allowance that can still be saved if we step in now," and sorted who to check by it automatically</li>
+                <li>A what-if simulator that recalculates the allowance when you enter attendance for the remaining weeks</li>
+              </ul>
+
+              <h4>What I decided first</h4>
+              <p>At the start, I decided what to hand to AI.
+                 <mark>Code does the calculations and threshold checks, AI writes the summaries and messages, and a person makes the final call.</mark>
+                 Once a number is wrong, an operator won't trust that screen again.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://inwoo-jang.github.io/ax-hackathon-ilgyeong-triage/" target="_blank" rel="noopener">Live demo ↗</a>
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/ax-hackathon-ilgyeong-triage" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Separating roles</li>
+                <li class="tag tag--lime">Python</li>
+                <li class="tag tag--peach">Prompt design</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="triage" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="3" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">03 · Solo · Build and deployment exercise</p>
+              <h3>ClassTrack — a web app for tracking courses and assignments</h3>
+              <p class="note__meta">2026.08 · Personal project during the bootcamp · Designed, built and deployed solo as practice · Spring Boot · Vue 3 · Docker</p>
+              </div>
+              <div class="spread__right">
+
+              <p>A web app that tracks the courses I'm taking, my assignments and links to what I turned in, all in one place.
+                 I connected the frontend, server and data myself and practiced container-based deployment.</p>
+
+              <h4>What I paid attention to in the design</h4>
+              <ul class="note__list">
+                <li>The calendar of actual class days, excluding weekends and public holidays, is <mark>calculated from rules instead of storing end dates</mark></li>
+                <li>Added a <mark>dev screen</mark> that pulls the API, service and DB structure and logs from the running app, bringing debugging into the app itself</li>
+                <li>AOP logging, asynchronous link validation</li>
+              </ul>
+
+              <p class="note__meta">I practiced building a container image with a multi-stage build and deploying it.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://github.com/inwoo-jang/classtrack" target="_blank" rel="noopener">GitHub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Spring Boot</li>
+                <li class="tag tag--lime">Vue 3</li>
+                <li class="tag tag--peach">AOP</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="classtrack" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="4" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">04 · Solo · Small tool</p>
+              <h3>Template Hub — a collection of document design prompts</h3>
+              <p class="note__meta">2026 · Made solo · Built with AI coding tools · Public</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>Why I made it</h4>
+              <p>While making promotional images for Quiket, I learned that the hard part of a prompt isn't getting one good result,
+                 it's <em>getting the same result every time</em>.</p>
+
+              <h4>What I made</h4>
+              <p>A hub that collects PPT, report and resume templates and open-source resources by category.
+                 Pick one and it <mark>generates a prompt to give to AI</mark>.
+                 You can search by name, mood or color, and sort by how often you use them.</p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://inwoo-jang.github.io/templets-hub/" target="_blank" rel="noopener">Template Hub ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--peach">Prompt design</li>
+                <li class="tag tag--sky">GitHub Pages</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="templets-hub" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="5" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">05 · Solo · Small tool</p>
+              <h3>Vibe Coding Guide</h3>
+              <p class="note__meta">2026 · Made solo · Built with AI coding tools · Public</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>What I made</h4>
+              <p>A website that helps people new to coding <mark>complete one full cycle of 8 steps</mark>, from planning to deployment.
+                 For each step, it collects prompts to give to AI and useful open-source resources.</p>
+
+              <h4>Key management</h4>
+              <p><em>API keys are used only in serverless functions, and every build has to pass a key-leak check first.</em></p>
+
+              <p class="btn-row">
+                <a class="btn btn--mini" href="https://vibe-coding-guide-liart.vercel.app" target="_blank" rel="noopener">Vibe Coding Guide ↗</a>
+              </p>
+
+              <ul class="tag-row">
+                <li class="tag tag--lime">Vercel serverless functions</li>
+                <li class="tag tag--peach">Prompt design</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="vibe-guide" hidden></div>
+              </div>
+            </article>
+            <article class="note__page" data-page="6" hidden>
+              <div class="spread__left">
+              <p class="chip chip--ko">06 · Solo · Small tool</p>
+              <h3>Personal tools — other</h3>
+              <p class="note__meta">2026 · Made solo · Built with AI coding tools · Personal use</p>
+              </div>
+              <div class="spread__right">
+
+              <h4>Email summary bot</h4>
+              <p>It collects Gmail over IMAP, <mark>summarizes messages by importance</mark>, and sends the summary to a Discord channel.
+                 Naver Mail runs as a separate flow, and GitHub Actions runs it every morning.</p>
+
+              <h4>AI study coach web app</h4>
+              <p>Instead of me asking AI questions, I made it so <mark>the AI asks me open-ended questions</mark>.
+                 When I ask, I get an answer, but it doesn't stick.
+                 When I write out an answer, the AI grades it and saves my answer and whether I passed to the DB.
+                 When I get stuck while reading the textbook, I <em>ask right away in a side panel</em>, and the answers pile up next to that spot. I made one for each subject.</p>
+
+              <ul class="tag-row">
+                <li class="tag tag--sky">Python</li>
+                <li class="tag tag--lavender">GitHub Actions</li>
+                <li class="tag tag--lime">Vue 3 · SQLite</li>
+              </ul>
+              <div class="project-gallery" data-project-gallery="personal-tools" hidden></div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="note__controls">
+            <button type="button" class="note__nav" data-prev aria-label="Previous page">‹</button>
+            <p class="note__count" aria-live="polite"></p>
+            <button type="button" class="note__nav" data-next aria-label="Next page">›</button>
+          </div>
+          <button type="button" class="note__back" data-back hidden>↩ Back to contents</button>
+        </div>
+      </section>
+
+      </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>inwoo.log — Inwoo Jang's notes on product planning and development · © 2026</p>
+      <ul>
+        <li><a href="mailto:roseprincess0331@gmail.com">Email</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Original Inwoo.log</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/portfolio.js"></script>
+  <script src="script/project-images.en.js"></script>
+  <script src="script/gallery.js"></script>
+  <script src="script/projects-data.en.js"></script>
+  <script src="script/portfolio-quick.js"></script>
+  <script src="script/image-text.en.js"></script>
+  <script src="script/image-en.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Inwoo Jang, a Product Manager who turns problems found on the ground into user flows and features. I study how people actually work and where users get stuck, then define the screens, features and operating rules. At work I coordinated implementation with the dev team; in bootcamp and personal projects I build things myself with AI coding tools and check the results.">
+  <title>Inwoo Jang — Product Manager · IT Planning · AX | inwoo.log</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/ds.css">
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--dark">
+    <div class="site-header__inner">
+      <a class="wordmark" href="index.en.html" aria-label="inwoo.log home">inwoo<span>.log</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main menu">
+        <ul>
+          <li><a href="index.en.html" aria-current="page">Home</a></li>
+          <li><a href="profile.en.html">Profile</a></li>
+          <li><a href="portfolio.en.html">Portfolio</a></li>
+          <li><a href="how.en.html">How I Work</a></li>
+          <li><a href="notes.en.html">Dev Notes</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="index.html" lang="ko" hreflang="ko" data-lang-link>KO</a>
+        <a href="index.en.html" lang="en" hreflang="en" aria-current="true" data-lang-link>EN</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro__inner">
+        <div>
+          <p class="intro__who"><b>Inwoo Jang</b>Product Manager · IT Planning · AX</p>
+          <h1 class="intro__title" id="intro-title">A Product Manager who turns problems found on the ground<br><em>into user flows and features</em></h1>
+          <p class="intro__lead">I look at how people actually work and where users get stuck, then define the screens, features and operating rules. At work I coordinated implementation with the dev team. In bootcamp and personal projects, I build things myself with AI coding tools and check the results.</p>
+          <div class="intro__actions">
+            <a class="btn btn--primary" href="#works">See featured projects</a>
+            <a class="btn" href="how.en.html">How I work</a>
+          </div>
+          <ul class="proof proof--intro" aria-label="Verified evidence">
+            <li><a href="portfolio.en.html#p-payroll"><span class="proof__value">Bookkeeping for about 30 clients</span><span class="proof__label">Learned the work firsthand, then wrote down payroll rules and edge cases</span><span class="proof__scope">Payslip planning</span></a></li>
+            <li><a href="portfolio.en.html#p-order-sync"><span class="proof__value">About 1 hour → 10 minutes</span><span class="proof__label">Manual order entry · one staff member's daily time on that task</span><span class="proof__scope">Order sync · my own records</span></a></li>
+            <li><a href="portfolio.en.html#p-quiket"><span class="proof__value">PM of a 7-person team · launched on both app stores</span><span class="proof__label">Coordinated Quiket's launch scope and user flows</span><span class="proof__scope">Team project result</span></a></li>
+          </ul>
+        </div>
+        <aside class="intro-profile" aria-labelledby="intro-profile-title">
+          <h2 class="intro-profile__head" id="intro-profile-title">Profile</h2>
+          <dl>
+            <dt>Experience</dt><dd>JEEKIM COMPANY, product planning and operations<small>2024.10 – 2026.06</small></dd>
+            <dt>Now</dt><dd>AI service development bootcamp<small>2026.07 – present</small></dd>
+            <dt>Before</dt><dd>Ran my own online store, solo<small>2021.12 – 2024.06</small></dd>
+            <dt>Languages</dt><dd>English (business) · Chinese (business)<small>OPIc IH (2026.06) · 6 years of study in China</small></dd>
+            <dt>Contact</dt><dd><a href="mailto:roseprincess0331@gmail.com">roseprincess0331@gmail.com</a></dd>
+          </dl>
+          <a class="intro-profile__more" href="profile.en.html">More on my experience and work</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="works" id="works" aria-labelledby="works-title" tabindex="-1">
+      <h2 class="works__label" id="works-title">Featured projects</h2>
+      <ul class="works__grid">
+        <li class="work work--lead">
+          <div class="work__media">
+            <img src="media/portfolio/order-sync-diagram.svg" alt="Diagram showing how order and item units from an external wholesale mall map to internal box units">
+            <span class="work__tag">Diagram · made by me</span>
+          </div>
+          <div class="work__body">
+            <p class="work__meta"><span>Work · JEEKIM COMPANY · 2026.01 – 02</span><span class="status status--live">Went live</span></p>
+            <h3 class="work__title"><a href="portfolio.en.html#p-order-sync">Order and box status sync with a pharmaceutical wholesale mall</a></h3>
+            <p class="work__did"><b>Decision</b> External orders and items didn't match our internal boxes one to one. I set the rule for identifying each item by order number and line number and linking it to a box, plus the rules for partial pickups and postponed pickups.</p>
+            <p class="work__did"><b>Result</b> That manual entry went from about 1 hour to 10 minutes a day (my own records). After it was built, I compared data on both sides and sent 2 bugs to QA.</p>
+            <p class="work__cap">Sync rules, data checks, QA: me · Built by: the dev team</p>
+          </div>
+        </li>
+        <li class="work">
+          <div class="work__media">
+            <img src="media/portfolio/payroll-slip.jpg" alt="Sample payslip screen — earnings, deductions and net pay (sample data)">
+            <span class="work__tag">Image from the company's public intro · sample data</span>
+          </div>
+          <div class="work__body">
+            <p class="work__meta"><span>Work · JEEKIM COMPANY · 2025.12 – 2026.05</span><span class="status status--live">Internal use · Pilot</span></p>
+            <h3 class="work__title"><a href="portfolio.en.html#p-payroll">Payslip service planning</a></h3>
+            <p class="work__did"><b>Decision</b> I defined calculation rules and edge cases for each pay type, checked them against the tax software's results, and handed them to the dev team as reference code.</p>
+            <p class="work__did"><b>Result</b> Used for real internal payroll · I left the company while it was in the customer pilot</p>
+            <p class="work__cap">Planning and rule validation: me · Built by: the dev team</p>
+          </div>
+        </li>
+        <li class="work">
+          <div class="work__media work__media--phones">
+            <img src="media/portfolio/quiket-demo-upload-crop.jpg" alt="Quiket add-material screen — uploading a file without entering chapter names">
+            <img src="media/portfolio/quiket-demo-chapters-crop.jpg" alt="Quiket review screen — checking and editing the chapter and part names the AI created">
+            <span class="work__tag">Frames from the demo video · team work</span>
+          </div>
+          <div class="work__body">
+            <p class="work__meta"><span>Side project · 7-person team · 2026.03 – 07</span><span class="status">Launched, since discontinued</span></p>
+            <h3 class="work__title"><a href="portfolio.en.html#p-quiket">Quiket — an AI quiz study app</a></h3>
+            <p class="work__did"><b>Decision</b> I coordinated the first release scope. Based on user test feedback, we changed the flow to: enter the subject name → upload material → review and edit the chapters and parts the AI created.</p>
+            <p class="work__did"><b>Result</b> Launched on the App Store and Google Play (team result) · the new flow was checked in internal QA · servers are now shut down</p>
+            <p class="work__cap">PM, product planning, user testing: me · Production app built by: the dev team</p>
+          </div>
+        </li>
+        <li class="work">
+          <div class="work__media">
+            <img src="media/portfolio/taxdesk-hold-2611-crop.jpg" alt="Consultation screen: for “How much tax do I owe?”, the user is classified as subject to comprehensive taxation, and since other comprehensive income isn't confirmed, it asks for that income amount instead of giving a tax figure (synthetic data)">
+            <span class="work__tag">Part of the real screen · synthetic data</span>
+          </div>
+          <div class="work__body">
+            <p class="work__meta"><span>Bootcamp · Personal · solo · 2026.08</span><span class="status status--edu">Bootcamp project</span></p>
+            <h3 class="work__title"><a href="portfolio.en.html#p-taxdesk">TaxDesk — tax consultation on financial income</a></h3>
+            <p class="work__did"><b>Decision</b> The server controls the order of income lookup, taxation decision and calculation. The model is used only to classify questions and explain answers. Income that isn't confirmed is never calculated; the app asks a follow-up question instead.</p>
+            <p class="work__did"><b>Result</b> After fixing the August failure (a tax figure that assumed KRW 0), I confirmed it asks a follow-up question under the same risky conditions · demo, not yet reviewed by a tax professional</p>
+            <p class="work__cap">Designed solo · built and verified with AI coding tools</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <div class="page" style="padding-top:var(--s8);padding-bottom:var(--s7)">
+      <section aria-labelledby="all-title">
+        <div class="block-head">
+          <h2 id="all-title">All projects</h2>
+          <a class="link-arrow" href="portfolio.en.html#list">View as cards</a>
+        </div>
+        <ol class="rows">
+          <li class="row"><span class="row__when">Work · 2026.01–02</span><a class="row__title" href="portfolio.en.html#p-order-sync">Order and box status sync with a pharmaceutical wholesale mall</a><span class="row__role">Sync rules, data checks, QA · built by the dev team</span><span class="status status--live">Went live</span></li>
+          <li class="row"><span class="row__when">Work · 2025.12–2026.05</span><a class="row__title" href="portfolio.en.html#p-payroll">Payslip service planning</a><span class="row__role">Calculation rules, policy, data fields, screen planning · built by the dev team</span><span class="status status--live">Internal use · Pilot</span></li>
+          <li class="row"><span class="row__when">Work · 2026.01–06</span><a class="row__title" href="portfolio.en.html#p-samil">AI tax consultation for pharmacies — with Samil PwC</a><span class="row__role">Screens and service rules · model by the partner firm</span><span class="status">In beta testing</span></li>
+          <li class="row"><span class="row__when">Work · during 2024.10–2026.06</span><a class="row__title" href="portfolio.en.html#p-pharmacy-link">Pharmacy Ledger connection flow and partner site integration</a><span class="row__role">Connection flow and edge cases</span><span class="status status--live">Went live</span></li>
+          <li class="row"><span class="row__when">Work · during 2024.10–2026.06</span><a class="row__title" href="portfolio.en.html#p-rx-ops">Prescription storage service operations · scan center</a><span class="row__role">Operations automation planning · built by the dev team</span><span class="status status--live">Run on site</span></li>
+          <li class="row"><span class="row__when">Work · 2025.01–03</span><a class="row__title" href="portfolio.en.html#p-income-tax">Comprehensive income tax estimate planning</a><span class="row__role">Hometax API response mapping and calculation flow · built by the dev team</span><span class="status status--live">Launched · Used for marketing</span></li>
+          <li class="row"><span class="row__when">Work · 2025–2026.06</span><a class="row__title" href="portfolio.en.html#p-client-contract">Client management and engagement contract automation</a><span class="row__role">Planning and ERD review, through to design</span><span class="status">Planning and design stage</span></li>
+          <li class="row"><span class="row__when">Bootcamp · Personal · 2026.08</span><a class="row__title" href="portfolio.en.html#p-taxdesk">TaxDesk — tax consultation on financial income</a><span class="row__role">Designed solo · built and verified with AI coding tools</span><span class="status status--edu">Bootcamp project</span></li>
+          <li class="row"><span class="row__when">Bootcamp · 2026.09</span><a class="row__title" href="portfolio.en.html#p-gtsrb">Making an in-car traffic sign recognition model lighter</a><span class="row__role">Chose the compression approach</span><span class="status status--edu">Bootcamp assignment</span></li>
+          <li class="row"><span class="row__when">Bootcamp · 2026.08</span><a class="row__title" href="portfolio.en.html#p-edu-up">EDU:UP — an education benefit points platform</a><span class="row__role">Frontend · server and recommendation model by teammates</span><span class="status status--edu">Bootcamp project</span></li>
+          <li class="row"><span class="row__when">Bootcamp · 2026.09</span><a class="row__title" href="portfolio.en.html#p-relationship-design">Gwangyebu — feature, screen, ERD and API design</a><span class="row__role">Designed solo + frontend prototype (mock API)</span><span class="status status--edu">Bootcamp · Prototype</span></li>
+          <li class="row"><span class="row__when">Team · 2026.03–07</span><a class="row__title" href="portfolio.en.html#p-quiket">Quiket — an AI quiz study app</a><span class="row__role">PM, product planning, user testing · built by the dev team</span><span class="status">Launched, since discontinued</span></li>
+          <li class="row"><span class="row__when">Team · 2026.05–06</span><a class="row__title" href="portfolio.en.html#p-archivelink">ArchiveLink — AI bookmarks for links and QR codes</a><span class="row__role">All product planning + frontend prototype · server by a teammate</span><span class="status status--live">Live on web and iOS</span></li>
+          <li class="row"><span class="row__when">Team · 2026.08–09</span><a class="row__title" href="portfolio.en.html#p-dacon">DACON dashcam competition — recapture detection experiments · labeling tool</a><span class="row__role">Stage 1 experiments · server by a teammate</span><span class="status">Competition ended</span></li>
+          <li class="row"><span class="row__when">Personal · since 2026.06</span><a class="row__title" href="portfolio.en.html#p-marketdesk">MarketDesk — AI analysis of analyst reports and a stock watchlist</a><span class="row__role">Planned solo, built with AI, verified the screens</span><span class="status">Built · In personal use</span></li>
+          <li class="row"><span class="row__when">Personal · 2026.06</span><a class="row__title" href="portfolio.en.html#p-triage">Work-experience program triage admin</a><span class="row__role">Planned, built a demo and presented in 6 hours</span><span class="status">Demo</span></li>
+          <li class="row"><span class="row__when">Personal · 2026.08</span><a class="row__title" href="portfolio.en.html#p-classtrack">ClassTrack — a web app for tracking classes and assignments</a><span class="row__role">Designed, built and deployed solo as an exercise</span><span class="status">Deployment exercise</span></li>
+          <li class="row"><span class="row__when">Personal · 2026</span><a class="row__title" href="portfolio.en.html#p-templets-hub">Template Hub — prompts for document design</a><span class="row__role">Made solo (with AI coding tools)</span><span class="status">Public</span></li>
+          <li class="row"><span class="row__when">Personal · 2026</span><a class="row__title" href="portfolio.en.html#p-vibe-guide">Vibe Coding Guide</a><span class="row__role">Made solo (with AI coding tools)</span><span class="status">Public</span></li>
+          <li class="row"><span class="row__when">Personal · 2026</span><a class="row__title" href="portfolio.en.html#p-personal-tools">Personal tools — other</a><span class="row__role">Made solo (with AI coding tools)</span><span class="status">Personal use</span></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="ways-title" style="margin-top:var(--s8)">
+        <div class="block-head">
+          <h2 id="ways-title">How I work</h2>
+          <a class="link-arrow" href="how.en.html">Read all of How I Work</a>
+        </div>
+        <div class="ways">
+          <a class="ways__item" href="how.en.html#flow"><span class="section__no">01</span><h3>Planning</h3><p>I find problems by doing the work myself. Many of my projects started from bookkeeping for 30 clients, remote support calls, or watching staff at work.</p></a>
+          <a class="ways__item" href="how.en.html#ax-work"><span class="section__no">02</span><h3>Building</h3><p>I write the spec as a six-part task first, build it with AI coding tools, then check it on screen and with tests.</p></a>
+          <a class="ways__item" href="how.en.html#collab"><span class="section__no">03</span><h3>Collaboration</h3><p>I give designers, developers and operations staff the information each of them needs, and follow up until it's actually in use.</p></a>
+        </div>
+        <blockquote class="quote">
+          <p>“The decisions we need to make during implementation are already written down in the docs, which makes things easy.”</p>
+          <cite>Developers and designers I worked with at JEEKIM COMPANY</cite>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="notes-title" style="margin-top:var(--s8)">
+        <div class="block-head">
+          <h2 id="notes-title">Dev Notes</h2>
+          <a class="link-arrow" href="notes.en.html">All notes</a>
+        </div>
+        <ol class="entries">
+          <li class="entry"><span class="entry__date">2026.09.11</span><div><h3 class="entry__title"><a href="notes.en.html#n-why-ai-service">Why build an AI service? — which part of the user's work are you changing</a></h3><p class="entry__summary">Being able to generate answers with AI isn't a reason to adopt it. I think you first have to ask which user task you're improving, whether it can be solved without AI, and whether users can tell when the output is wrong.</p><ul class="tags"><li>Planning and tech choices</li><li>AI product planning</li></ul></div></li>
+          <li class="entry"><span class="entry__date">2026.11.06</span><div><h3 class="entry__title"><a href="notes.en.html#n-ai-dev-tools-compare">Comparing IDEs — VS Code · Kiro · Cursor</a></h3><p class="entry__summary">VS Code is mix-and-match, Kiro is spec-driven, Cursor is agent-driven. A comparison of how each handles AI coding, project rules, and planning and verifying work, based on official docs.</p><ul class="tags"><li>Dev tools</li><li>AI coding</li></ul></div></li>
+          <li class="entry"><span class="entry__date">2026.08.28</span><div><h3 class="entry__title"><a href="notes.en.html#n-claude-cli-in-app">Call Claude Code from an app and your own settings come along — CLI flags and streaming</a></h3><p class="entry__summary">I made a study app's "Grade" button run the claude command from a Python server. Notes on how Claude called from an app still reads my PC's settings and skills, and how the flag for turning off tools wasn't what I expected.</p><ul class="tags"><li>AI and agents</li><li>Claude Code</li></ul></div></li>
+          <li class="entry"><span class="entry__date">2026.07.15</span><div><h3 class="entry__title"><a href="notes.en.html#n-prompt-techniques">10 prompt techniques — which one to reach for, and when</a></h3><p class="entry__summary">The 10 prompt techniques from class, organized by when to use them. I set up the request with RICE, then layer on whichever technique fits the goal.</p><ul class="tags"><li>AI and agents</li><li>Prompt Engineering</li></ul></div></li>
+        </ol>
+        <p style="margin:var(--s3) 0 0;font-size:var(--fs-caption);color:var(--muted)">Notes on planning criteria for adopting AI and choosing technology, through to how things were built and verified.</p>
+      </section>
+
+      <section class="about-me" aria-labelledby="about-title" style="margin-top:var(--s8)">
+        <div class="block-head"><h2 id="about-title">Working with me</h2></div>
+        <p class="about-me__line">
+          <span>Careful in the work,</span>
+          <span>flexible when results aren't what we expected,</span>
+          <span>and easygoing the rest of the time.</span>
+        </p>
+        <p class="about-me__note">People call me “the warm robot.” I think and work logically, but I also pay attention to what the people around me are going through.</p>
+      </section>
+
+      <section class="contact" aria-label="Contact" style="margin-top:var(--s8)">
+        <div><h2>Open to new opportunities</h2><p>If you have a Product Manager, IT planning or AX role, get in touch and I'll reply quickly.</p></div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="mailto:roseprincess0331@gmail.com">Send an email</a>
+          <a class="btn btn--quiet" href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>inwoo.log — Inwoo Jang's notes on planning and building · © 2026</p>
+      <ul>
+        <li><a href="mailto:roseprincess0331@gmail.com">Email</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Original Inwoo.log</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/image-text.en.js"></script>
+  <script src="script/image-en.js"></script>
+</body>
+</html>

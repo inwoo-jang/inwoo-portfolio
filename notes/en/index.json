@@ -1,0 +1,754 @@
+{
+  "categories": [
+    {
+      "id": "planning",
+      "label": "Planning & tech choices",
+      "description": "problem definition, why to adopt AI, comparing alternatives, and criteria for choosing technology",
+      "color": {
+        "ink": "#8A5A12",
+        "soft": "#FFF5DB",
+        "tape": "#F0D48C"
+      }
+    },
+    {
+      "id": "ux",
+      "label": "UX & design",
+      "description": "user flows, information architecture, screen and functional specs, and usability reviews",
+      "color": {
+        "ink": "#9C3D65",
+        "soft": "#FCEAF2",
+        "tape": "#EAAFC8"
+      }
+    },
+    {
+      "id": "ai",
+      "label": "AI & agents",
+      "description": "prompts, RAG, tool calling, and building and evaluating agents",
+      "color": {
+        "ink": "#6D4499",
+        "soft": "#F2EBFA",
+        "tape": "#C9B2E4"
+      }
+    },
+    {
+      "id": "data",
+      "label": "Data & ML",
+      "description": "collecting and analyzing data, preprocessing, training models, and validating prediction performance",
+      "color": {
+        "ink": "#17675F",
+        "soft": "#E4F4F1",
+        "tape": "#99D5CB"
+      }
+    },
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "description": "web screens, components, state management, and browser behavior",
+      "color": {
+        "ink": "#12657C",
+        "soft": "#E4F3F8",
+        "tape": "#96CEE0"
+      }
+    },
+    {
+      "id": "backend",
+      "label": "Server & DB",
+      "description": "APIs, server logic, authentication, and database design and queries",
+      "color": {
+        "ink": "#335E9E",
+        "soft": "#EAF0FA",
+        "tape": "#AEC4EA"
+      }
+    },
+    {
+      "id": "infra",
+      "label": "Infra & deployment",
+      "description": "runtime environments, containers, CI/CD, deployment, and monitoring",
+      "color": {
+        "ink": "#9A4F24",
+        "soft": "#FFF0E5",
+        "tape": "#EABD9B"
+      }
+    },
+    {
+      "id": "tools",
+      "label": "Dev tools",
+      "description": "how to use and configure dev tools such as IDEs, CLIs, and Git",
+      "color": {
+        "ink": "#4F5E70",
+        "soft": "#EDF1F5",
+        "tape": "#BBC8D7"
+      }
+    },
+    {
+      "id": "testing",
+      "label": "Testing & quality",
+      "description": "unit, integration, and UI tests, quality bars, and security checks",
+      "color": {
+        "ink": "#41662C",
+        "soft": "#EEF5E7",
+        "tape": "#BAD59F"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "slug": "agent-governance",
+      "file": "notes/en/agent-governance.md",
+      "title": "As AI agents multiply, what should a company manage?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "Agent Governance",
+        "Agent Sprawl",
+        "Agent Lifecycle",
+        "AI ROI"
+      ],
+      "date": "2026-11-10",
+      "summary": "Building lots of agents isn't what makes AX succeed. Looking at Gartner's forecast and how SKT, IBM, and Cisco are responding, I mapped out a lifecycle for managing agents from creation to retirement, plus criteria for keeping, improving, or shutting them down.",
+      "sample": false,
+      "related": [
+        "agent-kpi",
+        "agent-autonomy",
+        "ai-failure-tracing",
+        "agent-guardrails",
+        "agent-memory"
+      ]
+    },
+    {
+      "slug": "ai-waiting-ux",
+      "file": "notes/en/ai-waiting-ux.md",
+      "title": "How should a service behave while users wait for an AI answer?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ux",
+        "backend"
+      ],
+      "tags": [
+        "Async",
+        "Queue",
+        "Streaming",
+        "UX"
+      ],
+      "date": "2026-11-10",
+      "summary": "Response design isn't about speed. It's about deciding whether users have to wait, whether they can do something else meanwhile, and how they check progress. Starting from letting users go back home during generation in Quiket, I sorted out sync, async, streaming, queues, and job status rules.",
+      "sample": false,
+      "related": [
+        "tech-stack-choice",
+        "claude-cli-in-app"
+      ]
+    },
+    {
+      "slug": "ai-dev-tools-compare",
+      "file": "notes/en/ai-dev-tools-compare.md",
+      "title": "Comparing IDEs — VS Code · Kiro · Cursor",
+      "category": "tools",
+      "categories": [
+        "tools"
+      ],
+      "tags": [
+        "VS Code",
+        "Kiro",
+        "Cursor",
+        "AI Coding"
+      ],
+      "date": "2026-11-06",
+      "summary": "VS Code is mix-and-match, Kiro is spec-driven, Cursor is agent-driven. A comparison of how each handles AI coding, project rules, and planning and verifying work, based on official docs.",
+      "sample": false,
+      "related": []
+    },
+    {
+      "slug": "agent-autonomy",
+      "file": "notes/en/agent-autonomy.md",
+      "title": "How autonomous should an agent be?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai",
+        "ux"
+      ],
+      "tags": [
+        "AI Agent",
+        "Autonomy",
+        "Human-in-the-loop",
+        "UX"
+      ],
+      "date": "2026-11-06",
+      "summary": "Thoughts on designing agent autonomy around execution permissions and risk level, human-in-the-loop, and giving users real control.",
+      "sample": false,
+      "related": [
+        "agent-hitl",
+        "why-ai-agent",
+        "agent-guardrails",
+        "agent-eval",
+        "agent-governance",
+        "agent-kpi",
+        "multi-agent-vs-single",
+        "prompt-injection"
+      ]
+    },
+    {
+      "slug": "agent-kpi",
+      "file": "notes/en/agent-kpi.md",
+      "title": "How should you design KPIs for an AI agent?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "Agent Evaluation",
+        "Product KPI",
+        "Business Impact"
+      ],
+      "date": "2026-11-06",
+      "summary": "An agent that works accurately and an agent that actually improves the work are not the same thing. Drawing on a production KPI framework and evaluation research, I laid out how to choose metrics in this order — goal → success criteria → KPIs → measurement and validation → improvement.",
+      "sample": false,
+      "related": [
+        "agent-eval",
+        "agent-autonomy",
+        "multi-agent-vs-single",
+        "why-ai-service",
+        "agent-governance",
+        "model-selection"
+      ]
+    },
+    {
+      "slug": "agent-eval",
+      "file": "notes/en/agent-eval.md",
+      "title": "Character count couldn't evaluate a report — splitting checks between code and an LLM judge",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "testing"
+      ],
+      "tags": [
+        "AI Agent",
+        "Evaluation",
+        "LLM Judge",
+        "LangGraph"
+      ],
+      "date": "2026-10-28",
+      "summary": "With a 300-character minimum, a 328-character report full of generalities passed. I split format checks off to code and claim-evidence matching to an LLM judge — and then the same report started getting a different score each time it was evaluated.",
+      "sample": false,
+      "related": [
+        "agent-autonomy",
+        "agent-kpi",
+        "ai-failure-tracing",
+        "multi-agent-vs-single",
+        "rag-citation-rules",
+        "why-ai-agent"
+      ]
+    },
+    {
+      "slug": "tech-stack-choice",
+      "file": "notes/en/tech-stack-choice.md",
+      "title": "How do you put together a tech stack for a service?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "backend",
+        "infra"
+      ],
+      "tags": [
+        "Architecture",
+        "Tech Stack",
+        "Overengineering",
+        "MSA",
+        "ADR"
+      ],
+      "date": "2026-10-25",
+      "summary": "Choosing a tech stack isn't about picking the best technology. It's about deciding how much complexity you actually need. This note covers the requirements and constraints a PM can provide, six criteria for choosing technology, how to judge overengineering, MSA, and new tech, and ADRs for recording why you chose what you did.",
+      "sample": false,
+      "related": [
+        "why-python-ai",
+        "multi-agent-vs-single",
+        "why-ai-agent",
+        "ai-waiting-ux"
+      ]
+    },
+    {
+      "slug": "ai-failure-tracing",
+      "file": "notes/en/ai-failure-tracing.md",
+      "title": "When an AI answer is wrong, how do you find where it failed?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "testing"
+      ],
+      "tags": [
+        "AI Observability",
+        "Tracing",
+        "Root Cause Analysis",
+        "LangSmith"
+      ],
+      "date": "2026-10-23",
+      "summary": "Knowing the final answer is wrong doesn't tell you what to fix. Notes on narrowing down the cause with step-by-step execution records (tracing), verifying fixes with evaluation, and how to decide what to log.",
+      "sample": false,
+      "related": [
+        "agent-eval",
+        "rag-citation-rules",
+        "agent-guardrails",
+        "agent-governance",
+        "context-engineering",
+        "model-selection"
+      ]
+    },
+    {
+      "slug": "why-ai-agent",
+      "file": "notes/en/why-ai-agent.md",
+      "title": "Why build it as an AI agent? — can you decide the next step in advance",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "AI product planning",
+        "AI Agent",
+        "Workflow",
+        "Execution scope"
+      ],
+      "date": "2026-10-07",
+      "dateType": "class",
+      "summary": "Calling an LLM several times or using tools doesn't mean you need an agent. First find out whether there's actually a point where the next action has to be chosen based on intermediate results.",
+      "sample": false,
+      "related": [
+        "agent-eval",
+        "agent-guardrails",
+        "agent-hitl",
+        "agent-autonomy",
+        "multi-agent-vs-single",
+        "tech-stack-choice",
+        "why-ai-service",
+        "why-sllm"
+      ]
+    },
+    {
+      "slug": "when-rag",
+      "file": "notes/en/when-rag.md",
+      "title": "When do you need RAG, and when does it make things worse?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "RAG",
+        "Long Context",
+        "Architecture",
+        "Retrieval",
+        "AI Service Planning"
+      ],
+      "date": "2026-09-28",
+      "summary": "Adding a retrieval step doesn't make answers more accurate by itself. Drawing on a RAG capstone and research comparing RAG with long context, I wrote down criteria for choosing RAG or another approach based on the shape and size of the information and the kind of question, plus how to verify the choice.",
+      "sample": false,
+      "related": [
+        "rag-citation-rules",
+        "data-preprocessing",
+        "context-engineering",
+        "model-selection"
+      ]
+    },
+    {
+      "slug": "rag-citation-rules",
+      "file": "notes/en/rag-citation-rules.md",
+      "title": "No evidence, no answer — citation checks for RAG",
+      "category": "ai",
+      "categories": [
+        "ai"
+      ],
+      "tags": [
+        "RAG",
+        "Citation",
+        "AI Agent",
+        "LangGraph"
+      ],
+      "date": "2026-09-22",
+      "summary": "With zero sources, the LLM isn't called at all, and citations not on the list get removed in code. At one point I passed the raw source text, the LLM copied it word for word, and the output failed validation.",
+      "sample": false,
+      "related": [
+        "agent-eval",
+        "ai-failure-tracing",
+        "context-engineering",
+        "data-preprocessing",
+        "prompt-injection",
+        "when-rag"
+      ]
+    },
+    {
+      "slug": "prompt-injection",
+      "file": "notes/en/prompt-injection.md",
+      "title": "Can you stop prompt injection just by fixing the prompt?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "testing"
+      ],
+      "tags": [
+        "Prompt Injection",
+        "AI Security",
+        "Trust Boundary",
+        "Guardrails",
+        "Tool Calling"
+      ],
+      "date": "2026-09-15",
+      "summary": "Prompt injection isn't about spotting malicious sentences. It's about making sure untrusted information can't change what the AI does. Notes on direct vs. indirect attacks, trust boundaries, layered defenses, and a test design that logs attack attempts, blocks, and executions separately.",
+      "sample": false,
+      "related": [
+        "agent-guardrails",
+        "agent-hitl",
+        "agent-autonomy",
+        "rag-citation-rules"
+      ]
+    },
+    {
+      "slug": "multi-agent-vs-single",
+      "file": "notes/en/multi-agent-vs-single.md",
+      "title": "Is multi-agent really better than single-agent?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "AI Architecture",
+        "Agent Orchestration",
+        "Multi-Agent",
+        "Cost Optimization"
+      ],
+      "date": "2026-09-12",
+      "summary": "Every extra agent adds model calls and handoffs. My take is to adopt multi-agent only once a single agent's limits are confirmed and splitting roles would actually fix them, and to justify it by cost per successful task.",
+      "sample": false,
+      "related": [
+        "why-ai-agent",
+        "agent-autonomy",
+        "agent-guardrails",
+        "agent-eval",
+        "agent-kpi",
+        "model-selection",
+        "tech-stack-choice",
+        "why-python-ai"
+      ]
+    },
+    {
+      "slug": "agent-memory",
+      "file": "notes/en/agent-memory.md",
+      "title": "What should an AI agent remember, and when should it forget?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "AI Agent",
+        "Agent Memory",
+        "Memory Lifecycle",
+        "Context Engineering",
+        "Data Governance"
+      ],
+      "date": "2026-09-12",
+      "summary": "Not holding on to wrong information matters as much as remembering well. Starting from an exercise where I built a preference-saving tool, this note covers what to store, when to update, deactivate, or delete it, and how to verify that deletion actually holds.",
+      "sample": false,
+      "related": [
+        "context-engineering",
+        "agent-hitl",
+        "agent-governance"
+      ]
+    },
+    {
+      "slug": "agent-guardrails",
+      "file": "notes/en/agent-guardrails.md",
+      "title": "Where should an agent be stopped? — guardrails on input, call counts, and output",
+      "category": "ai",
+      "categories": [
+        "ai"
+      ],
+      "tags": [
+        "AI Agent",
+        "Guardrails",
+        "LangChain",
+        "Middleware"
+      ],
+      "date": "2026-09-11",
+      "summary": "Guardrails aren't about blocking an agent as much as possible. They define in code how far it can go on its own. Notes on separating a full stop, blocking a single action, waiting for approval, and a partial answer, plus the problems I hit limiting input, call counts, and output with LangChain middleware.",
+      "sample": false,
+      "related": [
+        "agent-hitl",
+        "agent-autonomy",
+        "agent-governance",
+        "ai-failure-tracing",
+        "context-engineering",
+        "multi-agent-vs-single",
+        "prompt-injection",
+        "why-ai-agent"
+      ]
+    },
+    {
+      "slug": "agent-hitl",
+      "file": "notes/en/agent-hitl.md",
+      "title": "Where should approval go? — a LangChain HITL exercise",
+      "category": "ai",
+      "categories": [
+        "ai"
+      ],
+      "tags": [
+        "AI Agent",
+        "HITL",
+        "LangChain",
+        "create_agent"
+      ],
+      "date": "2026-09-11",
+      "summary": "Put approval only on the one action that's hard to undo. Don't re-ask about something the user already chose, and take approval from the user's resume command, not from the model's response. This note covers the LangChain HITL setup code and the errors I got stuck on.",
+      "sample": false,
+      "related": [
+        "agent-autonomy",
+        "agent-guardrails",
+        "agent-memory",
+        "prompt-injection",
+        "why-ai-agent"
+      ]
+    },
+    {
+      "slug": "why-ai-service",
+      "file": "notes/en/why-ai-service.md",
+      "title": "Why build an AI service? — which part of the user's work are you changing",
+      "category": "planning",
+      "categories": [
+        "planning"
+      ],
+      "tags": [
+        "AI product planning",
+        "Problem definition",
+        "User flow",
+        "Adoption decision"
+      ],
+      "date": "2026-09-11",
+      "dateType": "class",
+      "summary": "Being able to generate answers with AI isn't a reason to adopt it. I think you first have to ask which user task you're improving, whether it can be solved without AI, and whether users can tell when the output is wrong.",
+      "sample": false,
+      "related": [
+        "why-ai-agent",
+        "why-ml-model",
+        "why-sllm",
+        "agent-kpi"
+      ]
+    },
+    {
+      "slug": "model-selection",
+      "file": "notes/en/model-selection.md",
+      "title": "How should you choose an LLM? — balancing performance, reasoning, and cost",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "LLM",
+        "Model Selection",
+        "Reasoning",
+        "Inference Cost",
+        "AI Service Planning"
+      ],
+      "date": "2026-09-05",
+      "summary": "Performance versus cost isn't an either-or choice. Meet the quality and safety bar first, then optimize latency and total cost per successful task. This note looks at parameter count, reasoning, and cost separately, and lays out criteria for choosing a model through model routing and comparison experiments.",
+      "sample": false,
+      "related": [
+        "why-sllm",
+        "why-ml-model",
+        "multi-agent-vs-single",
+        "agent-kpi",
+        "when-rag",
+        "ai-failure-tracing"
+      ]
+    },
+    {
+      "slug": "why-ml-model",
+      "file": "notes/en/why-ml-model.md",
+      "title": "With DL and LLMs available, why choose traditional ML?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "data",
+        "ai"
+      ],
+      "tags": [
+        "Machine Learning",
+        "Deep Learning",
+        "LLM",
+        "GBDT",
+        "Model Selection",
+        "Research"
+      ],
+      "date": "2026-09-03",
+      "dateType": "class",
+      "summary": "I checked the rules of thumb \"tabular data means tree models\" and \"little data means ML\" against research. Conclusion: GBDT is a strong baseline, but you still need to compare it with pretrained models on business metrics and total cost.",
+      "sample": false,
+      "related": [
+        "why-sllm",
+        "data-preprocessing",
+        "model-selection",
+        "why-ai-service",
+        "why-python-ai"
+      ]
+    },
+    {
+      "slug": "why-sllm",
+      "file": "notes/en/why-sllm.md",
+      "title": "Why use an sLLM? — not because it's small, but because it fits the requirements",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "AI product planning",
+        "sLLM",
+        "Language model",
+        "Operating cost"
+      ],
+      "date": "2026-08-31",
+      "dateType": "class",
+      "summary": "That a small model is cheaper and faster is only a hypothesis. My takeaway is that you have to compare total cost, including task quality, latency, deployment environment, and review, under the same conditions.",
+      "sample": false,
+      "related": [
+        "why-ai-agent",
+        "model-selection",
+        "why-ai-service",
+        "why-ml-model",
+        "why-python-ai"
+      ]
+    },
+    {
+      "slug": "data-preprocessing",
+      "file": "notes/en/data-preprocessing.md",
+      "title": "Why is data preprocessing needed, and how far should it go?",
+      "category": "data",
+      "categories": [
+        "data",
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "Data Preprocessing",
+        "OCR",
+        "Chunking",
+        "RAG"
+      ],
+      "date": "2026-08-30",
+      "summary": "Preprocessing isn't about making data clean; it's about preparing it so its meaning doesn't get distorted. I covered preprocessing for tabular and document data, the problems that too much preprocessing creates, how to decide the scope, and how to verify that it helped.",
+      "sample": false,
+      "related": [
+        "why-ml-model",
+        "context-engineering",
+        "rag-citation-rules",
+        "when-rag"
+      ]
+    },
+    {
+      "slug": "claude-cli-in-app",
+      "file": "notes/en/claude-cli-in-app.md",
+      "title": "Call Claude Code from an app and your own settings come along — CLI flags and streaming",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "tools",
+        "backend"
+      ],
+      "tags": [
+        "Claude Code",
+        "CLI",
+        "Streaming",
+        "Python"
+      ],
+      "date": "2026-08-28",
+      "summary": "I made a study app's \"Grade\" button run the claude command from a Python server. Notes on how Claude called from an app still reads my PC's settings and skills, and how the flag for turning off tools wasn't what I expected.",
+      "sample": false,
+      "related": [
+        "ai-waiting-ux"
+      ]
+    },
+    {
+      "slug": "why-python-ai",
+      "file": "notes/en/why-python-ai.md",
+      "title": "Why is Python so common in AI development?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai",
+        "backend"
+      ],
+      "tags": [
+        "Python",
+        "Java",
+        "Spring AI",
+        "Spring Boot",
+        "FastAPI",
+        "AI Architecture"
+      ],
+      "date": "2026-08-22",
+      "summary": "Python's strength comes from its ecosystem for training and experimenting with models; connecting an external LLM API to a service works in Java too. I compared Spring Boot + Spring AI with Python + FastAPI using TaxDesk as the example, and listed what a PM should look at when choosing.",
+      "sample": false,
+      "related": [
+        "why-ml-model",
+        "multi-agent-vs-single",
+        "why-sllm",
+        "tech-stack-choice"
+      ]
+    },
+    {
+      "slug": "context-engineering",
+      "file": "notes/en/context-engineering.md",
+      "title": "What should an AI agent be given, when, and how much?",
+      "category": "ai",
+      "categories": [
+        "ai",
+        "planning"
+      ],
+      "tags": [
+        "Context Engineering",
+        "Prompt Engineering",
+        "RAG",
+        "Agent Memory",
+        "AI Agent"
+      ],
+      "date": "2026-07-31",
+      "summary": "No prompt can save an answer when the needed information is missing, and stuffing in more information doesn't help either. These are my design criteria for what to give, when, and how much, and for what to remember and what to drop.",
+      "sample": false,
+      "related": [
+        "prompt-techniques",
+        "rag-citation-rules",
+        "ai-failure-tracing",
+        "agent-guardrails",
+        "agent-memory",
+        "data-preprocessing",
+        "when-rag"
+      ]
+    },
+    {
+      "slug": "prompt-techniques",
+      "file": "notes/en/prompt-techniques.md",
+      "title": "10 prompt techniques — which one to reach for, and when",
+      "category": "ai",
+      "categories": [
+        "ai"
+      ],
+      "tags": [
+        "Prompt Engineering",
+        "RICE",
+        "CoT",
+        "Few-shot"
+      ],
+      "date": "2026-07-15",
+      "summary": "The 10 prompt techniques from class, organized by when to use them. I set up the request with RICE, then layer on whichever technique fits the goal.",
+      "sample": false,
+      "related": [
+        "context-engineering"
+      ]
+    }
+  ]
+}

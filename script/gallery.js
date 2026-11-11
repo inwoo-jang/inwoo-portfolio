@@ -4,9 +4,10 @@
 (function () {
   var dialog = document.createElement('dialog');
   dialog.className = 'image-viewer';
-  dialog.setAttribute('aria-label', '프로젝트 이미지 확대보기');
+  var EN = document.documentElement.lang === 'en';
+  dialog.setAttribute('aria-label', EN ? 'Enlarged project image' : '프로젝트 이미지 확대보기');
   var close = document.createElement('button');
-  close.type = 'button'; close.className = 'btn image-viewer__close'; close.textContent = '닫기 ×';
+  close.type = 'button'; close.className = 'btn image-viewer__close'; close.textContent = EN ? 'Close ×' : '닫기 ×';
   var large = document.createElement('img');
   var caption = document.createElement('p'); caption.id = 'image-viewer-caption';
   dialog.setAttribute('aria-describedby', caption.id);
@@ -28,7 +29,7 @@
       if (!item.src || !item.alt) return;
       var figure = document.createElement('figure'); figure.className = 'note__shot';
       var button = document.createElement('button'); button.type = 'button'; button.className = 'project-gallery__open';
-      button.setAttribute('aria-label', item.alt + ' 확대보기');
+      button.setAttribute('aria-label', item.alt + (EN ? ' — enlarge' : ' 확대보기'));
       button.dataset.src = item.src; button.dataset.alt = item.alt; button.dataset.caption = item.caption || item.alt;
       var img = document.createElement('img'); img.alt = item.alt; img.loading = 'eager';
       var label = document.createElement('figcaption'); label.textContent = item.caption || item.alt;

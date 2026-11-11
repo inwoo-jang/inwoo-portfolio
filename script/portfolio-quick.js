@@ -26,11 +26,15 @@
   var pageHead = document.querySelector("[data-page-head]");
   var switchBtns = document.querySelectorAll(".view-switch [data-view]");
 
+  /* 페이지 언어가 영어(lang="en")면 영어 문구를 쓴다 */
+  var EN = document.documentElement.lang === "en";
+  function T(ko, en) { return EN ? en : ko; }
+
   var BOOKS = {
-    work: { label: "실무", name: "실무 — 지킴컴퍼니" },
-    skala: { label: "교육", name: "SKALA 교육 과정" },
-    team: { label: "팀", name: "팀에서 만든 것" },
-    solo: { label: "개인", name: "직접 만든 것" }
+    work: { label: T("실무", "Work"), name: T("실무 — 지킴컴퍼니", "Work — JEEKIM COMPANY") },
+    skala: { label: T("교육", "Bootcamp"), name: T("SKALA 교육 과정", "SKALA bootcamp") },
+    team: { label: T("팀", "Team"), name: T("팀에서 만든 것", "Built with a team") },
+    solo: { label: T("개인", "Personal"), name: T("직접 만든 것", "Built on my own") }
   };
   var BOOK_IDS = Object.keys(BOOKS);
 
@@ -75,7 +79,7 @@
 
   function tagsEl(items) {
     var ul = el("ul", "tags");
-    ul.setAttribute("aria-label", "기술·키워드");
+    ul.setAttribute("aria-label", T("기술·키워드", "Tech and keywords"));
     items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
     return ul;
   }
@@ -88,10 +92,10 @@
       counts[id] = projects.filter(function (p) { return p.book === id; }).length;
     });
     var groups = {
-      book: [{ value: "all", label: "전체", count: counts.all }].concat(BOOK_IDS.map(function (id) {
+      book: [{ value: "all", label: T("전체", "All"), count: counts.all }].concat(BOOK_IDS.map(function (id) {
         return { value: id, label: BOOKS[id].label, count: counts[id] };
       })),
-      type: [{ value: "all", label: "모든 역할" }].concat(types.map(function (t) {
+      type: [{ value: "all", label: T("모든 역할", "All roles") }].concat(types.map(function (t) {
         return { value: t, label: t, count: projects.filter(function (p) { return (p.roles || []).indexOf(t) >= 0; }).length };
       }))
     };
@@ -168,7 +172,7 @@
   /* 내 역할 키워드 — 기획 · PM · 엔지니어링 구분 */
   function rolesEl(roles) {
     var ul = el("ul", "roles");
-    ul.setAttribute("aria-label", "내 역할");
+    ul.setAttribute("aria-label", T("내 역할", "My role"));
     roles.forEach(function (r) { ul.appendChild(el("li", null, r)); });
     return ul;
   }
@@ -192,7 +196,7 @@
       h.appendChild(a);
       li.appendChild(h);
       var dl = el("dl", "pick__lines");
-      [["판단", f.decision], ["결과", f.result]].forEach(function (pair) {
+      [[T("판단", "Decision"), f.decision], [T("결과", "Result"), f.result]].forEach(function (pair) {
         var row = el("div");
         row.appendChild(el("dt", null, pair[0]));
         row.appendChild(el("dd", null, pair[1]));
@@ -209,8 +213,8 @@
     gridEl.textContent = "";
     list.forEach(function (p) { gridEl.appendChild(card(p)); });
     countEl.textContent = list.length
-      ? list.length + "개 표시 중"
-      : "조건에 맞는 프로젝트가 없습니다. 필터를 ‘전체’로 바꿔 보세요.";
+      ? T(list.length + "개 표시 중", "Showing " + list.length + (list.length === 1 ? " project" : " projects"))
+      : T("조건에 맞는 프로젝트가 없습니다. 필터를 ‘전체’로 바꿔 보세요.", "No projects match. Try setting the filters to ‘All’.");
   }
 
   /* ---------- 읽기 화면 ---------- */
@@ -242,7 +246,7 @@
     copy.querySelectorAll("[data-project-gallery]").forEach(function (g) { g.remove(); });
     // 요약과 메타에서 이미 말한 ‘담당 역할’ 단락은 읽기 화면에서 생략(연습장에는 그대로 둔다)
     copy.querySelectorAll(":scope > h4").forEach(function (h4) {
-      if (h4.textContent.trim() !== "담당 역할") { return; }
+      if (h4.textContent.trim() !== T("담당 역할", "My role")) { return; }
       var next = h4.nextElementSibling;
       while (next && next.tagName !== "H4" && !next.classList.contains("tag-row")) {
         var after = next.nextElementSibling; next.remove(); next = after;
@@ -286,7 +290,7 @@
     readerEl.textContent = "";
 
     var bar = el("div", "reader-view__bar");
-    var back = el("a", null, "← 프로젝트 목록");
+    var back = el("a", null, T("← 프로젝트 목록", "← All projects"));
     back.href = "#list";
     bar.appendChild(back);
     bar.appendChild(el("span", "count", (index + 1) + " / " + order.length));
@@ -302,14 +306,14 @@
 
     // 기간 · 팀 · 내 역할 · 현재 상태 — 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
-    [["기간", p.periodDetail || p.period], ["팀·구분", p.scope], ["내 역할", p.role]].forEach(function (pair) {
+    [[T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope], [T("내 역할", "My role"), p.role]].forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
       facts.appendChild(d);
     });
     var sd = el("div");
-    sd.appendChild(el("dt", null, "현재 상태"));
+    sd.appendChild(el("dt", null, T("현재 상태", "Status")));
     var dd = el("dd"); dd.appendChild(statusEl(p)); sd.appendChild(dd);
     facts.appendChild(sd);
     head.appendChild(facts);
@@ -337,39 +341,39 @@
       return fg;
     }
     var S = p.summary;
-    summaryRow("문제", S ? S.problem : p.problem);
+    summaryRow(T("문제", "Problem"), S ? S.problem : p.problem);
     if (S) {
-      summaryRow("내 판단", S.decision);
+      summaryRow(T("내 판단", "Key decisions"), S.decision);
     } else {
       var ul = el("ul", "reader-summary__list");
       p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
-      summaryRow("내 판단", ul);
+      summaryRow(T("내 판단", "Key decisions"), ul);
     }
     var resultText = S && S.result ? S.result : p.resultNote;
     if (p.metrics.length || resultText) {
       var rs = el("div");
       if (p.metrics.length) { rs.appendChild(figures()); }
       if (resultText) { rs.appendChild(el("p", "reader-summary__note", resultText)); }
-      summaryRow("확인한 결과", rs);
+      summaryRow(T("확인한 결과", "Results"), rs);
     }
     readerEl.appendChild(summary);
 
     // 화면과 자료 — 실제 화면 · 팀 산출물 · 예시 데이터 · 설명도는 캡션에 구분해 적는다
     var gallery = article ? galleryFrom(article) : null;
     if (gallery) {
-      readerEl.appendChild(heading("화면과 자료"));
+      readerEl.appendChild(heading(T("화면과 자료", "Screens and materials")));
       readerEl.appendChild(gallery);
     }
 
     if (article) {
-      readerEl.appendChild(heading("상세 과정"));
+      readerEl.appendChild(heading(T("상세 과정", "How it went")));
       readerEl.appendChild(proseFrom(article));
     }
 
     // 기술 · 관련 자료 · 관련 프로젝트
     var links = article ? linksFrom(article) : [];
     var related = (p.related || []).map(byId).filter(Boolean);
-    readerEl.appendChild(heading("기술과 관련 자료"));
+    readerEl.appendChild(heading(T("기술과 관련 자료", "Tech and links")));
     var linkRow = el("div", "reader-summary__links");
     linkRow.appendChild(tagsEl(p.stack));
     if (links.length) {
@@ -380,7 +384,7 @@
     }
     if (related.length) {
       var rel = el("p", "reader-related");
-      rel.appendChild(el("span", null, "관련 프로젝트 "));
+      rel.appendChild(el("span", null, T("관련 프로젝트 ", "Related projects ")));
       related.forEach(function (r, i) {
         if (i) { rel.appendChild(document.createTextNode(" · ")); }
         var ra = el("a", null, r.title); ra.href = "#p-" + r.id; rel.appendChild(ra);
@@ -390,28 +394,28 @@
     readerEl.appendChild(linkRow);
 
     var pager = el("nav", "pager");
-    pager.setAttribute("aria-label", "프로젝트 이동");
+    pager.setAttribute("aria-label", T("프로젝트 이동", "Project navigation"));
     if (index > 0) {
       var prev = el("a"); prev.href = "#p-" + order[index - 1].id;
-      prev.appendChild(el("small", null, "← 이전 프로젝트"));
+      prev.appendChild(el("small", null, T("← 이전 프로젝트", "← Previous project")));
       prev.appendChild(el("strong", null, order[index - 1].title));
       pager.appendChild(prev);
     } else { pager.appendChild(el("span")); }
     if (index < order.length - 1) {
       var next = el("a", "pager__next"); next.href = "#p-" + order[index + 1].id;
-      next.appendChild(el("small", null, "다음 프로젝트 →"));
+      next.appendChild(el("small", null, T("다음 프로젝트 →", "Next project →")));
       next.appendChild(el("strong", null, order[index + 1].title));
       pager.appendChild(next);
     }
     readerEl.appendChild(pager);
 
     var foot = el("p", "reader-view__actions");
-    var back2 = el("a", "btn btn--quiet", "← 목록으로");
+    var back2 = el("a", "btn btn--quiet", T("← 목록으로", "← Back to list"));
     back2.href = "#list";
     foot.appendChild(back2);
     var where = locate(article);
     if (where) {
-      var inBook = el("button", "btn btn--quiet", "연습장(Book View)에서 보기");
+      var inBook = el("button", "btn btn--quiet", T("연습장(Book View)에서 보기", "Open in Book View"));
       inBook.type = "button";
       inBook.addEventListener("click", function () {
         showView("book");
@@ -443,7 +447,7 @@
     readerEl.hidden = true;
     listEl.hidden = false;
     if (pageHead) { pageHead.hidden = false; }
-    document.title = "포트폴리오 — 장인우 · inwoo.log";
+    document.title = T("포트폴리오 — 장인우 · inwoo.log", "Portfolio — Inwoo Jang · inwoo.log");
     if (restoreFocus && lastOpenedId) {
       var link = quickPanel.querySelector('[data-quick-list] a[href="#p-' + lastOpenedId + '"]');
       if (link) {
@@ -461,7 +465,7 @@
     if (pageHead) { pageHead.hidden = true; }
     if (viewSwitch) { viewSwitch.hidden = true; }
     lastOpenedId = p.id;
-    document.title = p.title + " — 포트폴리오 · inwoo.log";
+    document.title = p.title + T(" — 포트폴리오 · inwoo.log", " — Portfolio · inwoo.log");
     window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
     var title = document.getElementById("reader-title");
     if (title) { title.focus({ preventScroll: true }); }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inwoo Jang's Dev Notes — planning criteria for adopting AI and choosing technology, how I use dev tools, and records of building and verifying AI features.">
+  <title>Dev Notes — Inwoo Jang · inwoo.log</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/ds.css">
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--dark">
+    <div class="site-header__inner">
+      <a class="wordmark" href="index.en.html" aria-label="inwoo.log home">inwoo<span>.log</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main menu">
+        <ul>
+          <li><a href="index.en.html">Home</a></li>
+          <li><a href="profile.en.html">Profile</a></li>
+          <li><a href="portfolio.en.html">Portfolio</a></li>
+          <li><a href="how.en.html">How I Work</a></li>
+          <li><a href="notes.en.html" aria-current="page">Dev Notes</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="notes.html" lang="ko" hreflang="ko" data-lang-link>KO</a>
+        <a href="notes.en.html" lang="en" hreflang="en" aria-current="true" data-lang-link>EN</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+
+    <header class="page-head page-head--wide">
+      <div class="page-head__top">
+        <p class="eyebrow">Dev Notes</p>
+        <div class="view-switch view-switch--white" role="group" aria-label="Note view" data-notes-view-switch>
+          <button type="button" class="view-switch__button" data-notes-view="cards" aria-label="View as cards" title="View as cards" aria-pressed="true" aria-controls="notes-grid">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="3" y="3" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="17" y="3" width="4" height="4" rx="1"/><rect x="3" y="10" width="4" height="4" rx="1"/><rect x="10" y="10" width="4" height="4" rx="1"/><rect x="17" y="10" width="4" height="4" rx="1"/><rect x="3" y="17" width="4" height="4" rx="1"/><rect x="10" y="17" width="4" height="4" rx="1"/><rect x="17" y="17" width="4" height="4" rx="1"/></svg>
+          </button>
+          <button type="button" class="view-switch__button" data-notes-view="list" aria-label="View as list" title="View as list" aria-pressed="false" aria-controls="notes-grid">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 5h12M9 12h12M9 19h12"/><path d="M3 5h1M3 12h1M3 19h1" stroke-width="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <h1 class="display">Notes on planning decisions and building with AI</h1>
+      <p class="lead">I write down the criteria I use to decide which problems to apply AI to and which technology to choose. I also record how I use dev tools and how I build and verify AI features.</p>
+    </header>
+
+    <section class="notes" data-notes aria-labelledby="notes-title">
+      <h2 class="visually-hidden" id="notes-title">Note list</h2>
+
+      <div data-notes-list>
+        <div class="toolbar">
+          <div class="toolbar__row">
+            <label class="toolbar__label" for="note-search">Search</label>
+            <div class="search"><input id="note-search" type="search" placeholder="Search by tool or topic" autocomplete="off" aria-describedby="note-search-hint"></div>
+            <span class="visually-hidden" id="note-search-hint">Searches titles, summaries, tags and categories. Results update below as you type.</span>
+          </div>
+          <div class="toolbar__row" role="group" aria-labelledby="note-cat-label">
+            <span class="toolbar__label toolbar__label--help"><span id="note-cat-label">Category</span><button class="help-btn" type="button" aria-expanded="false" aria-controls="notes-guide" aria-label="Show categories and colors" title="Show categories and colors" data-notes-guide-toggle>?</button></span>
+            <ul class="chips" data-note-cats></ul>
+          </div>
+        </div>
+
+        <div class="notes-guide" id="notes-guide" hidden>
+          <p>Notes that cover several topics appear under each related category. In card view, the color of the vertical tape at the top shows the category; hover over it to see the name. In list view, the category name is shown directly. Below each note are its tech keywords and its type (comparison, how-to guide, troubleshooting). Category counts include notes listed in more than one category.</p>
+          <ul class="notes-guide__grid" data-note-category-guide></ul>
+        </div>
+
+        <p class="count" data-notes-count aria-live="polite">Loading notes…</p>
+        <ol class="entries" id="notes-grid" data-notes-grid data-layout="cards"></ol>
+      </div>
+
+      <article class="reader-view" data-note-reader aria-labelledby="note-title" hidden></article>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>inwoo.log — Inwoo Jang's notes on planning and building · © 2026</p>
+      <ul>
+        <li><a href="mailto:roseprincess0331@gmail.com">Email</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Original Inwoo.log</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/markdown.js"></script>
+  <script src="script/notes.js"></script>
+  <script src="script/image-text.en.js"></script>
+  <script src="script/image-en.js"></script>
+</body>
+</html>

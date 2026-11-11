@@ -965,7 +965,9 @@ html { scroll-behavior: smooth; }
    33. Book View — 천 장정 하드커버 · 양면으로 펼친 책
    사이트 톤(차콜 · 잉크 남색 · 슬레이트)에 맞추고, 금박 같은 가는 선과 제목.
    ========================================================== */
-.page-portfolio {
+/* 종이색(크림)은 책 영역에만 — 페이지 배경은 다른 페이지와 같은 흰색을 유지한다 */
+.page-portfolio .book-view {
+  --bg: var(--paper);
   --foil: #D9C9A3;
   --foil-soft: rgba(217, 201, 163, .62);
   --paper: #FBF9F4;

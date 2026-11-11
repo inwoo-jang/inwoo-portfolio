@@ -210,9 +210,9 @@
         var quote = [];
         while (i < lines.length && /^>\s?/.test(lines[i])) { quote.push(lines[i].replace(/^>\s?/, "")); i++; }
         // > [!예시] 제목 — 설명을 위한 예시 상자(인용과 구분)
-        var callout = /^\[!예시\]\s*(.*)$/.exec(quote[0]);
+        var callout = /^\[!(?:예시|Example)\]\s*(.*)$/.exec(quote[0]);
         if (callout) {
-          html.push('<aside class="md-example"><p class="md-example__label">예시' + (callout[1] ? " · " + inline(callout[1]) : "") + "</p>" +
+          html.push('<aside class="md-example"><p class="md-example__label">' + (document.documentElement.lang === "en" ? "Example" : "예시") + (callout[1] ? " · " + inline(callout[1]) : "") + "</p>" +
             renderMarkdown(quote.slice(1).join("\n"), { idPrefix: prefix + "x-" }) + "</aside>");
           continue;
         }
@@ -257,7 +257,7 @@
           if (task) {
             var done = task[1] !== " ";
             return '<li class="md-task' + (done ? " is-done" : "") + '"><span class="md-task__box" aria-hidden="true">' +
-              (done ? "☑" : "☐") + '</span><span class="visually-hidden">' + (done ? "완료: " : "할 일: ") + "</span>" +
+              (done ? "☑" : "☐") + '</span><span class="visually-hidden">' + (document.documentElement.lang === "en" ? (done ? "Done: " : "To do: ") : (done ? "완료: " : "할 일: ")) + "</span>" +
               inline(task[2]) + "</li>";
           }
           return "<li>" + inline(it) + "</li>";

@@ -27,6 +27,10 @@
   var currentRoute = null;
   var cache = {};
 
+  /* 페이지 언어가 영어(lang="en")면 영어 문구를 쓴다 */
+  var EN = document.documentElement.lang === "en";
+  function T(ko, en) { return EN ? en : ko; }
+
   function setLayout(layout) {
     layout = layout === "list" ? "list" : "cards";
     gridEl.dataset.layout = layout;
@@ -82,7 +86,7 @@
     var tapes = el("div", "note-tapes");
     var labels = categoriesOf(note).map(function (id) { return categoryOf(id).label; });
     tapes.setAttribute("role", "img");
-    tapes.setAttribute("aria-label", "분류: " + labels.join(", "));
+    tapes.setAttribute("aria-label", T("분류: ", "Categories: ") + labels.join(", "));
     categoriesOf(note).forEach(function (id) {
       var category = categoryOf(id);
       var tape = el("span", "note-tape");
@@ -109,7 +113,7 @@
 
   function renderCategories() {
     catBox.textContent = "";
-    var opts = [{ id: "all", label: "전체" }].concat(categories);
+    var opts = [{ id: "all", label: T("전체", "All") }].concat(categories);
     opts.forEach(function (c) {
       var count = c.id === "all" ? notes.length
         : notes.filter(function (n) { return categoriesOf(n).indexOf(c.id) >= 0; }).length;
@@ -157,9 +161,9 @@
 
   function tagList(n) {
     var ul = el("ul", "tags");
-    ul.setAttribute("aria-label", "기술·키워드");
+    ul.setAttribute("aria-label", T("기술·키워드", "Tech and keywords"));
     n.tags.forEach(function (t) { ul.appendChild(el("li", null, t)); });
-    if (n.sample) { ul.appendChild(el("li", null, "작성 예정")); }
+    if (n.sample) { ul.appendChild(el("li", null, T("작성 예정", "Coming soon"))); }
     return ul;
   }
 
@@ -169,7 +173,7 @@
     li.appendChild(categoryTapes(n));
     var time = el("time", "entry__date", formatNoteDate(n));
     time.dateTime = n.date;
-    if (n.dateType === "class") { time.setAttribute("aria-label", "수업 " + formatNoteDate(n)); }
+    if (n.dateType === "class") { time.setAttribute("aria-label", T("수업 ", "Class ") + formatNoteDate(n)); }
     var meta = el("div", "entry__meta");
     meta.appendChild(time);
     var badges = el("div", "entry__categories");
@@ -194,11 +198,11 @@
     list.forEach(function (n) { gridEl.appendChild(noteCard(n)); });
 
     if (list.length) {
-      countEl.textContent = "노트 " + list.length + "개";
+      countEl.textContent = T("노트 " + list.length + "개", list.length + (list.length === 1 ? " note" : " notes"));
     } else if (state.category !== "all" && !state.query) {
-      countEl.textContent = "‘" + categoryOf(state.category).label + "’에 등록된 글은 아직 없습니다. " + categoryOf(state.category).description + "에 관한 글을 모을 분류입니다.";
+      countEl.textContent = T("‘" + categoryOf(state.category).label + "’에 등록된 글은 아직 없습니다. " + categoryOf(state.category).description + "에 관한 글을 모을 분류입니다.", "No notes in ‘" + categoryOf(state.category).label + "’ yet. This category is for " + categoryOf(state.category).description + ".");
     } else {
-      countEl.textContent = "검색 결과가 없습니다. 검색어를 바꾸거나 분류를 ‘전체’로 선택해 보세요.";
+      countEl.textContent = T("검색 결과가 없습니다. 검색어를 바꾸거나 분류를 ‘전체’로 선택해 보세요.", "No results. Try another search term or set the category to ‘All’.");
     }
   }
 
@@ -223,7 +227,7 @@
     if (!items.length) { return null; }
     var nav = el("nav", "related-notes");
     nav.setAttribute("aria-labelledby", "related-notes-title");
-    var h = el("h2", "related-notes__title", "관련 노트");
+    var h = el("h2", "related-notes__title", T("관련 노트", "Related notes"));
     h.id = "related-notes-title";
     nav.appendChild(h);
     var ul = el("ul", "related-notes__list");
@@ -246,7 +250,7 @@
     applyCategory(readerEl, categoryOf(note.category));
 
     var bar = el("div", "reader-view__bar");
-    var back = el("a", null, "← 노트 목록");
+    var back = el("a", null, T("← 노트 목록", "← All notes"));
     back.href = "#list";
     bar.appendChild(back);
     var badges = el("div", "note-categories");
@@ -260,31 +264,31 @@
     title.tabIndex = -1;
     head.appendChild(title);
     var meta = el("p", "meta");
-    var time = el("time", null, (note.dateType === "class" ? "수업 " : "작성 ") + formatNoteDate(note));
+    var time = el("time", null, (note.dateType === "class" ? T("수업 ", "Class ") : T("작성 ", "Written ")) + formatNoteDate(note));
     time.dateTime = note.date;
     meta.appendChild(time);
     head.appendChild(meta);
     var flags = el("ul", "doc-flags");
     flags.style.marginTop = "var(--s4)";
     note.tags.forEach(function (t) { flags.appendChild(el("li", null, t)); });
-    if (note.sample) { flags.appendChild(el("li", "is-sample", "작성 예정 — 목차만 정리한 글")); }
+    if (note.sample) { flags.appendChild(el("li", "is-sample", T("작성 예정 — 목차만 정리한 글", "Coming soon — outline only"))); }
     head.appendChild(flags);
     readerEl.appendChild(head);
 
     var prose = el("div", "md");
     prose.style.marginTop = "var(--s6)";
     prose.setAttribute("aria-busy", "true");
-    prose.appendChild(el("p", "count", "노트를 불러오는 중…"));
+    prose.appendChild(el("p", "count", T("노트를 불러오는 중…", "Loading note…")));
     readerEl.appendChild(prose);
 
     var related = relatedBlock(note);
     if (related) { readerEl.appendChild(related); }
 
     var foot = el("p", "reader-view__actions");
-    var back2 = el("a", "btn btn--quiet", "← 목록으로");
+    var back2 = el("a", "btn btn--quiet", T("← 목록으로", "← Back to list"));
     back2.href = "#list";
     foot.appendChild(back2);
-    var src = el("a", "btn btn--quiet", "GitHub에서 원본 보기 ↗");
+    var src = el("a", "btn btn--quiet", T("GitHub에서 원본 보기 ↗", "View source on GitHub ↗"));
     src.href = REPO_BLOB + note.file;
     src.target = "_blank";
     src.rel = "noopener noreferrer";
@@ -298,7 +302,7 @@
       prose.removeAttribute("aria-busy");
     }).catch(function () {
       prose.textContent = "";
-      prose.appendChild(el("p", "count", "노트를 불러오지 못했습니다. 잠시 후 다시 시도하거나 GitHub에서 원본을 확인해 주세요."));
+      prose.appendChild(el("p", "count", T("노트를 불러오지 못했습니다. 잠시 후 다시 시도하거나 GitHub에서 원본을 확인해 주세요.", "Couldn’t load this note. Try again in a moment, or read the source on GitHub.")));
       prose.removeAttribute("aria-busy");
     });
   }
@@ -309,7 +313,7 @@
     readerEl.hidden = true;
     listEl.hidden = false;
     if (viewSwitch) { viewSwitch.hidden = false; }
-    document.title = "Dev Notes — 장인우 · Inwoo.log";
+    document.title = T("Dev Notes — 장인우 · Inwoo.log", "Dev Notes — Inwoo Jang · Inwoo.log");
     if (restoreFocus && lastOpened) {
       var link = gridEl.querySelector('a[href="#n-' + lastOpened + '"]');
       if (link) {
@@ -364,7 +368,7 @@
     renderList();
   });
 
-  fetch("notes/index.json", { cache: "no-cache" })
+  fetch(T("notes/index.json", "notes/en/index.json"), { cache: "no-cache" })
     .then(function (res) {
       if (!res.ok) { throw new Error(res.status); }
       return res.json();
@@ -379,6 +383,6 @@
       route();
     })
     .catch(function () {
-      countEl.textContent = "노트 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.";
+      countEl.textContent = T("노트 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.", "Couldn’t load the note list. Please refresh the page.");
     });
 })();

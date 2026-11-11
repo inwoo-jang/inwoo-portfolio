@@ -3,7 +3,8 @@
    tools/build-notes-index.mjs — notes/*.md 의 front matter를 읽어
    notes/index.json(노트 목록)을 만든다. 외부 패키지 없이 Node만 쓴다.
 
-   사용: node tools/build-notes-index.mjs
+   사용: node tools/build-notes-index.mjs        → notes/index.json
+         node tools/build-notes-index.mjs en     → notes/en/index.json (영어판)
    - GitHub Pages는 폴더 목록을 제공하지 않으므로, 브라우저(notes.js)는
      이 index.json으로 목록을 그리고 본문은 .md 파일을 직접 읽어 렌더링한다.
    - 밑줄(_)로 시작하는 파일(_template.md 등)은 건너뛴다.
@@ -13,7 +14,9 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const notesDir = join(root, "notes");
+const lang = process.argv[2] === "en" ? "en" : "";
+const notesDir = lang ? join(root, "notes", lang) : join(root, "notes");
+const filePrefix = lang ? `notes/${lang}/` : "notes/";
 const categories = JSON.parse(await readFile(join(notesDir, "categories.json"), "utf8"));
 const categoryIds = new Set();
 for (const category of categories) {
@@ -68,7 +71,7 @@ for (const file of files) {
   }
   notes.push({
     slug,
-    file: `notes/${file}`,
+    file: `${filePrefix}${file}`,
     title: meta.title || slug,
     category: meta.category || "tools",
     categories: noteCategories,
@@ -105,6 +108,6 @@ if (problems.length) {
 }
 
 // 완성 글을 먼저, 샘플은 뒤로. 같은 묶음 안에서는 최신순
-notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, "ko"));
+notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, lang || "ko"));
 await writeFile(join(notesDir, "index.json"), JSON.stringify({ categories, notes }, null, 2) + "\n");
-console.log(`notes/index.json — 노트 ${notes.length}개`);
+console.log(`${filePrefix}index.json — 노트 ${notes.length}개`);

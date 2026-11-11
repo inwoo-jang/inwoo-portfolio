@@ -10,6 +10,9 @@
 
 var notebooks = document.querySelectorAll("[data-note]");
 
+/* 페이지 언어가 영어(lang="en")면 영어 문구를 쓴다 */
+function nbT(ko, en) { return document.documentElement.lang === "en" ? en : ko; }
+
 /**
  * 연습장 하나를 동작하게 만든다.
  * @param {HTMLElement} note
@@ -35,11 +38,11 @@ function initNotebook(note) {
 
     if (prevEl) {
       prevEl.disabled = (current === 0) && !toPrevBook;
-      setNavLabel(prevEl, toPrevBook, "이전 장", "이전 책", "‹", "‹ 이전 책");
+      setNavLabel(prevEl, toPrevBook, nbT("이전 장", "Previous page"), nbT("이전 책", "Previous book"), "‹", nbT("‹ 이전 책", "‹ Previous book"));
     }
     if (nextEl) {
       nextEl.disabled = (current === pages.length - 1) && !toNextBook;
-      setNavLabel(nextEl, toNextBook, "다음 장", "다음 책", "›", "다음 책 ›");
+      setNavLabel(nextEl, toNextBook, nbT("다음 장", "Next page"), nbT("다음 책", "Next book"), "›", nbT("다음 책 ›", "Next book ›"));
     }
   }
 
@@ -133,6 +136,7 @@ function initNotebook(note) {
 
     // 모션 최소화 설정에서는 애니메이션이 사실상 없으므로 바로 정리한다.
     setTimeout(function () {
+
       if (busy) { done(); }
     }, 700);
 

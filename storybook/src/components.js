@@ -132,7 +132,7 @@ export function quote({ text, cite }) {
   return `<blockquote class="quote"><p>“${esc(text)}”</p><cite>${esc(cite)}</cite></blockquote>`;
 }
 
-export function contact({ title = "함께 이야기 나누고 싶습니다", desc = "", email = "roseprincess0331@gmail.com" } = {}) {
+export function contact({ title = "새로운 기회를 기다립니다", desc = "", email = "roseprincess0331@gmail.com" } = {}) {
   return `<section class="contact" aria-label="연락">
   <div><h2>${esc(title)}</h2><p>${esc(desc)}</p></div>
   <div class="hero__actions">

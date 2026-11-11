@@ -1,0 +1,56 @@
+[
+  {
+    "id": "planning",
+    "label": "Planning & tech choices",
+    "description": "problem definition, why to adopt AI, comparing alternatives, and criteria for choosing technology",
+    "color": { "ink": "#8A5A12", "soft": "#FFF5DB", "tape": "#F0D48C" }
+  },
+  {
+    "id": "ux",
+    "label": "UX & design",
+    "description": "user flows, information architecture, screen and functional specs, and usability reviews",
+    "color": { "ink": "#9C3D65", "soft": "#FCEAF2", "tape": "#EAAFC8" }
+  },
+  {
+    "id": "ai",
+    "label": "AI & agents",
+    "description": "prompts, RAG, tool calling, and building and evaluating agents",
+    "color": { "ink": "#6D4499", "soft": "#F2EBFA", "tape": "#C9B2E4" }
+  },
+  {
+    "id": "data",
+    "label": "Data & ML",
+    "description": "collecting and analyzing data, preprocessing, training models, and validating prediction performance",
+    "color": { "ink": "#17675F", "soft": "#E4F4F1", "tape": "#99D5CB" }
+  },
+  {
+    "id": "frontend",
+    "label": "Frontend",
+    "description": "web screens, components, state management, and browser behavior",
+    "color": { "ink": "#12657C", "soft": "#E4F3F8", "tape": "#96CEE0" }
+  },
+  {
+    "id": "backend",
+    "label": "Server & DB",
+    "description": "APIs, server logic, authentication, and database design and queries",
+    "color": { "ink": "#335E9E", "soft": "#EAF0FA", "tape": "#AEC4EA" }
+  },
+  {
+    "id": "infra",
+    "label": "Infra & deployment",
+    "description": "runtime environments, containers, CI/CD, deployment, and monitoring",
+    "color": { "ink": "#9A4F24", "soft": "#FFF0E5", "tape": "#EABD9B" }
+  },
+  {
+    "id": "tools",
+    "label": "Dev tools",
+    "description": "how to use and configure dev tools such as IDEs, CLIs, and Git",
+    "color": { "ink": "#4F5E70", "soft": "#EDF1F5", "tape": "#BBC8D7" }
+  },
+  {
+    "id": "testing",
+    "label": "Testing & quality",
+    "description": "unit, integration, and UI tests, quality bars, and security checks",
+    "color": { "ink": "#41662C", "soft": "#EEF5E7", "tape": "#BAD59F" }
+  }
+]

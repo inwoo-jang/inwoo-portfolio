@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Inwoo Jang works — planning that starts from problems found on the ground, building by setting a spec and checking against it, handing work off so the next person can act on it, and the rules I follow when using AI.">
+  <title>How I Work — Inwoo Jang · inwoo.log</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
+  <link rel="stylesheet" href="css/ds.css">
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--dark">
+    <div class="site-header__inner">
+      <a class="wordmark" href="index.en.html" aria-label="inwoo.log home">inwoo<span>.log</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Main menu">
+        <ul>
+          <li><a href="index.en.html">Home</a></li>
+          <li><a href="profile.en.html">Profile</a></li>
+          <li><a href="portfolio.en.html">Portfolio</a></li>
+          <li><a href="how.en.html" aria-current="page">How I Work</a></li>
+          <li><a href="notes.en.html">Dev Notes</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a href="how.html" lang="ko" hreflang="ko" data-lang-link>KO</a>
+        <a href="how.en.html" lang="en" hreflang="en" aria-current="true" data-lang-link>EN</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <header class="page-head">
+      <p class="eyebrow">How I Work</p>
+      <h1 class="display">From planning<br>to building and checking</h1>
+      <p class="lead">
+        I find problems by doing the work myself or watching the people who do it, then define the features and processing rules they need.
+        At my company I handled planning and operations, and the dev team built the products. In the bootcamp and personal projects, I build things myself with AI coding tools and check them on screen and with tests.
+      </p>
+    </header>
+
+    <div class="article-layout article-layout--how">
+
+      <nav class="toc toc--compact" aria-label="On this page" data-toc>
+        <p class="toc__title">Contents</p>
+        <ol>
+          <li><a href="#cases">Key cases</a></li>
+          <li><a href="#flow">Planning process</a></li>
+          <li><a href="#collab">Collaboration</a></li>
+          <li><a href="#ax">Using AI</a></li>
+        </ol>
+      </nav>
+
+      <main id="main" class="article">
+
+        <!-- ===================== Key cases ===================== -->
+        <section class="section" id="cases" aria-labelledby="cases-title">
+          <h2 id="cases-title">Key cases</h2>
+          <p class="section__lead">Four cases showing decisions I made and why. Click a title to see the project details.</p>
+
+          <ol class="cases">
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">01</span>
+                <h3 class="case__title"><a href="portfolio.en.html#p-order-sync">Turning a daily hassle into a feature</a></h3>
+                <p class="case__meta">JEEKIM COMPANY · order and box status sync with a pharmaceutical wholesale mall</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">An order number alone couldn't show a different status for each box, so I started by defining how to link the order number and item line number to a box.</p>
+                <p>I planned the integration after watching an operations staff member download wholesale mall orders as Excel files and type them into our admin by hand. Orders where only some boxes are picked up map to the mall's existing “partially shipped” status, and postponed pickups got a separate status. After development, I compared API responses with the screens on both sides and logged two bugs in QA: orders near a time boundary were being missed, and shipping info was applied only to the first box.</p>
+                <p class="case__role">My role: sync rules, data checks, QA tickets / Built by: the dev team / Result: the staff member's manual entry for this task dropped from about 1 hour to 10 minutes a day (based on my own check).</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">02</span>
+                <h3 class="case__title"><a href="portfolio.en.html#p-client-contract">Rules the team can build from</a></h3>
+                <p class="case__meta">JEEKIM COMPANY · functional spec template</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">I asked the developers and designers what kind of document worked best for them, then made a functional spec template split into inputs, outputs, API spec, rules and edge cases.</p>
+                <p>Early on, I could only explain the user flow and what the finished feature should do, so I got a lot of “why?” questions. After changing the template, I also wrote out each case branch, and the questions turned into “Is it OK if we do it this way?” The developers and designers I worked with told me it was easy to work from, because the decisions they had to make during implementation were already in the docs.</p>
+                <p class="case__role">My role: wrote the planning docs, checked the backend ERD against the planning rules / Built by: the dev team</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">03</span>
+                <h3 class="case__title"><a href="portfolio.en.html#p-quiket">Negotiating the launch scope</a></h3>
+                <p class="case__meta">Quiket · 7-person side project · AI quiz study app</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">Instead of cutting features, I kept the data structure as designed and only reduced what showed on screen, so we could launch the quiz generation, solving and wrong-answer flow first.</p>
+                <p>The designers wanted to expand the game elements, while the developers needed to finish the core flow first. We kept the acorn storehouse image, and menus that weren't ready showed the message “Hibernating for now. Please wait.” User testing showed there was no feedback while a quiz was generating or when it was done, so we added a progress indicator and a completion message to the launch version.</p>
+                <p class="case__role">My role: PM and product planning, launch scope / Built by: the dev team / Result: launched on the App Store and Google Play (team result)</p>
+              </div>
+            </li>
+            <li class="case">
+              <div class="case__head">
+                <span class="case__no">04</span>
+                <h3 class="case__title"><a href="portfolio.en.html#p-marketdesk">Not taking AI output as final</a></h3>
+                <p class="case__meta">MarketDesk · personal project · AI report analysis</p>
+              </div>
+              <div class="case__body">
+                <p class="case__decision">While checking the screens, I noticed that for reports with no known publication date, the upload date was shown as if it were the publication date. I changed it so an unknown date stays blank and the user enters it.</p>
+                <p>When the model can't find a publication date, it leaves it blank, but the screen was showing the upload date in its place. That fallback was removed so it shows “Published -”, and added a way to edit the publication date. I write each task with a goal, scope, edge cases and done criteria; once the AI coding tool builds it, I check it again on my local screen.</p>
+                <p class="case__role">My role: planning and verification, solo / Built with: AI coding tools / Status: personal use (not released)</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- ===================== Planning process ===================== -->
+        <section class="section" id="flow" aria-labelledby="flow-title">
+          <h2 id="flow-title">Planning process</h2>
+          <p class="section__lead">For a new feature, I work in the order below. When working in an agile way, I keep the scope short, one core feature at a time, and repeat the same steps.</p>
+
+          <ol class="flow">
+            <li class="flow__step"><span class="flow__title">Understand the problem and users</span><span class="flow__desc">I do the work myself (I did bookkeeping for about 30 clients to define payroll calculation rules), run into it during remote support, or watch staff as they work.</span></li>
+            <li class="flow__step"><span class="flow__title">Decide scope and flow</span><span class="flow__desc">I set the core features and user flow, and use the same MoSCoW priority labels across the PRD, wireframes, specs and work order.</span></li>
+            <li class="flow__step"><span class="flow__title">Specify rules and edge cases</span><span class="flow__desc">I write inputs, outputs, API spec, rules, edge cases and case branches into the functional spec.</span></li>
+            <li class="flow__step"><span class="flow__title">Work out implementation</span><span class="flow__desc">I check the ERD made by the backend developer against the planning rules and give feedback, and send designers the changes for each screen ID.</span></li>
+            <li class="flow__step"><span class="flow__title">Check and improve</span><span class="flow__desc">I compare what was built with the data and screens and log issues in QA. Improvements from user testing and early operations go into the next phase.</span></li>
+          </ol>
+
+          <details class="more">
+            <summary>Sample planning docs — PRD · IA · user flow · functional spec · wireframe</summary>
+            <div class="more__body">
+              <p>A short Markdown summary of MarketDesk's planning, plus Figma template samples from Quiket. I write them in this order — PRD → IA → user flow → functional spec → wireframe — and at each step check that the new doc matches the ones before it.</p>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>PRD</strong></p>
+                <ul>
+                  <li><b>One-line definition</b> — A personalized report tool that summarizes the same report in a structured way for each user's purpose (lens), and builds it up by day, month and year</li>
+                  <li><b>Problem</b> — People read for different reasons, but existing summaries offer only one objective summary. Looking at one day at a time, you can't see the trend</li>
+                  <li><b>Core hypothesis</b> — If users find lens-based summaries more useful than an objective summary, they'll come back daily. If daily summaries add up to a visible monthly trend, they'll keep adding to it</li>
+                  <li><b>Other sections</b> — Target users and lenses, KPIs, guardrail policy, operational and legal risks, the boundary between rules and AI</li>
+                </ul>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>IA</strong></p>
+                <p class="doc-sample__format">Figma sample <span>Quiket · template with content removed</span></p>
+                <figure class="doc-sample__figure"><a href="media/portfolio/ia-figma-example.png" target="_blank" rel="noopener" aria-label="Enlarge IA Figma sample"><img src="media/portfolio/ia-figma-example.png" alt="Quiket IA diagram with content removed — main menu hierarchy and sign-up and login structure" width="1600" height="683" loading="lazy" decoding="async"></a><figcaption>Quiket · part of the main menu hierarchy and sign-up and login structure · shapes and connectors kept, content replaced with gray bars.</figcaption></figure>
+                <p class="doc-sample__format">Markdown sample <span>MarketDesk · public summary</span></p>
+                <pre class="doc-sample__pre"><code># IA — MarketDesk
+
+- Home: my industry list
+- Industry: semiconductors / AI / automotive, etc.
+  - Document type: industry report / company report / economic news
+  - Input format: PDF / text
+  - Lens: job hunting (pick a role) / stock investing reference — multiple choice
+  - Views over time
+    - Daily: that day's document summaries and source pages
+    - Monthly: this month's trend, built from daily summaries
+    - Yearly: annual review — phase 2 scope</code></pre>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>User flow</strong></p>
+                <p class="doc-sample__format">Figma sample <span>Quiket · template with content removed</span></p>
+                <figure class="doc-sample__figure"><a href="media/portfolio/userflow-figma-example.png" target="_blank" rel="noopener" aria-label="Enlarge user flow Figma sample"><img src="media/portfolio/userflow-figma-example.png" alt="Quiket user flow with content removed — branches for app launch and sign-up and login" width="1600" height="1218" loading="lazy" decoding="async"></a><figcaption>Quiket · branches for app launch and sign-up and login · shapes and connectors kept, content replaced with gray bars.</figcaption></figure>
+                <p class="doc-sample__format">Markdown sample <span>MarketDesk · public summary</span></p>
+                <pre class="doc-sample__pre"><code># User flow — MarketDesk
+
+## Main flow
+Log in → pick lenses on first use → dashboard
+→ pick an industry → upload a PDF
+
+## Text extraction
+- Success: parse, then structured summary per lens
+- Failure (scanned file): guide to the OCR path, then parse
+
+## Source check for key numbers
+- Source found: summary review screen
+- Source unclear: mark as "not stated", then summary review screen
+
+## Save
+User reviews and edits → save to daily → added to the daily view</code></pre>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>Functional spec</strong> — sample for the lens-based summary feature</p>
+                <div class="table-wrap">
+                  <table class="table table--spec">
+                    <thead><tr><th scope="col">F07 Structured summary per lens</th><th scope="col">Details</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Description</th><td>Extract content for each selected lens using a fixed template (new business · existing business · overseas · key numbers · insights)</td></tr>
+                      <tr><th scope="row">Input</th><td>Document with page markers, list of selected lenses</td></tr>
+                      <tr><th scope="row">Output</th><td>Summary per lens (JSON), shown as lens tabs on the summary review screen</td></tr>
+                      <tr><th scope="row">Rules</th><td>A lens changes only the viewpoint; the template stays the same. Parse once, store each lens's result separately</td></tr>
+                      <tr><th scope="row">API</th><td>POST /reports/{id}/extract</td></tr>
+                      <tr><th scope="row">Edge cases</th><td class="is-key">If the model is slow or errors out, retry and keep partial results</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="doc-sample">
+                <p class="doc-sample__head"><strong>Wireframe</strong> — Quiket template samples</p>
+                <p>Screen structure and icons are kept, and content is replaced with gray bars. Click an image to see it larger.</p>
+                <div class="wireframe-examples">
+                  <figure><a href="media/portfolio/wireframe-1.png" target="_blank" rel="noopener" aria-label="Enlarge part name input screen template"><img src="media/portfolio/wireframe-1.png" alt="Part name input screen wireframe with content removed" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>Part name input screen</strong><br>Only the screen name, “Enter part name,” is kept.</figcaption></figure>
+                  <figure><a href="media/portfolio/wireframe-2.png" target="_blank" rel="noopener" aria-label="Enlarge quiz screen template"><img src="media/portfolio/wireframe-2.png" alt="Quiz screen wireframe with content removed" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>Quiz screen</strong><br>Body text and button labels replaced with gray bars.</figcaption></figure>
+                  <figure><a href="media/portfolio/wireframe-3.png" target="_blank" rel="noopener" aria-label="Enlarge results and explanation screen template"><img src="media/portfolio/wireframe-3.png" alt="Results and explanation screen wireframe with content removed" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>Results and explanation screen</strong><br>The layout of the answer status and explanation areas is kept.</figcaption></figure>
+                </div>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- ===================== Collaboration ===================== -->
+        <section class="section" id="collab" aria-labelledby="collab-title">
+          <h2 id="collab-title">Collaboration</h2>
+          <p class="section__lead">I pass on the rules, edge cases and decisions needed to build something in a form that suits each person, and follow up until it's actually being used.</p>
+
+          <div class="table-wrap">
+            <table class="table table--stack">
+              <caption>How I worked as a planner at JEEKIM COMPANY</caption>
+              <thead><tr><th scope="col">Who</th><th scope="col">What I gave them</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Designers</th><td data-label="What I gave them">Screen IDs and what to remove, add or change</td></tr>
+                <tr><th scope="row">Developers</th><td data-label="What I gave them">Inputs and outputs, API and DB names, rules and edge cases. Feedback on the backend ERD after checking it against the planning rules</td></tr>
+                <tr><th scope="row">CEO</th><td data-label="What I gave them">Core features and the open issues that needed a decision</td></tr>
+                <tr><th scope="row">Operations staff</th><td data-label="What I gave them">Explanations of the calculation rules, plus guides for using and checking the feature</td></tr>
+                <tr><th scope="row">Partner companies</th><td data-label="What I gave them">Answers to questions about sign-up, integration and terms of use; internal and external guides and training materials</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <ul class="plain-list">
+            <li><strong>Running meetings</strong> — Quiket was a 7-person side project where everyone had a full-time job. I fixed meetings to Sunday nights every week and decided in advance who had to attend for each agenda item. Apart from the first brainstorming meeting, every meeting ended within 30 minutes.</li>
+            <li><strong>When opinions split</strong> — On EDU:UP (a 4-person bootcamp team), someone suggested right before the presentation that we keep only what the backend had implemented. I proposed keeping the screens central to our problem definition, even if only with mock data. We kept some of them and presented a table of the original design, the current stand-in implementation and the next sprint plan.</li>
+            <li><strong>Getting it actually used</strong> — Even after the payslip feature shipped, staff didn't use it because they worried the calculations might be wrong. I put the screen up in a meeting, walked through the calculation rules and shared a guide for using and checking it. After that, it started being used for real internal payroll.</li>
+          </ul>
+        </section>
+
+        <!-- ===================== Using AI ===================== -->
+        <section class="section" id="ax" aria-labelledby="ax-title">
+          <h2 id="ax-title">Using AI</h2>
+          <p class="section__lead">I keep two things separate: dividing roles between the model, code and people when building an AI service, and using AI tools in my own work.</p>
+
+          <h3 id="ax-service">Building AI services — dividing the roles</h3>
+          <p>Calculations and checks with a fixed correct answer went to code; classification, summaries and explanations went to the model. I set that boundary and checked it myself.</p>
+
+          <article class="role-case">
+            <h4 class="role-case__title"><a href="portfolio.en.html#p-taxdesk">TaxDesk — tax consultation on financial income</a></h4>
+            <p class="role-case__meta">Personal project that grew out of a bootcamp exercise · 2026.08</p>
+            <dl class="reader-summary">
+              <div class="reader-summary__row"><dt>Problem</dt><dd>Customers want to know whether their interest and dividend income is subject to comprehensive taxation, and how much tax they owe. Both the legal basis and the calculation have to be right.</dd></div>
+              <div class="reader-summary__row"><dt>What the code does</dt><dd>The server runs income lookup, the comprehensive taxation decision and the tax calculation in order. It rejects out-of-scope questions up front, and if information needed for the calculation is missing, it asks again instead of calculating.</dd></div>
+              <div class="reader-summary__row"><dt>What the model does</dt><dd>It classifies the type of question and writes an answer explaining the calculation result and legal basis. It does not decide which calculation to run.</dd></div>
+              <div class="reader-summary__row"><dt>My decisions and checks</dt><dd>I saw a tax figure calculated with other income set to KRW 0 going out as if it were a final answer, so I changed it to skip the calculation when something is unknown. I checked the calculation rules against the original tax law text and corrected the dividend gross-up rate from 11% to 10%.</dd></div>
+              <div class="reader-summary__row"><dt>Limits</dt><dd>The tax calculation has not yet been reviewed by a tax professional, and I haven't yet evaluated how accurately the model's real answers cite sources.</dd></div>
+            </dl>
+          </article>
+
+          <article class="role-case">
+            <h4 class="role-case__title"><a href="portfolio.en.html#p-marketdesk">MarketDesk</a></h4>
+            <p class="role-case__meta">Personal project · 2026.07</p>
+            <dl class="reader-summary">
+              <div class="reader-summary__row"><dt>Problem</dt><dd>Industry and company reports are long and don't connect to each other, so I needed summaries that fit my purpose and a view of the trend over time.</dd></div>
+              <div class="reader-summary__row"><dt>What the code does</dt><dd>It filters out duplicate files and similar reports, and shows the stocks mentioned most often in the source reports on the trend screen.</dd></div>
+              <div class="reader-summary__row"><dt>What the model does</dt><dd>It summarizes reports for each purpose and extracts the document type, industry and publication date. I instructed it to leave numbers and forecasts blank if they aren't in the report.</dd></div>
+              <div class="reader-summary__row"><dt>My decisions and checks</dt><dd>I noticed on screen that for reports with no publication date, the upload date looked like the publication date. I changed it so the field stays blank and the user enters it.</dd></div>
+              <div class="reader-summary__row"><dt>Limits</dt><dd>I built a feature that checks numbers against the source, but haven't connected it yet.</dd></div>
+            </dl>
+          </article>
+
+          <p class="role-more">In the <a href="portfolio.en.html#p-triage">hackathon admin</a>, code calculates attendance rates and allowances, AI drafts the notification messages, and the operator handles contacting people and final decisions. The <a href="portfolio.en.html#p-dacon">labeling tool</a> shows pre-generated draft labels for reference only; a person enters the actual judgment.</p>
+
+          <h3 id="ax-work">Using AI tools in my own work</h3>
+          <ul class="plain-list">
+            <li><strong>Writing standards</strong> — I keep writing standards and examples for each document type as instructions for the AI, so drafts follow the same standards. After asking for a revision, I have it check again that the change wasn't missed anywhere else.</li>
+            <li><strong>Review</strong> — I have the AI review its planning drafts again from the viewpoint of users, developers and designers. I check the facts and judgment calls myself.</li>
+            <li><strong>Checking the build</strong> — I write each task with a goal, scope, implementation notes, edge cases, tests and done criteria. The AI coding tool builds it and does the first check; then I check it again on my local screen, and if it falls short, I create a fix task. When the plan changes, I add a separate task to find what already built needs to change.</li>
+            <li><strong>Reuse</strong> — I collect prompts and design references I use often and reuse them. I built <a href="portfolio.en.html#p-templets-hub">Template Hub</a>, which generates a prompt when you pick a template, for this purpose.</li>
+            <li><strong>Learning</strong> — When studying tech or a domain, or doing research, I don't ask the AI questions. Instead I have it ask me open-ended questions. When I ask, I get an answer, but it doesn't stick.</li>
+          </ul>
+          <p class="more-link">I keep notes on how I set up and verify each tool in <a href="notes.en.html">Dev Notes</a>.</p>
+
+          <nav class="pager" aria-label="Other pages">
+            <a href="portfolio.en.html"><small>← Previous</small><strong>Project records</strong></a>
+            <a class="pager__next" href="notes.en.html"><small>Next →</small><strong>Dev Notes</strong></a>
+          </nav>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>inwoo.log — Inwoo Jang's notes on planning and building · © 2026</p>
+      <ul>
+        <li><a href="mailto:roseprincess0331@gmail.com">Email</a></li>
+        <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://inwoo-jang.github.io/SKALA-FRONT/" target="_blank" rel="noopener">Original Inwoo.log</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/nav.js"></script>
+  <script src="script/toc.js"></script>
+  <script src="script/image-text.en.js"></script>
+  <script src="script/image-en.js"></script>
+</body>
+</html>
