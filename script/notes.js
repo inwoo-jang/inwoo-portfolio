@@ -26,6 +26,7 @@
   var lastOpened = null;
   var currentRoute = null;
   var cache = {};
+  var pending = {};
 
   /* 페이지 언어가 영어(lang="en")면 영어 문구를 쓴다 */
   var EN = document.documentElement.lang === "en";
@@ -210,14 +211,33 @@
 
   function loadMarkdown(note) {
     if (cache[note.slug]) { return Promise.resolve(cache[note.slug]); }
-    return fetch(note.file, { cache: "no-cache" }).then(function (res) {
+    if (pending[note.slug]) { return pending[note.slug]; }
+    var url = note.file + (note.revision ? "?v=" + encodeURIComponent(note.revision) : "");
+    pending[note.slug] = fetch(url, { cache: note.revision ? "default" : "no-cache" }).then(function (res) {
       if (!res.ok) { throw new Error(res.status); }
       return res.text();
     }).then(function (text) {
       cache[note.slug] = text;
+      delete pending[note.slug];
       return text;
+    }).catch(function (error) {
+      delete pending[note.slug];
+      throw error;
     });
+    return pending[note.slug];
   }
+
+  function prefetchNote(event) {
+    if (navigator.connection && (navigator.connection.saveData || /(^|-)2g$/.test(navigator.connection.effectiveType))) { return; }
+    var link = event.target.closest('a[href^="#n-"]');
+    if (!link) { return; }
+    var slug = link.hash.slice(3);
+    for (var i = 0; i < notes.length; i++) {
+      if (notes[i].slug === slug) { loadMarkdown(notes[i]).catch(function () {}); return; }
+    }
+  }
+  root.addEventListener("pointerover", prefetchNote);
+  root.addEventListener("focusin", prefetchNote);
 
   function relatedBlock(note) {
     var items = (note.related || []).map(function (slug) {
@@ -375,11 +395,18 @@
     renderList();
   });
 
-  fetch(T("notes/index.json", "notes/en/index.json"), { cache: "no-cache" })
-    .then(function (res) {
+  function loadIndex() {
+    var embedded = document.getElementById("notes-data");
+    if (embedded) {
+      try { return Promise.resolve(JSON.parse(embedded.textContent)); } catch (e) { /* Fall back to the JSON file. */ }
+    }
+    return fetch(T("notes/index.json", "notes/en/index.json"), { cache: "no-cache" }).then(function (res) {
       if (!res.ok) { throw new Error(res.status); }
       return res.json();
-    })
+    });
+  }
+
+  loadIndex()
     .then(function (data) {
       categories = (data && data.categories) || [];
       notes = (data && data.notes) || [];

@@ -12,6 +12,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const lang = process.argv[2] === "en" ? "en" : "";
@@ -52,7 +53,8 @@ const notes = [];
 const problems = [];
 
 for (const file of files) {
-  const meta = parseFrontMatter(await readFile(join(notesDir, file), "utf8"));
+  const source = await readFile(join(notesDir, file), "utf8");
+  const meta = parseFrontMatter(source);
   const slug = file.replace(/\.md$/, "");
   if (!meta) { problems.push(`${file}: front matter 없음`); continue; }
   for (const key of ["title", "category", "date", "summary"]) {
@@ -72,6 +74,7 @@ for (const file of files) {
   notes.push({
     slug,
     file: `${filePrefix}${file}`,
+    revision: createHash("sha256").update(source).digest("hex").slice(0, 16),
     title: meta.title || slug,
     category: meta.category || "tools",
     categories: noteCategories,
@@ -110,5 +113,19 @@ if (problems.length) {
 
 // 완성 글을 먼저, 샘플은 뒤로. 같은 묶음 안에서는 최신순
 notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, lang || "ko"));
-await writeFile(join(notesDir, "index.json"), JSON.stringify({ categories, notes }, null, 2) + "\n");
+const data = { categories, notes };
+await writeFile(join(notesDir, "index.json"), JSON.stringify(data, null, 2) + "\n");
+// Embed metadata so opening a note does not wait for a separate index request.
+// Escape HTML-sensitive characters even though this is a non-executable JSON block.
+const embedded = JSON.stringify(data).replace(/[<>&\u2028\u2029]/g, (char) =>
+  "\\u" + char.charCodeAt(0).toString(16).padStart(4, "0"));
+const pagePath = join(root, lang ? "notes.en.html" : "notes.html");
+let page = await readFile(pagePath, "utf8");
+const block = `<script type="application/json" id="notes-data">${embedded}</script>`;
+if (/<script type="application\/json" id="notes-data">[\s\S]*?<\/script>/.test(page)) {
+  page = page.replace(/<script type="application\/json" id="notes-data">[\s\S]*?<\/script>/, () => block);
+} else {
+  page = page.replace('  <script src="script/notes.js"></script>', () => `  ${block}\n  <script src="script/notes.js"></script>`);
+}
+await writeFile(pagePath, page);
 console.log(`${filePrefix}index.json — 노트 ${notes.length}개`);

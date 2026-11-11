@@ -34,7 +34,7 @@
 페이지 오른쪽 위의 9칸 카드·리스트 아이콘으로 보기 방식을 바꾼다. 카드 보기는 기존 포스트잇 형태, 리스트 보기는 날짜·분류와 제목·요약·키워드를 행으로 정돈한다. 선택은 브라우저에 저장되며, 검색·분류 필터와 상세에서 목록으로 돌아올 때도 유지된다.
 
 1. `notes/_template.md`를 복사해 `notes/영문-슬러그.md`로 저장하고 front matter(title · category · tags · date · summary · sample)를 채운다.
-2. `node tools/build-notes-index.mjs` — `notes/index.json`(목록)을 다시 만든다. GitHub Pages는 폴더 목록을 주지 않아서 필요하다.
+2. `node tools/build-notes-index.mjs` — `notes/index.json`과 `notes.html`의 내장 목록을 함께 갱신한다. 본문 내용의 해시를 캐시 버전으로 기록하므로 글 수정 후에도 반드시 실행한다. 영어판은 `node tools/build-notes-index.mjs en`으로 갱신한다.
 3. 본문은 브라우저에서 `script/markdown.js`가 렌더링한다. 원문 HTML은 쓰지 않고 모두 이스케이프하며, 링크는 http(s)·mailto·상대 경로만 허용한다.
 4. `fetch`를 쓰므로 로컬 확인은 파일 더블클릭이 아니라 `python3 -m http.server`로 연다.
 
