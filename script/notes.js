@@ -247,6 +247,7 @@
 
   function renderReader(note) {
     readerEl.textContent = "";
+    readerEl.dataset.noteSlug = note.slug;
     applyCategory(readerEl, categoryOf(note.category));
 
     var bar = el("div", "reader-view__bar");
@@ -267,6 +268,12 @@
     var time = el("time", null, (note.dateType === "class" ? T("수업 ", "Class ") : T("작성 ", "Written ")) + formatNoteDate(note));
     time.dateTime = note.date;
     meta.appendChild(time);
+    if (note.updated) {
+      meta.appendChild(document.createTextNode(" · "));
+      var updated = el("time", null, T("업데이트 ", "Updated ") + formatDate(note.updated));
+      updated.dateTime = note.updated;
+      meta.appendChild(updated);
+    }
     head.appendChild(meta);
     var flags = el("ul", "doc-flags");
     flags.style.marginTop = "var(--s4)";

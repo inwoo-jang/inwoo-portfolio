@@ -53,7 +53,7 @@
         </div>
       </div>
       <h1 class="display">Projects</h1>
-      <p class="lead">20 projects: product planning and operations at work, plus bootcamp and personal projects. For each one I separate what I did from who built it.</p>
+      <p class="lead">22 projects: product planning and operations at work, plus bootcamp and personal projects. For each one I separate what I did from who built it.</p>
     </header>
 
     <main id="main">
@@ -112,7 +112,7 @@
             <button type="button" class="shelf-book shelf-book--skala" data-book="skala" aria-controls="skala" aria-pressed="false">
               <span class="shelf-book__no">02</span>
               <span class="shelf-book__title">SKALA<br>Projects</span>
-              <span class="shelf-book__meta">4 pages · 2026.08–09</span>
+              <span class="shelf-book__meta">5 pages · 2026</span>
             </button>
           </li>
           <li>
@@ -125,8 +125,8 @@
           <li>
             <button type="button" class="shelf-book shelf-book--solo" data-book="solo" aria-controls="solo" aria-pressed="false">
               <span class="shelf-book__no">04</span>
-              <span class="shelf-book__title">Built<br>Myself</span>
-              <span class="shelf-book__meta">6 pages · 2026</span>
+              <span class="shelf-book__title">Personal<br>Projects</span>
+              <span class="shelf-book__meta">7 pages · 2026</span>
             </button>
             <span class="shelf-help">
               <button type="button" class="shelf-help__btn" aria-label="How to read the books" aria-describedby="shelf-help-tip">?</button>
@@ -159,7 +159,7 @@
                 <li>
                   <button type="button" class="toc__btn" data-goto="1">
                     <span class="toc__no">01</span>
-                    <span class="toc__title">Order and box status sync with a pharmaceutical wholesale mall</span>
+                    <span class="toc__title">Order and box status sync with a pharmaceutical wholesaler’s ordering platform</span>
                     <span class="toc__year">2026.01</span>
                   </button>
                 </li>
@@ -211,12 +211,12 @@
             <article class="note__page" data-page="1" hidden>
               <div class="spread__left">
               <p class="chip chip--ko">01 · Work · Planning · Verification</p>
-              <h3>Order and box status sync with a pharmaceutical wholesale mall</h3>
+              <h3>Order and box status sync with a pharmaceutical wholesaler’s ordering platform</h3>
               <p class="note__meta">2026.01 – 02 · JEEKIM COMPANY, prescription storage service · Me: integration rules, data cross-checks · Built by: dev team · Went live</p>
               </div>
               <div class="spread__right">
 
-              <p>The service collects pharmacies' paper prescriptions, scans them and stores them. Orders come in from an external pharmaceutical wholesale mall.</p>
+              <p>The service collects pharmacies' paper prescriptions, scans them and stores them. Orders come in from an external pharmaceutical wholesaler’s ordering platform.</p>
 
               <h4>The problem</h4>
               <p>The operations staff were downloading mall orders as Excel files and typing them into the admin by hand.
@@ -533,6 +533,13 @@
                     <span class="toc__year">2026.09</span>
                   </button>
                 </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">AI advertising pre-review service (working title)</span>
+                    <span class="toc__year">2026.11</span>
+                  </button>
+                </li>
               </ol>
               </div>
             </article>
@@ -639,7 +646,7 @@
               <h4>Result</h4>
               <ul class="note__list">
                 <li>Parameters 2,184,107 → 549,547 (25.2%), model size <mark>8.33MB → 2.10MB</mark>, compute 22.75M → 6.13M MACs</li>
-                <li>The two final candidates (4.12MB · 2.10MB) differed by 0.09%p in Valid accuracy, about the same as the variation across seeds, so I chose the smaller model</li>
+                <li>The two final candidates (4.12MB · 2.10MB) differed by 0.09 percentage points in Valid accuracy, about the same as the variation across seeds, so I chose the smaller model</li>
                 <li>For inference time, the smaller model was actually slower one image at a time (0.174ms vs 0.099ms) but faster in batches (0.080ms vs 0.216ms). <em>Parameter count alone didn't tell me the speed.</em></li>
               </ul>
 
@@ -757,6 +764,20 @@
               </div>
             </article>
 
+            <article class="note__page" data-page="5" hidden>
+              <div class="spread__left">
+                <h3>AI advertising pre-review service (working title)</h3>
+                <p class="note__meta">SKALA team project · Preparing for submission</p>
+                <figure class="note__shot"><img src="media/portfolio/project-in-progress.en.svg" alt="In progress — preparing for submission" width="800" height="500" loading="lazy" decoding="async"></figure>
+              </div>
+              <div class="spread__right">
+                <p>We are building a service that extracts text from ad images so reviewers can compare it with the original, check for omissions, make corrections and request another review.</p>
+                <p><strong>My role</strong> · Frontend and AI OCR service development</p>
+                <p class="note-box">UI and OCR implementation and team system integration are in progress. Further details are not public while development is ongoing.</p>
+                <div class="project-gallery" data-project-gallery="ad-review" hidden></div>
+              </div>
+            </article>
+
           </div>
 
           <div class="note__controls">
@@ -831,9 +852,8 @@
               <h4>Coordinating the release — setting the first scope within the schedule</h4>
               <ul class="note__list">
                 <li>Marked MoSCoW priorities with the same criteria across the PRD, wireframes, detailed specs and sprint tasks</li>
-                <li>Weighed the designers' push for more game elements against the developers' view that we should focus on the core flow, and released the question generation, solving and wrong-answer flow first</li>
-                <li>Kept the acorn storehouse image, and put a "Hibernating for now. Please wait for us" message on menus that weren't ready</li>
-                <li>For the wrong-answer notebook and quiz history, kept the data structure as designed and only reduced what's shown on screen, so the next phase can pick it up</li>
+                <li>The designers wanted to preserve the character and acorn elements, while the developers needed to complete the core learning features within the launch schedule</li>
+                <li>I coordinated which features to include in the first release and which to address later, while keeping the character and acorn elements on screen</li>
               </ul>
 
               <h4>After the second user test — the order of uploading materials</h4>
@@ -843,7 +863,7 @@
                 <li><b>New flow (final presentation demo)</b> — Users enter the subject name first, then upload files at the add-materials step without naming chapters in advance. They review the chapter and part names the AI created and edit them if needed.</li>
                 <li><b>What was confirmed</b> — Checked in final internal QA and the final presentation demo. We did not run another user test on the new flow.</li>
               </ul>
-              <p>Separately, feedback that there was no message while waiting for generation or when it finished went into the release as a progress indicator and a completion notice. Feedback that it didn't stand out enough from general-purpose AI remained an open issue.</p>
+              <p>Users also reported insufficient feedback during and after quiz generation, and weak differentiation from general-purpose AI.</p>
 
               <h4>What I did</h4>
               <p>PRD, IA, functional spec and user flows; 100+ wireframe screens in Figma; running the sprint schedule; checking the backend ERD against the rules; handling store review; midterm and final presentations.
@@ -951,6 +971,7 @@
               </div>
             </article>
 
+
           </div>
 
           <div class="note__controls">
@@ -976,7 +997,7 @@
 
             <article class="note__page is-current" data-page="0" aria-label="Built on my own, contents">
               <div class="spread__left">
-              <h3 class="note__cover-title">Built<br>Myself</h3>
+              <h3 class="note__cover-title">Personal<br>Projects</h3>
               </div>
               <div class="spread__right">
               <ol class="toc">
@@ -1020,6 +1041,13 @@
                     <span class="toc__no">06</span>
                     <span class="toc__title">Personal tools — other</span>
                     <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="7">
+                    <span class="toc__no">07</span>
+                    <span class="toc__title">POSSESSED — The Agent Overreach Lab</span>
+                    <span class="toc__year">2026.11</span>
                   </button>
                 </li>
               </ol>
@@ -1218,6 +1246,19 @@
                 <li class="tag tag--lime">Vue 3 · SQLite</li>
               </ul>
               <div class="project-gallery" data-project-gallery="personal-tools" hidden></div>
+              </div>
+            </article>
+
+            <article class="note__page" data-page="7" hidden>
+              <div class="spread__left">
+                <h3>POSSESSED — The Agent Overreach Lab</h3>
+                <p class="note__meta">Personal project · Preparing for Kiroween submission · Product planning and design · Full-stack development · AI engineering</p>
+                <div class="project-gallery" data-project-gallery="possessed" hidden></div>
+              </div>
+              <div class="spread__right">
+                <p>An experimental tool for checking whether an AI agent acts within the scope of the user’s permission, as well as whether it completes the task. I designed a flow that distinguishes tool-call attempts, policy decisions, blocks and mock execution, then reruns the same scenario after a policy change.</p>
+                <p><strong>My role</strong> · Product planning and design · Full-stack development · AI engineering</p>
+                <p class="note-box">Planning, design and early implementation are in progress. The complete workflow and its effectiveness are still being evaluated.</p>
               </div>
             </article>
 

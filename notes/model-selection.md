@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [LLM, Model Selection, Reasoning, Inference Cost, AI Service Planning]
 date: 2026-09-05
-summary: 성능과 비용은 양자택일이 아니다. 품질·안전 기준을 먼저 충족한 뒤 응답 시간과 성공 업무당 총비용을 최적화한다. 파라미터 수·추론·비용을 따로 보고, 모델 라우팅과 비교 실험으로 모델을 고르는 기준을 정리했다.
+summary: 모델을 고르기 전에 필요한 답변 품질과 허용할 비용·응답 시간, 오류가 났을 때의 영향을 먼저 정해야 한다. 같은 업무로 모델과 추론 설정을 비교하고, 재시도와 사람의 검토까지 포함해 결과 한 건을 얻는 데 드는 비용을 봐야 한다고 생각한다.
 sample: false
 related: [why-sllm, why-ml-model, multi-agent-vs-single, agent-kpi, when-rag, ai-failure-tracing]
 ---

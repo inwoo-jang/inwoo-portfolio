@@ -4,7 +4,7 @@ category: planning
 tags: [AI product planning, Problem definition, User flow, Adoption decision]
 date: 2026-09-11
 date_type: class
-summary: Being able to generate answers with AI isn't a reason to adopt it. I think you first have to ask which user task you're improving, whether it can be solved without AI, and whether users can tell when the output is wrong.
+summary: Being able to generate answers with AI isn't a reason to adopt it. I think we need to identify which user task to improve, consider whether it can be solved without AI, and design a flow that lets users recognize and correct errors.
 sample: false
 related: [why-ai-agent, why-ml-model, why-sllm]
 ---

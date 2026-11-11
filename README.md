@@ -14,7 +14,7 @@
 |---|---|
 | `index.html` | 홈 — 벤토 히어로(워드마크 + 배포 화면 슬라이더 4장) · 바로가기 · Now 사이드바 |
 | `profile.html` | Basic · Skills · Timeline |
-| `portfolio.html` | Quick View(카드·필터·읽기 화면) / Book View 연습장 4권 — 실무(지킴) 6장 / SKALA 교육 4장 / 팀 3장 / 개인 5장 |
+| `portfolio.html` | Quick View(카드·필터·읽기 화면) / Book View 연습장 4권 — 실무(지킴) 7장 / SKALA 교육 5장 / 팀 3장 / 개인 7장 |
 | `how.html` | 긴 글 + 목차 — 01 기획 · 02 개발 · 03 협업 · 04 AI 활용. 새 디자인 시스템(`css/ds.css`)을 처음 적용한 페이지 |
 | `storybook/index.html` | 디자인 시스템 시안 — 원칙 · 기초 요소 · 컴포넌트 · 템플릿 (내부용, 메뉴에 없음) |
 | `notes.html` | Dev Notes — 기획·기술 선택 기준, 개발 도구·AI 구현·검증 기록 (Markdown) |
@@ -23,7 +23,7 @@
 
 - 페이지 오른쪽 위의 9칸 카드·책 아이콘으로 Quick View와 Book View를 전환한다. 보기 전환은 높이 32px의 화이트 바탕에 선택한 버튼만 블랙으로 표시한다. Dev Notes에도 같은 스타일을 쓴다. 아이콘에 마우스를 올리면 보기 이름을 확인할 수 있다.
 - **먼저 볼 프로젝트** — 목록 맨 위에 대표 4개(주문 연동 · 급여명세서 · 퀴켓 · TaxDesk)를 `script/projects-data.js`의 `window.FEATURED`로 보여 준다. 카드는 프로젝트명 → 판단 → 결과·현재 상태 순서이고, 홈(`index.html`)의 대표 프로젝트와 같은 문장을 쓴다.
-- **Quick View(기본)** — 프로젝트 카드 20개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
+- **Quick View(기본)** — 프로젝트 카드 22개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
   카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 프로젝트명 → 한 줄 설명 → 기간·팀·내 역할·현재 상태 → 문제·내 판단·확인한 결과 → 화면과 자료 → 상세 과정(연습장 본문) → 기술과 관련 자료 순서. 역할은 상단 메타에서 한 번만 말한다.
 - **Book View** — 기존 책장·연습장. `#skala` · `#team` · `#solo` 주소는 그대로 Book View로 열린다.
 - 카드 요약은 `script/projects-data.js`, 상세 본문의 원본은 `portfolio.html`의 연습장 장이다(id = `data-project-gallery` 값).
@@ -68,7 +68,7 @@ Calendar · Trip · Reading · Guestbook · 로그인/회원가입 · 날씨/미
 
 ## 사실 기준
 
-내용은 `포트폴리오_전체_프로젝트_소재집_20261106.md`(비공개 작업 자료)와 `~/Desktop/자기계발/지원/자소서&포트폴리오/자소서_작성가이드.md` 팩트시트의 최신 정정을 따른다. 내부 프로젝트(ADchecky)·내부 정책 수치·고객 자료는 싣지 않는다.
+내용은 `포트폴리오_전체_프로젝트_소재집_20261106.md`(비공개 작업 자료)와 `~/Desktop/자기계발/지원/자소서&포트폴리오/자소서_작성가이드.md` 팩트시트의 최신 정정을 따른다. 표시광고 프로젝트는 사용자가 승인한 가칭·개요·담당 역할·출품 준비 상태만 공개하며, 실제 명칭·내부 구현 자료·고객 자료는 싣지 않는다. POSSESSED는 승인된 개요와 기획·설계·풀스택 개발·AI 엔지니어링 담당 범위, 초기 구현·검증 중인 상태를 짧게 공개한다. 표시광고 프로젝트의 썸네일은 ‘진행 중’ 표시를 사용한다. POSSESSED는 사용자가 제공한 기획 흐름도를 썸네일·연습장·상세 이미지로 사용하며, 초기 구현 단계와 검증 전 범위를 캡션에 표시한다. 내부 정책 수치와 기획 원문 링크는 공개하지 않는다.
 L2 기술(Docker·Supabase·MSA)은 스킬 태그에 넣지 않고, 프로젝트 안에서 한계와 함께만 언급한다.
 
 ## 파일

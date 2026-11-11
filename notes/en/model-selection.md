@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [LLM, Model Selection, Reasoning, Inference Cost, AI Service Planning]
 date: 2026-09-05
-summary: Performance versus cost isn't an either-or choice. Meet the quality and safety bar first, then optimize latency and total cost per successful task. This note looks at parameter count, reasoning, and cost separately, and lays out criteria for choosing a model through model routing and comparison experiments.
+summary: Before choosing a model, I need to define the answer quality required, acceptable costs and response times, and the consequences of errors. I think models and reasoning settings should be compared on the same tasks, with retries and human review included in the cost of getting a usable result.
 sample: false
 related: [why-sllm, why-ml-model, multi-agent-vs-single, agent-kpi, when-rag, ai-failure-tracing]
 ---

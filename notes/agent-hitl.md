@@ -3,7 +3,7 @@ title: 승인은 어디에 걸어야 할까? — LangChain HITL 실습
 category: ai
 tags: [AI Agent, HITL, LangChain, create_agent]
 date: 2026-09-11
-summary: 승인은 되돌리기 어려운 동작 하나에만 건다. 사용자가 이미 고른 것을 다시 묻지 않고, 승인 여부는 모델 응답이 아니라 사용자의 재개 명령으로 받는다. LangChain HITL 설정 코드와 막혔던 오류를 함께 정리했다.
+summary: 사용자가 이미 선택한 내용을 다시 승인받으면 같은 결정을 두 번 요구하게 된다. 승인은 실행의 영향과 되돌릴 수 있는지를 따져 필요한 지점에 두고, 사용자가 무엇을 허용하는지 알 수 있게 해야 한다. LangChain HITL로 승인·거절·재개를 구현하는 방법과 오류 해결 과정을 정리했다.
 sample: false
 related: [agent-autonomy]
 ---

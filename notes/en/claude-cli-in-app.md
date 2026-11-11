@@ -1,84 +1,161 @@
 ---
-title: Call Claude Code from an app and your own settings come along — CLI flags and streaming
+title: Does Claude Code use my personal settings when called from an app?
 category: ai
 categories: [ai, tools, backend]
-tags: [Claude Code, CLI, Streaming, Python]
+tags: [Claude Code, Codex, CLI, Streaming, Python]
 date: 2026-08-28
-summary: I made a study app's "Grade" button run the claude command from a Python server. Notes on how Claude called from an app still reads my PC's settings and skills, and how the flag for turning off tools wasn't what I expected.
+updated: 2026-11-11
+summary: Calling a CLI locally can bring personal settings and instructions into the session. I looked into how to exclude settings, disable tools, and stream the response to the screen as it is generated.
 sample: false
 ---
 
-I set up a study app so that pressing "Grade" has a Python server run the `claude` command on my computer and bring back the answer. The idea was to reuse my already logged-in Claude Code instead of issuing a separate API key.
+I set up a study app so that pressing "Grade" makes a Python server run the `claude` command on my computer and return the answer. Since the app runs locally, I could use my existing Claude Code login without getting a separate API key.
 
-## What I found when I hooked it up
+Once I connected it, I found that Claude Code launched by the app also read my PC's settings. Grading needed a question and an answer, but I also had to check which settings and tools the CLI brought with it. For longer answers, I needed to decide when the app should start displaying the response.
 
-- **Claude run from the app still reads my PC's settings and skills.** Personal settings can mix into the app's instructions. I used `--setting-sources ""` so it wouldn't load settings files, and the login stayed intact. I didn't separately verify whether that alone removes every effect of my personal settings
-- **`--allowed-tools ""` doesn't turn tools off.** It only means the list of tools that run without approval is empty. To actually turn tools off, use `--tools ""`
-- **The default output only arrives after the whole response is done.** Showing the response as it's generated took three streaming flags together
-- **The streaming data also includes progress info.** From the line-by-line JSON, I pulled out only the `text_delta` text to display on screen
-- **I pointed the working directory at an empty folder.** Called from the app folder, the contents of nearby files can leak into the answer
-- **I passed the question through stdin.** That avoids long text or quotes being parsed as command arguments
-- I capped the wait at 120 seconds (`timeout=120`; past that, it returns a notice)
+## Launching it from an app still loads my settings
 
-## Flags I used
+My personal study skills included rules such as "don't give the answer straight away." That helps when studying, but doesn't fit a feature that needs to grade an answer against the app's criteria. I wanted to keep my login without bringing those personal rules into the request.
 
-| Flag | Purpose |
-|---|---|
-| `-p` | Print only the response and exit, no interactive screen |
-| `--allowed-tools ""` | List of tools to run without asking for approval. Empty means no tools are pre-approved. It doesn't turn tools off |
-| `--setting-sources ""` | Don't load the user, project, or local settings files (`user`, `project`, `local`) |
-| `--model sonnet` | The model this app used |
+I passed `--setting-sources ""` to exclude user, project, and local settings. In my environment, the app still ran with the existing login. That confirmed I could handle settings loading separately from authentication.
 
-Which flag turns off what (per `claude --help` 2.1.247):
+I also changed the working directory from the app folder to an empty folder, since grading didn't need the app's source files. Starting in an empty folder does not prevent access to other files, though. File access needs its own restrictions.
 
-| What to turn off | Flag | In this app |
+## Does excluding settings also exclude instructions and skills?
+
+When I first connected the app, I checked that grading worked with settings excluded. While updating this note, I also compared what actually went into the request.
+
+I put distinct markers in temporary user settings, personal and project `CLAUDE.md` files, and personal and project skills. I sent a default run and a run with `--setting-sources ""` to a local mock server, then checked for those markers in the requests. For skills, I checked **whether their names and descriptions appeared in the available-skills list**, rather than whether their full contents were loaded.
+
+| Item checked | Default run | With `--setting-sources ""` |
 |---|---|---|
-| Built-in tools (reading files, running commands, etc.) | `--tools ""` | Not used |
-| Settings files | `--setting-sources ""` | Used |
-| Skills | `--disable-slash-commands` | Not used |
-| MCP servers | `--strict-mcp-config` (only uses what's given via `--mcp-config`) | Not used |
+| Test model selection in user settings | Applied | Excluded |
+| Markers in personal and project `CLAUDE.md` | Included in the request | Excluded |
+| Names and descriptions of personal and project skills | Listed | Excluded |
+| Built-in tools | Present | Still present |
 
-`--tools ""` only turns off built-in tools. MCP tools are handled separately.
+In the installed **2.1.247**, this excluded the tested instructions and skill listings as well as settings. It would therefore be wrong to say that skills remained just because I hadn't used a separate flag to disable them. Not using a flag and observing that something was loaded are different things.
 
-Flags I added for streaming:
+Both runs used an empty MCP configuration. These results don't establish that existing MCP connections, managed policies, or inherited environment variables are all excluded. The earlier app run demonstrated that my login still worked; this mock-server test checked what settings and instructions entered the request.
+
+## The flag I misunderstood was `--allowed-tools ""`
+
+From its name, I initially assumed an empty value would mean no tools were available. Instead, `--allowed-tools` specifies **tools that may run without a separate approval**. An empty value means this option pre-approves no tools. It doesn't remove tools or clear other permission settings.
+
+To exclude built-in tools from the session, use `--tools ""`. The request comparison also showed that built-in tools remained when I passed `--allowed-tools ""`.
+
+| Flag | What it controls | Used in the original app |
+|---|---|---|
+| `--setting-sources ""` | User, project, and local settings loading. In the tested version, it also excluded the tested personal/project instructions and skill listings | Yes |
+| `--allowed-tools ""` | Tools pre-approved by this option; it does not disable tools | Yes |
+| `--tools ""` | Excludes built-in tools; MCP tools are separate | No |
+| `--disable-slash-commands` | Disables skills | No |
+| `--strict-mcp-config` | Limits MCP servers to those supplied through `--mcp-config` | No |
+
+The installed version also had `--safe-mode`. The official description says it preserves authentication while disabling customizations such as `CLAUDE.md`, skills, plugins, hooks, and MCP. In the local comparison, the tested instructions and skill listings disappeared, but the user's model setting and built-in tools remained. **The choice depends on whether I want to skip settings files or disable customizations.** Managed policies still apply separately.
+
+## What changes if the app uses Codex?
+
+The app could also select Codex. Its basic command was:
+
+```bash
+codex exec --skip-git-repo-check
+```
+
+It could add model and reasoning-effort options. `--skip-git-repo-check` allows execution outside a Git repository; it doesn't exclude personal settings. The original Codex path therefore had no equivalent of the settings exclusion used on the Claude side.
+
+The installed **Codex CLI 0.144.4** has `--ignore-user-config`. The official description says it skips `$CODEX_HOME/config.toml` while using the existing `CODEX_HOME` for authentication. I tested this option with temporary markers and compared requests at a local mock server.
+
+| Item checked | Default run | With `--ignore-user-config` |
+|---|---|---|
+| Instructions in user `config.toml` | Included | Excluded |
+| Personal `AGENTS.md` | Included | Still included |
+| Project `AGENTS.md` | Included | Still included |
+| Project skill name and description | Listed | Still listed |
+
+This didn't have the same scope as the Claude settings flag. Codex still included `AGENTS.md` and skills after excluding the user configuration file.
+
+In a separate prompt-input check, `project_doc_max_bytes=0` excluded the project `AGENTS.md` but left the personal one in place. Setting the test skill to `enabled=false` in `skills.config` removed that skill from the list. Each source needed its own check.
+
+An app-specific `CODEX_HOME` can separate personal configuration and global instructions, but it also changes the authentication storage location. Personal skills can also be discovered under `~/.agents/skills`. **Changing one folder doesn't isolate the entire personal environment.** An app-specific working directory and explicit skill and MCP choices would need to be part of the setup too.
+
+## Showing the grading response as it arrives
+
+Initially, I used `subprocess.run()`, waited for the process to finish, and read `stdout` all at once. That was simple when I only needed the final answer. To display the response as it was generated, the CLI needed to emit intermediate events and Python needed to read output while the process was running.
+
+For Claude Code, I passed these options together:
 
 ```bash
 --output-format stream-json --verbose --include-partial-messages
 ```
 
-## The code
+The output contains one JSON event per line. The existing streaming code used `subprocess.Popen()` and sent only text matching these conditions to the screen:
 
-This is a trimmed version of the app's actual code (the version that waits for the full response). `empty_dir` is the empty working folder, and `question` is the question the app passes in.
+```python
+if event.get("type") == "stream_event":
+    inner = event.get("event", {})
+    if inner.get("type") == "content_block_delta":
+        delta = inner.get("delta", {})
+        if delta.get("type") == "text_delta":
+            yield delta.get("text", "")
+```
+
+Displaying session information or the final `result` event as response text can mix metadata into the answer or append the full answer a second time. Text fragments belong in the response area; `result` should inform success, failure, and completion handling. Seeing some text doesn't mean grading has finished.
+
+The existing code handles `result.is_error`, but still needs to check both a successful completion event and the process exit code. The `timeout=120` below applies only to the non-streaming `subprocess.run()` call. The streaming path needs its own timeout and cancellation handling.
+
+Codex can emit JSONL events with `--json`, but its event format differs from Claude's. The app's current decoder expects Claude events, so switching the command alone doesn't make streaming compatible.
+
+## The code for receiving the complete answer at once
+
+This is a shortened version of the app's original code. `empty_dir` is its empty working directory, and `question` is the grading request. `-p` runs non-interactively. Passing the question through standard input keeps multiline answers and quotation marks separate from command arguments.
+
+This shows the original implementation, not a completed version of all the tool restrictions and streaming improvements discussed above.
 
 ```python
 import subprocess
 
-cmd = ["claude", "-p", "--allowed-tools", "", "--setting-sources", "", "--model", "sonnet"]
+cmd = [
+    "claude", "-p",
+    "--allowed-tools", "",
+    "--setting-sources", "",
+    "--model", "sonnet",
+]
 
 try:
     proc = subprocess.run(
         cmd,
-        input=question,          # pass the question via stdin, not appended to the command
+        input=question,
         capture_output=True,
         text=True,
-        timeout=120,             # stop after 120 seconds
+        timeout=120,
         cwd=empty_dir,
     )
 except subprocess.TimeoutExpired:
-    answer = "AI 응답이 120초를 넘었습니다. 다시 시도해 주세요."
+    answer = "The AI response exceeded 120 seconds. Please try again."
 else:
-    answer = proc.stdout.strip() if proc.returncode == 0 else f"오류: {proc.stderr[:400]}"
+    answer = (
+        proc.stdout.strip()
+        if proc.returncode == 0
+        else f"Error: {proc.stderr[:400]}"
+    )
 ```
 
-Before running, it checks whether Claude is installed with `shutil.which("claude")`, and if not, falls back to Codex, Gemini, then Ollama in that order. The environment variable `GUIDE_AI_PROVIDER` picks which AI to use.
+Before execution, the app checks CLI availability with `shutil.which()`. It chooses the first installed provider in the order Claude Code → Codex → Gemini → Ollama, unless `GUIDE_AI_PROVIDER` specifies one. It does not automatically retry with the next provider after a runtime error.
 
-## Open questions
+## If I build this again
 
-- If I use the same setup again, should I add `--tools ""`, `--disable-slash-commands`, and `--strict-mcp-config` as well? This time I only turned off settings files
+Grading in this app only needs a question and an answer. I'd exclude unnecessary built-in tools and MCP servers, then verify that grading still works end to end with the existing login and without personal study rules. Beyond checking which settings load, I'd also test whether the session can actually read files or call external tools.
+
+In the UI, I'd distinguish a response that has started from grading that has finished. If the process fails midway, the app should report the error and allow another request, rather than present the partial answer as a completed result. Supporting both Claude and Codex also means handling settings, output parsing, and errors separately for each provider.
 
 ## References
 
-- [Claude Code — CLI reference](https://code.claude.com/docs/en/cli-reference)
-- [Claude Code — Headless mode](https://code.claude.com/docs/en/headless)
+- [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference) — settings sources, tools, skills, and safe mode
+- [Run Claude Code programmatically](https://code.claude.com/docs/en/headless) — non-interactive execution and streaming
+- [Codex CLI commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli) — `exec`, `--ignore-user-config`, and `--json`
+- [How Codex loads AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) — personal/project instructions and `CODEX_HOME`
+- [Codex skills](https://learn.chatgpt.com/docs/build-skills) — skill discovery locations
+- [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference) — `project_doc_max_bytes` and `skills.config`
 
-Source: SKALA sLLM study guide app server.py (2026-08-28) · Flags checked with `claude --help`
+Sources checked: `server.py` from the SKALA sLLM study guide app (August 28, 2026 implementation), installed CLI help, and local mock-server request comparisons on November 11, 2026. These tests checked the inclusion of settings and skills; they did not evaluate grading quality or every execution permission.

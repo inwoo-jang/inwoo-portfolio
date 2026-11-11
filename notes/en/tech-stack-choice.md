@@ -4,7 +4,7 @@ category: planning
 categories: [planning, backend, infra]
 tags: [Architecture, Tech Stack, Overengineering, MSA, ADR]
 date: 2026-10-25
-summary: Choosing a tech stack isn't about picking the best technology. It's about deciding how much complexity you actually need. This note covers the requirements and constraints a PM can provide, six criteria for choosing technology, how to judge overengineering, MSA, and new tech, and ADRs for recording why you chose what you did.
+summary: Choosing a tech stack means deciding on an appropriate level of complexity based on service requirements, team capabilities, and development and operating costs, rather than seeking the best technology in isolation. This note covers the requirements and constraints a PM can provide, six criteria for choosing technology, how to judge overengineering, MSA, and new tech, and ADRs for recording why you chose what you did.
 sample: false
 related: [why-python-ai, multi-agent-vs-single, why-ai-agent]
 ---

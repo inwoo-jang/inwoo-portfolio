@@ -5,7 +5,7 @@ categories: [planning, data, ai]
 tags: [Machine Learning, Deep Learning, LLM, GBDT, Model Selection, Research]
 date: 2026-09-03
 date_type: class
-summary: I checked the rules of thumb "tabular data means tree models" and "little data means ML" against research. Conclusion: GBDT is a strong baseline, but you still need to compare it with pretrained models on business metrics and total cost.
+summary: For predictions based on numerical and categorical business data, traditional ML is a useful starting point for comparison. But having little data or tabular inputs is no reason to rule out deep learning or LLMs. I think we need to check how much they improve actual business outcomes and whether that improvement justifies the additional development and operating costs.
 sample: false
 related: [why-sllm]
 ---

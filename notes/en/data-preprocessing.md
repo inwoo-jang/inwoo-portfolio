@@ -4,7 +4,7 @@ category: data
 categories: [data, ai, planning]
 tags: [Data Preprocessing, OCR, Chunking, RAG]
 date: 2026-08-30
-summary: Preprocessing isn't about making data clean; it's about preparing it so its meaning doesn't get distorted. I covered preprocessing for tabular and document data, the problems that too much preprocessing creates, how to decide the scope, and how to verify that it helped.
+summary: The amount of preprocessing needed depends on the condition of the data and its intended use. Filling missing values or splitting documents should preserve the original meaning and the information needed to make decisions. I think it is important to compare results before and after processing to check whether retrieval and answers actually improve.
 sample: false
 related: [why-ml-model, context-engineering, rag-citation-rules]
 ---

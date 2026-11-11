@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [Agent Evaluation, Product KPI, Business Impact]
 date: 2026-11-06
-summary: An agent that works accurately and an agent that actually improves the work are not the same thing. Drawing on a production KPI framework and evaluation research, I laid out how to choose metrics in this order — goal → success criteria → KPIs → measurement and validation → improvement.
+summary: An agent that works accurately is not necessarily one that improves the work itself. First define the task and what counts as success, then consider review and rework time, costs, and permission compliance alongside completion rate. This note covers choosing metrics in the order of goals → success criteria → KPIs → measurement and validation → improvement.
 sample: false
 related: [agent-eval, agent-autonomy, multi-agent-vs-single, why-ai-service]
 ---

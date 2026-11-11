@@ -4,7 +4,7 @@ category: data
 categories: [data, ai, planning]
 tags: [Data Preprocessing, OCR, Chunking, RAG]
 date: 2026-08-30
-summary: 전처리는 데이터를 깨끗하게 만드는 게 아니라 의미가 왜곡되지 않게 준비하는 일이다. 표·문서 데이터의 전처리, 지나친 전처리가 만드는 문제, 범위를 정하는 기준과 효과를 검증하는 방법을 정리했다.
+summary: 전처리는 데이터의 상태와 사용 목적에 따라 필요한 범위가 달라진다. 결측값을 채우거나 문서를 나눌 때도 판단에 필요한 정보와 원래 의미는 유지해야 한다. 처리 전후를 비교해 실제로 검색과 답변이 나아졌는지 확인하는 게 중요하다고 생각한다.
 sample: false
 related: [why-ml-model, context-engineering, rag-citation-rules]
 ---

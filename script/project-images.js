@@ -1,5 +1,12 @@
 // 실제 프로젝트 이미지 목록. 캡션 앞에 실제 화면 · 팀 결과물 · 예시 데이터 · 설명도를 구분해 적습니다. 빈 배열은 화면에 표시되지 않습니다.
 window.PROJECT_IMAGES = {
+  "possessed": [
+    {
+      "src": "media/portfolio/possessed-flow.png",
+      "alt": "POSSESSED 기획 흐름도 — 도구 호출 제안, 정책 검사, 차단과 모의 실행",
+      "caption": "기획·설계 흐름도 · 초기 구현 단계 · 전체 흐름 및 실제 LLM 실험 결과 검증 전"
+    }
+  ],
   "order-sync": [
     {
       "src": "media/portfolio/order-sync-diagram.svg",
@@ -120,12 +127,12 @@ window.PROJECT_IMAGES = {
     {
       "src": "media/portfolio/quiket-demo-upload.jpg",
       "alt": "퀴켓 자료 추가 화면 — 챕터명을 먼저 쓰지 않고 파일을 고르는 단계",
-      "caption": "팀 결과물 화면 · ① 자료 올리기"
+      "caption": "최종 발표 시연 화면 · ① 자료 올리기 · 팀 결과물"
     },
     {
       "src": "media/portfolio/quiket-demo-chapters.jpg",
       "alt": "퀴켓 자료 확인 화면 — AI가 나눈 챕터명과 파트 4개를 확인하고 수정하는 단계",
-      "caption": "팀 결과물 화면 · ② AI가 나눈 챕터·파트 확인·수정"
+      "caption": "최종 발표 시연 화면 · ② AI가 나눈 챕터·파트 확인·수정 · 팀 결과물"
     },
     {
       "src": "media/portfolio/quiket-card.png",

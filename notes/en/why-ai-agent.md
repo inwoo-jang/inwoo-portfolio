@@ -5,7 +5,7 @@ categories: [planning, ai]
 tags: [AI product planning, AI Agent, Workflow, Execution scope]
 date: 2026-10-07
 date_type: class
-summary: Calling an LLM several times or using tools doesn't mean you need an agent. First find out whether there's actually a point where the next action has to be chosen based on intermediate results.
+summary: Calling an LLM multiple times or using tools does not by itself mean an agent is needed. First identify whether the model needs to choose its next action based on intermediate results. If an agent is used, define what it can choose, its execution limits, and when it must stop, then compare whether it actually produces better results than a fixed workflow.
 sample: false
 related: [agent-eval, agent-guardrails, agent-hitl]
 ---

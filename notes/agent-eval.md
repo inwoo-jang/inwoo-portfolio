@@ -4,7 +4,7 @@ category: ai
 categories: [ai, testing]
 tags: [AI Agent, 평가, LLM Judge, LangGraph]
 date: 2026-10-28
-summary: 300자 기준에 328자짜리 일반론 보고서가 통과했다. 형식은 코드로, 내용과 근거의 일치는 LLM Judge로 나눴더니 이번엔 같은 보고서의 점수가 평가할 때마다 달라졌다.
+summary: 형식과 필수 항목은 코드로 검사할 수 있지만, 내용이 근거와 일치하는지는 별도의 평가가 필요하다. LLM Judge의 판정도 달라질 수 있으므로, 자동 평가만으로 품질을 확정해서는 안 된다. 코드 검사와 LLM 평가의 역할, 사람이 확인할 조건과 검토에 필요한 정보를 정리했다.
 sample: false
 ---
 

@@ -53,7 +53,7 @@
         </div>
       </div>
       <h1 class="display">프로젝트</h1>
-      <p class="lead">실무 기획·운영과 교육·개인 프로젝트 20개. 내 역할과 구현 담당을 나눠 적었습니다.</p>
+      <p class="lead">실무 기획·운영과 교육·개인 프로젝트 22개. 내 역할과 구현 담당을 나눠 적었습니다.</p>
     </header>
 
     <main id="main">
@@ -112,7 +112,7 @@
             <button type="button" class="shelf-book shelf-book--skala" data-book="skala" aria-controls="skala" aria-pressed="false">
               <span class="shelf-book__no">02</span>
               <span class="shelf-book__title">SKALA<br>Projects</span>
-              <span class="shelf-book__meta">4장 · 2026.08–09</span>
+              <span class="shelf-book__meta">5장 · 2026</span>
             </button>
           </li>
           <li>
@@ -125,8 +125,8 @@
           <li>
             <button type="button" class="shelf-book shelf-book--solo" data-book="solo" aria-controls="solo" aria-pressed="false">
               <span class="shelf-book__no">04</span>
-              <span class="shelf-book__title">Built<br>Myself</span>
-              <span class="shelf-book__meta">6장 · 2026</span>
+              <span class="shelf-book__title">Personal<br>Projects</span>
+              <span class="shelf-book__meta">7장 · 2026</span>
             </button>
             <span class="shelf-help">
               <button type="button" class="shelf-help__btn" aria-label="책 보는 방법" aria-describedby="shelf-help-tip">?</button>
@@ -533,6 +533,13 @@
                     <span class="toc__year">2026.09</span>
                   </button>
                 </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="5">
+                    <span class="toc__no">05</span>
+                    <span class="toc__title">표시광고 AI 사전검토 서비스(가칭)</span>
+                    <span class="toc__year">2026.11</span>
+                  </button>
+                </li>
               </ol>
               </div>
             </article>
@@ -757,6 +764,20 @@
               </div>
             </article>
 
+            <article class="note__page" data-page="5" hidden>
+              <div class="spread__left">
+                <h3>표시광고 AI 사전검토 서비스(가칭)</h3>
+                <p class="note__meta">SKALA 팀 프로젝트 · 출품 준비 중</p>
+                <figure class="note__shot"><img src="media/portfolio/project-in-progress.svg" alt="진행 중 — 출품 준비 중" width="800" height="500" loading="lazy" decoding="async"></figure>
+              </div>
+              <div class="spread__right">
+                <p>광고 이미지의 문구를 추출해 원본과 대조하고, 담당자가 누락을 확인하고 수정·재검토할 수 있는 서비스를 만들고 있습니다.</p>
+                <p><strong>담당</strong> · 프론트엔드 · AI OCR 서비스 개발</p>
+                <p class="note-box">화면과 OCR 구현, 팀 시스템 연동 진행 중. 진행 중으로 세부사항 비공개.</p>
+                <div class="project-gallery" data-project-gallery="ad-review" hidden></div>
+              </div>
+            </article>
+
           </div>
 
           <div class="note__controls">
@@ -831,9 +852,8 @@
               <h4>출시 과정의 조율 — 일정 안에서 첫 범위 정하기</h4>
               <ul class="note__list">
                 <li>MoSCoW 우선순위를 PRD·와이어프레임·상세명세·스프린트 작업에 같은 기준으로 표시</li>
-                <li>게임 요소를 늘리자는 디자인 의견과 핵심 흐름에 집중해야 한다는 개발 의견을 함께 놓고, 문제 생성·풀이·오답 흐름을 먼저 출시</li>
-                <li>도토리 창고 이미지는 남기고, 준비되지 않은 메뉴에는 “겨울잠을 자고 있어요. 기다려주세요” 안내를 넣음</li>
-                <li>오답노트·퀴즈 기록은 데이터 구조를 설계대로 두고 화면 노출만 줄여 다음 단계에서 이어 쓸 수 있게 함</li>
+                <li>디자이너는 캐릭터와 도토리 요소를 살리고 싶어 했고, 개발팀은 출시 일정 안에 핵심 학습 기능을 완성해야 했음</li>
+                <li>캐릭터와 도토리 요소를 화면에 남기면서, 첫 출시에 포함할 기능과 이후에 다룰 기능의 범위를 조율</li>
               </ul>
 
               <h4>2차 사용자 테스트 이후 — 자료 업로드 순서</h4>
@@ -843,7 +863,7 @@
                 <li><b>바뀐 흐름(최종 발표 시연)</b> — 과목명은 먼저 입력하고, 자료 추가 단계에서는 챕터명을 미리 쓰지 않고 파일을 올립니다. AI가 나눈 챕터명·파트명을 확인하고 필요하면 고칩니다.</li>
                 <li><b>확인 범위</b> — 최종 내부 QA와 최종 발표 시연에서 확인했습니다. 바뀐 흐름으로 다시 사용자 테스트를 하지는 않았습니다.</li>
               </ul>
-              <p>그 밖에 생성 대기·완료 안내가 없다는 의견은 진행률·완료 안내로 출시 버전에 반영했습니다. 범용 AI 대비 차별점이 약하다는 의견은 남은 과제였습니다.</p>
+              <p>그 밖에 생성 대기·완료 안내가 부족하고, 범용 AI 대비 차별점이 약하다는 사용자 의견이 있었습니다.</p>
 
               <h4>내가 한 일</h4>
               <p>PRD·IA·기능명세·유저플로우, Figma 와이어프레임 100화면 이상, 스프린트 일정 운영, 백엔드 ERD 정책 대조, 스토어 심사 대응, 중간·최종 발표.
@@ -951,6 +971,7 @@
               </div>
             </article>
 
+
           </div>
 
           <div class="note__controls">
@@ -976,7 +997,7 @@
 
             <article class="note__page is-current" data-page="0" aria-label="직접 만든 것 목차">
               <div class="spread__left">
-              <h3 class="note__cover-title">Built<br>Myself</h3>
+              <h3 class="note__cover-title">Personal<br>Projects</h3>
               </div>
               <div class="spread__right">
               <ol class="toc">
@@ -1020,6 +1041,13 @@
                     <span class="toc__no">06</span>
                     <span class="toc__title">개인용 툴 — 기타</span>
                     <span class="toc__year">2026</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="toc__btn" data-goto="7">
+                    <span class="toc__no">07</span>
+                    <span class="toc__title">POSSESSED — The Agent Overreach Lab</span>
+                    <span class="toc__year">2026.11</span>
                   </button>
                 </li>
               </ol>
@@ -1218,6 +1246,19 @@
                 <li class="tag tag--lime">Vue 3 · SQLite</li>
               </ul>
               <div class="project-gallery" data-project-gallery="personal-tools" hidden></div>
+              </div>
+            </article>
+
+            <article class="note__page" data-page="7" hidden>
+              <div class="spread__left">
+                <h3>POSSESSED — The Agent Overreach Lab</h3>
+                <p class="note__meta">개인 프로젝트 · Kiroween 출품 준비 중 · 기획·설계·풀스택 개발·AI 엔지니어링</p>
+                <div class="project-gallery" data-project-gallery="possessed" hidden></div>
+              </div>
+              <div class="spread__right">
+                <p>AI 에이전트가 요청받은 일을 완료했는지뿐 아니라, 허락받은 범위 안에서 행동했는지 확인하기 위한 실험 도구입니다. 도구 호출 시도와 정책 판정, 차단·모의 실행을 구분하고, 정책을 바꾼 뒤 같은 시나리오를 다시 검증하는 흐름을 설계했습니다.</p>
+                <p><strong>담당</strong> · 기획·설계 · 풀스택 개발 · AI 엔지니어링</p>
+                <p class="note-box">현재 기획·설계와 초기 구현 단계이며, 전체 실행 흐름과 효과는 검증 중입니다.</p>
               </div>
             </article>
 

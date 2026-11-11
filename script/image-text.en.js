@@ -1,5 +1,20 @@
 /* 영어판 — 이미지 속 한글을 영어로 옮긴 문구 (script/image-en.js가 사용). 이미지 경로 → 위에서 아래 순서의 문구 */
 window.IMAGE_TEXT_EN = {
+  "media/portfolio/possessed-flow.png": [
+    "POSSESSED — Did the agent act within the permitted scope?",
+    "Product planning and design / In progress",
+    "The model proposes; code controls execution.",
+    "Set experiment conditions — request, allowed and denied tools, approval conditions",
+    "AI proposes an action — tool-call proposal (PROPOSED)",
+    "Policy gate — check rules and approval state (POLICY_CHECKED)",
+    "Allowed → mock execution (EXECUTED). Real external services are not changed.",
+    "Denied → block execution (BLOCKED). Record the reason.",
+    "Approval required → hold execution. Do not execute before approval (BLOCKED, with an approval-required reason).",
+    "Record tool-call attempts, decisions and execution. Inspect the timeline → change the policy → rerun the same scenario.",
+    "Next.js · TypeScript · SQLite · OpenAI Tool Calling",
+    "Early implementation. End-to-end flow and live LLM experiment results are not yet validated.",
+    "Resuming after approval is outside the verification scope of this diagram."
+  ],
   "media/notes/ai-failure-pipeline-clean.png": [
     "How an AI agent processes a request",
     "01 Interpret the user's question — identify intent and the information needed",
@@ -277,7 +292,7 @@ window.IMAGE_TEXT_EN = {
     "Companies I follow (2): Samsung group · SK group"
   ],
   "media/portfolio/order-sync-diagram.svg": [
-    "Pharmaceutical wholesale mall — order and box status sync (diagram)",
+    "Pharmaceutical wholesaler’s ordering platform — order and box status sync (diagram)",
     "External · Wholesale mall — 1 order: tracked by order number; item lines 1 · 2",
     "Link key (planned) — Order number + item line → internal box ID; look up by order number in the admin",
     "Internal · Run by box — Box A: Picked up · Box B: Pickup postponed",

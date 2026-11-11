@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ux, backend]
 tags: [Async, Queue, Streaming, UX]
 date: 2026-11-10
-summary: Response design isn't about speed. It's about deciding whether users have to wait, whether they can do something else meanwhile, and how they check progress. Starting from letting users go back home during generation in Quiket, I sorted out sync, async, streaming, queues, and job status rules.
+summary: The design should define whether users can do other things while waiting for an AI response and how they can check progress and results. Leaving a screen and canceling a task should be treated separately, with clear limits on what can be retried after a failure. This note covers synchronous and asynchronous processing, streaming, queues, and how response patterns and available user actions should fit the task and its state.
 sample: false
 related: [tech-stack-choice, claude-cli-in-app]
 ---

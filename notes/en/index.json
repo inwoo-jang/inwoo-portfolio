@@ -93,6 +93,60 @@
   ],
   "notes": [
     {
+      "slug": "ai-coding-delivery",
+      "file": "notes/en/ai-coding-delivery.md",
+      "title": "As AI writes code faster, what needs to change in software development?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "tools",
+        "infra",
+        "testing"
+      ],
+      "tags": [
+        "AI Coding",
+        "Developer Productivity",
+        "CI/CD",
+        "Code Review",
+        "Technical Debt"
+      ],
+      "date": "2026-11-11",
+      "updated": "2026-11-11",
+      "summary": "Faster AI code generation does not speed up delivery to users when review, CI, merging, and deployment are backed up. Identify where delays occur, and track time to deployment, errors, and rework alongside code output. Drawing on company examples, this note covers development bottlenecks, responsibility for verification, and how to measure productivity.",
+      "sample": false,
+      "related": [
+        "ai-dev-tools-compare",
+        "tech-stack-choice",
+        "agent-kpi",
+        "ai-technical-debt"
+      ]
+    },
+    {
+      "slug": "ai-technical-debt",
+      "file": "notes/en/ai-technical-debt.md",
+      "title": "How can AI help clean up code?",
+      "category": "infra",
+      "categories": [
+        "infra",
+        "tools",
+        "testing"
+      ],
+      "tags": [
+        "Technical Debt",
+        "Codex",
+        "Feature Flag",
+        "CI"
+      ],
+      "date": "2026-11-11",
+      "summary": "A lack of recorded calls is not enough reason to delete code. Even when AI identifies cleanup candidates, their original purpose, production usage history, and dependencies on other features still need to be checked. Drawing on a Codex case study, this note covers investigating unused code, completed experiments, and slow CI jobs, making changes in small PRs, and verifying their impact.",
+      "sample": false,
+      "related": [
+        "ai-coding-delivery",
+        "ai-dev-tools-compare",
+        "model-selection"
+      ]
+    },
+    {
       "slug": "agent-governance",
       "file": "notes/en/agent-governance.md",
       "title": "As AI agents multiply, what should a company manage?",
@@ -108,7 +162,7 @@
         "AI ROI"
       ],
       "date": "2026-11-10",
-      "summary": "Building lots of agents isn't what makes AX succeed. Looking at Gartner's forecast and how SKT, IBM, and Cisco are responding, I mapped out a lifecycle for managing agents from creation to retirement, plus criteria for keeping, improving, or shutting them down.",
+      "summary": "Creating more agents does not by itself make an AI transformation successful. Organizations need to know what each agent does, who manages it, what permissions it has, and whether it delivers results. Drawing on Gartner forecasts and examples from SKT, IBM, and Cisco, this note covers management across the agent lifecycle and criteria for keeping, improving, or retiring agents.",
       "sample": false,
       "related": [
         "agent-kpi",
@@ -135,7 +189,7 @@
         "UX"
       ],
       "date": "2026-11-10",
-      "summary": "Response design isn't about speed. It's about deciding whether users have to wait, whether they can do something else meanwhile, and how they check progress. Starting from letting users go back home during generation in Quiket, I sorted out sync, async, streaming, queues, and job status rules.",
+      "summary": "The design should define whether users can do other things while waiting for an AI response and how they can check progress and results. Leaving a screen and canceling a task should be treated separately, with clear limits on what can be retried after a failure. This note covers synchronous and asynchronous processing, streaming, queues, and how response patterns and available user actions should fit the task and its state.",
       "sample": false,
       "related": [
         "tech-stack-choice",
@@ -159,7 +213,10 @@
       "date": "2026-11-06",
       "summary": "VS Code is mix-and-match, Kiro is spec-driven, Cursor is agent-driven. A comparison of how each handles AI coding, project rules, and planning and verifying work, based on official docs.",
       "sample": false,
-      "related": []
+      "related": [
+        "ai-coding-delivery",
+        "ai-technical-debt"
+      ]
     },
     {
       "slug": "agent-autonomy",
@@ -178,7 +235,7 @@
         "UX"
       ],
       "date": "2026-11-06",
-      "summary": "Thoughts on designing agent autonomy around execution permissions and risk level, human-in-the-loop, and giving users real control.",
+      "summary": "An agent's autonomy should depend on its permissions, the impact of its actions, and whether they can be reversed. Rather than requiring approval for every action, distinguish automatic execution, prior approval, and prohibited actions, and let users inspect and stop execution. This note covers placing Human-in-the-loop at points that require human judgment and intervention, and connecting those decisions to the approval experience, error recovery, and operational metrics.",
       "sample": false,
       "related": [
         "agent-hitl",
@@ -206,7 +263,7 @@
         "Business Impact"
       ],
       "date": "2026-11-06",
-      "summary": "An agent that works accurately and an agent that actually improves the work are not the same thing. Drawing on a production KPI framework and evaluation research, I laid out how to choose metrics in this order — goal → success criteria → KPIs → measurement and validation → improvement.",
+      "summary": "An agent that works accurately is not necessarily one that improves the work itself. First define the task and what counts as success, then consider review and rework time, costs, and permission compliance alongside completion rate. This note covers choosing metrics in the order of goals → success criteria → KPIs → measurement and validation → improvement.",
       "sample": false,
       "related": [
         "agent-eval",
@@ -214,7 +271,38 @@
         "multi-agent-vs-single",
         "why-ai-service",
         "agent-governance",
+        "ai-coding-delivery",
+        "cross-device-agents",
         "model-selection"
+      ]
+    },
+    {
+      "slug": "cross-device-agents",
+      "file": "notes/en/cross-device-agents.md",
+      "title": "How can an AI agent's work continue across devices?",
+      "category": "ux",
+      "categories": [
+        "ux",
+        "ai",
+        "backend",
+        "infra"
+      ],
+      "tags": [
+        "Cloud Agent",
+        "Session Persistence",
+        "Context Management",
+        "Cross-Device UX",
+        "Agent Analytics"
+      ],
+      "date": "2026-11-05",
+      "updated": "2026-11-11",
+      "summary": "Continuing work across devices requires managing progress and the execution environment alongside conversation history. Devices should share the same task state, while defining what users can inspect and control on each device. Drawing on Copilot examples, this note covers resuming tasks, approvals and permissions, device-specific UX, and considerations when measuring usage.",
+      "sample": false,
+      "related": [
+        "context-engineering",
+        "agent-memory",
+        "agent-hitl",
+        "agent-kpi"
       ]
     },
     {
@@ -233,11 +321,12 @@
         "LangGraph"
       ],
       "date": "2026-10-28",
-      "summary": "With a 300-character minimum, a 328-character report full of generalities passed. I split format checks off to code and claim-evidence matching to an LLM judge — and then the same report started getting a different score each time it was evaluated.",
+      "summary": "Code can check formatting and required fields, but whether the content matches its evidence needs a separate evaluation. LLM Judge verdicts can vary, so automated evaluation alone cannot establish quality. This note covers the roles of code checks and LLM evaluation, when human review is needed, and what information reviewers need.",
       "sample": false,
       "related": [
         "agent-autonomy",
         "agent-kpi",
+        "ai-data-patterns",
         "ai-failure-tracing",
         "multi-agent-vs-single",
         "rag-citation-rules",
@@ -262,12 +351,13 @@
         "ADR"
       ],
       "date": "2026-10-25",
-      "summary": "Choosing a tech stack isn't about picking the best technology. It's about deciding how much complexity you actually need. This note covers the requirements and constraints a PM can provide, six criteria for choosing technology, how to judge overengineering, MSA, and new tech, and ADRs for recording why you chose what you did.",
+      "summary": "Choosing a tech stack means deciding on an appropriate level of complexity based on service requirements, team capabilities, and development and operating costs, rather than seeking the best technology in isolation. This note covers the requirements and constraints a PM can provide, six criteria for choosing technology, how to judge overengineering, MSA, and new tech, and ADRs for recording why you chose what you did.",
       "sample": false,
       "related": [
         "why-python-ai",
         "multi-agent-vs-single",
         "why-ai-agent",
+        "ai-coding-delivery",
         "ai-waiting-ux"
       ]
     },
@@ -287,7 +377,7 @@
         "LangSmith"
       ],
       "date": "2026-10-23",
-      "summary": "Knowing the final answer is wrong doesn't tell you what to fix. Notes on narrowing down the cause with step-by-step execution records (tracing), verifying fixes with evaluation, and how to decide what to log.",
+      "summary": "Knowing that the final answer is wrong does not tell you what to fix. Step-by-step execution records (Tracing) help narrow down the cause by showing retrieval results, information passed to the model, tool calls, and final output. This note covers checking improvements and regressions against the same evaluation cases after a change, and deciding what to log.",
       "sample": false,
       "related": [
         "agent-eval",
@@ -315,7 +405,7 @@
       ],
       "date": "2026-10-07",
       "dateType": "class",
-      "summary": "Calling an LLM several times or using tools doesn't mean you need an agent. First find out whether there's actually a point where the next action has to be chosen based on intermediate results.",
+      "summary": "Calling an LLM multiple times or using tools does not by itself mean an agent is needed. First identify whether the model needs to choose its next action based on intermediate results. If an agent is used, define what it can choose, its execution limits, and when it must stop, then compare whether it actually produces better results than a fixed workflow.",
       "sample": false,
       "related": [
         "agent-eval",
@@ -345,13 +435,38 @@
         "AI Service Planning"
       ],
       "date": "2026-09-28",
-      "summary": "Adding a retrieval step doesn't make answers more accurate by itself. Drawing on a RAG capstone and research comparing RAG with long context, I wrote down criteria for choosing RAG or another approach based on the shape and size of the information and the kind of question, plus how to verify the choice.",
+      "summary": "Adding retrieval does not guarantee accurate answers. Depending on the amount and type of information needed, compare it with passing entire documents to the model or querying an API or database. When using RAG, check whether retrieval loses important conditions and whether the evidence applies to the actual question, then evaluate answer quality alongside operating costs.",
       "sample": false,
       "related": [
         "rag-citation-rules",
         "data-preprocessing",
         "context-engineering",
         "model-selection"
+      ]
+    },
+    {
+      "slug": "ai-data-patterns",
+      "file": "notes/en/ai-data-patterns.md",
+      "title": "How much can we trust the patterns AI finds in data?",
+      "category": "data",
+      "categories": [
+        "data",
+        "planning"
+      ],
+      "tags": [
+        "Exploratory Data Analysis",
+        "Hypothesis Testing",
+        "Generalization",
+        "LLM"
+      ],
+      "date": "2026-09-25",
+      "updated": "2026-11-11",
+      "summary": "Before using a pattern found by AI to make a business decision, define what that pattern is meant to help decide. Check whether it holds under different aggregation choices, recurs in other periods, and reflects the phenomenon the data is supposed to measure. Using a customer-support example, this note distinguishes the evidence needed for observations, predictions, and staffing decisions.",
+      "sample": false,
+      "related": [
+        "data-preprocessing",
+        "why-ml-model",
+        "agent-eval"
       ]
     },
     {
@@ -369,7 +484,7 @@
         "LangGraph"
       ],
       "date": "2026-09-22",
-      "summary": "With zero sources, the LLM isn't called at all, and citations not on the list get removed in code. At one point I passed the raw source text, the LLM copied it word for word, and the output failed validation.",
+      "summary": "When retrieval finds no supporting evidence, answer generation can be stopped, and code can filter out citations that are not on the allowed list. But a citation existing is different from its source supporting the claim. This note covers responses when evidence is missing, citation validation rules, and what code can and cannot verify.",
       "sample": false,
       "related": [
         "agent-eval",
@@ -397,7 +512,7 @@
         "Tool Calling"
       ],
       "date": "2026-09-15",
-      "summary": "Prompt injection isn't about spotting malicious sentences. It's about making sure untrusted information can't change what the AI does. Notes on direct vs. indirect attacks, trust boundaries, layered defenses, and a test design that logs attack attempts, blocks, and executions separately.",
+      "summary": "Instructions embedded in external documents or tool responses can change an AI's behavior. Prompts should distinguish instructions from reference material, while code must enforce permissions for data access and tool execution. Tests should distinguish attempted actions, blocked actions, and actual execution, and also check that legitimate tasks are not being blocked.",
       "sample": false,
       "related": [
         "agent-guardrails",
@@ -422,7 +537,7 @@
         "Cost Optimization"
       ],
       "date": "2026-09-12",
-      "summary": "Every extra agent adds model calls and handoffs. My take is to adopt multi-agent only once a single agent's limits are confirmed and splitting roles would actually fix them, and to justify it by cost per successful task.",
+      "summary": "Splitting work across multiple agents allows them to take on different roles, but also adds calls, information handoffs, and result integration. First identify what a single agent cannot resolve, then compare whether dividing roles solves that problem. The comparison should cover completion rate, response time, cost per successfully completed task, and operational burden.",
       "sample": false,
       "related": [
         "why-ai-agent",
@@ -452,12 +567,13 @@
         "Data Governance"
       ],
       "date": "2026-09-12",
-      "summary": "Not holding on to wrong information matters as much as remembering well. Starting from an exercise where I built a preference-saving tool, this note covers what to store, when to update, deactivate, or delete it, and how to verify that deletion actually holds.",
+      "summary": "Not holding on to incorrect information matters as much as remembering well. Store information worth using again, and update or stop using information that has become outdated or changed. The design should let users edit and delete memories, and include a way to verify that superseded or deleted information is not reused in later answers.",
       "sample": false,
       "related": [
         "context-engineering",
         "agent-hitl",
-        "agent-governance"
+        "agent-governance",
+        "cross-device-agents"
       ]
     },
     {
@@ -475,7 +591,7 @@
         "Middleware"
       ],
       "date": "2026-09-11",
-      "summary": "Guardrails aren't about blocking an agent as much as possible. They define in code how far it can go on its own. Notes on separating a full stop, blocking a single action, waiting for approval, and a partial answer, plus the problems I hit limiting input, call counts, and output with LangChain middleware.",
+      "summary": "Disallowed actions should be blocked before execution, and further execution should be limited once a call budget is reached. Depending on the situation, the agent may need to stop entirely, block a specific action, or wait for approval. It should also determine whether it can answer using information already verified. This note covers input checks, call limits, and output checks with LangChain middleware, along with issues found during implementation.",
       "sample": false,
       "related": [
         "agent-hitl",
@@ -503,12 +619,13 @@
         "create_agent"
       ],
       "date": "2026-09-11",
-      "summary": "Put approval only on the one action that's hard to undo. Don't re-ask about something the user already chose, and take approval from the user's resume command, not from the model's response. This note covers the LangChain HITL setup code and the errors I got stuck on.",
+      "summary": "Asking users to approve something they have already selected makes them decide twice. Approval should be placed where it is needed, based on an action's impact and reversibility, and users should understand what they are authorizing. This note covers implementing approval, rejection, and resumption with LangChain HITL, along with the errors encountered and how they were resolved.",
       "sample": false,
       "related": [
         "agent-autonomy",
         "agent-guardrails",
         "agent-memory",
+        "cross-device-agents",
         "prompt-injection",
         "why-ai-agent"
       ]
@@ -529,7 +646,7 @@
       ],
       "date": "2026-09-11",
       "dateType": "class",
-      "summary": "Being able to generate answers with AI isn't a reason to adopt it. I think you first have to ask which user task you're improving, whether it can be solved without AI, and whether users can tell when the output is wrong.",
+      "summary": "Being able to generate answers with AI isn't a reason to adopt it. I think we need to identify which user task to improve, consider whether it can be solved without AI, and design a flow that lets users recognize and correct errors.",
       "sample": false,
       "related": [
         "why-ai-agent",
@@ -555,7 +672,7 @@
         "AI Service Planning"
       ],
       "date": "2026-09-05",
-      "summary": "Performance versus cost isn't an either-or choice. Meet the quality and safety bar first, then optimize latency and total cost per successful task. This note looks at parameter count, reasoning, and cost separately, and lays out criteria for choosing a model through model routing and comparison experiments.",
+      "summary": "Before choosing a model, I need to define the answer quality required, acceptable costs and response times, and the consequences of errors. I think models and reasoning settings should be compared on the same tasks, with retries and human review included in the cost of getting a usable result.",
       "sample": false,
       "related": [
         "why-sllm",
@@ -563,7 +680,8 @@
         "multi-agent-vs-single",
         "agent-kpi",
         "when-rag",
-        "ai-failure-tracing"
+        "ai-failure-tracing",
+        "ai-technical-debt"
       ]
     },
     {
@@ -586,10 +704,11 @@
       ],
       "date": "2026-09-03",
       "dateType": "class",
-      "summary": "I checked the rules of thumb \"tabular data means tree models\" and \"little data means ML\" against research. Conclusion: GBDT is a strong baseline, but you still need to compare it with pretrained models on business metrics and total cost.",
+      "summary": "For predictions based on numerical and categorical business data, traditional ML is a useful starting point for comparison. But having little data or tabular inputs is no reason to rule out deep learning or LLMs. I think we need to check how much they improve actual business outcomes and whether that improvement justifies the additional development and operating costs.",
       "sample": false,
       "related": [
         "why-sllm",
+        "ai-data-patterns",
         "data-preprocessing",
         "model-selection",
         "why-ai-service",
@@ -613,7 +732,7 @@
       ],
       "date": "2026-08-31",
       "dateType": "class",
-      "summary": "That a small model is cheaper and faster is only a hypothesis. My takeaway is that you have to compare total cost, including task quality, latency, deployment environment, and review, under the same conditions.",
+      "summary": "Before choosing an sLLM, I need to check whether it can deliver the quality the task requires. Even a small model can cost more overall if it creates extra review and rework. I think the decision should be based on quality and response time measured with real task inputs, along with costs that include operation and human review.",
       "sample": false,
       "related": [
         "why-ai-agent",
@@ -640,19 +759,20 @@
         "RAG"
       ],
       "date": "2026-08-30",
-      "summary": "Preprocessing isn't about making data clean; it's about preparing it so its meaning doesn't get distorted. I covered preprocessing for tabular and document data, the problems that too much preprocessing creates, how to decide the scope, and how to verify that it helped.",
+      "summary": "The amount of preprocessing needed depends on the condition of the data and its intended use. Filling missing values or splitting documents should preserve the original meaning and the information needed to make decisions. I think it is important to compare results before and after processing to check whether retrieval and answers actually improve.",
       "sample": false,
       "related": [
         "why-ml-model",
         "context-engineering",
         "rag-citation-rules",
+        "ai-data-patterns",
         "when-rag"
       ]
     },
     {
       "slug": "claude-cli-in-app",
       "file": "notes/en/claude-cli-in-app.md",
-      "title": "Call Claude Code from an app and your own settings come along — CLI flags and streaming",
+      "title": "Does Claude Code use my personal settings when called from an app?",
       "category": "ai",
       "categories": [
         "ai",
@@ -661,12 +781,14 @@
       ],
       "tags": [
         "Claude Code",
+        "Codex",
         "CLI",
         "Streaming",
         "Python"
       ],
       "date": "2026-08-28",
-      "summary": "I made a study app's \"Grade\" button run the claude command from a Python server. Notes on how Claude called from an app still reads my PC's settings and skills, and how the flag for turning off tools wasn't what I expected.",
+      "updated": "2026-11-11",
+      "summary": "Calling a CLI locally can bring personal settings and instructions into the session. I looked into how to exclude settings, disable tools, and stream the response to the screen as it is generated.",
       "sample": false,
       "related": [
         "ai-waiting-ux"
@@ -691,7 +813,7 @@
         "AI Architecture"
       ],
       "date": "2026-08-22",
-      "summary": "Python's strength comes from its ecosystem for training and experimenting with models; connecting an external LLM API to a service works in Java too. I compared Spring Boot + Spring AI with Python + FastAPI using TaxDesk as the example, and listed what a PM should look at when choosing.",
+      "summary": "Python is widely used because of its rich ecosystem for data processing, model training and experimentation. When connecting an LLM API to an existing service, Java and Spring AI are also options; the choice should account for reuse of existing business logic, team expertise and additional operational overhead.",
       "sample": false,
       "related": [
         "why-ml-model",
@@ -717,7 +839,7 @@
         "AI Agent"
       ],
       "date": "2026-07-31",
-      "summary": "No prompt can save an answer when the needed information is missing, and stuffing in more information doesn't help either. These are my design criteria for what to give, when, and how much, and for what to remember and what to drop.",
+      "summary": "Planning an AI agent involves not just its prompt, but what information it needs, when and how much to provide, how long to retain it and what to discard. Deciding what to discard starts with setting criteria for what is worth remembering.",
       "sample": false,
       "related": [
         "prompt-techniques",
@@ -725,6 +847,7 @@
         "ai-failure-tracing",
         "agent-guardrails",
         "agent-memory",
+        "cross-device-agents",
         "data-preprocessing",
         "when-rag"
       ]
@@ -744,7 +867,7 @@
         "Few-shot"
       ],
       "date": "2026-07-15",
-      "summary": "The 10 prompt techniques from class, organized by when to use them. I set up the request with RICE, then layer on whichever technique fits the goal.",
+      "summary": "I think the desired result should guide the choice of prompt technique. I structure the request with RICE, use examples when the output format matters, and Step-back when the premise needs checking.",
       "sample": false,
       "related": [
         "context-engineering"

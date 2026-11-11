@@ -84,7 +84,7 @@ export const NOTES = [
     "date": "2026.09.11",
     "title": "왜 AI 서비스를 만들까? — 사용자 문제와 도입 효과를 먼저 정의하기",
     "href": "notes.html#n-why-ai-service",
-    "summary": "사용자의 어떤 작업을 개선할지부터 정의합니다. 기존 방식과 비교할 기준, AI가 맡을 범위, 도입 효과를 확인할 방법을 정리했습니다.",
+    "summary": "‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 어떻게 알아채고 바로잡을 수 있는지 흐름까지 함께 설계해야 한다고 생각한다.",
     "tags": [
       "기획·기술 선택",
       "도입 판단"
@@ -94,7 +94,7 @@ export const NOTES = [
     "date": "2026.11.06",
     "title": "AI 개발 도구 비교 — VS Code·Kiro·Cursor의 작업 방식과 규칙 설정",
     "href": "notes.html#n-ai-dev-tools-compare",
-    "summary": "VS Code·Kiro·Cursor의 AI 작업 방식, 프로젝트 규칙 파일, 외부 도구 연결(MCP), 모델 선택 방법을 비교합니다.",
+    "summary": "VS Code는 조합형, Kiro는 명세 중심, Cursor는 에이전트 중심. AI 코딩 방식, 프로젝트 규칙 관리, 작업 계획·검증 흐름을 공식 문서 기준으로 비교했다.",
     "tags": [
       "개발 도구",
       "AI 코딩"
@@ -104,7 +104,7 @@ export const NOTES = [
     "date": "2026.07.15",
     "title": "프롬프트 기법 10가지 — 사용 상황과 작성 예시",
     "href": "notes.html#n-prompt-techniques",
-    "summary": "프롬프트 기법 10가지를 사용 상황별로 정리했습니다. 역할·지시·배경·예시를 구분하는 RICE 틀과 기법별 작성 예시를 담았습니다.",
+    "summary": "원하는 결과가 무엇인지 먼저 정해야 프롬프트 기법도 고를 수 있다고 생각한다. 요청은 RICE로 구체화하고, 출력 형식이 중요하면 예시를 주고 전제를 점검할 때는 Step-back을 쓰는 식으로 목적에 맞게 선택한다.",
     "tags": [
       "AI·에이전트",
       "Few-shot"

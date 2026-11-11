@@ -3,7 +3,7 @@ title: No evidence, no answer — citation checks for RAG
 category: ai
 tags: [RAG, Citation, AI Agent, LangGraph]
 date: 2026-09-22
-summary: With zero sources, the LLM isn't called at all, and citations not on the list get removed in code. At one point I passed the raw source text, the LLM copied it word for word, and the output failed validation.
+summary: When retrieval finds no supporting evidence, answer generation can be stopped, and code can filter out citations that are not on the allowed list. But a citation existing is different from its source supporting the claim. This note covers responses when evidence is missing, citation validation rules, and what code can and cannot verify.
 sample: false
 related: [agent-eval]
 ---

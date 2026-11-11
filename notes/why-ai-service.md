@@ -4,7 +4,7 @@ category: planning
 tags: [AI 기획, 문제 정의, 사용자 흐름, 도입 판단]
 date: 2026-09-11
 date_type: class
-summary: ‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 알아챌 수 있는지부터 따져야 한다고 생각한다.
+summary: ‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 어떻게 알아채고 바로잡을 수 있는지 흐름까지 함께 설계해야 한다고 생각한다.
 sample: false
 related: [why-ai-agent, why-ml-model, why-sllm]
 ---

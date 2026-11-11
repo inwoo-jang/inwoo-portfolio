@@ -3,7 +3,7 @@ title: 10 prompt techniques — which one to reach for, and when
 category: ai
 tags: [Prompt Engineering, RICE, CoT, Few-shot]
 date: 2026-07-15
-summary: The 10 prompt techniques from class, organized by when to use them. I set up the request with RICE, then layer on whichever technique fits the goal.
+summary: I think the desired result should guide the choice of prompt technique. I structure the request with RICE, use examples when the output format matters, and Step-back when the premise needs checking.
 sample: false
 ---
 

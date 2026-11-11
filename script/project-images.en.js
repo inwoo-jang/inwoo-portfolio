@@ -1,5 +1,12 @@
 // Real project images. Each caption starts by saying what it is: real screen, team output, sample data, or diagram. Empty arrays are not shown.
 window.PROJECT_IMAGES = {
+  "possessed": [
+    {
+      "src": "media/portfolio/possessed-flow.png",
+      "alt": "POSSESSED design flow — tool-call proposals, policy checks, blocks and mock execution",
+      "caption": "Design flow diagram · Early implementation · End-to-end flow and live LLM experiments not yet validated"
+    }
+  ],
   "order-sync": [
     {
       "src": "media/portfolio/order-sync-diagram.svg",
@@ -120,12 +127,12 @@ window.PROJECT_IMAGES = {
     {
       "src": "media/portfolio/quiket-demo-upload.jpg",
       "alt": "Quiket add-materials screen — choosing files without naming a chapter first",
-      "caption": "Team output screen · ① Upload materials"
+      "caption": "Final presentation demo · ① Upload materials · Team output"
     },
     {
       "src": "media/portfolio/quiket-demo-chapters.jpg",
       "alt": "Quiket review screen — checking and editing the chapter name and four parts the AI created",
-      "caption": "Team output screen · ② Review and edit the chapters and parts the AI created"
+      "caption": "Final presentation demo · ② Review and edit the chapters and parts the AI created · Team output"
     },
     {
       "src": "media/portfolio/quiket-card.png",

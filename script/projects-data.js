@@ -357,6 +357,27 @@ window.PROJECTS = [
     stack: ["Vue 3", "Pinia", "ERD · dbml", "OpenAPI 3"]
   },
 
+  {
+    id: "ad-review",
+    brief: true,
+    roles: ["프론트엔드", "AI 엔지니어링"],
+    status: "출품 준비 중",
+    statusKind: "other",
+    image: "media/portfolio/project-in-progress.svg",
+    imageAlt: "진행 중 — 표시광고 AI 사전검토 서비스",
+    book: "skala",
+    title: "표시광고 AI 사전검토 서비스(가칭)",
+    scope: "SKALA 팀 프로젝트",
+    period: "2026.11 – 진행 중",
+    types: ["Frontend", "AI Engineering"],
+    overview: "광고 이미지의 문구를 추출해 원본과 대조하고, 담당자가 누락을 확인하고 수정·재검토할 수 있는 서비스를 만들고 있습니다.",
+    role: "프론트엔드 · AI OCR 서비스 개발",
+    briefNote: "화면과 OCR 구현, 팀 시스템 연동 진행 중. 진행 중으로 세부사항 비공개.",
+    build: [],
+    metrics: [],
+    stack: []
+  },
+
   /* ---------- 팀 ---------- */
   {
     id: "quiket",
@@ -376,7 +397,7 @@ window.PROJECTS = [
     build: [
       "미니 버전으로 짧은 자료에서 문항이 과도하게 생성되는 것을 확인해 입력 분량별 문항 수 기준을 정함",
       "MoSCoW 우선순위를 PRD·와이어프레임·명세·스프린트에 같은 기준으로 적용",
-      "준비 안 된 메뉴는 컨셉에 맞는 대기 안내로 처리, 데이터 구조는 설계대로 남김"
+      "디자이너가 원한 캐릭터와 도토리 요소는 화면에 남기고, 핵심 학습 기능의 출시 일정에 맞춰 구현 범위를 조율"
     ],
     metrics: [
       { value: "2026.07.10", label: "App Store 출시 (Google Play 함께 출시)", scope: "7인 팀 결과 · 정식 앱은 개발팀 구현" },
@@ -444,7 +465,29 @@ window.PROJECTS = [
     stack: ["Python", "OpenCV", "데이터 누출 점검", "키보드 UX"]
   },
 
+
   /* ---------- 개인 ---------- */
+  {
+    id: "possessed",
+    brief: true,
+    roles: ["기획", "풀스택 개발", "AI 엔지니어링"],
+    status: "출품 준비 중",
+    statusKind: "other",
+    image: "media/portfolio/possessed-flow.png",
+    imageAlt: "POSSESSED 기획 흐름도 — 도구 호출 제안, 정책 검사, 차단과 모의 실행",
+    book: "solo",
+    title: "POSSESSED — The Agent Overreach Lab",
+    scope: "개인 프로젝트 · Kiroween",
+    period: "2026.11 – 진행 중",
+    types: ["Product", "AI Engineering", "Tool"],
+    overview: "AI 에이전트가 요청받은 일을 완료했는지뿐 아니라, 허락받은 범위 안에서 행동했는지 확인하기 위한 실험 도구입니다.",
+    role: "기획·설계 · 풀스택 개발 · AI 엔지니어링",
+    briefDetails: "도구 호출 시도와 정책 판정, 차단·모의 실행을 구분하고, 정책을 바꾼 뒤 같은 시나리오를 다시 검증하는 흐름을 설계했습니다.",
+    briefNote: "현재 기획·설계와 초기 구현 단계이며, 전체 실행 흐름과 효과는 검증 중입니다.",
+    build: [],
+    metrics: [],
+    stack: []
+  },
   {
     id: "marketdesk",
     image: "media/portfolio/marketdesk-flow-card.jpg",

@@ -443,7 +443,7 @@ mark {
 .md > :first-child { margin-top: 0; }
 .md pre { margin: var(--s4) 0 var(--s5); padding: var(--s4) var(--s5); overflow-x: auto; background: var(--ink); color: #EEF0F3; border-radius: 6px; font-size: .875rem; line-height: 1.7; }
 .md pre code { background: none; padding: 0; color: inherit; }
-.md blockquote { margin: var(--s4) 0 var(--s5); padding: var(--s3) var(--s4); background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: var(--fs-small); }
+.md blockquote { margin: var(--s5) 0; padding: 0 0 0 var(--s4); background: none; border: 0; border-left: 2px solid var(--rule-strong); border-radius: 0; color: var(--text); font-size: inherit; }
 .md blockquote p:last-child { margin: 0; }
 .md img { display: block; max-width: 100%; height: auto; margin: var(--s5) 0 var(--s2); border: 1px solid var(--rule); }
 .md img[src="media/notes/ai-failure-pipeline-clean.png"],
@@ -830,10 +830,12 @@ mark {
 [data-note-reader] .md table { margin-bottom: var(--s5); }
 [data-note-reader] .md tbody td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
 [data-note-reader] .md tbody tr:nth-child(even) td { background: #FAFBFC; }
-/* 내 메모 — TIP 박스 */
-[data-note-reader] .md blockquote:not(:first-child) { position: relative; margin: var(--s4) 0 var(--s5); padding: var(--s4) var(--s5); background: #FFF9E8; border: 1px solid #F1E2B3; border-left: 3px solid #D9A400; border-radius: 0 10px 10px 0; font-size: .9688rem; }
-[data-note-reader] .md blockquote:not(:first-child)::before { content: none; }
-[data-note-reader] .md blockquote ul li::before { background: #B98900; }
+/* 문장형 비교표: 작은 화면에서도 설명 열의 읽기 폭을 유지한다. */
+[data-note-slug="ai-data-patterns"] .md table { min-width: 600px; table-layout: fixed; }
+[data-note-slug="ai-data-patterns"] .md th:first-child { width: 36%; }
+[data-note-slug="ai-data-patterns"] .md tbody td:first-child { white-space: normal; }
+/* 인용문 — 본문과 같은 서체, 얇은 회색 선과 들여쓰기로 구분 */
+[data-note-reader] .md blockquote ul li::before { background: var(--muted); }
 [data-note-reader] .md blockquote ul:last-child { margin-bottom: 0; }
 
 /* 25. How I Work — 읽기 편하게 (장식 없이 글자·간격만) */

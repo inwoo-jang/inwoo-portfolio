@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [Context Engineering, Prompt Engineering, RAG, Agent Memory, AI Agent]
 date: 2026-07-31
-summary: 프롬프트를 아무리 잘 써도 필요한 정보가 없으면 답이 틀리고, 정보를 많이 넣는다고 좋아지지도 않는다. 무엇을, 언제, 얼마나 줄지와 무엇을 기억하고 버릴지를 설계 기준으로 정리했다.
+summary: AI Agent를 기획할 때는 프롬프트뿐 아니라 어떤 정보가 필요한지, 언제 얼마나 줄지, 얼마나 유지할지, 어떤 정보를 버릴지까지 설계해야 한다. 버릴 정보를 정하려면 무엇이 기억할 가치가 있는지 기준을 먼저 세워야 한다.
 sample: false
 related: [prompt-techniques, rag-citation-rules, ai-failure-tracing, agent-guardrails]
 ---

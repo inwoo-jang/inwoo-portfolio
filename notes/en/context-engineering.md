@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [Context Engineering, Prompt Engineering, RAG, Agent Memory, AI Agent]
 date: 2026-07-31
-summary: No prompt can save an answer when the needed information is missing, and stuffing in more information doesn't help either. These are my design criteria for what to give, when, and how much, and for what to remember and what to drop.
+summary: Planning an AI agent involves not just its prompt, but what information it needs, when and how much to provide, how long to retain it and what to discard. Deciding what to discard starts with setting criteria for what is worth remembering.
 sample: false
 related: [prompt-techniques, rag-citation-rules, ai-failure-tracing, agent-guardrails]
 ---

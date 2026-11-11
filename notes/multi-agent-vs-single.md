@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [AI Architecture, Agent Orchestration, Multi-Agent, Cost Optimization]
 date: 2026-09-12
-summary: 에이전트를 나눌수록 호출과 정보 전달이 늘어난다. Multi-Agent는 단일 에이전트의 한계가 확인되고 역할 분리가 그걸 해결할 수 있을 때 도입하고, 성공 1건당 비용으로 정당화해야 한다고 정리했다.
+summary: 에이전트를 여러 개로 나누면 역할을 분담할 수 있지만, 호출과 정보 전달, 결과를 합치는 과정도 늘어난다. 단일 에이전트에서 해결되지 않는 문제가 무엇인지 먼저 확인하고, 역할 분리가 그 문제를 해결하는지 비교해야 한다. 완료율뿐 아니라 응답 시간과 성공한 업무 한 건당 비용, 운영 부담까지 봐야 한다.
 sample: false
 related: [why-ai-agent, agent-autonomy, agent-guardrails, agent-eval]
 ---

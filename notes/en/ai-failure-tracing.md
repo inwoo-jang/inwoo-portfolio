@@ -4,7 +4,7 @@ category: ai
 categories: [ai, testing]
 tags: [AI Observability, Tracing, Root Cause Analysis, LangSmith]
 date: 2026-10-23
-summary: Knowing the final answer is wrong doesn't tell you what to fix. Notes on narrowing down the cause with step-by-step execution records (tracing), verifying fixes with evaluation, and how to decide what to log.
+summary: Knowing that the final answer is wrong does not tell you what to fix. Step-by-step execution records (Tracing) help narrow down the cause by showing retrieval results, information passed to the model, tool calls, and final output. This note covers checking improvements and regressions against the same evaluation cases after a change, and deciding what to log.
 sample: false
 related: [agent-eval, rag-citation-rules, agent-guardrails]
 ---

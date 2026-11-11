@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [AI Agent, Agent Memory, Memory Lifecycle, Context Engineering, Data Governance]
 date: 2026-09-12
-summary: Not holding on to wrong information matters as much as remembering well. Starting from an exercise where I built a preference-saving tool, this note covers what to store, when to update, deactivate, or delete it, and how to verify that deletion actually holds.
+summary: Not holding on to incorrect information matters as much as remembering well. Store information worth using again, and update or stop using information that has become outdated or changed. The design should let users edit and delete memories, and include a way to verify that superseded or deleted information is not reused in later answers.
 sample: false
 related: [context-engineering, agent-hitl, agent-governance]
 ---

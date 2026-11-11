@@ -4,7 +4,7 @@ category: ai
 categories: [ai, testing]
 tags: [Prompt Injection, AI Security, Trust Boundary, Guardrails, Tool Calling]
 date: 2026-09-15
-summary: Prompt injection isn't about spotting malicious sentences. It's about making sure untrusted information can't change what the AI does. Notes on direct vs. indirect attacks, trust boundaries, layered defenses, and a test design that logs attack attempts, blocks, and executions separately.
+summary: Instructions embedded in external documents or tool responses can change an AI's behavior. Prompts should distinguish instructions from reference material, while code must enforce permissions for data access and tool execution. Tests should distinguish attempted actions, blocked actions, and actual execution, and also check that legitimate tasks are not being blocked.
 sample: false
 related: [agent-guardrails, agent-hitl, agent-autonomy, rag-citation-rules]
 ---

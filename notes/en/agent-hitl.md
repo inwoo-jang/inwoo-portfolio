@@ -3,7 +3,7 @@ title: Where should approval go? — a LangChain HITL exercise
 category: ai
 tags: [AI Agent, HITL, LangChain, create_agent]
 date: 2026-09-11
-summary: Put approval only on the one action that's hard to undo. Don't re-ask about something the user already chose, and take approval from the user's resume command, not from the model's response. This note covers the LangChain HITL setup code and the errors I got stuck on.
+summary: Asking users to approve something they have already selected makes them decide twice. Approval should be placed where it is needed, based on an action's impact and reversibility, and users should understand what they are authorizing. This note covers implementing approval, rejection, and resumption with LangChain HITL, along with the errors encountered and how they were resolved.
 sample: false
 related: [agent-autonomy]
 ---

@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai, ux]
 tags: [AI Agent, Autonomy, Human-in-the-loop, UX]
 date: 2026-11-06
-summary: 에이전트의 실행 권한과 위험 수준에 따른 자율성 설계, Human-in-the-loop와 사용자 통제 경험에 대한 고찰.
+summary: 에이전트의 자율성은 실행 권한과 결과의 영향, 되돌릴 수 있는지를 기준으로 정해야 한다. 모든 행동에 승인을 요구하기보다 자동 실행·사전 승인·실행 금지를 구분하고, 사용자가 실행 내용을 확인하고 중단할 수 있게 해야 한다. 사람이 판단하고 개입할 지점에 Human-in-the-loop를 두고, 이를 승인 경험과 오류 복구, 운영 지표로 연결하는 기준을 정리했다.
 sample: false
 related: [agent-hitl, why-ai-agent, agent-guardrails, agent-eval]
 ---

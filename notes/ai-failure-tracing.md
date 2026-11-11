@@ -4,7 +4,7 @@ category: ai
 categories: [ai, testing]
 tags: [AI Observability, Tracing, Root Cause Analysis, LangSmith]
 date: 2026-10-23
-summary: 최종 답변이 틀렸다는 사실만으로는 무엇을 고쳐야 할지 알 수 없다. 단계별 실행 기록(Tracing)으로 원인을 좁히고, 수정 후 평가로 검증하는 흐름과 기록 범위의 판단 기준을 정리했다.
+summary: 최종 답변이 틀렸다는 사실만으로는 무엇을 고쳐야 할지 알 수 없다. 단계별 실행 기록(Tracing)을 따라 검색 결과, 모델에 전달된 정보, 도구 호출과 최종 출력을 확인하며 원인을 좁혀야 한다. 수정 후 같은 평가 사례로 개선 여부와 부작용을 확인하는 흐름, 기록 범위의 판단 기준을 정리했다.
 sample: false
 related: [agent-eval, rag-citation-rules, agent-guardrails]
 ---

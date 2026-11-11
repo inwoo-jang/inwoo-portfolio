@@ -5,9 +5,9 @@ export default { title: "컴포넌트/책 시안" };
 
 const BOOKS = [
   { no: "01", title: "At Work", ko: "실무", meta: "7장 · 2024–2026", tone: "#1E2126" },
-  { no: "02", title: "SKALA Projects", ko: "교육", meta: "4장 · 2026.08–09", tone: "#1B3554" },
+  { no: "02", title: "SKALA Projects", ko: "교육", meta: "5장 · 2026", tone: "#1B3554" },
   { no: "03", title: "With a Team", ko: "팀", meta: "3장 · 2026", tone: "#2C4652" },
-  { no: "04", title: "Built Myself", ko: "개인", meta: "6장 · 2026", tone: "#5A5047" },
+  { no: "04", title: "Personal Projects", ko: "개인", meta: "7장 · 2026", tone: "#5A5047" },
 ];
 
 const CHAPTER = {

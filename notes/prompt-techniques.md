@@ -3,7 +3,7 @@ title: 프롬프트 기법 10가지 — 언제 무엇을 꺼내 쓸까
 category: ai
 tags: [Prompt Engineering, RICE, CoT, Few-shot]
 date: 2026-07-15
-summary: 수업에서 배운 프롬프트 기법 10가지를 쓸 상황별로 정리했다. 요청은 RICE로 잡고, 목적에 맞는 기법을 얹는 식으로 쓴다.
+summary: 원하는 결과가 무엇인지 먼저 정해야 프롬프트 기법도 고를 수 있다고 생각한다. 요청은 RICE로 구체화하고, 출력 형식이 중요하면 예시를 주고 전제를 점검할 때는 Step-back을 쓰는 식으로 목적에 맞게 선택한다.
 sample: false
 ---
 

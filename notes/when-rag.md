@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [RAG, Long Context, Architecture, Retrieval, AI Service Planning]
 date: 2026-09-28
-summary: 검색 단계를 더한다고 답변이 정확해지는 건 아니다. RAG 캡스톤 경험과 RAG·Long Context 비교 연구를 바탕으로, 정보의 형태·규모·질문 특성에 따라 RAG와 다른 방식을 고르는 기준과 검증 방법을 정리했다.
+summary: 검색 단계를 더한다고 답변이 정확해지는 건 아니다. 필요한 정보의 양과 형태에 따라 문서 전체를 전달하거나 API·DB로 조회하는 방식도 비교해야 한다. RAG를 쓴다면 검색 과정에서 중요한 조건이 빠지지 않는지, 찾은 근거가 실제 질문에 맞는지 확인하고 답변 품질과 운영 비용을 함께 검증해야 한다.
 sample: false
 related: [rag-citation-rules, data-preprocessing, context-engineering]
 ---

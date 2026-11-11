@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai, ux]
 tags: [AI Agent, Autonomy, Human-in-the-loop, UX]
 date: 2026-11-06
-summary: Thoughts on designing agent autonomy around execution permissions and risk level, human-in-the-loop, and giving users real control.
+summary: An agent's autonomy should depend on its permissions, the impact of its actions, and whether they can be reversed. Rather than requiring approval for every action, distinguish automatic execution, prior approval, and prohibited actions, and let users inspect and stop execution. This note covers placing Human-in-the-loop at points that require human judgment and intervention, and connecting those decisions to the approval experience, error recovery, and operational metrics.
 sample: false
 related: [agent-hitl, why-ai-agent, agent-guardrails, agent-eval]
 ---

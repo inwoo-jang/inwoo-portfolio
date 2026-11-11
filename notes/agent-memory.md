@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [AI Agent, Agent Memory, Memory Lifecycle, Context Engineering, Data Governance]
 date: 2026-09-12
-summary: AI가 잘 기억하는 것만큼 잘못된 정보를 계속 기억하지 않는 것이 중요하다. 선호 저장 도구를 만든 실습에서 출발해, 무엇을 저장하고 언제 갱신·비활성화·삭제할지, 삭제가 실제로 지켜지는지 어떻게 검증할지 정리했다.
+summary: AI가 잘 기억하는 것만큼 잘못된 정보를 계속 기억하지 않는 것이 중요하다. 앞으로도 쓸 가치가 있는 정보를 저장하고, 오래되거나 바뀐 정보는 갱신하거나 사용을 중단해야 한다. 사용자가 기억을 수정·삭제할 수 있는 흐름과 그 정보가 이후 답변에 다시 쓰이지 않는지 확인하는 방법까지 설계해야 한다.
 sample: false
 related: [context-engineering, agent-hitl, agent-governance]
 ---

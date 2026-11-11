@@ -3,7 +3,7 @@ title: Where should an agent be stopped? — guardrails on input, call counts, a
 category: ai
 tags: [AI Agent, Guardrails, LangChain, Middleware]
 date: 2026-09-11
-summary: Guardrails aren't about blocking an agent as much as possible. They define in code how far it can go on its own. Notes on separating a full stop, blocking a single action, waiting for approval, and a partial answer, plus the problems I hit limiting input, call counts, and output with LangChain middleware.
+summary: Disallowed actions should be blocked before execution, and further execution should be limited once a call budget is reached. Depending on the situation, the agent may need to stop entirely, block a specific action, or wait for approval. It should also determine whether it can answer using information already verified. This note covers input checks, call limits, and output checks with LangChain middleware, along with issues found during implementation.
 sample: false
 related: [agent-hitl]
 ---

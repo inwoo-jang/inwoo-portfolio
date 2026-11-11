@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ux, backend]
 tags: [Async, Queue, Streaming, UX]
 date: 2026-11-10
-summary: 응답 설계는 속도 문제가 아니라 사용자가 기다려야 하는지, 기다리는 동안 다른 일을 할 수 있는지, 처리 상태를 어떻게 확인하는지를 정하는 문제다. 퀴켓에서 생성 중 홈으로 이동하게 한 경험에서 출발해 동기·비동기·Streaming·Queue와 작업 상태 정책을 정리했다.
+summary: AI 응답을 기다리는 동안 사용자가 다른 일을 할 수 있는지, 진행 상태와 결과를 어떻게 확인할지 정해야 한다. 화면 이동과 작업 취소를 구분하고, 실패했을 때 재시도할 범위도 설계해야 한다. 동기·비동기·Streaming·Queue의 차이와 작업 특성에 맞는 응답 방식, 상태별 사용자 행동을 정리했다.
 sample: false
 related: [tech-stack-choice, claude-cli-in-app]
 ---

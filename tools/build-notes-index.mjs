@@ -77,6 +77,7 @@ for (const file of files) {
     categories: noteCategories,
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     date: meta.date || "",
+    ...(meta.updated ? { updated: meta.updated } : {}),
     ...(meta.date_end ? { dateEnd: meta.date_end } : {}),
     ...(meta.date_type ? { dateType: meta.date_type } : {}),
     summary: meta.summary || "",

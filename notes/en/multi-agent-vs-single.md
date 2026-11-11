@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [AI Architecture, Agent Orchestration, Multi-Agent, Cost Optimization]
 date: 2026-09-12
-summary: Every extra agent adds model calls and handoffs. My take is to adopt multi-agent only once a single agent's limits are confirmed and splitting roles would actually fix them, and to justify it by cost per successful task.
+summary: Splitting work across multiple agents allows them to take on different roles, but also adds calls, information handoffs, and result integration. First identify what a single agent cannot resolve, then compare whether dividing roles solves that problem. The comparison should cover completion rate, response time, cost per successfully completed task, and operational burden.
 sample: false
 related: [why-ai-agent, agent-autonomy, agent-guardrails, agent-eval]
 ---

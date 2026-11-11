@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai, backend]
 tags: [Python, Java, Spring AI, Spring Boot, FastAPI, AI Architecture]
 date: 2026-08-22
-summary: Python's strength comes from its ecosystem for training and experimenting with models; connecting an external LLM API to a service works in Java too. I compared Spring Boot + Spring AI with Python + FastAPI using TaxDesk as the example, and listed what a PM should look at when choosing.
+summary: Python is widely used because of its rich ecosystem for data processing, model training and experimentation. When connecting an LLM API to an existing service, Java and Spring AI are also options; the choice should account for reuse of existing business logic, team expertise and additional operational overhead.
 sample: false
 related: [why-ml-model, multi-agent-vs-single, why-sllm]
 ---

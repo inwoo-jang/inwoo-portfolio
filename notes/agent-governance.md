@@ -4,7 +4,7 @@ category: planning
 categories: [planning, ai]
 tags: [Agent Governance, Agent Sprawl, Agent Lifecycle, AI ROI]
 date: 2026-11-10
-summary: 에이전트를 많이 만드는 것이 AX의 성공은 아니다. Gartner 전망과 SKT·IBM·Cisco 사례를 보고, 에이전트를 생성부터 중단까지 관리하는 생애주기와 유지·개선·중단 판단 기준을 정리했다.
+summary: 에이전트를 많이 만드는 것이 AX의 성공은 아니다. 어떤 업무를 맡고 누가 관리하는지, 어떤 권한으로 실행되며 실제 성과를 내는지 파악해야 한다. Gartner 전망과 SKT·IBM·Cisco 사례를 바탕으로 생성부터 중단까지의 관리 항목과 유지·개선·중단 판단 기준을 정리했다.
 sample: false
 related: [agent-kpi, agent-autonomy, ai-failure-tracing, agent-guardrails]
 ---

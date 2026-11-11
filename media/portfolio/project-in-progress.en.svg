@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#F5F6F8"/>
+  <g fill="none" stroke="#C8CDD4" stroke-width="2">
+    <rect x="371" y="177" width="58" height="46" rx="4"/>
+    <path d="M383 191h34m-34 10h23m-23 10h16"/>
+  </g>
+  <text x="400" y="278" text-anchor="middle" fill="#545B66" font-family="Pretendard, -apple-system, sans-serif" font-size="48" font-weight="600">In progress</text>
+  <text x="400" y="319" text-anchor="middle" fill="#6F7682" font-family="Pretendard, -apple-system, sans-serif" font-size="24">Preparing for submission</text>
+</svg>

@@ -50,7 +50,7 @@ window.PROJECTS = [
     image: "media/portfolio/order-sync-diagram.svg",
     imageAlt: "Diagram of how order and item units map to box units (made by me)",
     book: "work",
-    title: "Order and box status sync for a pharmaceutical wholesale mall",
+    title: "Order and box status sync for a pharmaceutical wholesaler’s ordering platform",
     scope: "JEEKIM COMPANY · Went live",
     period: "2026.01–02",
     types: ["Product", "Operations"],
@@ -296,7 +296,7 @@ window.PROJECTS = [
     ],
     metrics: [
       { value: "8.33MB → 2.10MB", label: "Model size" },
-      { value: "0.09%p", label: "Validation accuracy gap between the two final candidates (4.12MB and 2.10MB)", scope: "About the same as seed-to-seed variation" }
+      { value: "0.09 percentage points", label: "Validation accuracy gap between the two final candidates (4.12MB and 2.10MB)", scope: "About the same as seed-to-seed variation" }
     ],
     resultNote: "One image at a time, the smaller model was actually slower; in batches it was faster. Night, backlight and rain are listed as untested.",
     stack: ["PyTorch", "CNN", "Model compression", "Experiment design"]
@@ -357,6 +357,27 @@ window.PROJECTS = [
     stack: ["Vue 3", "Pinia", "ERD · dbml", "OpenAPI 3"]
   },
 
+  {
+    id: "ad-review",
+    brief: true,
+    roles: ["Frontend", "AI Engineering"],
+    status: "Preparing for submission",
+    statusKind: "other",
+    image: "media/portfolio/project-in-progress.en.svg",
+    imageAlt: "In progress — AI advertising pre-review service",
+    book: "skala",
+    title: "AI advertising pre-review service (working title)",
+    scope: "SKALA team project",
+    period: "2026.11 – present",
+    types: ["Frontend", "AI Engineering"],
+    overview: "We are building a service that extracts text from ad images so reviewers can compare it with the original, check for omissions, make corrections and request another review.",
+    role: "Frontend and AI OCR service development",
+    briefNote: "UI and OCR implementation and team system integration are in progress. Further details are not public while development is ongoing.",
+    build: [],
+    metrics: [],
+    stack: []
+  },
+
   /* ---------- Team ---------- */
   {
     id: "quiket",
@@ -376,7 +397,7 @@ window.PROJECTS = [
     build: [
       "The mini version showed that short materials produced too many questions, so I set question counts by input length",
       "Applied the same MoSCoW priorities across the PRD, wireframes, specs and sprints",
-      "Menus that weren't ready got an on-brand ‘coming soon’ message, while the data structure stayed as designed"
+      "Kept the character and acorn elements the designers wanted on screen, and coordinated the feature scope so the core learning features could be completed in time for launch"
     ],
     metrics: [
       { value: "2026.07.10", label: "App Store launch (Google Play at the same time)", scope: "7-person team result · production app built by the dev team" },
@@ -444,7 +465,29 @@ window.PROJECTS = [
     stack: ["Python", "OpenCV", "Data leakage checks", "Keyboard UX"]
   },
 
+
   /* ---------- Personal ---------- */
+  {
+    id: "possessed",
+    brief: true,
+    roles: ["Product Planning", "Full-stack", "AI Engineering"],
+    status: "Preparing for submission",
+    statusKind: "other",
+    image: "media/portfolio/possessed-flow.png",
+    imageAlt: "POSSESSED design flow — tool-call proposals, policy checks, blocks and mock execution",
+    book: "solo",
+    title: "POSSESSED — The Agent Overreach Lab",
+    scope: "Personal project · Kiroween",
+    period: "2026.11 – present",
+    types: ["Product", "AI Engineering", "Tool"],
+    overview: "An experimental tool for checking whether an AI agent acts within the scope of the user’s permission, as well as whether it completes the task.",
+    role: "Product planning and design · Full-stack development · AI engineering",
+    briefDetails: "I designed a flow that distinguishes tool-call attempts, policy decisions, blocks and mock execution, then reruns the same scenario after a policy change.",
+    briefNote: "Planning, design and early implementation are in progress. The complete workflow and its effectiveness are still being evaluated.",
+    build: [],
+    metrics: [],
+    stack: []
+  },
   {
     id: "marketdesk",
     image: "media/portfolio/marketdesk-flow-card.jpg",

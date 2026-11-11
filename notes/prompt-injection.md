@@ -4,7 +4,7 @@ category: ai
 categories: [ai, testing]
 tags: [Prompt Injection, AI Security, Trust Boundary, Guardrails, Tool Calling]
 date: 2026-09-15
-summary: Prompt Injection은 악의적인 문장을 찾는 문제가 아니라, 신뢰할 수 없는 정보가 AI의 행동을 바꾸지 못하게 하는 문제다. 직접·간접 공격, 신뢰 경계, 단계별 방어, 공격 시도·차단·실행을 나눠 기록하는 테스트 설계를 정리했다.
+summary: 외부 문서나 도구 응답에 섞인 지시가 AI의 행동을 바꿀 수 있다. 프롬프트에서 지시와 참고 자료를 구분하고, 실제 데이터 접근과 도구 실행은 코드로 권한을 검사해야 한다. 공격에 따른 실행 시도·차단·실제 실행을 구분하고, 정상적인 작업까지 막히지는 않는지 함께 검증해야 한다.
 sample: false
 related: [agent-guardrails, agent-hitl, agent-autonomy, rag-citation-rules]
 ---

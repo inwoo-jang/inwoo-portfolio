@@ -4,7 +4,7 @@ category: ai
 categories: [ai, planning]
 tags: [RAG, Long Context, Architecture, Retrieval, AI Service Planning]
 date: 2026-09-28
-summary: Adding a retrieval step doesn't make answers more accurate by itself. Drawing on a RAG capstone and research comparing RAG with long context, I wrote down criteria for choosing RAG or another approach based on the shape and size of the information and the kind of question, plus how to verify the choice.
+summary: Adding retrieval does not guarantee accurate answers. Depending on the amount and type of information needed, compare it with passing entire documents to the model or querying an API or database. When using RAG, check whether retrieval loses important conditions and whether the evidence applies to the actual question, then evaluate answer quality alongside operating costs.
 sample: false
 related: [rag-citation-rules, data-preprocessing, context-engineering]
 ---

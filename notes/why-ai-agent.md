@@ -5,7 +5,7 @@ categories: [planning, ai]
 tags: [AI 기획, AI Agent, 워크플로, 실행 범위]
 date: 2026-10-07
 date_type: class
-summary: LLM을 여러 번 부르거나 도구를 쓴다고 에이전트가 필요한 건 아니다. 중간 결과에 따라 다음 행동을 골라야 하는 지점이 실제로 있는지부터 찾아야 한다.
+summary: LLM을 여러 번 부르거나 도구를 쓴다고 에이전트가 필요한 건 아니다. 중간 결과에 따라 모델이 다음 행동을 골라야 하는 지점이 있는지 먼저 확인해야 한다. 에이전트를 쓴다면 선택할 수 있는 범위와 실행 한도·중단 조건을 정하고, 고정된 워크플로보다 실제로 나은 결과를 내는지 비교해야 한다.
 sample: false
 related: [agent-eval, agent-guardrails, agent-hitl]
 ---

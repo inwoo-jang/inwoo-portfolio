@@ -5,7 +5,7 @@ categories: [planning, ai]
 tags: [AI product planning, sLLM, Language model, Operating cost]
 date: 2026-08-31
 date_type: class
-summary: That a small model is cheaper and faster is only a hypothesis. My takeaway is that you have to compare total cost, including task quality, latency, deployment environment, and review, under the same conditions.
+summary: Before choosing an sLLM, I need to check whether it can deliver the quality the task requires. Even a small model can cost more overall if it creates extra review and rework. I think the decision should be based on quality and response time measured with real task inputs, along with costs that include operation and human review.
 sample: false
 related: [why-ai-agent]
 ---
