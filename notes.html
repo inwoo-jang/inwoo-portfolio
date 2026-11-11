@@ -35,8 +35,18 @@
 
   <main id="main" class="page">
 
-    <header class="page-head">
-      <p class="eyebrow">Dev Notes</p>
+    <header class="page-head page-head--wide">
+      <div class="page-head__top">
+        <p class="eyebrow">Dev Notes</p>
+        <div class="view-switch view-switch--white" role="group" aria-label="노트 보기 방식" data-notes-view-switch>
+          <button type="button" class="view-switch__button" data-notes-view="cards" aria-label="카드로 보기" title="카드로 보기" aria-pressed="true" aria-controls="notes-grid">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="3" y="3" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="17" y="3" width="4" height="4" rx="1"/><rect x="3" y="10" width="4" height="4" rx="1"/><rect x="10" y="10" width="4" height="4" rx="1"/><rect x="17" y="10" width="4" height="4" rx="1"/><rect x="3" y="17" width="4" height="4" rx="1"/><rect x="10" y="17" width="4" height="4" rx="1"/><rect x="17" y="17" width="4" height="4" rx="1"/></svg>
+          </button>
+          <button type="button" class="view-switch__button" data-notes-view="list" aria-label="리스트로 보기" title="리스트로 보기" aria-pressed="false" aria-controls="notes-grid">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 5h12M9 12h12M9 19h12"/><path d="M3 5h1M3 12h1M3 19h1" stroke-width="3"/></svg>
+          </button>
+        </div>
+      </div>
       <h1 class="display">기획 판단과 AI 구현 기록</h1>
       <p class="lead">어떤 문제에 AI를 적용하고, 어떤 기술을 선택할지 판단하는 기준을 정리합니다. 개발 도구 사용법과 AI 기능의 구현·검증 과정도 함께 기록합니다.</p>
     </header>
@@ -58,12 +68,12 @@
         </div>
 
         <div class="notes-guide" id="notes-guide" hidden>
-          <p>여러 주제를 다루는 글은 관련 분류에 함께 표시합니다. 카드 상단의 세로 테이프 색이 각 분류를 나타내며, 마우스를 올리면 분류명을 확인할 수 있습니다. 카드 아래에는 기술 키워드와 글의 유형(비교·사용 가이드·오류 해결)을 표시합니다. 분류별 글 수에는 중복이 포함됩니다.</p>
+          <p>여러 주제를 다루는 글은 관련 분류에 함께 표시합니다. 카드 보기에서는 상단의 세로 테이프 색이 각 분류를 나타내며, 마우스를 올리면 분류명을 확인할 수 있습니다. 리스트 보기에서는 분류명을 직접 표시합니다. 각 글 아래에는 기술 키워드와 글의 유형(비교·사용 가이드·오류 해결)을 표시합니다. 분류별 글 수에는 중복이 포함됩니다.</p>
           <ul class="notes-guide__grid" data-note-category-guide></ul>
         </div>
 
         <p class="count" data-notes-count aria-live="polite">노트를 불러오는 중…</p>
-        <ol class="entries" data-notes-grid></ol>
+        <ol class="entries" id="notes-grid" data-notes-grid data-layout="cards"></ol>
       </div>
 
       <article class="reader-view" data-note-reader aria-labelledby="note-title" hidden></article>

@@ -98,6 +98,12 @@ function initNotebook(note) {
     busy = true;
     current = index;
 
+    // 양면으로 펼친 책(데스크톱)에서는 종이 한 장이 책등을 축으로 넘어간다
+    if (spreadMode(from, to)) {
+      flipSheet(from, to, direction);   // 버튼 줄(syncUi)도 이 안에서 맞춘다
+      return;
+    }
+
     to.hidden = false;
     to.classList.remove("is-flipping-out", "is-flipping-in");
     to.scrollTop = 0;   // 새로 펼친 장은 항상 처음부터 읽는다
@@ -131,6 +137,171 @@ function initNotebook(note) {
     }, 700);
 
     syncUi();
+    revealTop();
+  }
+
+  /** 양면 보기인지 — 데스크톱 폭이고, 두 장 모두 왼쪽·오른쪽 면이 있을 때 */
+  function spreadMode(from, to) {
+    if (!window.matchMedia("(min-width: 768px)").matches) { return false; }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return false; }
+    return !!(from.querySelector(".spread__left") && to.querySelector(".spread__right"));
+  }
+
+  /**
+   * 판의 종이를 연습장 종이와 똑같이 맞춘다(색·결·책등 그늘의 위치까지).
+   * 다르면 넘김이 끝나고 판을 걷어낼 때 종이가 한 번 '툭' 바뀌어 보인다.
+   */
+  function paperLike(el, n, offsetX) {
+    var cs = getComputedStyle(note);
+    var layers = cs.backgroundSize.split(",").length;
+    var sizes = cs.backgroundSize.split(",").map(function (v) {
+      v = v.trim();
+      return v === "auto" ? (n.width + "px " + n.height + "px") : v;
+    });
+    var pos = [];
+    for (var i = 0; i < layers; i++) { pos.push((-offsetX) + "px 0px"); }
+    el.style.backgroundColor = cs.backgroundColor;
+    el.style.backgroundImage = cs.backgroundImage;
+    el.style.backgroundSize = sizes.join(", ");
+    el.style.backgroundPosition = pos.join(", ");
+    el.style.backgroundRepeat = cs.backgroundRepeat;
+    el.style.backgroundBlendMode = cs.backgroundBlendMode;
+  }
+
+  /**
+   * 책 반쪽(종이 한 장) 크기의 판. 연습장 종이와 같은 색·결로 칠하고,
+   * 그 위에 장(.note__page)을 통째로 복제해 같은 자리에 얹는다 — 원래 스타일이 그대로 적용되도록.
+   * 판에는 face 쪽 면만 보이고 반대쪽 면은 숨긴다.
+   * @param {HTMLElement} page  복제할 장
+   * @param {string} face       보일 면(".spread__left" / ".spread__right")
+   * @param {string} side       판이 놓일 쪽("left" / "right")
+   */
+  function plate(page, face, side) {
+    var n = note.getBoundingClientRect();
+    var b = body.getBoundingClientRect();
+    var half = n.width / 2;
+    var offset = (side === "left") ? 0 : half;
+    var el = document.createElement("div");
+    el.className = "flip-plate flip-plate--" + side;
+    el.setAttribute("aria-hidden", "true");
+    el.style.left = offset + "px";
+    el.style.width = half + "px";
+    paperLike(el, n, offset);
+
+    // 본문(.note__body) 자리와 크기를 그대로 흉내 낸 틀 — 장은 그 안을 가득 채운다
+    var frame = document.createElement("div");
+    frame.className = "flip-plate__frame";
+    frame.style.left = (b.left - n.left - offset) + "px";
+    frame.style.top = (b.top - n.top) + "px";
+    frame.style.width = b.width + "px";
+    frame.style.height = b.height + "px";
+    var copy = page.cloneNode(true);
+    copy.hidden = false;
+    copy.classList.remove("is-flipping-out", "is-flipping-in");
+    stripIds(copy);
+    var other = copy.querySelector(face === ".spread__left" ? ".spread__right" : ".spread__left");
+    if (other) { other.style.visibility = "hidden"; }
+    frame.appendChild(copy);
+    el.appendChild(frame);
+    el._copy = copy;
+    el._scroll = page.hidden ? 0 : page.scrollTop;
+    return el;
+  }
+
+  /** 아래 버튼 줄(‹ 1/7 ›)을 지금 모습 그대로 판에 얹는다. 판을 걷어낼 때 버튼이 깜빡이지 않게. */
+  function addControls(el, side) {
+    var bar = note.querySelector(".note__controls");
+    if (!bar) { return; }
+    var n = note.getBoundingClientRect();
+    var r = bar.getBoundingClientRect();
+    var offset = (side === "left") ? 0 : n.width / 2;
+    var copy = bar.cloneNode(true);
+    stripIds(copy);
+    copy.classList.add("flip-plate__controls");
+    copy.style.left = (r.left - n.left - offset) + "px";
+    copy.style.top = (r.top - n.top) + "px";
+    copy.style.width = r.width + "px";
+    copy.style.height = r.height + "px";
+    el.appendChild(copy);
+  }
+
+  function stripIds(root) {
+    root.removeAttribute("id");
+    root.querySelectorAll("[id]").forEach(function (x) { x.removeAttribute("id"); });
+  }
+
+  /** 판을 문서에 붙인 뒤, 복제한 장의 스크롤 위치를 원래 장과 맞춘다. */
+  function mount(el) {
+    note.appendChild(el);
+    if (el._copy) { el._copy.scrollTop = el._scroll; }
+  }
+
+  /**
+   * 종이 한 장 넘기기 — 책 오른쪽(또는 왼쪽) 반쪽 전체가 책등을 축으로 넘어간다.
+   * 다음 장: 오른쪽 종이가 왼쪽으로 넘어가며, 뒷면이 새 장의 왼쪽 면이 된다.
+   * 이전 장: 왼쪽 종이가 오른쪽으로 넘어가며, 뒷면이 새 장의 오른쪽 면이 된다.
+   * 버튼 줄도 함께 복제한다 — 넘어가는 앞면은 넘기기 전 상태, 남는 쪽과 뒷면은 넘긴 뒤 상태.
+   */
+  function flipSheet(from, to, direction) {
+    var next = direction === "next";
+    var half = note.getBoundingClientRect().width / 2;
+    var stayFace = next ? ".spread__left" : ".spread__right";
+    var turnFace = next ? ".spread__right" : ".spread__left";
+    var staySide = next ? "left" : "right";
+    var turnSide = next ? "right" : "left";
+
+    // 넘기기 전 모습: 그대로 남는 쪽(stay)과 넘어갈 종이의 앞면(front)
+    var stay = plate(from, stayFace, staySide);
+    var front = plate(from, turnFace, turnSide);
+    addControls(front, turnSide);
+
+    // 새 장을 펼치고 버튼 줄을 새 장에 맞춘 뒤, 넘어간 뒤 보일 뒷면(back)을 복제한다.
+    // 뒷면은 착지할 쪽(반대쪽 반) 기준으로 만든다. 종이가 180° 넘어가면 그 자리에 정확히 놓인다
+    from.hidden = true;
+    to.hidden = false;
+    to.classList.remove("is-flipping-out", "is-flipping-in");
+    to.scrollTop = 0;
+    syncUi();
+    addControls(stay, staySide);
+    var back = plate(to, stayFace, staySide);
+    addControls(back, staySide);
+
+    // 넘어가는 종이가 아래 면에 드리우는 그림자
+    var shadow = document.createElement("div");
+    shadow.className = "flip-cast flip-cast--" + direction;
+    shadow.style.left = (next ? 0 : half) + "px";
+    shadow.style.width = half + "px";
+
+    var sheet = document.createElement("div");
+    sheet.className = "flip-sheet flip-sheet--" + direction;
+    sheet.setAttribute("aria-hidden", "true");
+    sheet.style.left = (next ? half : 0) + "px";
+    sheet.style.width = half + "px";
+    front.classList.add("flip-sheet__front");
+    back.classList.add("flip-sheet__back");
+    sheet.appendChild(front);
+    sheet.appendChild(back);
+
+    mount(stay);
+    note.appendChild(shadow);
+    note.appendChild(sheet);
+    front._copy.scrollTop = front._scroll;
+    back._copy.scrollTop = 0;
+
+    var finished = false;
+    var finish = function () {
+      if (finished) { return; }
+      finished = true;
+      busy = false;
+      shadow.remove();
+      // 판을 바로 걷지 않고 아주 짧게 흐려서 걷는다 — 실제 장과의 미세한 글자 렌더링 차이가 '툭' 보이지 않게
+      // 남아 있던 옛 면(stay)은 착지한 종이에 이미 덮였으므로 바로 걷는다
+      stay.remove();
+      sheet.classList.add("is-leaving");
+      setTimeout(function () { sheet.remove(); }, 200);
+    };
+    sheet.addEventListener("animationend", function (e) { if (e.target === sheet) { finish(); } });
+    setTimeout(finish, 1100);
     revealTop();
   }
 

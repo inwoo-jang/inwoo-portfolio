@@ -88,6 +88,20 @@ export function search({ label = "검색", placeholder = "제목·요약·태그
   return `<div class="search"><label class="visually-hidden" for="q">${esc(label)}</label><input id="q" type="search" placeholder="${esc(placeholder)}" autocomplete="off"></div>`;
 }
 
+/* 사이트와 같은 크기·아이콘을 쓰는 보기 전환. 동작은 호출하는 화면에서 연결한다. */
+export function viewSwitch({ variant = "gray", selected = "cards", second = "list", controls = "", label = "보기 방식" } = {}) {
+  const grid = Array.from({ length: 9 }, (_, i) => `<rect x="${3 + (i % 3) * 7}" y="${3 + Math.floor(i / 3) * 7}" width="4" height="4" rx="1"/>`).join("");
+  const icons = {
+    cards: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">${grid}</svg>`,
+    list: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 5h12M9 12h12M9 19h12"/><path d="M3 5h1M3 12h1M3 19h1" stroke-width="3"/></svg>',
+    book: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Z"/><path d="M12 6v15M6 9h3M6 12h3M15 9h3M15 12h3"/></svg>',
+  };
+  const labels = { cards: "카드로 보기", list: "리스트로 보기", book: "연습장으로 넘겨 보기" };
+  const modifier = { outline: " view-switch--outline", minimal: " view-switch--minimal", white: " view-switch--white", black: " view-switch--black" }[variant] || "";
+  const modes = ["cards", second === "book" ? "book" : "list"];
+  return `<div class="view-switch${modifier}" role="group" aria-label="${esc(label)}">${modes.map((mode) => `<button type="button" class="view-switch__button" data-mode="${mode}" aria-label="${labels[mode]}" title="${labels[mode]}" aria-pressed="${selected === mode}"${controls ? ` aria-controls="${esc(controls)}"` : ""}>${icons[mode]}</button>`).join("")}</div>`;
+}
+
 /* ---------- 소개 ---------- */
 export function hero({ name, role, title, summary = [], actions = [], profile }) {
   return `<section class="hero" aria-labelledby="hero-title">
@@ -210,7 +224,8 @@ export function entry({ date, title, href = "#", summary, tags: t = [], category
   const categoryAttrs = palette ? ` data-category="${esc(category.id)}" style="--note-ink:${esc(palette.ink)};--note-soft:${esc(palette.soft)};--tape:${esc(palette.tape)}"` : "";
   const allCategories = related.length ? related : category ? [category] : [];
   const tapes = allCategories.length ? `<div class="note-tapes" role="img" aria-label="${esc('분류: ' + allCategories.map((c) => c.label).join(', '))}">${allCategories.map((c) => `<span class="note-tape" style="--tape:${esc(c.color.tape)}" title="${esc(c.label)}" aria-hidden="true"></span>`).join("")}</div>` : "";
-  return `<li class="entry"${categoryAttrs}>${tapes}<span class="entry__date">${esc(date)}</span><div class="entry__body"><h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
+  const badges = allCategories.map((c) => `<span class="note-category" style="--note-ink:${esc(c.color.ink)};--note-soft:${esc(c.color.soft)};--tape:${esc(c.color.tape)}">${esc(c.label)}</span>`).join("");
+  return `<li class="entry"${categoryAttrs}>${tapes}<div class="entry__meta"><span class="entry__date">${esc(date)}</span><div class="entry__categories">${badges}</div></div><div class="entry__body"><h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
 }
 
 export function entries(list = []) {

@@ -229,6 +229,11 @@
   function proseFrom(article) {
     var copy = article.cloneNode(true);
     copy.removeAttribute("hidden");
+    // 책(양면) 보기용으로 나눈 왼쪽·오른쪽 면을 풀어 원래 순서대로 읽게 한다
+    copy.querySelectorAll(".spread__left, .spread__right").forEach(function (w) {
+      while (w.firstChild) { w.parentNode.insertBefore(w.firstChild, w); }
+      w.remove();
+    });
     var firstMeta = copy.querySelector(":scope > .note__meta");
     if (firstMeta) { firstMeta.remove(); }
     copy.querySelectorAll(":scope > .chip, :scope > h3, :scope > .tag-row, :scope > .btn-row")

@@ -959,3 +959,419 @@ html { scroll-behavior: smooth; }
 .note__cover-title { font-weight: 800 !important; letter-spacing: -0.04em !important; }
 .shelf-book__title { font-family: var(--font); font-weight: 700; letter-spacing: -0.03em; }
 .note-wrap .section-title { display: block; margin: 0 0 var(--s3); text-align: center; font-size: var(--fs-small); font-weight: 600; color: var(--muted); }
+
+
+/* ==========================================================
+   33. Book View — 천 장정 하드커버 · 양면으로 펼친 책
+   사이트 톤(차콜 · 잉크 남색 · 슬레이트)에 맞추고, 금박 같은 가는 선과 제목.
+   ========================================================== */
+.page-portfolio {
+  --foil: #D9C9A3;
+  --foil-soft: rgba(217, 201, 163, .62);
+  --paper: #FBF9F4;
+  --paper-edge: #E9E3D6;
+  --paper-line: #D8D0C0;
+}
+
+/* ---- 선반 — 나무판 대신 얇은 차콜 선반 ---- */
+.page-portfolio .bookshelf__row {
+  border-bottom: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  padding-bottom: 14px;
+  position: relative;
+}
+.page-portfolio .bookshelf__row::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #3A3F47, #22252B);
+  box-shadow: 0 10px 18px rgba(17, 20, 24, .18);
+}
+
+/* ---- 표지 ---- */
+.page-portfolio .shelf-book {
+  padding: var(--sp-5) var(--sp-4) var(--sp-4) calc(var(--sp-4) + 12px);
+  border-radius: 3px 6px 6px 3px;
+  color: var(--foil);
+  background-color: var(--c2);
+  background-image:
+    /* 천 결 */
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 1px, transparent 1px 3px),
+    /* 빛 */
+    radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(160deg, var(--c1), var(--c2));
+  background-size: auto, auto, auto, cover;
+  background-blend-mode: normal;
+  /* 금박 테두리 한 줄(안쪽) + 그림자 */
+  box-shadow:
+    inset 0 0 0 9px var(--c2),
+    inset 0 0 0 10px var(--foil-soft),
+    0 12px 24px rgba(17, 20, 24, .26),
+    0 2px 4px rgba(17, 20, 24, .18);
+  filter: none;
+}
+.page-portfolio .shelf-book:not(.is-active) { filter: brightness(.92); }
+
+/* 책등 — 접힌 홈과 금박 두 줄 */
+.page-portfolio .shelf-book::before {
+  width: 12px;
+  border-radius: 3px 0 0 3px;
+  background:
+    linear-gradient(to bottom, transparent 14px, var(--foil-soft) 14px 15px, transparent 15px calc(100% - 15px), var(--foil-soft) calc(100% - 15px) calc(100% - 14px), transparent calc(100% - 14px)),
+    linear-gradient(to right, rgba(0,0,0,.38), rgba(255,255,255,.06) 60%, rgba(0,0,0,.22));
+}
+
+.page-portfolio .shelf-book--work  { --c1: #343840; --c2: #17191D; }   /* 실무 — 차콜 */
+.page-portfolio .shelf-book--skala { --c1: #24406A; --c2: #13233D; }   /* 교육 — 잉크 남색 */
+.page-portfolio .shelf-book--team  { --c1: #345462; --c2: #1A2F38; }   /* 팀 — 딥 슬레이트 */
+.page-portfolio .shelf-book--solo  { --c1: #4D433C; --c2: #26201C; }   /* 개인 — 월넛 그레이 */
+
+.page-portfolio .shelf-book__no {
+  display: block;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--foil-soft);
+  width: 26px;
+  font-family: var(--font);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: var(--foil);
+}
+.page-portfolio .shelf-book__title {
+  margin-top: var(--sp-3);
+  font-size: clamp(1.125rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #EFE5CC;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+.page-portfolio .shelf-book__meta {
+  font-family: var(--font);
+  font-size: .6875rem;
+  letter-spacing: .04em;
+  color: var(--foil-soft);
+}
+.page-portfolio .shelf-book.is-active {
+  transform: translateY(-14px);
+  box-shadow:
+    inset 0 0 0 9px var(--c2),
+    inset 0 0 0 10px var(--foil),
+    0 22px 34px rgba(17, 20, 24, .32),
+    0 2px 4px rgba(17, 20, 24, .2);
+}
+.page-portfolio .shelf-book.is-active::after {
+  bottom: -14px;
+  width: 30%;
+  height: 3px;
+  background-color: var(--accent);
+}
+
+/* ---- 펼친 책 ---- */
+.page-portfolio .note-shelf--open { max-width: 1080px; }
+
+.page-portfolio .note {
+  --cover: #17191D;
+  border: 0;
+  border-top: 0;
+  border-radius: 4px;
+  padding: var(--sp-6) var(--sp-7) var(--sp-5);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right,
+      #F1ECE1 0%, var(--paper) 5%, var(--paper) 44%,
+      #EEE8DC 48%, #DCD4C4 49.7%, #CFC6B4 50%, #DCD4C4 50.3%, #EEE8DC 52%,
+      var(--paper) 56%, var(--paper) 95%, #F1ECE1 100%);
+  background-position: 0 0;
+  box-shadow:
+    /* 양쪽으로 겹친 종이 */
+    -3px 2px 0 -1px var(--paper), -4px 2px 0 -1px var(--paper-line),
+    -6px 4px 0 -2px var(--paper), -7px 4px 0 -2px var(--paper-line),
+     3px 2px 0 -1px var(--paper),  4px 2px 0 -1px var(--paper-line),
+     6px 4px 0 -2px var(--paper),  7px 4px 0 -2px var(--paper-line),
+    /* 아래로 살짝 보이는 표지 */
+    0 10px 0 2px var(--cover),
+    0 30px 50px rgba(17, 20, 24, .22);
+}
+.page-portfolio .note--career { --cover: #17191D; }
+.page-portfolio .note--work   { --cover: #13233D; }
+.page-portfolio .note--team   { --cover: #1A2F38; }
+.page-portfolio .note--solo   { --cover: #26201C; }
+.page-portfolio .note::before,
+.page-portfolio .note__rings { display: none; }
+
+.page-portfolio .note__body { perspective-origin: 50% center; }
+.page-portfolio .note__page { transform-origin: 50% center; }
+
+/* 왼쪽 면 = 장 머리, 오른쪽 면 = 본문 */
+.page-portfolio .note__page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: calc(var(--sp-7) * 2);
+  align-items: start;
+}
+.page-portfolio .note__page[hidden] { display: none; }
+.page-portfolio .spread__left {
+  position: sticky;
+  top: 0;
+  padding: var(--sp-5) var(--sp-2) 0 0;
+}
+.page-portfolio .spread__right { min-width: 0; padding-top: var(--sp-2); }
+.page-portfolio .spread__right > :first-child { margin-top: 0; }
+
+.page-portfolio .spread__left .chip {
+  display: block;
+  margin: 0 0 var(--sp-5);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--paper-line);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.page-portfolio .spread__left h3:not(.note__cover-title) {
+  margin: 0 0 var(--sp-4);
+  font-size: clamp(1.5rem, 2.3vw, 1.875rem);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+.page-portfolio .spread__left .note__meta {
+  font-size: .875rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+/* 목차 장 — 왼쪽은 책 제목, 오른쪽은 목차 */
+.page-portfolio .spread__left .note__cover-title {
+  margin: var(--sp-6) 0 0;
+  font-size: clamp(2.5rem, 4.4vw, 3.5rem);
+  line-height: 1.04;
+}
+.page-portfolio .spread__left .note__cover-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-top: var(--sp-5);
+  background-color: var(--accent);
+}
+
+/* 넘기기 버튼 영역 — 종이 위 가는 선 */
+.page-portfolio .note__controls { border-top: 1px solid var(--paper-line); }
+
+/* 모바일 — 한 면만 */
+@media (max-width: 767px) {
+  .page-portfolio .note {
+    padding: var(--sp-5) var(--sp-4) var(--sp-4) var(--sp-5);
+    background-image: linear-gradient(to right, #DCD4C4 0, #EEE8DC 8px, var(--paper) 22px);
+    box-shadow: 3px 2px 0 -1px var(--paper), 4px 2px 0 -1px var(--paper-line),
+                0 8px 0 2px var(--cover), 0 20px 30px rgba(17, 20, 24, .18);
+  }
+  .page-portfolio .note__page { display: block; }
+  .page-portfolio .spread__left { position: static; padding: 0; margin-bottom: var(--sp-5); }
+  .page-portfolio .note__controls { background-color: var(--paper); }
+}
+
+
+/* ==========================================================
+   34. Book View 적용안 — 무광 단색 표지 + 살짝 입체 · 종이 질감 있는 속지
+   (33의 금박·천 결·그라데이션을 덮어쓴다)
+   ========================================================== */
+.page-portfolio {
+  /* 종이 섬유 — 아주 옅은 노이즈 */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.40 0 0 0 0 0.32 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.3'/%3E%3C/svg%3E");
+  --paper-fiber: radial-gradient(140% 100% at 50% 0%, rgba(255, 255, 255, .35), rgba(255, 255, 255, 0) 60%);
+}
+
+/* ---- 표지 — 단색 + 살짝 입체 ---- */
+.page-portfolio .shelf-book {
+  padding: var(--sp-5) var(--sp-4) var(--sp-4) calc(var(--sp-4) + 12px);
+  border-radius: 2px 5px 5px 2px;
+  color: #F4F1EA;
+  background-color: var(--c2);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .07) 0%, rgba(255, 255, 255, 0) 28%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, .10) 100%);
+  background-size: auto;
+  box-shadow:
+    /* 오른쪽에 보이는 종이 단면 */
+    2px 1px 0 -1px #EFE9DD,
+    3px 2px 0 -1px #DCD4C4,
+    /* 바닥 그림자 */
+    0 14px 22px -8px rgba(17, 20, 24, .38),
+    0 2px 4px rgba(17, 20, 24, .16),
+    inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+.page-portfolio .shelf-book:not(.is-active) { filter: none; opacity: .9; }
+/* 책등 경첩 — 홈 한 줄과 빛 한 줄 */
+.page-portfolio .shelf-book::before {
+  width: 12px;
+  border-radius: 2px 0 0 2px;
+  background:
+    linear-gradient(to right,
+      rgba(0, 0, 0, .30) 0, rgba(0, 0, 0, .12) 6px,
+      rgba(0, 0, 0, .34) 9px, rgba(255, 255, 255, .10) 10px, rgba(255, 255, 255, 0) 12px);
+}
+.page-portfolio .shelf-book--work  { --c2: #23262C; }
+.page-portfolio .shelf-book--skala { --c2: #1D3656; }
+.page-portfolio .shelf-book--team  { --c2: #2D4753; }
+.page-portfolio .shelf-book--solo  { --c2: #4E453E; }
+.page-portfolio .shelf-book__no {
+  width: auto;
+  padding-bottom: 0;
+  border-bottom: 0;
+  color: rgba(244, 241, 234, .6);
+}
+.page-portfolio .shelf-book__title { color: #F4F1EA; text-shadow: 0 1px 0 rgba(0, 0, 0, .25); }
+.page-portfolio .shelf-book__meta { color: rgba(244, 241, 234, .6); }
+.page-portfolio .shelf-book.is-active {
+  opacity: 1;
+  transform: translateY(-12px);
+  box-shadow:
+    2px 1px 0 -1px #EFE9DD,
+    3px 2px 0 -1px #DCD4C4,
+    0 24px 30px -10px rgba(17, 20, 24, .42),
+    0 2px 4px rgba(17, 20, 24, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+.page-portfolio .shelf-book.is-active::after { background-color: var(--accent); }
+
+/* ---- 속지 — 33의 입체(가운데 골·겹친 종이)는 유지하고 종이 질감만 더한다 ---- */
+.page-portfolio .note {
+  background-image:
+    var(--paper-grain),
+    var(--paper-fiber),
+    linear-gradient(to right,
+      #F1ECE1 0%, var(--paper) 5%, var(--paper) 44%,
+      #EEE8DC 48%, #DCD4C4 49.7%, #CFC6B4 50%, #DCD4C4 50.3%, #EEE8DC 52%,
+      var(--paper) 56%, var(--paper) 95%, #F1ECE1 100%);
+  background-size: 180px 180px, auto, auto;
+  background-blend-mode: multiply, normal, normal;
+}
+@media (max-width: 767px) {
+  .page-portfolio .note {
+    background-image:
+      var(--paper-grain),
+      var(--paper-fiber),
+      linear-gradient(to right, #DCD4C4 0, #EEE8DC 8px, var(--paper) 22px);
+    background-size: 180px 180px, auto, auto;
+  }
+}
+
+/* 스크롤바를 책 오른쪽 가장자리로 — 본문 위치는 그대로(넓힌 만큼 안쪽 여백) */
+@media (min-width: 768px) {
+  .page-portfolio .note__body { margin-right: calc(var(--sp-7) * -1 + 10px); }
+  .page-portfolio .note__page { padding-right: calc(var(--sp-7) - 10px + 2px); }
+}
+
+
+/* ==========================================================
+   35. 종이 한 장 넘기기 (데스크톱 양면 보기)
+   ========================================================== */
+.flip-plate,
+.flip-sheet,
+.flip-cast {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+/* 종이 한 장(책 반쪽) — 머리부터 아래 버튼 줄까지 전체 */
+/* 종이색·결은 portfolio.js(paperLike)가 연습장 종이에서 그대로 복사한다 */
+.flip-plate { overflow: hidden; }
+.flip-plate--left  { border-radius: 4px 0 0 4px; }
+.flip-plate--right { border-radius: 0 4px 4px 0; }
+.flip-plate__frame { position: absolute; overflow: hidden; }
+.flip-plate__controls { position: absolute; margin: 0; box-sizing: border-box; }
+
+.flip-sheet {
+  z-index: 6;
+  will-change: transform;
+  transform-style: preserve-3d;
+  animation-duration: .9s;
+  animation-fill-mode: both;
+}
+.flip-sheet--next { transform-origin: left center; animation-name: sheet-next; }
+.flip-sheet--prev { transform-origin: right center; animation-name: sheet-prev; }
+.flip-sheet > .flip-plate {
+  left: 0 !important;
+  width: 100% !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+/* Safari는 각 면에 3D 변형이 있어야 뒷면 숨김이 적용된다 */
+.flip-sheet > .flip-sheet__front { transform: rotateY(0deg) translateZ(.5px); }
+.flip-sheet > .flip-sheet__back { transform: rotateY(180deg) translateZ(.5px); }
+/* 들린 종이의 앞면은 책등 쪽부터 어두워지고, 뒷면은 착지하며 밝아진다 */
+.flip-sheet > .flip-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: sheet-shade .9s ease both;
+}
+.flip-sheet--next > .flip-sheet__front::after,
+.flip-sheet--prev > .flip-sheet__back::after { background: linear-gradient(to right, rgba(17,20,24,.16), rgba(17,20,24,.02) 40%, rgba(17,20,24,0)); }
+.flip-sheet--next > .flip-sheet__back::after,
+.flip-sheet--prev > .flip-sheet__front::after { background: linear-gradient(to left, rgba(17,20,24,.16), rgba(17,20,24,.02) 40%, rgba(17,20,24,0)); }
+
+/* 넘어가는 종이가 아래 면에 드리우는 그림자 */
+.flip-cast { z-index: 5; opacity: 0; animation: sheet-cast .9s ease both; }
+.flip-cast--next { background: linear-gradient(to left, rgba(17,20,24,.18), rgba(17,20,24,0) 70%); }
+.flip-cast--prev { background: linear-gradient(to right, rgba(17,20,24,.18), rgba(17,20,24,0) 70%); }
+
+/* 앞 절반은 들어 올리며 빨라지고(ease-in), 뒤 절반은 내려앉으며 느려진다(ease-out). 90°는 정확히 절반 시점 */
+@keyframes sheet-next {
+  0%   { transform: perspective(2400px) rotateY(0deg);    animation-timing-function: cubic-bezier(.42, 0, .85, .55); }
+  50%  { transform: perspective(2400px) rotateY(-90deg);  animation-timing-function: cubic-bezier(.15, .45, .58, 1); }
+  100% { transform: perspective(2400px) rotateY(-180deg); }
+}
+@keyframes sheet-prev {
+  0%   { transform: perspective(2400px) rotateY(0deg);   animation-timing-function: cubic-bezier(.42, 0, .85, .55); }
+  50%  { transform: perspective(2400px) rotateY(90deg);  animation-timing-function: cubic-bezier(.15, .45, .58, 1); }
+  100% { transform: perspective(2400px) rotateY(180deg); }
+}
+/* 90°에서 앞면과 뒷면을 바꾼다 — 뒷면 숨김이 안 먹는 브라우저(Safari)에서도 거울 글씨가 보이지 않게 */
+@keyframes face-front { 0% { visibility: visible; } 50%, 100% { visibility: hidden; } }
+@keyframes face-back  { 0%, 50% { visibility: hidden; } 100% { visibility: visible; } }
+.flip-sheet > .flip-sheet__front { animation: face-front .9s linear both; }
+.flip-sheet > .flip-sheet__back  { animation: face-back .9s linear both; }
+@keyframes sheet-shade { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes sheet-cast  { 0% { opacity: 0; } 55% { opacity: 1; } 100% { opacity: 0; } }
+
+/* 첫 장 목차 — 글자를 조금 크게 */
+.page-portfolio .spread__right .toc__no { font-size: .9375rem; }
+.page-portfolio .spread__right .toc__title { font-size: 1.0625rem; }
+.page-portfolio .spread__right .toc__year { font-size: .875rem; }
+
+/* 책장 오른쪽 위 도움말 — 물음표에 올리거나 포커스하면 안내가 뜬다 */
+.bookshelf__row > li:last-child { position: relative; }
+.shelf-help { position: absolute; top: 0; right: -30px; z-index: 3; }
+.shelf-help__btn {
+  width: 20px; height: 20px; padding: 0;
+  border: 1px solid var(--rule-strong); border-radius: 50%;
+  background: var(--white); color: var(--muted);
+  font-family: var(--font-mono); font-size: .6875rem; line-height: 1;
+  cursor: help;
+}
+.shelf-help__btn:hover, .shelf-help__btn:focus-visible { color: var(--ink); border-color: var(--ink); }
+.shelf-help__tip {
+  position: absolute; top: 28px; right: 0;
+  width: 240px; padding: 10px 12px;
+  border: 1px solid var(--rule); border-radius: 6px;
+  background: var(--white); color: var(--text);
+  box-shadow: 0 6px 18px rgba(17,20,24,.10);
+  font-size: .8125rem; line-height: 1.55; text-align: left;
+  opacity: 0; visibility: hidden; transform: translateY(-2px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+}
+.shelf-help:hover .shelf-help__tip,
+.shelf-help:focus-within .shelf-help__tip { opacity: 1; visibility: visible; transform: none; }
+@media (max-width: 767px) { .shelf-help { right: 0; top: -26px; } }
+
+/* 넘김이 끝난 판은 짧게 흐려지며 사라진다 */
+.flip-plate.is-leaving,
+.flip-sheet.is-leaving { opacity: 0; transition: opacity .16s ease-out; }

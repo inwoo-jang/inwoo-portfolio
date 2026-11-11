@@ -18,12 +18,33 @@
   var guideEl = root.querySelector("[data-note-category-guide]");
   var searchEl = root.querySelector("#note-search");
   var readerEl = root.querySelector("[data-note-reader]");
+  var viewSwitch = document.querySelector("[data-notes-view-switch]");
+  var viewButtons = document.querySelectorAll("[data-notes-view]");
 
   var notes = [];
   var state = { category: "all", query: "" };
   var lastOpened = null;
   var currentRoute = null;
   var cache = {};
+
+  function setLayout(layout) {
+    layout = layout === "list" ? "list" : "cards";
+    gridEl.dataset.layout = layout;
+    viewButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", String(button.dataset.notesView === layout));
+    });
+  }
+
+  var savedLayout = "cards";
+  try { savedLayout = localStorage.getItem("inwoo-notes-view"); } catch (e) { /* 저장소 없이도 전환 가능 */ }
+  setLayout(savedLayout);
+  viewButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var layout = button.dataset.notesView;
+      setLayout(layout);
+      try { localStorage.setItem("inwoo-notes-view", layout); } catch (e) { /* 현재 페이지에서만 유지 */ }
+    });
+  });
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -149,7 +170,12 @@
     var time = el("time", "entry__date", formatNoteDate(n));
     time.dateTime = n.date;
     if (n.dateType === "class") { time.setAttribute("aria-label", "수업 " + formatNoteDate(n)); }
-    li.appendChild(time);
+    var meta = el("div", "entry__meta");
+    meta.appendChild(time);
+    var badges = el("div", "entry__categories");
+    categoriesOf(n).forEach(function (id) { badges.appendChild(categoryBadge(categoryOf(id))); });
+    meta.appendChild(badges);
+    li.appendChild(meta);
     var body = el("div", "entry__body");
     var h = el("h3", "entry__title");
     var a = el("a", null, n.title);
@@ -282,6 +308,7 @@
   function showList(restoreFocus) {
     readerEl.hidden = true;
     listEl.hidden = false;
+    if (viewSwitch) { viewSwitch.hidden = false; }
     document.title = "Dev Notes — 장인우 · Inwoo.log";
     if (restoreFocus && lastOpened) {
       var link = gridEl.querySelector('a[href="#n-' + lastOpened + '"]');
@@ -296,6 +323,7 @@
     renderReader(note);
     listEl.hidden = true;
     readerEl.hidden = false;
+    if (viewSwitch) { viewSwitch.hidden = true; }
     lastOpened = note.slug;
     document.title = note.title + " — Notes · Inwoo.log";
     root.scrollIntoView({ block: "start" });

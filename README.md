@@ -21,6 +21,7 @@
 
 ### Portfolio 보기 방식
 
+- 페이지 오른쪽 위의 9칸 카드·책 아이콘으로 Quick View와 Book View를 전환한다. 보기 전환은 높이 32px의 화이트 바탕에 선택한 버튼만 블랙으로 표시한다. Dev Notes에도 같은 스타일을 쓴다. 아이콘에 마우스를 올리면 보기 이름을 확인할 수 있다.
 - **먼저 볼 프로젝트** — 목록 맨 위에 대표 4개(주문 연동 · 급여명세서 · 퀴켓 · TaxDesk)를 `script/projects-data.js`의 `window.FEATURED`로 보여 준다. 카드는 프로젝트명 → 판단 → 결과·현재 상태 순서이고, 홈(`index.html`)의 대표 프로젝트와 같은 문장을 쓴다.
 - **Quick View(기본)** — 프로젝트 카드 20개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
   카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 프로젝트명 → 한 줄 설명 → 기간·팀·내 역할·현재 상태 → 문제·내 판단·확인한 결과 → 화면과 자료 → 상세 과정(연습장 본문) → 기술과 관련 자료 순서. 역할은 상단 메타에서 한 번만 말한다.
@@ -29,6 +30,8 @@
   요약에는 본문에 적힌 사실만 쓰고, 팀 결과·설계 목표·추정치는 `metrics[].scope`에 범위를 적는다.
 
 ### Dev Notes 추가
+
+페이지 오른쪽 위의 9칸 카드·리스트 아이콘으로 보기 방식을 바꾼다. 카드 보기는 기존 포스트잇 형태, 리스트 보기는 날짜·분류와 제목·요약·키워드를 행으로 정돈한다. 선택은 브라우저에 저장되며, 검색·분류 필터와 상세에서 목록으로 돌아올 때도 유지된다.
 
 1. `notes/_template.md`를 복사해 `notes/영문-슬러그.md`로 저장하고 front matter(title · category · tags · date · summary · sample)를 채운다.
 2. `node tools/build-notes-index.mjs` — `notes/index.json`(목록)을 다시 만든다. GitHub Pages는 폴더 목록을 주지 않아서 필요하다.
