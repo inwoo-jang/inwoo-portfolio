@@ -1062,3 +1062,7 @@ html:lang(en) .md thead th { white-space: normal; }
 .img-en__panel li, .image-viewer__en li { margin: 0 0 2px; }
 .image-viewer__en { max-width: 860px; margin: 10px auto 0; padding: 10px 14px; background: #fff; color: var(--ink); border-radius: 6px; font-size: .8125rem; line-height: 1.55; text-align: left; }
 .image-viewer__en[hidden] { display: none; }
+
+/* Keep the three retrieval branches legible; scroll only the diagram on small screens. */
+[data-note-slug="rag-stack-selection"] .md p:has(> img[src*="rag-evidence-flow"]) { overflow-x: auto; }
+[data-note-slug="rag-stack-selection"] .md img[src*="rag-evidence-flow"] { width: 100%; min-width: 640px; border: 0; }

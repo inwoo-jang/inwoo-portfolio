@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="688" viewBox="0 0 720 688" role="img" aria-labelledby="title">
+  <title id="title">세 경로로 근거를 찾는 검색 설계안</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7b838b" stroke-width="1.5"/></marker></defs>
+  <rect width="720" height="688" fill="#fff"/>
+  <g fill="none" stroke="#7b838b" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M360 88V124" marker-end="url(#arrow)"/>
+    <path d="M360 188V218H128V252" marker-end="url(#arrow)"/>
+    <path d="M360 188V252" marker-end="url(#arrow)"/>
+    <path d="M360 218H592V252" marker-end="url(#arrow)"/>
+    <path d="M128 336V368H360V400" marker-end="url(#arrow)"/>
+    <path d="M360 336V400" marker-end="url(#arrow)"/>
+    <path d="M592 336V368H360"/>
+    <path d="M360 464V500" marker-end="url(#arrow)"/>
+    <path d="M360 564V600" marker-end="url(#arrow)"/>
+  </g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="18" fill="#20262c" text-anchor="middle">
+    <rect x="120" y="24" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="62">광고 문구·이미지·제출 자료</text>
+    <rect x="120" y="124" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="162">주장·조건·시각 관찰 구조화</text>
+    <rect x="24" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="128" y="287">A. 법령·지침</text>
+    <text x="128" y="313">조회</text>
+    <rect x="256" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="360" y="287">B. 주장·조건</text>
+    <text x="360" y="313">유사 심결 검색</text>
+    <rect x="488" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="592" y="287">C. 시각 맥락</text>
+    <text x="592" y="313">유사 심결 검색</text>
+    <rect x="120" y="400" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="438">쟁점별 후보 통합·법령 연결</text>
+    <rect x="120" y="500" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="538">심결 후보 재랭킹</text>
+    <rect x="120" y="600" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="638">상위 원문 대조·검토 의견</text>
+  </g>
+</svg>

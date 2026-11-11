@@ -80,7 +80,7 @@ After generation, check that case IDs, findings passages, and provision versions
 
 The following is a comparison plan, not a report of validated performance.
 
-Start with exact lookup and keyword search plus SQL evidence lookup as the baseline. Add vector retrieval if it misses similar cases expressed differently. If candidate coverage is sufficient but ordering is poor, compare manual weights and a Cross-Encoder on the same candidates. Once relevance labels accumulate and multiple structured signals need to be incorporated, compare tree-based LTR. If more questions connect multiple sources, evaluate shared relationship definitions and graph querying.
+Start with **exact lookup and keyword search plus SQL evidence lookup** as the baseline. Add vector retrieval if it misses similar cases expressed differently. If candidate coverage is sufficient but ordering is poor, compare manual weights and a Cross-Encoder on the same candidates. Once relevance labels accumulate and multiple structured signals need to be incorporated, compare tree-based LTR. If more questions connect multiple sources, evaluate shared relationship definitions and graph querying.
 
 | Failure | First metric to check | Changes to compare |
 |---|---|---|
@@ -91,3 +91,35 @@ Start with exact lookup and keyword search plus SQL evidence lookup as the basel
 | The answer's explanation is difficult to verify in the source | Source-evidence verification rate and proportion of claims supported by evidence | Evidence selection and citation validation |
 
 Keep the evaluation questions and source collection fixed when comparing retrieval, reranking, and evidence lookup. Record accuracy alongside response latency, cost per query, and the work required to verify relationships and update legislation. That makes it possible to choose a stack based on the improvement it provides.
+
+## Applying this to the AI Advertising Pre-Review Service (working title)
+
+The current implementation extracts claims and facts from the ad source, OCR output, and visual observations, then looks up legislation linked to the topic. It retrieves decision candidates using BM25 and vector search, and orders them with RRF and rules. After checking the top sources, it produces a draft, counterarguments, and a consolidated review with citations. Visual context already informs the review; the proposed structure also uses it as a separate input for retrieving decisions.
+
+The proposal centers on **structuring the current ad by claim, retrieving different evidence through three paths, and combining it by issue**. The diagram below shows the proposed design.
+
+![Ad copy, images, and submitted materials are structured into claims, conditions, and visual observations. Three retrieval paths cover legislation and guidelines, similar claims and conditions, and similar visual context. Candidates are combined by issue and linked to legislation, then decisions are reranked and top sources checked to produce review comments.](media/notes/rag-evidence-flow.en.svg)
+
+| Path | Example input | Evidence retrieved |
+|---|---|---|
+| A. Legislation and guidelines | Disclosure of discount conditions and the reference date | Assessment criteria, scope, exceptions, and provision versions |
+| B. Claims and conditions | “Up to 50% off,” new customers only | Findings passages from decisions involving similar claims or eligibility conditions |
+| C. Visual context | A large discount rate in the center, with restrictions in small print at the bottom | Earlier cases where emphasis, placement, or readability affected the findings |
+
+B and C can each combine keyword and vector results using RRF. If historical ad images are unavailable for C, search for **visual characteristics described in the decisions**. Store unreadable text and interpretive hypotheses separately from observed facts. When merging the three paths, keep candidates separate if they concern different issues, even within the same case. Link legislation from A as assessment criteria and evidence for each issue, rather than ranking it alongside decision candidates. Confirm any relationship labeled “applies” in the original decision.
+
+## What each technology does in this design
+
+| Concept | Role in this structure |
+|---|---|
+| **LangGraph** | Manages **execution order and state**, including search branches, merging results, review stages, and waiting for user responses. |
+| **Minimal ontology** | Defines **the meaning of domain relationships**, such as “a condition limits a claim” or “a finding applies a provision version.” Initially, structured output schemas and relationship definitions can be implemented in SQL. |
+| **Knowledge graph** | Stores **relationships between actual entities**, such as an ad's claims and conditions, findings by issue, and provision versions. |
+| **GraphRAG** | Follows knowledge graph relationships to retrieve **evidence for the answer**. For example, it can follow a finding to the provision version applicable at the time and its amendment history, supplying these with source text to the LLM. A formal OWL ontology is optional. |
+| **Tree-based ranker** | Learns the **relevance order** of the combined decision candidates. LambdaMART is a ranking method, and LightGBM is a library that can implement it. Retrieval scores serve as signals of candidate relevance. |
+
+[LangGraph — Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph) · [LightGBM — Parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html)
+
+LangGraph can orchestrate the three parallel retrieval paths, while document RAG can supply the top source passages to the LLM. **GraphRAG enters at the evidence retrieval stage**: it follows verified “applies” and “amends” relationships to find related sources. While query paths remain consistent, SQL lookup of applied provisions and findings passages can serve as the baseline.
+
+Implementation can proceed in this order: **define links between claims, conditions, image regions, and findings passages → organize issues and visual characteristics from past decisions → compare retrieval quality for B and C → evaluate a tree-based ranker once relevance labels are available → compare GraphRAG using verified relationships**. For each ad claim, the interface would show image evidence, findings from similar decisions, the provisions applied at the time, and differences from the current ad.

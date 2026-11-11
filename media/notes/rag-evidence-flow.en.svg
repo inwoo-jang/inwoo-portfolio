@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="688" viewBox="0 0 720 688" role="img" aria-labelledby="title">
+  <title id="title">Proposed evidence retrieval through three paths</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7b838b" stroke-width="1.5"/></marker></defs>
+  <rect width="720" height="688" fill="#fff"/>
+  <g fill="none" stroke="#7b838b" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M360 88V124" marker-end="url(#arrow)"/>
+    <path d="M360 188V218H128V252" marker-end="url(#arrow)"/>
+    <path d="M360 188V252" marker-end="url(#arrow)"/>
+    <path d="M360 218H592V252" marker-end="url(#arrow)"/>
+    <path d="M128 336V368H360V400" marker-end="url(#arrow)"/>
+    <path d="M360 336V400" marker-end="url(#arrow)"/>
+    <path d="M592 336V368H360"/>
+    <path d="M360 464V500" marker-end="url(#arrow)"/>
+    <path d="M360 564V600" marker-end="url(#arrow)"/>
+  </g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="18" fill="#20262c" text-anchor="middle">
+    <rect x="120" y="24" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="62">Ad copy, images, submitted materials</text>
+    <rect x="120" y="124" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="162">Structure claims, conditions, visual observations</text>
+    <rect x="24" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="128" y="287">A. Legislation</text>
+    <text x="128" y="313">and guidelines</text>
+    <rect x="256" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="360" y="287">B. Similar claims</text>
+    <text x="360" y="313">and conditions</text>
+    <rect x="488" y="252" width="208" height="84" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="592" y="287">C. Similar</text>
+    <text x="592" y="313">visual context</text>
+    <rect x="120" y="400" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="438">Merge candidates by issue; link legislation</text>
+    <rect x="120" y="500" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="538">Rerank decision candidates</text>
+    <rect x="120" y="600" width="480" height="64" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="360" y="638">Check top sources; produce review comments</text>
+  </g>
+</svg>
