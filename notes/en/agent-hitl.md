@@ -8,7 +8,7 @@ sample: false
 related: [agent-autonomy]
 ---
 
-> **Only put approval on actions that are hard to undo.** In this exercise, I kept it on just one tool: the one that saves user information.
+> Only put approval on actions that are hard to undo. In this exercise, I kept it on just one tool: the one that saves user information.
 > I removed approvals that re-ask about something the user already picked, and instead check the latest state inside the tool.
 > Approval comes from the user's resume command, not the model's response. The model saying "approved" doesn't make anything run.
 

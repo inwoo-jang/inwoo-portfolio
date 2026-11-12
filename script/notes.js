@@ -10,6 +10,7 @@
 
   var REPO_BLOB = "https://github.com/inwoo-jang/inwoo-portfolio/blob/main/";
   var categories = [];
+  var seriesList = [];
 
   var listEl = root.querySelector("[data-notes-list]");
   var gridEl = root.querySelector("[data-notes-grid]");
@@ -83,6 +84,25 @@
     return note.categories && note.categories.length ? note.categories : [note.category];
   }
 
+  function pad2(n) { return n < 10 ? "0" + n : String(n); }
+
+  function seriesOf(note) {
+    if (!note.series) { return null; }
+    for (var i = 0; i < seriesList.length; i++) {
+      if (seriesList[i].id === note.series.id) { return seriesList[i]; }
+    }
+    return null;
+  }
+
+  /* 카드·상세 상단의 작은 시리즈 라벨 — “AX FIELD NOTES · 01” */
+  function seriesTag(note, className) {
+    var s = seriesOf(note);
+    if (!s) { return null; }
+    var tag = el("p", className, s.label + " · " + pad2(note.series.order));
+    tag.setAttribute("aria-label", T("시리즈 ", "Series ") + s.title + " " + note.series.order + T("회", ""));
+    return tag;
+  }
+
   function categoryTapes(note) {
     var tapes = el("div", "note-tapes");
     var labels = categoriesOf(note).map(function (id) { return categoryOf(id).label; });
@@ -126,13 +146,11 @@
       btn.setAttribute("aria-pressed", String(state.category === c.id));
       btn.appendChild(document.createTextNode(c.label));
       btn.appendChild(el("small", null, String(count)));
+      btn.setAttribute("aria-label", c.label + T(", 글 " + count + "개", ", " + count + (count === 1 ? " note" : " notes")));
       li.appendChild(btn);
       if (c.description) { btn.title = c.description; }
       btn.addEventListener("click", function () {
-        state.category = c.id;
-        catBox.querySelectorAll(".chip-btn").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b.dataset.value === c.id));
-        });
+        setCategory(c.id);
         renderList();
       });
       catBox.appendChild(li);
@@ -155,7 +173,8 @@
     var q = state.query.trim().toLowerCase();
     if (!q) { return true; }
     var categoryLabels = categoriesOf(note).map(function (id) { return categoryOf(id).label; }).join(" ");
-    var hay = [note.title, note.summary, note.tags.join(" "), categoryLabels]
+    var s = seriesOf(note);
+    var hay = [note.title, note.summary, note.tags.join(" "), categoryLabels, s ? s.label + " " + s.title : ""]
       .join(" ").toLowerCase();
     return q.split(/\s+/).every(function (word) { return hay.indexOf(word) >= 0; });
   }
@@ -182,6 +201,8 @@
     meta.appendChild(badges);
     li.appendChild(meta);
     var body = el("div", "entry__body");
+    var stag = seriesTag(n, "entry__series");
+    if (stag) { body.appendChild(stag); }
     var h = el("h3", "entry__title");
     var a = el("a", null, n.title);
     a.href = "#n-" + n.slug;
@@ -193,17 +214,53 @@
     return li;
   }
 
+  var emptyEl = el("div", "notes-empty");
+  emptyEl.hidden = true;
+  emptyEl.setAttribute("role", "status");
+  gridEl.parentNode.insertBefore(emptyEl, gridEl.nextSibling);
+
+  function setCategory(id) {
+    state.category = id;
+    catBox.querySelectorAll(".chip-btn").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.value === id));
+    });
+  }
+
+  function renderEmpty() {
+    emptyEl.textContent = "";
+    var hasQuery = !!state.query.trim();
+    var inCategory = state.category !== "all";
+    var title = hasQuery
+      ? T("‘" + state.query.trim() + "’에 맞는 노트가 없습니다", "No notes match ‘" + state.query.trim() + "’")
+      : T("‘" + categoryOf(state.category).label + "’에 등록된 글은 아직 없습니다", "No notes in ‘" + categoryOf(state.category).label + "’ yet");
+    emptyEl.appendChild(el("p", "notes-empty__title", title));
+    emptyEl.appendChild(el("p", "notes-empty__hint", hasQuery
+      ? (inCategory ? T("‘" + categoryOf(state.category).label + "’ 분류 안에서 찾았습니다. 검색어를 바꾸거나 전체에서 찾아보세요.", "Searched within ‘" + categoryOf(state.category).label + "’. Try another term or search all notes.")
+                    : T("제목·요약·분류·태그에서 찾았습니다. 다른 검색어를 넣어 보세요.", "Searched titles, summaries, categories and tags. Try another term."))
+      : categoryOf(state.category).description));
+    var reset = el("button", "btn btn--quiet", T("검색·분류 초기화", "Clear search and filter"));
+    reset.type = "button";
+    reset.addEventListener("click", function () {
+      state.query = ""; searchEl.value = "";
+      setCategory("all");
+      renderList();
+      searchEl.focus();
+    });
+    emptyEl.appendChild(reset);
+  }
+
   function renderList() {
     var list = notes.filter(matches);
     gridEl.textContent = "";
     list.forEach(function (n) { gridEl.appendChild(noteCard(n)); });
+    gridEl.hidden = !list.length;
+    emptyEl.hidden = !!list.length;
 
     if (list.length) {
       countEl.textContent = T("노트 " + list.length + "개", list.length + (list.length === 1 ? " note" : " notes"));
-    } else if (state.category !== "all" && !state.query) {
-      countEl.textContent = T("‘" + categoryOf(state.category).label + "’에 등록된 글은 아직 없습니다. " + categoryOf(state.category).description + "에 관한 글을 모을 분류입니다.", "No notes in ‘" + categoryOf(state.category).label + "’ yet. This category is for " + categoryOf(state.category).description + ".");
     } else {
-      countEl.textContent = T("검색 결과가 없습니다. 검색어를 바꾸거나 분류를 ‘전체’로 선택해 보세요.", "No results. Try another search term or set the category to ‘All’.");
+      countEl.textContent = T("노트 0개", "0 notes");
+      renderEmpty();
     }
   }
 
@@ -265,6 +322,70 @@
     return nav;
   }
 
+  /* 상세의 시리즈 목차 — 영문 라벨 · 한국어 제목 · 현재/전체 회차 · 목차 · 이전/다음.
+     게시되지 않은 회차는 링크 없이 보여 준다(없는 글의 주소를 만들지 않는다). */
+  function seriesBlock(note) {
+    var s = seriesOf(note);
+    if (!s) { return null; }
+    var nav = el("nav", "series-nav");
+    nav.setAttribute("aria-labelledby", "series-nav-title");
+    var head = el("div", "series-nav__head");
+    head.appendChild(el("p", "series-nav__label", T("시리즈", "Series")));
+    var h = el("h2", "series-nav__title", s.title);
+    h.id = "series-nav-title";
+    head.appendChild(h);
+    head.appendChild(el("p", "series-nav__count",
+      pad2(note.series.order) + " / " + pad2(s.total) + T(" · 총 " + s.total + "편", " · " + s.total + " in total")));
+    nav.appendChild(head);
+
+    var ol = el("ol", "series-nav__list");
+    s.items.forEach(function (item) {
+      var li = el("li");
+      var no = el("span", "series-nav__no", pad2(item.order));
+      if (item.slug === note.slug) {
+        li.className = "is-current";
+        li.appendChild(no);
+        var cur = el("span", "series-nav__name", item.title);
+        cur.setAttribute("aria-current", "page");
+        li.appendChild(cur);
+      } else if (item.slug) {
+        var a = el("a", "series-nav__name", item.title);
+        a.href = "#n-" + item.slug;
+        li.appendChild(no);
+        li.appendChild(a);
+      } else {
+        li.className = "is-planned";
+        li.appendChild(no);
+        var planned = el("span", "series-nav__name", item.title + " ");
+        planned.appendChild(el("span", "series-nav__soon", T("준비 중", "Coming soon")));
+        li.appendChild(planned);
+      }
+      ol.appendChild(li);
+    });
+    nav.appendChild(ol);
+
+    var published = s.items.filter(function (i) { return i.slug; });
+    var idx = -1;
+    published.forEach(function (i, k) { if (i.slug === note.slug) { idx = k; } });
+    var pager = el("div", "series-nav__pager");
+    if (idx > 0) {
+      var prev = el("a", "series-nav__prev");
+      prev.href = "#n-" + published[idx - 1].slug;
+      prev.appendChild(el("small", null, T("← 이전 글", "← Previous")));
+      prev.appendChild(el("span", null, published[idx - 1].title));
+      pager.appendChild(prev);
+    }
+    if (idx >= 0 && idx < published.length - 1) {
+      var next = el("a", "series-nav__next");
+      next.href = "#n-" + published[idx + 1].slug;
+      next.appendChild(el("small", null, T("다음 글 →", "Next →")));
+      next.appendChild(el("span", null, published[idx + 1].title));
+      pager.appendChild(next);
+    }
+    if (pager.children.length) { nav.appendChild(pager); }
+    return nav;
+  }
+
   function renderReader(note) {
     readerEl.textContent = "";
     readerEl.dataset.noteSlug = note.slug;
@@ -280,6 +401,8 @@
     readerEl.appendChild(bar);
 
     var head = el("header");
+    var rtag = seriesTag(note, "reader-view__series");
+    if (rtag) { head.appendChild(rtag); }
     var title = el("h1", null, note.title);
     title.id = "note-title";
     title.tabIndex = -1;
@@ -307,6 +430,9 @@
     prose.setAttribute("aria-busy", "true");
     prose.appendChild(el("p", "count", T("노트를 불러오는 중…", "Loading note…")));
     readerEl.appendChild(prose);
+
+    var seriesNav = seriesBlock(note);
+    if (seriesNav) { readerEl.appendChild(seriesNav); }
 
     var related = relatedBlock(note);
     if (related) { readerEl.appendChild(related); }
@@ -409,6 +535,7 @@
   loadIndex()
     .then(function (data) {
       categories = (data && data.categories) || [];
+      seriesList = (data && data.series) || [];
       notes = (data && data.notes) || [];
       renderCategories();
       renderCategoryGuide();

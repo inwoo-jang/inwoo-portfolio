@@ -3,7 +3,7 @@ title: AI를 활용한 코드 정리는 어떻게 할까?
 status: published
 published: true
 category: infra
-categories: [infra, tools, testing]
+categories: [infra, ops]
 date: 2026-11-11
 created: 2026-11-11
 tags: [기술 부채, Codex, Feature Flag, CI]
@@ -54,7 +54,7 @@ OpenAI가 같은 저장소 범위에서 오래된 실험을 조사하게 했을 
 
 플래그를 정리했다면 출시된 기능이 환경별로 그대로 동작하는지 확인하고, CI를 개선했다면 같은 워크플로의 완료 시간과 실패율을 비교한다. 이렇게 확인한 결과가 있어야 다음에 어떤 정리 작업에 시간을 쓸지도 결정할 수 있다.
 
-## 참고 자료
+## 참고
 
 - [OpenAI · Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) — Codex를 활용한 미사용 코드 정리, 모델 비용 비교, CI 개선 사례
 - [LaunchDarkly · Reducing technical debt from feature flags](https://launchdarkly.com/docs/eu-docs/guides/flags/technical-debt) — 오래된 플래그 후보를 찾는 기준과 정리 방법

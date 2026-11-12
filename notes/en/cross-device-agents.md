@@ -2,8 +2,8 @@
 title: How can an AI agent's work continue across devices?
 status: published
 published: true
-category: ux
-categories: [ux, ai, backend, infra]
+category: dev
+categories: [dev, ai]
 date: 2026-11-05
 created: 2026-11-05
 updated: 2026-11-11

@@ -219,13 +219,25 @@ export function toc({ items = [], current } = {}) {
 }
 
 /* ---------- 글 목록 · Dev Notes ---------- */
-export function entry({ date, title, href = "#", summary, tags: t = [], category, categories: related = [] } = {}) {
+export function entry({ date, title, href = "#", summary, tags: t = [], category, categories: related = [], series = "" } = {}) {
   const palette = category?.color;
   const categoryAttrs = palette ? ` data-category="${esc(category.id)}" style="--note-ink:${esc(palette.ink)};--note-soft:${esc(palette.soft)};--tape:${esc(palette.tape)}"` : "";
   const allCategories = related.length ? related : category ? [category] : [];
   const tapes = allCategories.length ? `<div class="note-tapes" role="img" aria-label="${esc('분류: ' + allCategories.map((c) => c.label).join(', '))}">${allCategories.map((c) => `<span class="note-tape" style="--tape:${esc(c.color.tape)}" title="${esc(c.label)}" aria-hidden="true"></span>`).join("")}</div>` : "";
   const badges = allCategories.map((c) => `<span class="note-category" style="--note-ink:${esc(c.color.ink)};--note-soft:${esc(c.color.soft)};--tape:${esc(c.color.tape)}">${esc(c.label)}</span>`).join("");
-  return `<li class="entry"${categoryAttrs}>${tapes}<div class="entry__meta"><span class="entry__date">${esc(date)}</span><div class="entry__categories">${badges}</div></div><div class="entry__body"><h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
+  return `<li class="entry"${categoryAttrs}>${tapes}<div class="entry__meta"><span class="entry__date">${esc(date)}</span><div class="entry__categories">${badges}</div></div><div class="entry__body">${series ? `<p class="entry__series">${esc(series)}</p>` : ""}<h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
+}
+
+/* 시리즈 목차 — script/notes.js의 seriesBlock과 같은 마크업 */
+export function seriesNav({ label, title, order, total, published, items = [], prev, next } = {}) {
+  const pad = (n) => String(n).padStart(2, "0");
+  const li = (i) => i.order === order
+    ? `<li class="is-current"><span class="series-nav__no">${pad(i.order)}</span><span class="series-nav__name" aria-current="page">${esc(i.title)}</span></li>`
+    : i.slug
+      ? `<li><span class="series-nav__no">${pad(i.order)}</span><a class="series-nav__name" href="#n-${esc(i.slug)}">${esc(i.title)}</a></li>`
+      : `<li class="is-planned"><span class="series-nav__no">${pad(i.order)}</span><span class="series-nav__name">${esc(i.title)} <span class="series-nav__soon">준비 중</span></span></li>`;
+  const pager = (prev || next) ? `<div class="series-nav__pager">${prev ? `<a class="series-nav__prev" href="#"><small>← 이전 글</small><span>${esc(prev)}</span></a>` : ""}${next ? `<a class="series-nav__next" href="#"><small>다음 글 →</small><span>${esc(next)}</span></a>` : ""}</div>` : "";
+  return `<nav class="series-nav"><div class="series-nav__head"><p class="series-nav__label">시리즈</p><h2 class="series-nav__title">${esc(title)}</h2><p class="series-nav__count">${pad(order)} / ${pad(total)} · 총 ${total}편</p></div><ol class="series-nav__list">${items.map(li).join("")}</ol>${pager}</nav>`;
 }
 
 export function entries(list = []) {

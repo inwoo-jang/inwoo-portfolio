@@ -2,8 +2,8 @@
 title: As AI writes code faster, what needs to change in software development?
 status: published
 published: true
-category: planning
-categories: [planning, tools, infra, testing]
+category: ax
+categories: [ax, infra, ops]
 tags: [AI Coding, Developer Productivity, CI/CD, Code Review, Technical Debt]
 date: 2026-11-11
 created: 2026-11-11

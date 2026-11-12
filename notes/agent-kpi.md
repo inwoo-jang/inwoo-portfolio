@@ -1,7 +1,7 @@
 ---
 title: AI 에이전트의 KPI는 어떻게 설계해야 하는가?
-category: planning
-categories: [planning, ai]
+category: ax
+categories: [ax, planning, ai]
 tags: [Agent Evaluation, Product KPI, Business Impact]
 date: 2026-11-06
 summary: 정확하게 작동하는 에이전트와 업무를 실제로 개선하는 에이전트는 다르다. 해결할 업무와 성공의 기준을 먼저 정하고, 완료율뿐 아니라 검토·재작업 시간과 비용, 권한 준수 여부도 함께 봐야 한다. 목표 → 성공 기준 → KPI → 측정·검증 → 개선 순서로 지표를 고르는 기준을 정리했다.

@@ -2,8 +2,8 @@
 title: AI 에이전트의 작업은 기기가 바뀌어도 어떻게 이어질까?
 status: published
 published: true
-category: ux
-categories: [ux, ai, backend, infra]
+category: dev
+categories: [dev, ai]
 date: 2026-11-05
 created: 2026-11-05
 updated: 2026-11-11
@@ -144,7 +144,7 @@ AI 에이전트 서비스가 여러 기기로 확장된다는 것은 단순히 �
 - 모바일에서는 어떤 작업까지 승인·수정할 수 있도록 설계하는 것이 적절할까?
 - 세션 수와 실제 완료 작업 수 중 무엇을 AI 서비스 활용의 핵심 지표로 삼아야 할까?
 
-## 참고 자료
+## 참고
 
 - [GitHub — Connected Copilot Cloud Experience (2026.10.28)](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
 - [GitHub — Copilot Impact Dashboard Update (2026.11.06)](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/)

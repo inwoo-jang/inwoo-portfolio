@@ -1,7 +1,7 @@
 ---
 title: Character count couldn't evaluate a report — splitting checks between code and an LLM judge
-category: ai
-categories: [ai, testing]
+category: ops
+categories: [ops, ai]
 tags: [AI Agent, Evaluation, LLM Judge, LangGraph]
 date: 2026-10-28
 summary: Code can check formatting and required fields, but whether the content matches its evidence needs a separate evaluation. LLM Judge verdicts can vary, so automated evaluation alone cannot establish quality. This note covers the roles of code checks and LLM evaluation, when human review is needed, and what information reviewers need.

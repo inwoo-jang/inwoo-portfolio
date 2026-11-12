@@ -86,7 +86,7 @@ export const NOTES = [
     "href": "notes.html#n-why-ai-service",
     "summary": "‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 어떻게 알아채고 바로잡을 수 있는지 흐름까지 함께 설계해야 한다고 생각한다.",
     "tags": [
-      "기획·기술 선택",
+      "기획",
       "도입 판단"
     ]
   },
@@ -96,7 +96,7 @@ export const NOTES = [
     "href": "notes.html#n-ai-dev-tools-compare",
     "summary": "VS Code는 조합형, Kiro는 명세 중심, Cursor는 에이전트 중심. AI 코딩 방식, 프로젝트 규칙 관리, 작업 계획·검증 흐름을 공식 문서 기준으로 비교했다.",
     "tags": [
-      "개발 도구",
+      "인프라·개발",
       "AI 코딩"
     ]
   },

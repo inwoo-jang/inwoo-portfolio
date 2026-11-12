@@ -1,6 +1,6 @@
 ---
 title: IDE 툴 비교 — VS Code · Kiro · Cursor
-category: tools
+category: infra
 tags: [VS Code, Kiro, Cursor, AI 코딩]
 date: 2026-11-06
 summary: VS Code는 조합형, Kiro는 명세 중심, Cursor는 에이전트 중심. AI 코딩 방식, 프로젝트 규칙 관리, 작업 계획·검증 흐름을 공식 문서 기준으로 비교했다.
@@ -52,17 +52,16 @@ VS Code·Kiro·Cursor의 AI 코딩 방식과 프로젝트 규칙 관리, 작업 
 - 규칙 파일은 `.cursor/rules/` 안의 `.mdc` 파일만 인식(`.md`로 두면 무시됨)
 - `AGENTS.md`를 루트와 하위 폴더에서 인식
 
-## 현재의 결론
+## 현재의 생각
 
 AI 코딩 도구를 고를 때 중요한 건 코드를 얼마나 빠르게 쓰는가만이 아니라, **요구사항이 구현에 제대로 반영되고 결과를 검증할 수 있는가**라고 생각한다.
 
 같은 프로젝트에 여러 IDE를 쓴다면 공통 규칙은 `AGENTS.md`로 관리하고, 도구별 기능이 필요할 때만 전용 설정 파일을 추가하는 방식이 맞아 보인다. 다만 실제 생산성과 품질 차이는 같은 작업을 해 보기 전까지 단정하기 어렵다.
 
-## 참고 자료
+## 참고
 
 - [VS Code — AI 기능 개요](https://code.visualstudio.com/docs/copilot/overview)
 - [VS Code — Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Kiro Docs](https://kiro.dev/docs/) · [Specs](https://kiro.dev/docs/specs/) · [Steering](https://kiro.dev/docs/steering/)
 - [Cursor Docs](https://cursor.com/docs) · [Rules](https://cursor.com/docs/context/rules)
 
-출처: 각 도구 공식 문서 (확인일 2026-11-06). 기능과 가격이 자주 바뀌므로 쓰기 전에 다시 확인

@@ -8,7 +8,7 @@ sample: false
 related: [agent-hitl]
 ---
 
-> I don't think guardrails are there to block an agent as much as possible. They're **a way to define in code how far the agent can proceed on its own, and where a human's judgment is needed.** That's why **separating a full stop, blocking a specific action, waiting for approval, and a partial answer** matters.
+> I don't think guardrails are there to block an agent as much as possible. They're a way to define in code how far the agent can proceed on its own, and where a human's judgment is needed. That's why separating a full stop, blocking a specific action, waiting for approval, and a partial answer matters.
 
 Guardrails are rules that limit an agent's input, execution, and output in code. In a team exercise, we added input checks, call-count limits, and output checks with LangChain middleware. While building them, I felt that **deciding what to stop, and in which situation, matters more** than blocking risky requests.
 

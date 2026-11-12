@@ -1,7 +1,7 @@
 ---
 title: AI 개발에는 왜 Python을 많이 사용할까?
-category: planning
-categories: [planning, ai, backend]
+category: dev
+categories: [dev, planning, ai]
 tags: [Python, Java, Spring AI, Spring Boot, FastAPI, AI Architecture]
 date: 2026-08-22
 summary: Python이 많이 쓰이는 이유는 데이터 처리와 모델 학습·실험을 지원하는 생태계가 풍부하기 때문이다. LLM API를 기존 서비스에 연결하는 일이라면 Java·Spring AI도 선택지가 되며, 기존 업무 로직의 재사용과 팀 역량, 추가 운영 부담을 기준으로 골라야 한다.

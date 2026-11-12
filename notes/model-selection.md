@@ -202,7 +202,6 @@ TaxDesk에 적용해 볼 수 있는 설계 방향이고, 이 구성을 실제 �
 
 ## 참고
 
-확인일: 2026.11.11
 
 - [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) — DeepMind, NeurIPS 2022. 파라미터 수와 학습 데이터량의 관계
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) — JMLR 2022. MoE 구조와 선택적 파라미터 활성화

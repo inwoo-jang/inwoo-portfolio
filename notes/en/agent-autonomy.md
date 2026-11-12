@@ -1,7 +1,7 @@
 ---
 title: How autonomous should an agent be?
 category: planning
-categories: [planning, ai, ux]
+categories: [planning, ai]
 tags: [AI Agent, Autonomy, Human-in-the-loop, UX]
 date: 2026-11-06
 summary: An agent's autonomy should depend on its permissions, the impact of its actions, and whether they can be reversed. Rather than requiring approval for every action, distinguish automatic execution, prior approval, and prohibited actions, and let users inspect and stop execution. This note covers placing Human-in-the-loop at points that require human judgment and intervention, and connecting those decisions to the approval experience, error recovery, and operational metrics.
@@ -75,7 +75,7 @@ High autonomy alone doesn't tell you much about an agent's quality. Drawing on e
 
 This is a proposed set of metrics. To apply it to a real service, you'd need to pin down each metric's denominator, measurement scope, and acceptance thresholds by risk level.
 
-## Where I've landed for now
+## Where I've landed
 
 A good agent may not be one that handles everything alone, but **one that properly separates what it can do on its own from what needs a human's judgment.** For that, a PM has to design not just for model performance but also for execution permissions, risk levels, the approval experience, error recovery, and operational metrics.
 

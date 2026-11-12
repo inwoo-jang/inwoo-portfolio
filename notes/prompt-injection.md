@@ -1,7 +1,7 @@
 ---
 title: Prompt Injection은 프롬프트 수정만으로 막을 수 있는가?
 category: ai
-categories: [ai, testing]
+categories: [ai, ops]
 tags: [Prompt Injection, AI Security, Trust Boundary, Guardrails, Tool Calling]
 date: 2026-09-15
 summary: 외부 문서나 도구 응답에 섞인 지시가 AI의 행동을 바꿀 수 있다. 프롬프트에서 지시와 참고 자료를 구분하고, 실제 데이터 접근과 도구 실행은 코드로 권한을 검사해야 한다. 공격에 따른 실행 시도·차단·실제 실행을 구분하고, 정상적인 작업까지 막히지는 않는지 함께 검증해야 한다.
@@ -9,7 +9,7 @@ sample: false
 related: [agent-guardrails, agent-hitl, agent-autonomy, rag-citation-rules]
 ---
 
-> **Prompt Injection은 악의적인 문장을 찾아내는 문제를 넘어, 신뢰할 수 없는 정보가 AI의 행동을 바꾸지 못하게 하는 문제다.** 프롬프트에서 지시와 데이터를 구분하도록 하는 것도 중요하지만, 실제 도구 실행과 데이터 접근은 별도의 시스템 규칙으로 통제해야 한다.
+> Prompt Injection은 악의적인 문장을 찾아내는 문제를 넘어, 신뢰할 수 없는 정보가 AI의 행동을 바꾸지 못하게 하는 문제다. 프롬프트에서 지시와 데이터를 구분하도록 하는 것도 중요하지만, 실제 도구 실행과 데이터 접근은 별도의 시스템 규칙으로 통제해야 한다.
 
 ## 이 질문을 하게 된 계기
 

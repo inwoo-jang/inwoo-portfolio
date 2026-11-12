@@ -50,7 +50,7 @@ Compare the existing way and the AI-assisted way on the same kind of task. Agree
 
 Averages hide the exceptions. Look at short inputs, compound inputs, and inputs missing information separately.
 
-## Open question
+## Open questions
 
 - What should decide whether AI starts as full automation, or as an assistant that shows candidates and lets a person confirm?
 

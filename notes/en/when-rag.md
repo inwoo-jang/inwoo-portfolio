@@ -164,7 +164,7 @@ Not all four have access to the same external information, so the purpose of the
 
 Keep comparison conditions like the model, evaluation questions, and data version as aligned as possible, and log any settings you change. Rather than settling which is better from a single run, look at performance by question type and across repeated runs. I haven't run this comparison yet.
 
-## Where I've landed for now
+## Where I've landed
 
 When I first built RAG, I thought retrieving external documents and passing them to the model would produce more accurate answers. But in the capstone we hit cases where retrieval returned nothing or returned low-relevance material, and reading the research, I learned that the retrieval step itself can become a new source of failure.
 

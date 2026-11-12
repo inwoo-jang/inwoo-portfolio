@@ -731,17 +731,24 @@ mark {
 
 /* 24. Dev Notes — 내 팁 노트 */
 /* 분류의 이름·설명·팔레트는 notes/categories.json에서 관리한다. */
+/* 분류 버튼 — 카드 테이프와 같은 색으로 옅게 채우고, 선택한 분류만 진한 색으로 채운다 */
 [data-note-cats].chips { flex-wrap: wrap; overflow: visible; }
 [data-note-cats] .chip-btn {
-  --note-ink: var(--ink); --note-soft: var(--paper-2); --tape: var(--rule-strong);
-  display: inline-flex; align-items: center; gap: 6px;
-  border-color: var(--tape); background: var(--note-soft); color: var(--note-ink);
+  --note-ink: var(--ink); --note-soft: var(--paper); --tape: var(--rule-strong);
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  border-color: var(--tape); background: var(--note-soft); color: var(--text);
 }
-[data-note-cats] .chip-btn::before { content: ""; width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: currentColor; }
+[data-note-cats] .chip-btn::before { content: ""; width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--note-ink); }
+[data-note-cats] .chip-btn[data-category="all"]::before { content: none; }
 [data-note-cats] .chip-btn:hover { border-color: var(--note-ink); }
-[data-note-cats] .chip-btn[aria-pressed="true"] { border-color: var(--note-ink); background: var(--note-ink); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+[data-note-cats] .chip-btn[aria-pressed="true"] { border-color: var(--note-ink); background: var(--note-ink); color: #fff; }
+[data-note-cats] .chip-btn[aria-pressed="true"]::before { background: #fff; }
 [data-note-cats] .chip-btn:focus-visible { outline: 2px solid var(--note-ink); outline-offset: 3px; }
-[data-note-cats] .chip-btn small { opacity: 1; }
+[data-note-cats] .chip-btn small { opacity: .7; }
+@media (max-width: 767px) {
+  /* 가로 스크롤 — 초점 테두리가 잘리지 않도록 안쪽 여백을 둔다 */
+  [data-note-cats].chips { flex-wrap: nowrap; overflow-x: auto; padding: 5px 4px 8px; margin: -5px -4px 0; scroll-padding-inline: var(--s4); }
+}
 .note-category {
   display: inline-flex; align-items: center; gap: 6px; width: fit-content;
   padding: 2px 9px; border: 1px solid var(--tape); border-radius: 999px;
@@ -818,7 +825,7 @@ mark {
 /* 상세: 본문 */
 [data-note-reader] { max-width: 820px; }
 [data-note-reader] .md { font-size: 1rem; line-height: 1.8; color: var(--text); }
-[data-note-reader] .md > blockquote:first-child { margin: 0 0 var(--s6); padding: 0; background: none; border: 0; font-size: var(--fs-caption); color: var(--muted); }
+[data-note-reader] .md > blockquote:first-child { margin: 0 0 var(--s6); padding: 0; background: none; border: 0; font-size: var(--fs-small); line-height: 1.65; color: var(--muted); }
 [data-note-reader] .md h3 { display: flex; align-items: center; gap: var(--s2); margin: var(--s7) 0 var(--s4); padding-top: var(--s5); border-top: 1px solid var(--rule); font-size: 1.25rem; color: var(--ink); }
 [data-note-reader] .md h3::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
 [data-note-reader] .md > h3:first-child, [data-note-reader] .md > blockquote:first-child + h3 { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -1066,3 +1073,37 @@ html:lang(en) .md thead th { white-space: normal; }
 /* Keep the three retrieval branches legible; scroll only the diagram on small screens. */
 [data-note-slug="rag-stack-selection"] .md p:has(> img[src*="rag-evidence-flow"]) { overflow-x: auto; }
 [data-note-slug="rag-stack-selection"] .md img[src*="rag-evidence-flow"] { width: 100%; min-width: 640px; border: 0; }
+
+
+/* ---------- Dev Notes 시리즈 · 빈 상태 ---------- */
+/* 카드 안 시리즈 라벨 — 제목보다 약하게 */
+.entry__series { margin: 0 0 4px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+.reader-view__series { margin: 0 0 var(--s2); font-family: var(--mono); font-size: var(--fs-caption); font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+/* 상세 하단 시리즈 목차 — 책 목차처럼 본문 글꼴로 담백하게 */
+.series-nav { margin: var(--s7) 0 0; padding: var(--s5) 0 0; border-top: 1px solid var(--rule); }
+.series-nav__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s2); }
+.series-nav__label { margin: 0; font-size: var(--fs-small); color: var(--muted); }
+.series-nav__label::after { content: " ·"; }
+.reader-view .series-nav__title { margin: 0; font-size: var(--fs-small); font-weight: 700; color: var(--ink); }
+.series-nav__count { margin: 0 0 0 auto; font-size: var(--fs-caption); color: var(--faint); }
+.series-nav__list { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.series-nav__list li { display: flex; align-items: baseline; gap: var(--s2); margin: 0; padding: 5px 0; font-size: var(--fs-small); line-height: 1.6; }
+.series-nav__no { flex: 0 0 1.6em; color: var(--faint); font-variant-numeric: tabular-nums; }
+.series-nav__no::after { content: "."; }
+.series-nav__name { min-width: 0; color: var(--text); }
+a.series-nav__name { text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: 3px; }
+a.series-nav__name:hover { color: var(--accent); text-decoration-color: currentColor; }
+.series-nav__list li.is-current .series-nav__no, .series-nav__list li.is-current .series-nav__name { color: var(--ink); font-weight: 700; }
+.series-nav__list li.is-planned .series-nav__name { color: var(--faint); }
+.series-nav__soon { font-size: var(--fs-caption); color: var(--faint); white-space: nowrap; }
+.series-nav__soon::before { content: "— "; }
+.series-nav__pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); margin: var(--s3) 0 0; }
+.series-nav__pager a { display: grid; gap: 2px; padding: var(--s2) 0; text-decoration: none; color: var(--text); font-size: var(--fs-small); }
+.series-nav__pager a small { font-size: var(--fs-caption); color: var(--muted); }
+.series-nav__pager a:hover span { color: var(--accent); }
+.series-nav__next { grid-column: 2; text-align: right; }
+@media (max-width: 600px) { .series-nav__pager { grid-template-columns: 1fr; } .series-nav__next { grid-column: 1; text-align: left; } }
+/* 검색·필터 결과가 없을 때 */
+.notes-empty { margin: var(--s2) 0 var(--s7); padding: var(--s6) var(--s5); border: 1px dashed var(--rule-strong); border-radius: 8px; text-align: center; }
+.notes-empty__title { margin: 0; font-weight: 700; color: var(--ink); }
+.notes-empty__hint { margin: var(--s2) 0 var(--s4); font-size: var(--fs-small); color: var(--muted); }

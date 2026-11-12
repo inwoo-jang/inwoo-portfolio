@@ -1,7 +1,7 @@
 ---
 title: Does Claude Code use my personal settings when called from an app?
-category: ai
-categories: [ai, tools, backend]
+category: infra
+categories: [infra, ai]
 tags: [Claude Code, Codex, CLI, Streaming, Python]
 date: 2026-08-28
 updated: 2026-11-11
@@ -157,5 +157,3 @@ In the UI, I'd distinguish a response that has started from grading that has fin
 - [How Codex loads AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) — personal/project instructions and `CODEX_HOME`
 - [Codex skills](https://learn.chatgpt.com/docs/build-skills) — skill discovery locations
 - [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference) — `project_doc_max_bytes` and `skills.config`
-
-Sources checked: `server.py` from the SKALA sLLM study guide app (August 28, 2026 implementation), installed CLI help, and local mock-server request comparisons on November 11, 2026. These tests checked the inclusion of settings and skills; they did not evaluate grading quality or every execution permission.

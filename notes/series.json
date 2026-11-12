@@ -1,0 +1,58 @@
+[
+  {
+    "id": "domain-ax",
+    "label": "AX FIELD NOTES",
+    "title": "산업별 AX",
+    "description": "산업별 AI 도입·설계·검증 기준",
+    "planned": [
+      {
+        "order": 1,
+        "title": "AX는 산업마다 무엇이 달라져야 할까?"
+      },
+      {
+        "order": 2,
+        "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?"
+      },
+      {
+        "order": 3,
+        "title": "의료 AI는 정확하기만 하면 충분할까?"
+      },
+      {
+        "order": 4,
+        "title": "법률·세무 AI는 어떻게 신뢰할 수 있는 답변을 만들까?"
+      },
+      {
+        "order": 5,
+        "title": "제조 AX는 왜 AI의 자율성을 제한해야 할까?"
+      },
+      {
+        "order": 6,
+        "title": "유통 AX는 AI 도입 성과를 어떻게 측정할까?"
+      },
+      {
+        "order": 7,
+        "title": "인사·공공 AX에서 AI 판단은 공정할 수 있을까?"
+      }
+    ]
+  },
+  {
+    "id": "physical-ai",
+    "label": "PHYSICAL AI NOTES",
+    "title": "Physical AI",
+    "description": "AI Agent 개발 경험에서 출발해 로봇·물리 세계로 넓혀 보는 리서치",
+    "planned": [
+      {
+        "order": 1,
+        "title": "AI Agent에서 Physical AI로, 무엇이 달라지는가?"
+      },
+      {
+        "order": 2,
+        "title": "시뮬레이션에서 작동한 정책은 실제 로봇에서도 작동할까?"
+      },
+      {
+        "order": 3,
+        "title": "Physical AI의 안전 계층은 어떻게 설계할까?"
+      }
+    ]
+  }
+]

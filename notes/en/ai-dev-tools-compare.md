@@ -1,6 +1,6 @@
 ---
 title: Comparing IDEs — VS Code · Kiro · Cursor
-category: tools
+category: infra
 tags: [VS Code, Kiro, Cursor, AI Coding]
 date: 2026-11-06
 summary: VS Code is mix-and-match, Kiro is spec-driven, Cursor is agent-driven. A comparison of how each handles AI coding, project rules, and planning and verifying work, based on official docs.
@@ -52,7 +52,7 @@ I compared how VS Code, Kiro, and Cursor handle AI coding, project rules, and th
 - Only `.mdc` files inside `.cursor/rules/` are recognized as rules files (`.md` files are ignored)
 - Recognizes `AGENTS.md` at the root and in subfolders
 
-## Current conclusion
+## Where I've landed
 
 When choosing an AI coding tool, I think what matters isn't only how fast it writes code, but **whether requirements actually make it into the implementation and whether you can verify the results.**
 
@@ -65,4 +65,3 @@ If you use several IDEs on the same project, it seems right to manage shared rul
 - [Kiro Docs](https://kiro.dev/docs/) · [Specs](https://kiro.dev/docs/specs/) · [Steering](https://kiro.dev/docs/steering/)
 - [Cursor Docs](https://cursor.com/docs) · [Rules](https://cursor.com/docs/context/rules)
 
-Source: Each tool's official docs (checked 2026-11-06). Features and pricing change often, so check again before using

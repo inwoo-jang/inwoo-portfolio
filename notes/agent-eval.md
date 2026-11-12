@@ -1,7 +1,7 @@
 ---
 title: 글자 수로는 보고서를 평가할 수 없었다 — 코드 검사와 LLM Judge 나누기
-category: ai
-categories: [ai, testing]
+category: ops
+categories: [ops, ai]
 tags: [AI Agent, 평가, LLM Judge, LangGraph]
 date: 2026-10-28
 summary: 형식과 필수 항목은 코드로 검사할 수 있지만, 내용이 근거와 일치하는지는 별도의 평가가 필요하다. LLM Judge의 판정도 달라질 수 있으므로, 자동 평가만으로 품질을 확정해서는 안 된다. 코드 검사와 LLM 평가의 역할, 사람이 확인할 조건과 검토에 필요한 정보를 정리했다.

@@ -227,7 +227,6 @@ AI Agent의 메모리를 처음 접했을 때는 이전 대화를 얼마나 오�
 
 ## 참고
 
-확인일: 2026.11.11
 
 - [LangChain — Memory Overview](https://docs.langchain.com/oss/python/concepts/memory) — 단기·장기 기억, Semantic·Episodic·Procedural Memory
 - [LangGraph — Long-term Memory](https://docs.langchain.com/oss/python/langgraph/memory) — 메모리 저장과 상태 관리

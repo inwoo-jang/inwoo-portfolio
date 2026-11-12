@@ -1,7 +1,7 @@
 ---
 title: How should a service behave while users wait for an AI answer?
 category: planning
-categories: [planning, ux, backend]
+categories: [planning, dev]
 tags: [Async, Queue, Streaming, UX]
 date: 2026-11-10
 summary: The design should define whether users can do other things while waiting for an AI response and how they can check progress and results. Leaving a screen and canceling a task should be treated separately, with clear limits on what can be retried after a failure. This note covers synchronous and asynchronous processing, streaming, queues, and how response patterns and available user actions should fit the task and its state.

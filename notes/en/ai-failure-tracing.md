@@ -1,7 +1,7 @@
 ---
 title: When an AI answer is wrong, how do you find where it failed?
-category: ai
-categories: [ai, testing]
+category: ops
+categories: [ops, ai]
 tags: [AI Observability, Tracing, Root Cause Analysis, LangSmith]
 date: 2026-10-23
 summary: Knowing that the final answer is wrong does not tell you what to fix. Step-by-step execution records (Tracing) help narrow down the cause by showing retrieval results, information passed to the model, tool calls, and final output. This note covers checking improvements and regressions against the same evaluation cases after a change, and deciding what to log.
@@ -142,7 +142,7 @@ I plan to use a RAG or agent project I built before.
 
 I haven't run the experiment yet. Once I've checked the results, I'll write them up along with the actual trace.
 
-## Where I've landed for now
+## Where I've landed
 
 When an AI answer is wrong, I think what matters isn't fixing the prompt or switching models, but **judging, based on evidence, what went wrong at which step.** That requires being able to trace the execution path from the development stage on, and designing the logs and version info you'll need.
 

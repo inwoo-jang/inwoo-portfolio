@@ -2,8 +2,8 @@
 title: AI 검색·RAG 기술 스택은 어떻게 고를까?
 status: published
 published: true
-category: planning
-categories: [planning, data, ai]
+category: ai
+categories: [ai, data]
 date: 2026-11-11
 tags: [RAG, 검색, 재랭킹, 온톨로지, 지식그래프, GraphRAG]
 summary: AI 검색·RAG의 기술 스택은 후보 검색, 순위 조정, 근거 조회 중 어디서 실패하는지에 따라 골라야 한다. 키워드·벡터 검색, 재랭킹, SQL·그래프 조회의 역할과 적용 조건을 나누고, 정확도와 운영 비용을 비교할 기준을 정리했다.
@@ -23,7 +23,7 @@ related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 | 질문 처리 | 질문 해석 → 후보 검색·결합 → 재랭킹 → 근거 문단·적용 조문 조회 → 답변 생성·검증 |
 | 운영 | 단계별 오류 기록 → 평가 질문으로 회귀 확인 → 원문·법령 버전 갱신 |
 
-## 1. 원문에서 무엇을 저장할까?
+## 원문에서 무엇을 저장할까?
 
 심결문은 사건 전체와 판단 문단을 함께 보관한다. 검색 단위는 문단이나 쟁점으로 잡고, 결과에서 원문 위치와 사건 전체를 다시 열 수 있게 연결한다. 문단이 너무 짧으면 판단에 필요한 앞뒤 내용이 빠질 수 있으므로, 문단을 찾은 후 인접 문단이나 상위 섹션을 함께 가져오는 방법도 있다. 스캔 문서라면 OCR 결과에 원본 페이지 위치를 남긴다.
 
@@ -38,7 +38,7 @@ related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 
 이 구조는 SQL로도 구현할 수 있다. 여러 출처에서 관계의 의미를 공유할 때 온톨로지의 가치가 커진다. EU의 ELI-I는 어떤 개정 조항이 기존 법령의 어느 부분을 변경했는지 표현하는 사례다. [W3C OWL 2 Primer](https://www.w3.org/TR/owl2-primer/) · [EU ELI-I](https://interoperable-europe.ec.europa.eu/collection/eli-european-legislation-identifier/solution/eli-i)
 
-## 2. 후보를 어떻게 찾을까?
+## 후보를 어떻게 찾을까?
 
 | 방법 | 강점과 선택 기준 |
 |---|---|
@@ -51,7 +51,7 @@ related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 
 [Elastic 하이브리드 검색](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search — 하이브리드 검색 순위](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
 
-## 3. 후보는 찾았는데 순서가 틀리면?
+## 후보는 찾았는데 순서가 틀리면?
 
 | 재랭킹 방법 | 순위에 쓰는 정보 | 필요한 조건 |
 |---|---|---|
@@ -64,7 +64,7 @@ Cross-Encoder 점수를 Tree 기반 랭커의 입력으로 사용할 수도 있�
 
 검색에서 빠진 후보는 재랭킹 단계에서 복구할 수 없으므로, 같은 후보 목록으로 랭커를 비교하고 후보 검색 성능도 따로 측정한다. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers — Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
 
-## 4. 답변에 어떤 근거를 넣을까?
+## 답변에 어떤 근거를 넣을까?
 
 | 구성 | 답변에 공급하는 근거 | 적용 기준 |
 |---|---|---|

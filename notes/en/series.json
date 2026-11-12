@@ -1,0 +1,58 @@
+[
+  {
+    "id": "domain-ax",
+    "label": "AX FIELD NOTES",
+    "title": "Industry AX",
+    "description": "How AI adoption, design and validation differ by industry",
+    "planned": [
+      {
+        "order": 1,
+        "title": "What should AX change from industry to industry?"
+      },
+      {
+        "order": 2,
+        "title": "How far can AI judge and act in financial AX?"
+      },
+      {
+        "order": 3,
+        "title": "Is accuracy enough for medical AI?"
+      },
+      {
+        "order": 4,
+        "title": "How can legal and tax AI give answers people can trust?"
+      },
+      {
+        "order": 5,
+        "title": "Why should manufacturing AX limit AI autonomy?"
+      },
+      {
+        "order": 6,
+        "title": "How should retail AX measure the impact of AI adoption?"
+      },
+      {
+        "order": 7,
+        "title": "Can AI judgments in HR and public-sector AX be fair?"
+      }
+    ]
+  },
+  {
+    "id": "physical-ai",
+    "label": "PHYSICAL AI NOTES",
+    "title": "Physical AI",
+    "description": "Research notes extending AI agent development to robots and the physical world",
+    "planned": [
+      {
+        "order": 1,
+        "title": "From AI agents to Physical AI: what changes?"
+      },
+      {
+        "order": 2,
+        "title": "Will a policy that works in simulation work on a real robot?"
+      },
+      {
+        "order": 3,
+        "title": "How should safety layers be designed for Physical AI?"
+      }
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 ---
 title: AI의 답변이 틀렸을 때 어디서 실패했는지 어떻게 찾는가?
-category: ai
-categories: [ai, testing]
+category: ops
+categories: [ops, ai]
 tags: [AI Observability, Tracing, Root Cause Analysis, LangSmith]
 date: 2026-10-23
 summary: 최종 답변이 틀렸다는 사실만으로는 무엇을 고쳐야 할지 알 수 없다. 단계별 실행 기록(Tracing)을 따라 검색 결과, 모델에 전달된 정보, 도구 호출과 최종 출력을 확인하며 원인을 좁혀야 한다. 수정 후 같은 평가 사례로 개선 여부와 부작용을 확인하는 흐름, 기록 범위의 판단 기준을 정리했다.
@@ -155,7 +155,6 @@ AI의 답변이 틀렸을 때 중요한 것은 프롬프트를 고치거나 모�
 
 ## 참고
 
-확인일: 2026.11.10
 
 - [LangSmith — Observability](https://www.langchain.com/langsmith/observability) — Agent 실행 단계 추적, 지연 시간·비용·응답 품질 관찰
 - [Langfuse — GitHub](https://github.com/langfuse/langfuse) — LLM 애플리케이션의 Tracing, Evaluation 및 운영 관측

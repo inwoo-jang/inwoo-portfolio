@@ -1,7 +1,7 @@
 ---
 title: 앱에서 Claude Code를 호출하면 내 설정도 따라올까?
-category: ai
-categories: [ai, tools, backend]
+category: infra
+categories: [infra, ai]
 tags: [Claude Code, Codex, CLI, 스트리밍, Python]
 date: 2026-08-28
 updated: 2026-11-11
@@ -149,7 +149,7 @@ else:
 
 화면에서는 답변이 나오기 시작한 상태와 채점이 끝난 상태를 구분하겠다. 중간에 실패했다면 일부 답변을 완성된 결과처럼 남기지 않고, 오류를 알리고 다시 요청할 수 있게 해야 한다. Claude와 Codex를 선택할 수 있게 한다면 설정 제외뿐 아니라 출력 해석과 오류 처리도 도구별로 맞춰야 한다.
 
-## 참고 문서
+## 참고
 
 - [Claude Code CLI 레퍼런스](https://code.claude.com/docs/en/cli-reference) — 설정 소스, 도구, 스킬, safe mode 옵션
 - [Claude Code를 프로그래밍 방식으로 실행하기](https://code.claude.com/docs/en/headless) — 비대화형 실행과 스트리밍
@@ -157,5 +157,3 @@ else:
 - [Codex의 AGENTS.md 로딩](https://learn.chatgpt.com/docs/agent-configuration/agents-md) — 개인·프로젝트 지침과 `CODEX_HOME`
 - [Codex 스킬](https://learn.chatgpt.com/docs/build-skills) — 스킬 탐색 위치
 - [Codex 설정 레퍼런스](https://learn.chatgpt.com/docs/config-file/config-reference) — `project_doc_max_bytes`, `skills.config`
-
-확인 자료: SKALA sLLM 학습 가이드 앱 `server.py`(2026.08.28 구현 기록) · 2026.11.11 설치된 CLI 도움말과 로컬 모의 서버 요청 비교. 설정·스킬의 포함 여부를 확인한 테스트이며, 채점 품질이나 모든 실행 권한을 검증한 결과는 아니다.

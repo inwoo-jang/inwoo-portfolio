@@ -1,7 +1,7 @@
 ---
 title: With DL and LLMs available, why choose traditional ML?
-category: planning
-categories: [planning, data, ai]
+category: data
+categories: [data, planning]
 tags: [Machine Learning, Deep Learning, LLM, GBDT, Model Selection, Research]
 date: 2026-09-03
 date_type: class
@@ -10,7 +10,7 @@ sample: false
 related: [why-sllm]
 ---
 
-**If you're classifying or predicting from business data organized into numbers and categories, traditional ML is a candidate worth comparing first. But you can't settle the choice with formulas like "tabular data always means trees" or "little data always means ML."**
+If you're classifying or predicting from business data organized into numbers and categories, traditional ML is a candidate worth comparing first. But you can't settle the choice with formulas like "tabular data always means trees" or "little data always means ML."
 
 By traditional ML I mean linear and logistic regression, Random Forest, and gradient boosted trees (GBDT: XGBoost, LightGBM, CatBoost, etc.). DL and LLMs are also part of machine learning. And calling GBDT, which combines many trees, a "simple, easy-to-explain model" isn't accurate.
 
@@ -111,4 +111,4 @@ This order is based on the research above. It doesn't mean you should run every 
 - Does "little data" mean few labels, or also no usable pretraining?
 - How much did results improve within the volume the team can actually handle?
 
-Related class: SKALA Understanding Machine Learning and Deep Learning (last class 2026-09-03) · Follow-up research checked 2026-11-10 · Paper findings kept separate from my planning proposals
+Related class: SKALA Understanding Machine Learning and Deep Learning (last class 2026-09-03)

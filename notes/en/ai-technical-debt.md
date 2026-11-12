@@ -3,7 +3,7 @@ title: How can AI help clean up code?
 status: published
 published: true
 category: infra
-categories: [infra, tools, testing]
+categories: [infra, ops]
 date: 2026-11-11
 created: 2026-11-11
 tags: [Technical Debt, Codex, Feature Flag, CI]

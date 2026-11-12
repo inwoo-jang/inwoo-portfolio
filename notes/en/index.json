@@ -2,8 +2,8 @@
   "categories": [
     {
       "id": "planning",
-      "label": "Planning & tech choices",
-      "description": "problem definition, why to adopt AI, comparing alternatives, and criteria for choosing technology",
+      "label": "Planning",
+      "description": "Problem framing, AI adoption decisions, model and architecture choices",
       "color": {
         "ink": "#8A5A12",
         "soft": "#FFF5DB",
@@ -11,19 +11,9 @@
       }
     },
     {
-      "id": "ux",
-      "label": "UX & design",
-      "description": "user flows, information architecture, screen and functional specs, and usability reviews",
-      "color": {
-        "ink": "#9C3D65",
-        "soft": "#FCEAF2",
-        "tape": "#EAAFC8"
-      }
-    },
-    {
       "id": "ai",
       "label": "AI & agents",
-      "description": "prompts, RAG, tool calling, and building and evaluating agents",
+      "description": "AI features and agents — prompts, RAG, memory, guardrails",
       "color": {
         "ink": "#6D4499",
         "soft": "#F2EBFA",
@@ -33,7 +23,7 @@
     {
       "id": "data",
       "label": "Data & ML",
-      "description": "collecting and analyzing data, preprocessing, training models, and validating prediction performance",
+      "description": "Data preparation and analysis, model training and validation",
       "color": {
         "ink": "#17675F",
         "soft": "#E4F4F1",
@@ -41,19 +31,9 @@
       }
     },
     {
-      "id": "frontend",
-      "label": "Frontend",
-      "description": "web screens, components, state management, and browser behavior",
-      "color": {
-        "ink": "#12657C",
-        "soft": "#E4F3F8",
-        "tape": "#96CEE0"
-      }
-    },
-    {
-      "id": "backend",
-      "label": "Server & DB",
-      "description": "APIs, server logic, authentication, and database design and queries",
+      "id": "dev",
+      "label": "Service development",
+      "description": "Service architecture, frontend, server and DB design",
       "color": {
         "ink": "#335E9E",
         "soft": "#EAF0FA",
@@ -62,8 +42,8 @@
     },
     {
       "id": "infra",
-      "label": "Infra & deployment",
-      "description": "runtime environments, containers, CI/CD, deployment, and monitoring",
+      "label": "Infra & tooling",
+      "description": "Dev tools, runtime environments, CI/CD and code upkeep",
       "color": {
         "ink": "#9A4F24",
         "soft": "#FFF0E5",
@@ -71,38 +51,138 @@
       }
     },
     {
-      "id": "tools",
-      "label": "Dev tools",
-      "description": "how to use and configure dev tools such as IDEs, CLIs, and Git",
-      "color": {
-        "ink": "#4F5E70",
-        "soft": "#EDF1F5",
-        "tape": "#BBC8D7"
-      }
-    },
-    {
-      "id": "testing",
-      "label": "Testing & quality",
-      "description": "unit, integration, and UI tests, quality bars, and security checks",
+      "id": "ops",
+      "label": "Testing & operations",
+      "description": "Evaluation and testing, observability, operational quality",
       "color": {
         "ink": "#41662C",
         "soft": "#EEF5E7",
         "tape": "#BAD59F"
       }
+    },
+    {
+      "id": "ax",
+      "label": "AX",
+      "description": "Organizational AI transformation — governance, impact, industry adoption",
+      "color": {
+        "ink": "#9C3D65",
+        "soft": "#FCEAF2",
+        "tape": "#EAAFC8"
+      }
+    },
+    {
+      "id": "emerging",
+      "label": "Emerging tech",
+      "description": "What new technologies are and what they change — Physical AI, digital twins, quantum computing, and more",
+      "color": {
+        "ink": "#12657C",
+        "soft": "#E4F3F8",
+        "tape": "#96CEE0"
+      }
+    }
+  ],
+  "series": [
+    {
+      "id": "domain-ax",
+      "label": "AX FIELD NOTES",
+      "title": "Industry AX",
+      "description": "How AI adoption, design and validation differ by industry",
+      "total": 7,
+      "published": 1,
+      "items": [
+        {
+          "order": 1,
+          "title": "What Should Change When AI Transformation Moves Across Industries?",
+          "slug": "ax-domain-design-criteria"
+        },
+        {
+          "order": 2,
+          "title": "How far can AI judge and act in financial AX?"
+        },
+        {
+          "order": 3,
+          "title": "Is accuracy enough for medical AI?"
+        },
+        {
+          "order": 4,
+          "title": "How can legal and tax AI give answers people can trust?"
+        },
+        {
+          "order": 5,
+          "title": "Why should manufacturing AX limit AI autonomy?"
+        },
+        {
+          "order": 6,
+          "title": "How should retail AX measure the impact of AI adoption?"
+        },
+        {
+          "order": 7,
+          "title": "Can AI judgments in HR and public-sector AX be fair?"
+        }
+      ]
+    },
+    {
+      "id": "physical-ai",
+      "label": "PHYSICAL AI NOTES",
+      "title": "Physical AI",
+      "description": "Research notes extending AI agent development to robots and the physical world",
+      "total": 3,
+      "published": 0,
+      "items": [
+        {
+          "order": 1,
+          "title": "From AI agents to Physical AI: what changes?"
+        },
+        {
+          "order": 2,
+          "title": "Will a policy that works in simulation work on a real robot?"
+        },
+        {
+          "order": 3,
+          "title": "How should safety layers be designed for Physical AI?"
+        }
+      ]
     }
   ],
   "notes": [
     {
+      "slug": "ax-domain-design-criteria",
+      "file": "notes/en/ax-domain-design-criteria.md",
+      "revision": "7597c21a4e797be8",
+      "title": "What Should Change When AI Transformation Moves Across Industries?",
+      "category": "ax",
+      "categories": [
+        "ax"
+      ],
+      "tags": [
+        "AX",
+        "AI governance",
+        "Risk management",
+        "Workflow design"
+      ],
+      "date": "2026-11-12",
+      "summary": "Research and examples from finance, healthcare, legal services, manufacturing, retail, HR, and public services inform a practical framework for evaluating business outcomes, managing risk, and setting AI autonomy.",
+      "sample": false,
+      "series": {
+        "id": "domain-ax",
+        "order": 1
+      },
+      "related": [
+        "agent-autonomy",
+        "agent-governance",
+        "agent-kpi"
+      ]
+    },
+    {
       "slug": "ai-coding-delivery",
       "file": "notes/en/ai-coding-delivery.md",
-      "revision": "bb5fb8a14a4e92d9",
+      "revision": "50a6501675e5fd35",
       "title": "As AI writes code faster, what needs to change in software development?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
-        "planning",
-        "tools",
+        "ax",
         "infra",
-        "testing"
+        "ops"
       ],
       "tags": [
         "AI Coding",
@@ -125,13 +205,12 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/en/ai-technical-debt.md",
-      "revision": "4df0c04296827556",
+      "revision": "6c9ed48450349234",
       "title": "How can AI help clean up code?",
       "category": "infra",
       "categories": [
         "infra",
-        "tools",
-        "testing"
+        "ops"
       ],
       "tags": [
         "Technical Debt",
@@ -151,13 +230,12 @@
     {
       "slug": "rag-stack-selection",
       "file": "notes/en/rag-stack-selection.md",
-      "revision": "4641dff557818dfb",
+      "revision": "29c1eca6c1c047af",
       "title": "How should we choose a technology stack for AI search and RAG?",
-      "category": "planning",
+      "category": "ai",
       "categories": [
-        "planning",
-        "data",
-        "ai"
+        "ai",
+        "data"
       ],
       "tags": [
         "RAG",
@@ -180,10 +258,11 @@
     {
       "slug": "agent-governance",
       "file": "notes/en/agent-governance.md",
-      "revision": "411f26f2792c0b60",
+      "revision": "ff0b779e35d8996c",
       "title": "As AI agents multiply, what should a company manage?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
+        "ax",
         "planning",
         "ai"
       ],
@@ -201,19 +280,19 @@
         "agent-autonomy",
         "ai-failure-tracing",
         "agent-guardrails",
-        "agent-memory"
+        "agent-memory",
+        "ax-domain-design-criteria"
       ]
     },
     {
       "slug": "ai-waiting-ux",
       "file": "notes/en/ai-waiting-ux.md",
-      "revision": "0969f4dacfc44b5e",
+      "revision": "bd0fde5d0b2438b1",
       "title": "How should a service behave while users wait for an AI answer?",
       "category": "planning",
       "categories": [
         "planning",
-        "ux",
-        "backend"
+        "dev"
       ],
       "tags": [
         "Async",
@@ -232,11 +311,11 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/en/ai-dev-tools-compare.md",
-      "revision": "798a2d1bc3a8aa75",
+      "revision": "8124a92afdfe5ea8",
       "title": "Comparing IDEs — VS Code · Kiro · Cursor",
-      "category": "tools",
+      "category": "infra",
       "categories": [
-        "tools"
+        "infra"
       ],
       "tags": [
         "VS Code",
@@ -255,13 +334,12 @@
     {
       "slug": "agent-autonomy",
       "file": "notes/en/agent-autonomy.md",
-      "revision": "535befcb0c0c848e",
+      "revision": "700d9ac692a9499f",
       "title": "How autonomous should an agent be?",
       "category": "planning",
       "categories": [
         "planning",
-        "ai",
-        "ux"
+        "ai"
       ],
       "tags": [
         "AI Agent",
@@ -279,6 +357,7 @@
         "agent-eval",
         "agent-governance",
         "agent-kpi",
+        "ax-domain-design-criteria",
         "multi-agent-vs-single",
         "prompt-injection"
       ]
@@ -286,10 +365,11 @@
     {
       "slug": "agent-kpi",
       "file": "notes/en/agent-kpi.md",
-      "revision": "1733c4b34de99839",
+      "revision": "52515820ff59c664",
       "title": "How should you design KPIs for an AI agent?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
+        "ax",
         "planning",
         "ai"
       ],
@@ -308,6 +388,7 @@
         "why-ai-service",
         "agent-governance",
         "ai-coding-delivery",
+        "ax-domain-design-criteria",
         "cross-device-agents",
         "model-selection"
       ]
@@ -315,14 +396,12 @@
     {
       "slug": "cross-device-agents",
       "file": "notes/en/cross-device-agents.md",
-      "revision": "fa6ba39a9d95a4b2",
+      "revision": "3ec7c831c1a3c14e",
       "title": "How can an AI agent's work continue across devices?",
-      "category": "ux",
+      "category": "dev",
       "categories": [
-        "ux",
-        "ai",
-        "backend",
-        "infra"
+        "dev",
+        "ai"
       ],
       "tags": [
         "Cloud Agent",
@@ -345,12 +424,12 @@
     {
       "slug": "agent-eval",
       "file": "notes/en/agent-eval.md",
-      "revision": "0551bd33790d36b4",
+      "revision": "432122122356d490",
       "title": "Character count couldn't evaluate a report — splitting checks between code and an LLM judge",
-      "category": "ai",
+      "category": "ops",
       "categories": [
-        "ai",
-        "testing"
+        "ops",
+        "ai"
       ],
       "tags": [
         "AI Agent",
@@ -374,13 +453,12 @@
     {
       "slug": "tech-stack-choice",
       "file": "notes/en/tech-stack-choice.md",
-      "revision": "1c4828abdade7f2b",
+      "revision": "e76d96bdaab0b268",
       "title": "How do you put together a tech stack for a service?",
-      "category": "planning",
+      "category": "dev",
       "categories": [
-        "planning",
-        "backend",
-        "infra"
+        "dev",
+        "planning"
       ],
       "tags": [
         "Architecture",
@@ -404,12 +482,12 @@
     {
       "slug": "ai-failure-tracing",
       "file": "notes/en/ai-failure-tracing.md",
-      "revision": "52ac62a9e6ea14c1",
+      "revision": "e612af668629eb46",
       "title": "When an AI answer is wrong, how do you find where it failed?",
-      "category": "ai",
+      "category": "ops",
       "categories": [
-        "ai",
-        "testing"
+        "ops",
+        "ai"
       ],
       "tags": [
         "AI Observability",
@@ -432,7 +510,7 @@
     {
       "slug": "why-ai-agent",
       "file": "notes/en/why-ai-agent.md",
-      "revision": "f083d220c90b66f8",
+      "revision": "8cac2ba9a679a310",
       "title": "Why build it as an AI agent? — can you decide the next step in advance",
       "category": "planning",
       "categories": [
@@ -463,7 +541,7 @@
     {
       "slug": "when-rag",
       "file": "notes/en/when-rag.md",
-      "revision": "f00d315b2ffa12de",
+      "revision": "b06e641e9874fc14",
       "title": "When do you need RAG, and when does it make things worse?",
       "category": "ai",
       "categories": [
@@ -517,7 +595,7 @@
     {
       "slug": "rag-citation-rules",
       "file": "notes/en/rag-citation-rules.md",
-      "revision": "fa2391a4b0737019",
+      "revision": "12670986d3ea8921",
       "title": "No evidence, no answer — citation checks for RAG",
       "category": "ai",
       "categories": [
@@ -545,12 +623,12 @@
     {
       "slug": "prompt-injection",
       "file": "notes/en/prompt-injection.md",
-      "revision": "91c0f8800b101d7f",
+      "revision": "cb1a49d3065579a0",
       "title": "Can you stop prompt injection just by fixing the prompt?",
       "category": "ai",
       "categories": [
         "ai",
-        "testing"
+        "ops"
       ],
       "tags": [
         "Prompt Injection",
@@ -629,7 +707,7 @@
     {
       "slug": "agent-guardrails",
       "file": "notes/en/agent-guardrails.md",
-      "revision": "17a35862d4f6e28e",
+      "revision": "f5ae9ad4488fce3a",
       "title": "Where should an agent be stopped? — guardrails on input, call counts, and output",
       "category": "ai",
       "categories": [
@@ -658,7 +736,7 @@
     {
       "slug": "agent-hitl",
       "file": "notes/en/agent-hitl.md",
-      "revision": "4056790318bd4358",
+      "revision": "b8ea9ca19f069762",
       "title": "Where should approval go? — a LangChain HITL exercise",
       "category": "ai",
       "categories": [
@@ -685,7 +763,7 @@
     {
       "slug": "why-ai-service",
       "file": "notes/en/why-ai-service.md",
-      "revision": "aeac2c3f6d66ddd8",
+      "revision": "3c2a083260207cc3",
       "title": "Why build an AI service? — which part of the user's work are you changing",
       "category": "planning",
       "categories": [
@@ -741,13 +819,12 @@
     {
       "slug": "why-ml-model",
       "file": "notes/en/why-ml-model.md",
-      "revision": "b56b7a8f40f79f1c",
+      "revision": "26870898533a62f0",
       "title": "With DL and LLMs available, why choose traditional ML?",
-      "category": "planning",
+      "category": "data",
       "categories": [
-        "planning",
         "data",
-        "ai"
+        "planning"
       ],
       "tags": [
         "Machine Learning",
@@ -773,7 +850,7 @@
     {
       "slug": "why-sllm",
       "file": "notes/en/why-sllm.md",
-      "revision": "1e6bd745c000bc8c",
+      "revision": "ccbd53e184a8c32c",
       "title": "Why use an sLLM? — not because it's small, but because it fits the requirements",
       "category": "planning",
       "categories": [
@@ -830,13 +907,12 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/en/claude-cli-in-app.md",
-      "revision": "307a8d28ccf5db4e",
+      "revision": "372c2d226eeea8e0",
       "title": "Does Claude Code use my personal settings when called from an app?",
-      "category": "ai",
+      "category": "infra",
       "categories": [
-        "ai",
-        "tools",
-        "backend"
+        "infra",
+        "ai"
       ],
       "tags": [
         "Claude Code",
@@ -856,13 +932,13 @@
     {
       "slug": "why-python-ai",
       "file": "notes/en/why-python-ai.md",
-      "revision": "e766539622d35eb2",
+      "revision": "e3420327ca83a310",
       "title": "Why is Python so common in AI development?",
-      "category": "planning",
+      "category": "dev",
       "categories": [
+        "dev",
         "planning",
-        "ai",
-        "backend"
+        "ai"
       ],
       "tags": [
         "Python",

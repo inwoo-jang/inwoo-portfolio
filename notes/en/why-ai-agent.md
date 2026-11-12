@@ -46,7 +46,7 @@ Run the same task through a fixed workflow and through an agent, and compare. Lo
 
 Running more steps isn't an achievement. The test is whether the user got the result they wanted.
 
-## Open question
+## Open questions
 
 - What about building it as a workflow first, seeing where it gets stuck, and switching only that part to an agent?
 

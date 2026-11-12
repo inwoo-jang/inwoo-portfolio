@@ -2,8 +2,8 @@
 title: AI가 코드를 더 빨리 만들수록, 개발 시스템은 무엇이 달라져야 할까?
 status: published
 published: true
-category: planning
-categories: [planning, tools, infra, testing]
+category: ax
+categories: [ax, infra, ops]
 tags: [AI Coding, Developer Productivity, CI/CD, Code Review, Technical Debt]
 date: 2026-11-11
 created: 2026-11-11
@@ -169,7 +169,7 @@ AI 코딩 도구가 발전할수록 개발자의 업무가 단순히 줄어든�
 - AI 코딩 환경에서 요구사항과 완료 기준은 얼마나 구체적으로 정의해야 할까?
 - 코드 생성량이 늘어나는 만큼 기술 부채도 증가할까, 아니면 AI를 활용해 유지보수 부담까지 줄일 수 있을까?
 
-## 참고 자료
+## 참고
 
 - [GitHub Engineering — Inside GitHub's New Git Storage Architecture (2026.11.05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
 - [Anthropic — Redesigning Source Control (2026.10.13)](https://www.anthropic.com/research/redesigning-source-control)

@@ -54,7 +54,7 @@ Failures code can catch, like a missing required field, can be routed to a re-en
 
 Don't judge accuracy by how confident the model says it is. Set the switching criteria with a separate evaluation dataset and check rules.
 
-## Open question
+## Open questions
 
 - To actually measure "cost per result," how should review time be measured?
 

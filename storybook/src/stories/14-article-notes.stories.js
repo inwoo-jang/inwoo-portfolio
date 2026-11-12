@@ -1,8 +1,10 @@
 import * as C from "../components.js";
 import NOTE_INDEX from "../../../notes/index.json";
+import "../../../script/markdown.js";   // window.renderMarkdown — 노트 본문과 같은 렌더러
 
 const categoryStyle = (c) => `--note-ink:${c.color.ink};--note-soft:${c.color.soft};--tape:${c.color.tape}`;
-const noteCards = NOTE_INDEX.notes.map((n) => ({ ...n, date: n.date.replace(/-/g, ".") + (n.dateEnd ? "–" + n.dateEnd.replace(/-/g, ".").slice(n.date.slice(0, 4) === n.dateEnd.slice(0, 4) ? 5 : 0) : ""), href: `notes.html#n-${n.slug}`, category: NOTE_INDEX.categories.find((c) => c.id === n.category), categories: (n.categories || [n.category]).map((id) => NOTE_INDEX.categories.find((c) => c.id === id)) }));
+const seriesLabel = (n) => { const s = n.series && (NOTE_INDEX.series || []).find((x) => x.id === n.series.id); return s ? `${s.label} · ${String(n.series.order).padStart(2, "0")}` : ""; };
+const noteCards = NOTE_INDEX.notes.map((n) => ({ ...n, series: seriesLabel(n), date: n.date.replace(/-/g, ".") + (n.dateEnd ? "–" + n.dateEnd.replace(/-/g, ".").slice(n.date.slice(0, 4) === n.dateEnd.slice(0, 4) ? 5 : 0) : ""), href: `notes.html#n-${n.slug}`, category: NOTE_INDEX.categories.find((c) => c.id === n.category), categories: (n.categories || [n.category]).map((id) => NOTE_INDEX.categories.find((c) => c.id === id)) }));
 const categoryFilters = () => `<ul class="chips" data-note-cats><li><button class="chip-btn" type="button" data-value="all" aria-pressed="true">전체<small>${NOTE_INDEX.notes.length}</small></button></li>${NOTE_INDEX.categories.map((c) => `<li><button class="chip-btn" type="button" data-value="${c.id}" aria-pressed="false" title="${c.description}" style="${categoryStyle(c)}">${c.label}<small>${NOTE_INDEX.notes.filter((n) => (n.categories || [n.category]).includes(c.id)).length}</small></button></li>`).join("")}</ul>`;
 
 export default { title: "컴포넌트/글" };
@@ -57,4 +59,76 @@ export const 글정보 = {
   render: (a) => C.docFlags({ items: ["도구 가이드", "VS Code", "macOS", "기본 단축키 기준"], sample: a.sample }),
 };
 
+/* 일반 글 · 다중 분류 · 첫 시리즈 글 — 실제 index.json에서 하나씩 고른다 */
+export const 카드종류 = {
+  name: "Dev Notes · 카드 종류",
+  render: () => {
+    const plain = noteCards.find((n) => n.categories.length === 1 && !n.series);
+    const multi = noteCards.find((n) => n.categories.length > 1 && !n.series);
+    const first = noteCards.find((n) => n.series);
+    return `<div style="max-width:880px">${C.entries([plain, multi, first].filter(Boolean)).replace('<ol class="entries">', '<ol class="entries" data-notes-grid>')}</div>`;
+  },
+};
+
+/* 시리즈 목차 — 실제 공개 상태(공개 1편 + 준비 중 회차)와, 1·3편이 공개된 경우 */
+export const 시리즈목차 = {
+  name: "Dev Notes · 시리즈 목차",
+  render: () => {
+    const s = (NOTE_INDEX.series || [])[0];
+    if (!s) { return "<p>series.json에 시리즈가 없습니다.</p>"; }
+    const current = s.items.find((i) => i.slug) || s.items[0];
+    const real = C.seriesNav({ label: s.label, title: s.title, order: current.order, total: s.total, published: s.published, items: s.items });
+    const items13 = s.items.map((i) => (i.order === 3 ? { ...i, slug: "example-3" } : i));
+    const both = C.seriesNav({ label: s.label, title: s.title, order: current.order, total: s.total, published: s.published + 1, items: items13, next: items13.find((i) => i.order === 3).title });
+    return `<div style="max-width:680px" class="reader-view">${real}<p style="margin:48px 0 0;font-size:13px;color:#6F7682">예시: 1·3편이 공개된 경우(3편은 가상의 주소)</p>${both}</div>`;
+  },
+};
+
 export const 빈결과 = { name: "Dev Notes · 결과 없음", render: () => `<div style="max-width:680px">${C.emptyState({})}</div>` };
+
+/* Dev Notes 글 구성 — notes/_template.md의 골격을 실제 노트 렌더러(script/markdown.js)로 그린다.
+   모든 노트는 이 순서를 따른다: 결론 인용 → 계기(또는 겪은 문제) → 본문 → 현재의 생각 → 남은 질문 → 참고 */
+
+const NOTE_SKELETON = `> 결론 한두 문장. 이 글에서 내가 내린 판단을 먼저 적는다. 목록 카드의 요약과 같은 결로 쓴다.
+
+## 이 질문을 하게 된 계기
+
+무엇을 하다가 어떤 질문이 생겼는지 한두 단락. 구현 기록이면 이 자리에 **겪은 문제**를 쓴다.
+
+## 본문 섹션 — 번호 없이
+
+판단의 근거를 쓴다. 비교는 표로 정리한다.
+
+| 기준 | 확인할 질문 |
+| --- | --- |
+| 피해 | 틀리면 무엇이 망가지는가? |
+| 복구 | 되돌릴 수 있는가? |
+
+> [!예시] 가정 예시는 이 상자 안에
+> 설명을 위한 가정은 본문과 섞지 않고 점선 상자에 넣는다. 실제 경험이 아님을 따로 적지 않아도 된다.
+
+코드나 명령은 근거로 뒤에 둔다.
+
+\`\`\`python
+agent.invoke(Command(resume={"decisions": [{"type": "approve"}]}))
+\`\`\`
+
+## 현재의 생각
+
+지금 내 판단을 한다체로 쓴다. 검증하지 못한 부분은 숨기지 않되, 방어 문장을 반복하지 않는다.
+
+## 남은 질문
+
+- 아직 확인하지 못한 것
+
+## 참고
+
+- [공식 문서 이름](https://example.com)`;
+
+export const 글구성 = {
+  name: "Dev Notes · 글 구성",
+  render: () => `<article class="reader-view" data-note-reader style="max-width:760px">
+    <header><p class="reader-view__series">시리즈가 있으면 · 01</p><h1>질문형 제목 — 이 글이 답하려는 질문</h1><p class="meta">작성 2026.11.13</p></header>
+    <div class="md" style="margin-top:32px">${window.renderMarkdown ? window.renderMarkdown(NOTE_SKELETON, { idPrefix: "sb-" }) : "<p>markdown.js를 불러오지 못했습니다.</p>"}</div>
+  </article>`,
+};

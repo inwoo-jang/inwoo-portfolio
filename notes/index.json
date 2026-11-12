@@ -2,8 +2,8 @@
   "categories": [
     {
       "id": "planning",
-      "label": "기획·기술 선택",
-      "description": "문제 정의, AI 도입 목적, 대안 비교와 기술 선택 기준",
+      "label": "기획",
+      "description": "문제 정의, AI 도입 판단, 모델·구조 선택 기준",
       "color": {
         "ink": "#8A5A12",
         "soft": "#FFF5DB",
@@ -11,19 +11,9 @@
       }
     },
     {
-      "id": "ux",
-      "label": "사용자 경험·설계",
-      "description": "사용자 흐름, 정보 구조, 화면·기능 명세와 사용성 검토",
-      "color": {
-        "ink": "#9C3D65",
-        "soft": "#FCEAF2",
-        "tape": "#EAAFC8"
-      }
-    },
-    {
       "id": "ai",
       "label": "AI·에이전트",
-      "description": "프롬프트, RAG, 도구 호출, 에이전트 구현과 평가",
+      "description": "프롬프트, RAG, 메모리, 가드레일 등 AI 기능과 에이전트 구현",
       "color": {
         "ink": "#6D4499",
         "soft": "#F2EBFA",
@@ -33,7 +23,7 @@
     {
       "id": "data",
       "label": "데이터·ML",
-      "description": "데이터 수집·분석, 전처리, 모델 학습과 예측 성능 검증",
+      "description": "데이터 전처리·분석, 모델 학습과 예측 검증",
       "color": {
         "ink": "#17675F",
         "soft": "#E4F4F1",
@@ -41,19 +31,9 @@
       }
     },
     {
-      "id": "frontend",
-      "label": "프론트엔드",
-      "description": "웹 화면, 컴포넌트, 상태 관리와 브라우저 동작 구현",
-      "color": {
-        "ink": "#12657C",
-        "soft": "#E4F3F8",
-        "tape": "#96CEE0"
-      }
-    },
-    {
-      "id": "backend",
-      "label": "서버·DB",
-      "description": "API, 서버 로직, 인증과 데이터베이스 설계·조회",
+      "id": "dev",
+      "label": "서비스 개발",
+      "description": "서비스 구조, 화면·서버·DB 설계와 구현",
       "color": {
         "ink": "#335E9E",
         "soft": "#EAF0FA",
@@ -62,8 +42,8 @@
     },
     {
       "id": "infra",
-      "label": "인프라·배포",
-      "description": "실행 환경, 컨테이너, CI/CD, 배포와 모니터링",
+      "label": "인프라·개발",
+      "description": "개발 도구, 실행 환경, CI·배포와 코드 관리",
       "color": {
         "ink": "#9A4F24",
         "soft": "#FFF0E5",
@@ -71,37 +51,171 @@
       }
     },
     {
-      "id": "tools",
-      "label": "개발 도구",
-      "description": "IDE, CLI, Git 등 개발 도구의 사용법과 설정",
-      "color": {
-        "ink": "#4F5E70",
-        "soft": "#EDF1F5",
-        "tape": "#BBC8D7"
-      }
-    },
-    {
-      "id": "testing",
-      "label": "테스트·품질",
-      "description": "단위·통합·화면 테스트, 품질 기준과 보안 점검",
+      "id": "ops",
+      "label": "테스트·운영",
+      "description": "평가·테스트, 관측과 장애 추적, 운영 품질",
       "color": {
         "ink": "#41662C",
         "soft": "#EEF5E7",
         "tape": "#BAD59F"
       }
+    },
+    {
+      "id": "ax",
+      "label": "AX",
+      "description": "조직의 AI 전환 — 거버넌스, 성과 측정, 산업별 도입",
+      "color": {
+        "ink": "#9C3D65",
+        "soft": "#FCEAF2",
+        "tape": "#EAAFC8"
+      }
+    },
+    {
+      "id": "emerging",
+      "label": "신기술·트렌드",
+      "description": "새로 등장한 기술이 무엇이고 무엇을 바꾸는지 — Physical AI, 디지털 트윈, 양자 컴퓨팅 등",
+      "color": {
+        "ink": "#12657C",
+        "soft": "#E4F3F8",
+        "tape": "#96CEE0"
+      }
+    }
+  ],
+  "series": [
+    {
+      "id": "domain-ax",
+      "label": "AX FIELD NOTES",
+      "title": "산업별 AX",
+      "description": "산업별 AI 도입·설계·검증 기준",
+      "total": 7,
+      "published": 1,
+      "items": [
+        {
+          "order": 1,
+          "title": "AX는 산업마다 무엇이 달라져야 할까?",
+          "slug": "ax-domain-design-criteria"
+        },
+        {
+          "order": 2,
+          "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?"
+        },
+        {
+          "order": 3,
+          "title": "의료 AI는 정확하기만 하면 충분할까?"
+        },
+        {
+          "order": 4,
+          "title": "법률·세무 AI는 어떻게 신뢰할 수 있는 답변을 만들까?"
+        },
+        {
+          "order": 5,
+          "title": "제조 AX는 왜 AI의 자율성을 제한해야 할까?"
+        },
+        {
+          "order": 6,
+          "title": "유통 AX는 AI 도입 성과를 어떻게 측정할까?"
+        },
+        {
+          "order": 7,
+          "title": "인사·공공 AX에서 AI 판단은 공정할 수 있을까?"
+        }
+      ]
+    },
+    {
+      "id": "physical-ai",
+      "label": "PHYSICAL AI NOTES",
+      "title": "Physical AI",
+      "description": "AI Agent 개발 경험에서 출발해 로봇·물리 세계로 넓혀 보는 리서치",
+      "total": 3,
+      "published": 1,
+      "items": [
+        {
+          "order": 1,
+          "title": "AI Agent에서 Physical AI로, 무엇이 달라지는가?",
+          "slug": "physical-ai-01"
+        },
+        {
+          "order": 2,
+          "title": "시뮬레이션에서 작동한 정책은 실제 로봇에서도 작동할까?"
+        },
+        {
+          "order": 3,
+          "title": "Physical AI의 안전 계층은 어떻게 설계할까?"
+        }
+      ]
     }
   ],
   "notes": [
     {
+      "slug": "physical-ai-01",
+      "file": "notes/physical-ai-01.md",
+      "revision": "5324f6749173f88d",
+      "title": "AI Agent에서 Physical AI로, 무엇이 달라지는가?",
+      "category": "emerging",
+      "categories": [
+        "emerging",
+        "ai",
+        "dev"
+      ],
+      "tags": [
+        "Physical AI",
+        "AI Agent",
+        "Robotics",
+        "VLA",
+        "World Model",
+        "ROS 2",
+        "Architecture"
+      ],
+      "date": "2026-11-12",
+      "summary": "AI Agent 개발 경험은 Physical AI에서도 재사용할 수 있다. 다만 모델이 선택한 행동을 실제 세계에서 실행하려면, 관측·좌표·시간·제어·하드웨어의 조건까지 맞아야 한다.",
+      "sample": false,
+      "series": {
+        "id": "physical-ai",
+        "order": 1
+      },
+      "related": [
+        "why-ai-agent",
+        "agent-autonomy",
+        "ai-waiting-ux"
+      ]
+    },
+    {
+      "slug": "ax-domain-design-criteria",
+      "file": "notes/ax-domain-design-criteria.md",
+      "revision": "184809fadd607758",
+      "title": "AX는 산업마다 무엇이 달라져야 할까?",
+      "category": "ax",
+      "categories": [
+        "ax"
+      ],
+      "tags": [
+        "AX",
+        "AI 거버넌스",
+        "위험관리",
+        "업무 설계"
+      ],
+      "date": "2026-11-12",
+      "summary": "산업마다 달라지는 것은 모델이 아니라, 실패했을 때 무엇이 망가지는지, 지켜야 할 규칙, 되돌릴 수 있는지다. 그래서 같은 요약·검색·실행이라도 산업에 따라 AI에게 줄 권한과 검증 방법이 달라진다.",
+      "sample": false,
+      "series": {
+        "id": "domain-ax",
+        "order": 1
+      },
+      "related": [
+        "agent-autonomy",
+        "agent-governance",
+        "agent-kpi"
+      ]
+    },
+    {
       "slug": "rag-stack-selection",
       "file": "notes/rag-stack-selection.md",
-      "revision": "193714ad26a19e3f",
+      "revision": "35fa1fa3ce4c947e",
       "title": "AI 검색·RAG 기술 스택은 어떻게 고를까?",
-      "category": "planning",
+      "category": "ai",
       "categories": [
-        "planning",
-        "data",
-        "ai"
+        "ai",
+        "data"
       ],
       "tags": [
         "RAG",
@@ -124,14 +238,13 @@
     {
       "slug": "ai-coding-delivery",
       "file": "notes/ai-coding-delivery.md",
-      "revision": "7aeefc8ba0ada43e",
+      "revision": "e3fdc4d5e980f13b",
       "title": "AI가 코드를 더 빨리 만들수록, 개발 시스템은 무엇이 달라져야 할까?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
-        "planning",
-        "tools",
+        "ax",
         "infra",
-        "testing"
+        "ops"
       ],
       "tags": [
         "AI Coding",
@@ -154,13 +267,12 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/ai-technical-debt.md",
-      "revision": "766ae40a1cb7f94e",
+      "revision": "c187881e2ba4fff4",
       "title": "AI를 활용한 코드 정리는 어떻게 할까?",
       "category": "infra",
       "categories": [
         "infra",
-        "tools",
-        "testing"
+        "ops"
       ],
       "tags": [
         "기술 부채",
@@ -180,13 +292,12 @@
     {
       "slug": "ai-waiting-ux",
       "file": "notes/ai-waiting-ux.md",
-      "revision": "5dd0239c81a748d2",
+      "revision": "7ef639e578d496a3",
       "title": "AI 답변을 기다리는 동안 서비스는 어떻게 동작해야 할까?",
       "category": "planning",
       "categories": [
         "planning",
-        "ux",
-        "backend"
+        "dev"
       ],
       "tags": [
         "Async",
@@ -199,16 +310,18 @@
       "sample": false,
       "related": [
         "tech-stack-choice",
-        "claude-cli-in-app"
+        "claude-cli-in-app",
+        "physical-ai-01"
       ]
     },
     {
       "slug": "agent-governance",
       "file": "notes/agent-governance.md",
-      "revision": "058269283d901960",
+      "revision": "ce0c8491089e9d21",
       "title": "AI 에이전트가 늘어날수록, 기업은 무엇을 관리해야 하는가?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
+        "ax",
         "planning",
         "ai"
       ],
@@ -226,19 +339,19 @@
         "agent-autonomy",
         "ai-failure-tracing",
         "agent-guardrails",
-        "agent-memory"
+        "agent-memory",
+        "ax-domain-design-criteria"
       ]
     },
     {
       "slug": "agent-autonomy",
       "file": "notes/agent-autonomy.md",
-      "revision": "9917377f5c78400e",
+      "revision": "913ef52a866341d6",
       "title": "에이전트는 얼마나 자율적이어야 하는가?",
       "category": "planning",
       "categories": [
         "planning",
-        "ai",
-        "ux"
+        "ai"
       ],
       "tags": [
         "AI Agent",
@@ -256,17 +369,20 @@
         "agent-eval",
         "agent-governance",
         "agent-kpi",
+        "ax-domain-design-criteria",
         "multi-agent-vs-single",
+        "physical-ai-01",
         "prompt-injection"
       ]
     },
     {
       "slug": "agent-kpi",
       "file": "notes/agent-kpi.md",
-      "revision": "ccbe9d0a1d8ecb22",
+      "revision": "c55e93dbc8b23e41",
       "title": "AI 에이전트의 KPI는 어떻게 설계해야 하는가?",
-      "category": "planning",
+      "category": "ax",
       "categories": [
+        "ax",
         "planning",
         "ai"
       ],
@@ -285,6 +401,7 @@
         "why-ai-service",
         "agent-governance",
         "ai-coding-delivery",
+        "ax-domain-design-criteria",
         "cross-device-agents",
         "model-selection"
       ]
@@ -292,11 +409,11 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/ai-dev-tools-compare.md",
-      "revision": "1af3fb16cb245f9c",
+      "revision": "1ac69a7f3f116df9",
       "title": "IDE 툴 비교 — VS Code · Kiro · Cursor",
-      "category": "tools",
+      "category": "infra",
       "categories": [
-        "tools"
+        "infra"
       ],
       "tags": [
         "VS Code",
@@ -309,20 +426,19 @@
       "sample": false,
       "related": [
         "ai-coding-delivery",
-        "ai-technical-debt"
+        "ai-technical-debt",
+        "mcp-api-design"
       ]
     },
     {
       "slug": "cross-device-agents",
       "file": "notes/cross-device-agents.md",
-      "revision": "421fcfad0af8fbdb",
+      "revision": "e866fc5cbe32037d",
       "title": "AI 에이전트의 작업은 기기가 바뀌어도 어떻게 이어질까?",
-      "category": "ux",
+      "category": "dev",
       "categories": [
-        "ux",
-        "ai",
-        "backend",
-        "infra"
+        "dev",
+        "ai"
       ],
       "tags": [
         "Cloud Agent",
@@ -345,12 +461,12 @@
     {
       "slug": "agent-eval",
       "file": "notes/agent-eval.md",
-      "revision": "8ee59e76b3115dae",
+      "revision": "89fc5ea5d9198689",
       "title": "글자 수로는 보고서를 평가할 수 없었다 — 코드 검사와 LLM Judge 나누기",
-      "category": "ai",
+      "category": "ops",
       "categories": [
-        "ai",
-        "testing"
+        "ops",
+        "ai"
       ],
       "tags": [
         "AI Agent",
@@ -374,13 +490,12 @@
     {
       "slug": "tech-stack-choice",
       "file": "notes/tech-stack-choice.md",
-      "revision": "936ca2b6a0d9c45f",
+      "revision": "094c044a11ac5bc1",
       "title": "서비스를 만들 때 기술스택은 어떻게 조합할까?",
-      "category": "planning",
+      "category": "dev",
       "categories": [
-        "planning",
-        "backend",
-        "infra"
+        "dev",
+        "planning"
       ],
       "tags": [
         "Architecture",
@@ -398,18 +513,19 @@
         "why-ai-agent",
         "ai-coding-delivery",
         "ai-waiting-ux",
+        "mcp-api-design",
         "rag-stack-selection"
       ]
     },
     {
       "slug": "ai-failure-tracing",
       "file": "notes/ai-failure-tracing.md",
-      "revision": "2c519e884c75c162",
+      "revision": "59a5505576ceceb7",
       "title": "AI의 답변이 틀렸을 때 어디서 실패했는지 어떻게 찾는가?",
-      "category": "ai",
+      "category": "ops",
       "categories": [
-        "ai",
-        "testing"
+        "ops",
+        "ai"
       ],
       "tags": [
         "AI Observability",
@@ -427,6 +543,32 @@
         "agent-governance",
         "context-engineering",
         "model-selection"
+      ]
+    },
+    {
+      "slug": "mcp-api-design",
+      "file": "notes/mcp-api-design.md",
+      "revision": "ce8ef8a175e9e5e6",
+      "title": "MCP가 표준이 되면 API 설계는 어떻게 달라지는가?",
+      "category": "dev",
+      "categories": [
+        "dev",
+        "ai"
+      ],
+      "tags": [
+        "MCP",
+        "API Design",
+        "Tool Calling",
+        "OpenAPI",
+        "Architecture"
+      ],
+      "date": "2026-10-15",
+      "summary": "MCP는 기능을 새로 만들거나 더 정확하게 하는 기술이 아니라, 이미 있는 기능을 여러 AI 앱이 같은 방식으로 찾고 호출하게 하는 연결 규약이다. 그래서 한 앱에서 기능 몇 개만 쓴다면 직접 연결로 충분하고, 같은 기능을 여러 AI 앱에 제공할 때 가치가 커진다.",
+      "sample": false,
+      "related": [
+        "agent-guardrails",
+        "tech-stack-choice",
+        "ai-dev-tools-compare"
       ]
     },
     {
@@ -455,6 +597,7 @@
         "agent-hitl",
         "agent-autonomy",
         "multi-agent-vs-single",
+        "physical-ai-01",
         "tech-stack-choice",
         "why-ai-service",
         "why-sllm"
@@ -463,7 +606,7 @@
     {
       "slug": "when-rag",
       "file": "notes/when-rag.md",
-      "revision": "af3f67f8beaf8071",
+      "revision": "e344079584b29077",
       "title": "RAG는 언제 필요하고, 언제 오히려 독이 되는가?",
       "category": "ai",
       "categories": [
@@ -545,12 +688,12 @@
     {
       "slug": "prompt-injection",
       "file": "notes/prompt-injection.md",
-      "revision": "9b4b9188beca344f",
+      "revision": "f11bf28e1224a232",
       "title": "Prompt Injection은 프롬프트 수정만으로 막을 수 있는가?",
       "category": "ai",
       "categories": [
         "ai",
-        "testing"
+        "ops"
       ],
       "tags": [
         "Prompt Injection",
@@ -572,7 +715,7 @@
     {
       "slug": "agent-memory",
       "file": "notes/agent-memory.md",
-      "revision": "acfa4324f238609f",
+      "revision": "3320977f7781f435",
       "title": "AI Agent는 무엇을 기억하고, 언제 잊어야 하는가?",
       "category": "ai",
       "categories": [
@@ -629,7 +772,7 @@
     {
       "slug": "agent-hitl",
       "file": "notes/agent-hitl.md",
-      "revision": "6a8694812743a0c3",
+      "revision": "c6212fe13ffed89a",
       "title": "승인은 어디에 걸어야 할까? — LangChain HITL 실습",
       "category": "ai",
       "categories": [
@@ -656,7 +799,7 @@
     {
       "slug": "agent-guardrails",
       "file": "notes/agent-guardrails.md",
-      "revision": "225786970dc80488",
+      "revision": "63622b06d22754bb",
       "title": "에이전트를 어디서 멈춰 세울까? — 입력·호출 횟수·출력 가드레일",
       "category": "ai",
       "categories": [
@@ -677,6 +820,7 @@
         "agent-governance",
         "ai-failure-tracing",
         "context-engineering",
+        "mcp-api-design",
         "multi-agent-vs-single",
         "prompt-injection",
         "why-ai-agent"
@@ -711,7 +855,7 @@
     {
       "slug": "model-selection",
       "file": "notes/model-selection.md",
-      "revision": "fe9f4464bbb66199",
+      "revision": "ca27316d1cf0618a",
       "title": "LLM 모델은 어떤 기준으로 선택해야 할까? — 성능·추론·비용의 균형",
       "category": "planning",
       "categories": [
@@ -741,13 +885,12 @@
     {
       "slug": "why-ml-model",
       "file": "notes/why-ml-model.md",
-      "revision": "16ea0c7417640ec0",
+      "revision": "000da9eb19d89e33",
       "title": "DL·LLM이 있는데 왜 전통적인 ML을 선택할까?",
-      "category": "planning",
+      "category": "data",
       "categories": [
-        "planning",
         "data",
-        "ai"
+        "planning"
       ],
       "tags": [
         "머신러닝",
@@ -830,13 +973,12 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/claude-cli-in-app.md",
-      "revision": "96d1780f767234c5",
+      "revision": "cd002aeed27f3be4",
       "title": "앱에서 Claude Code를 호출하면 내 설정도 따라올까?",
-      "category": "ai",
+      "category": "infra",
       "categories": [
-        "ai",
-        "tools",
-        "backend"
+        "infra",
+        "ai"
       ],
       "tags": [
         "Claude Code",
@@ -856,13 +998,13 @@
     {
       "slug": "why-python-ai",
       "file": "notes/why-python-ai.md",
-      "revision": "eff51d31d79d7e94",
+      "revision": "6f2a8da7babc4d7a",
       "title": "AI 개발에는 왜 Python을 많이 사용할까?",
-      "category": "planning",
+      "category": "dev",
       "categories": [
+        "dev",
         "planning",
-        "ai",
-        "backend"
+        "ai"
       ],
       "tags": [
         "Python",
@@ -916,7 +1058,7 @@
     {
       "slug": "prompt-techniques",
       "file": "notes/prompt-techniques.md",
-      "revision": "56a3f059237d7159",
+      "revision": "cac3e8b541f8f498",
       "title": "프롬프트 기법 10가지 — 언제 무엇을 꺼내 쓸까",
       "category": "ai",
       "categories": [

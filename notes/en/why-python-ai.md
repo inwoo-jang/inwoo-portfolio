@@ -1,7 +1,7 @@
 ---
 title: Why is Python so common in AI development?
-category: planning
-categories: [planning, ai, backend]
+category: dev
+categories: [dev, planning, ai]
 tags: [Python, Java, Spring AI, Spring Boot, FastAPI, AI Architecture]
 date: 2026-08-22
 summary: Python is widely used because of its rich ecosystem for data processing, model training and experimentation. When connecting an LLM API to an existing service, Java and Spring AI are also options; the choice should account for reuse of existing business logic, team expertise and additional operational overhead.

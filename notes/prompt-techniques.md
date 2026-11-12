@@ -63,7 +63,7 @@ CFO와 COO로서 찬반 토론 → 최종 결정과 승인 조건 정리.
 - Temperature: API에서 지정하는 설정값이다. 프롬프트에 쓰는 말투 지시와 구분한다
 - 공손한 표현이나 감정에 호소하는 문구의 효과는 모델·과제마다 다르므로 필수 규칙으로 두지 않는다
 
-## 참고 자료
+## 참고
 
 - [A Systematic Survey of Prompt Engineering in Large Language Models: Techniques and Applications (arXiv 2402.07927)](https://arxiv.org/abs/2402.07927)
 

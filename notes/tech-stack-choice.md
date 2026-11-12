@@ -1,7 +1,7 @@
 ---
 title: 서비스를 만들 때 기술스택은 어떻게 조합할까?
-category: planning
-categories: [planning, backend, infra]
+category: dev
+categories: [dev, planning]
 tags: [Architecture, Tech Stack, Overengineering, MSA, ADR]
 date: 2026-10-25
 summary: 기술스택을 고를 때는 가장 뛰어난 기술을 찾기보다 서비스 요구사항과 팀의 역량, 개발·운영 비용을 고려해 적절한 복잡도를 정해야 한다. 기획자가 줄 수 있는 요구사항과 제약, 기술 선택 기준 6가지, 오버엔지니어링·MSA·신기술 판단, 선택 근거를 남기는 ADR까지 정리했다.

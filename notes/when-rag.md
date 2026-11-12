@@ -180,7 +180,6 @@ RAG를 도입하는 것 자체가 목표가 되어서는 안 된다. **해결하
 
 ## 참고
 
-확인일: 2026.11.11
 
 - [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://aclanthology.org/2024.emnlp-industry.66/) — EMNLP 2024, RAG와 Long Context의 성능·비용 비교
 - [Long-Context LLMs Meet RAG](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5df5b1f121c915d8bdd00db6aac20827-Abstract-Conference.html) — ICLR 2025, 검색 문서 수와 성능 저하 현상

@@ -1,7 +1,7 @@
 ---
 title: Can you stop prompt injection just by fixing the prompt?
 category: ai
-categories: [ai, testing]
+categories: [ai, ops]
 tags: [Prompt Injection, AI Security, Trust Boundary, Guardrails, Tool Calling]
 date: 2026-09-15
 summary: Instructions embedded in external documents or tool responses can change an AI's behavior. Prompts should distinguish instructions from reference material, while code must enforce permissions for data access and tool execution. Tests should distinguish attempted actions, blocked actions, and actual execution, and also check that legitimate tasks are not being blocked.
@@ -9,7 +9,7 @@ sample: false
 related: [agent-guardrails, agent-hitl, agent-autonomy, rag-citation-rules]
 ---
 
-> **Prompt injection is more than finding malicious sentences. The real problem is keeping untrusted information from changing what the AI does.** Getting the prompt to separate instructions from data matters, but actual tool execution and data access have to be controlled by separate system rules.
+> Prompt injection is more than finding malicious sentences. The real problem is keeping untrusted information from changing what the AI does. Getting the prompt to separate instructions from data matters, but actual tool execution and data access have to be controlled by separate system rules.
 
 ## Why I asked this question
 
@@ -189,7 +189,7 @@ Handling prompt injection may not be only a job for security people or developer
 
 You don't have to kill the whole user task just because an external document contains an attack instruction. You have to decide whether the normal summary can still go ahead after a risky instruction is found, what information should be left out, and what to tell the user. Even then, you need to verify it can be handled safely, and be careful not to pass untrusted content through as is and create a new risk.
 
-## Where I've landed for now
+## Where I've landed
 
 At first I understood prompt injection as a matter of detecting and blocking malicious prompts. Going through the material, I came to think the more important question is **whether you can still limit what actually executes when the model accepts a bad instruction.**
 

@@ -47,7 +47,7 @@ Normalizing citation format:
 
 Code can check whether a citation ID is on the list. But these rules alone can't tell **whether that source actually supports the claim**. They lower the risk of answers with no evidence, but they don't fully prevent wrong answers.
 
-## Open question
+## Open questions
 
 - How should "No supporting evidence was found" be shown so it doesn't look like a system error?
 

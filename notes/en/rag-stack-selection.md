@@ -2,8 +2,8 @@
 title: How should we choose a technology stack for AI search and RAG?
 status: published
 published: true
-category: planning
-categories: [planning, data, ai]
+category: ai
+categories: [ai, data]
 date: 2026-11-11
 tags: [RAG, Search, Reranking, Ontology, Knowledge Graph, GraphRAG]
 summary: Choosing an AI search and RAG stack starts with identifying whether failures occur in candidate retrieval, ranking, or evidence lookup. This note distinguishes the roles and requirements of keyword and vector search, reranking, and SQL and graph queries, and sets out criteria for comparing accuracy and operating costs.
@@ -23,7 +23,7 @@ This question involves three tasks: finding similar decisions, selecting passage
 | Query processing | Interpret the question → retrieve and combine candidates → rerank → look up evidence passages and applied provisions → generate and validate the answer |
 | Operations | Record errors by stage → run regression checks with evaluation questions → update sources and legislation versions |
 
-## 1. What should we store from the source?
+## What should we store from the source?
 
 Store the full decision alongside the passages containing findings. Search at the passage or issue level, and link each result back to its location in the source and the full case. A passage that is too short may omit context needed to understand the finding, so retrieval can also bring in neighboring passages or the parent section. For scanned documents, preserve the original page location with the OCR output.
 
@@ -38,7 +38,7 @@ For example, record "applied by the commission" only when the basis for applicat
 
 This structure can also be implemented in SQL. An ontology becomes more valuable when sources need shared relationship meanings. The EU's ELI-I provides a model for expressing which amending provision changes which part of existing legislation. [W3C OWL 2 Primer](https://www.w3.org/TR/owl2-primer/) · [EU ELI-I](https://interoperable-europe.ec.europa.eu/collection/eli-european-legislation-identifier/solution/eli-i)
 
-## 2. How should we retrieve candidates?
+## How should we retrieve candidates?
 
 | Method | Strengths and selection criteria |
 |---|---|
@@ -51,7 +51,7 @@ This structure can also be implemented in SQL. An ontology becomes more valuable
 
 [Elastic hybrid search](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search — Hybrid search ranking](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
 
-## 3. What if the candidates are present but ranked incorrectly?
+## What if the candidates are present but ranked incorrectly?
 
 | Reranking method | Information used for ranking | Requirements |
 |---|---|---|
@@ -64,7 +64,7 @@ A Cross-Encoder score can also be an input to a tree-based ranker. For example, 
 
 Reranking cannot recover candidates that retrieval missed. Compare rankers on the same candidate list, and measure candidate retrieval performance separately. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers — Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
 
-## 4. What evidence should go into the answer?
+## What evidence should go into the answer?
 
 | Configuration | Evidence supplied to the answer | When to use it |
 |---|---|---|

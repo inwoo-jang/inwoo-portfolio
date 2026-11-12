@@ -1,7 +1,7 @@
 ---
 title: As AI agents multiply, what should a company manage?
-category: planning
-categories: [planning, ai]
+category: ax
+categories: [ax, planning, ai]
 tags: [Agent Governance, Agent Sprawl, Agent Lifecycle, AI ROI]
 date: 2026-11-10
 summary: Creating more agents does not by itself make an AI transformation successful. Organizations need to know what each agent does, who manages it, what permissions it has, and whether it delivers results. Drawing on Gartner forecasts and examples from SKT, IBM, and Cisco, this note covers management across the agent lifecycle and criteria for keeping, improving, or retiring agents.
