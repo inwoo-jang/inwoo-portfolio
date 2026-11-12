@@ -92,7 +92,7 @@
       "items": [
         {
           "order": 1,
-          "title": "What Should Change When AI Transformation Moves Across Industries?",
+          "title": "What Should Change When AX Moves Across Industries?",
           "slug": "ax-domain-design-criteria"
         },
         {
@@ -148,8 +148,8 @@
     {
       "slug": "ax-domain-design-criteria",
       "file": "notes/en/ax-domain-design-criteria.md",
-      "revision": "7597c21a4e797be8",
-      "title": "What Should Change When AI Transformation Moves Across Industries?",
+      "revision": "34fdbceeef994113",
+      "title": "What Should Change When AX Moves Across Industries?",
       "category": "ax",
       "categories": [
         "ax"
@@ -161,7 +161,7 @@
         "Workflow design"
       ],
       "date": "2026-11-12",
-      "summary": "Research and examples from finance, healthcare, legal services, manufacturing, retail, HR, and public services inform a practical framework for evaluating business outcomes, managing risk, and setting AI autonomy.",
+      "summary": "What changes across industries isn't the model. It's what breaks when things fail, which rules apply, and whether the result can be undone. That's why the same summarization, search, or execution task calls for different AI permissions and verification in each industry.",
       "sample": false,
       "series": {
         "id": "domain-ax",
@@ -205,7 +205,7 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/en/ai-technical-debt.md",
-      "revision": "6c9ed48450349234",
+      "revision": "8507b82ff2d2ccc1",
       "title": "How can AI help clean up code?",
       "category": "infra",
       "categories": [
@@ -230,7 +230,7 @@
     {
       "slug": "rag-stack-selection",
       "file": "notes/en/rag-stack-selection.md",
-      "revision": "29c1eca6c1c047af",
+      "revision": "23ad22cd0e6ee223",
       "title": "How should we choose a technology stack for AI search and RAG?",
       "category": "ai",
       "categories": [
@@ -311,7 +311,7 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/en/ai-dev-tools-compare.md",
-      "revision": "8124a92afdfe5ea8",
+      "revision": "080ccd1eb1e9483e",
       "title": "Comparing IDEs — VS Code · Kiro · Cursor",
       "category": "infra",
       "categories": [
@@ -424,7 +424,7 @@
     {
       "slug": "agent-eval",
       "file": "notes/en/agent-eval.md",
-      "revision": "432122122356d490",
+      "revision": "a497f00eeb9ce0c2",
       "title": "Character count couldn't evaluate a report — splitting checks between code and an LLM judge",
       "category": "ops",
       "categories": [
@@ -510,7 +510,7 @@
     {
       "slug": "why-ai-agent",
       "file": "notes/en/why-ai-agent.md",
-      "revision": "8cac2ba9a679a310",
+      "revision": "64446f5aca3f9c35",
       "title": "Why build it as an AI agent? — can you decide the next step in advance",
       "category": "planning",
       "categories": [
@@ -569,7 +569,7 @@
     {
       "slug": "ai-data-patterns",
       "file": "notes/en/ai-data-patterns.md",
-      "revision": "576e31d68e971bea",
+      "revision": "057975d475ca0e84",
       "title": "How much can we trust the patterns AI finds in data?",
       "category": "data",
       "categories": [
@@ -595,7 +595,7 @@
     {
       "slug": "rag-citation-rules",
       "file": "notes/en/rag-citation-rules.md",
-      "revision": "12670986d3ea8921",
+      "revision": "bae63cb33a1b6e35",
       "title": "No evidence, no answer — citation checks for RAG",
       "category": "ai",
       "categories": [
@@ -763,7 +763,7 @@
     {
       "slug": "why-ai-service",
       "file": "notes/en/why-ai-service.md",
-      "revision": "3c2a083260207cc3",
+      "revision": "a29af0d1eddf314c",
       "title": "Why build an AI service? — which part of the user's work are you changing",
       "category": "planning",
       "categories": [
@@ -850,7 +850,7 @@
     {
       "slug": "why-sllm",
       "file": "notes/en/why-sllm.md",
-      "revision": "ccbd53e184a8c32c",
+      "revision": "11d026c2577348b0",
       "title": "Why use an sLLM? — not because it's small, but because it fits the requirements",
       "category": "planning",
       "categories": [
@@ -907,7 +907,7 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/en/claude-cli-in-app.md",
-      "revision": "372c2d226eeea8e0",
+      "revision": "612a2dfe6a448126",
       "title": "Does Claude Code use my personal settings when called from an app?",
       "category": "infra",
       "categories": [
@@ -992,7 +992,7 @@
     {
       "slug": "prompt-techniques",
       "file": "notes/en/prompt-techniques.md",
-      "revision": "27277471b81882fd",
+      "revision": "54ddbf23e4f46028",
       "title": "10 prompt techniques — which one to reach for, and when",
       "category": "ai",
       "categories": [

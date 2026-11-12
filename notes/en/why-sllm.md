@@ -10,6 +10,8 @@ sample: false
 related: [why-ai-agent]
 ---
 
+> Before choosing an sLLM, I need to check whether it can deliver the quality the task requires.
+
 Here I use sLLM (Small Language Model) to mean a relatively small language model. Rather than drawing the line at a parameter count, I think the right test is **whether it delivers the quality needed for the task you give it, in the environment it runs in**.
 
 ## "A small model is enough" is a hypothesis

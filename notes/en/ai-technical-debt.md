@@ -12,6 +12,8 @@ sample: false
 related: [ai-coding-delivery, ai-dev-tools-compare, model-selection]
 ---
 
+> A lack of recorded calls is not enough reason to delete code.
+
 If AI can help us write code quickly, can it also help clean up code that has accumulated? OpenAI's Core Experimentation team used Codex to find unused code and stale experiments and improve slow CI jobs.
 
 What interested me most was not how much old code AI found, but **how it established why that code was still there**.
@@ -22,13 +24,13 @@ Codex examined past PRs, Slack discussions and internal project records, then ch
 
 When looking at production data, **the observation period and operating conditions** matter. Code that has not run for several weeks might be used only for month-end batch jobs or incident response. References that code search misses could also come from framework configuration or reflection.
 
-If I assigned this work to AI, I would ask it to record **where it looked, which period it examined and which possible call paths remain unchecked** for each candidate. I would start with small PRs for well-supported candidates so developers familiar with the feature could check which behavior must be preserved.
+So if AI takes on this work, I think it should record **where it looked, which period it examined and which possible call paths remain unchecked** for each candidate. Starting with small PRs for well-supported candidates also makes it easier for developers who know the feature to check which behavior must be preserved.
 
 ## When should feature flags from completed experiments be removed?
 
 Feature flags turn functionality on or off and apply different behavior for different users or environments. When flags and old branches remain after an experiment ends or a feature reaches all users, future changes require checking more combinations.
 
-Before cleanup, I would examine **settings across environments, recent evaluations, code references and dependencies from other flags** together. A flag can still matter even if its value is constant: it may be a prerequisite for another flag or an emergency switch used during incidents.
+Before cleanup, it helps to examine **settings across environments, recent evaluations, code references and dependencies from other flags** together. A flag can still matter even if its value is constant: it may be a prerequisite for another flag or an emergency switch used during incidents.
 
 In OpenAI's example, a testing flag connected to multiple feature flags was adding CPU cost. Codex noticed that the management console marked it as `Permanent` and requested human review. After review, the team removed it and **estimated a CPU saving of about 0.42%** in the main affected service.
 
@@ -36,23 +38,23 @@ Defining cleanup conditions when a flag is created could reduce the need to reco
 
 ## If CI is slow, first find out where the time goes
 
-CI results may arrive late because jobs are queued or because the tests themselves take a long time. GitHub Actions provides workflow and job metrics for queue time, execution time and failure rate. If AI analyzes that history, I would ask it to identify repeatedly slow jobs and attach estimated time savings and the calculation behind each proposed improvement.
+CI results may arrive late because jobs are queued or because the tests themselves take a long time. GitHub Actions provides workflow and job metrics for queue time, execution time and failure rate. If AI analyzes that history, it can be asked to identify repeatedly slow jobs and attach estimated time savings and the calculation behind each proposed improvement.
 
 OpenAI reported that after merging about 30 CI optimization PRs, **median CI completion time fell from roughly 10 minutes to 4.5 minutes**, and **the 90th percentile fell from 12.5 minutes to 6 minutes**. A later improvement added a missing mock, retaining all 63 tests while reducing that suite's runtime from about 593 seconds to 30 seconds.
 
-To evaluate CI improvements, I would check the median and 90th-percentile completion times alongside failure rate and existing test coverage. That would show whether typical runs became faster and whether unusually long waits also improved.
+To evaluate CI improvements, the median and 90th-percentile completion times should be read together, along with checking that failure rate and existing test coverage didn't get worse. That shows whether typical runs became faster and whether unusually long waits also improved.
 
 ## How far can a cheaper model investigate?
 
 When OpenAI investigated stale experiments in the same repository scope, GPT-6.1 Sol Ultra produced 131 reviewed findings for $15.12 in API costs. GPT-6 Astra Ultra produced 142 for $109.06. In that experiment, Sol Ultra produced **about 92% as many findings at about 14% of the API cost**.
 
-The differences mainly involved constant flags used as dependencies by other flags. In practice, I would use a lower-cost model to search broadly, then apply additional review to candidates with complex dependencies or substantial operational impact. I would also record **which types of candidates each model missed and how long people spent checking its evidence**.
+The differences mainly involved constant flags used as dependencies by other flags. In practice, using a lower-cost model to search broadly and sending only candidates with complex dependencies or substantial operational impact to additional review seems right. I'd also want to record **which types of candidates each model missed and how long people spent checking its evidence**.
 
-## How I would apply this
+## Where I've landed
 
-I would start with one completed experiment or one repeatedly slow CI job. When AI gathers evidence and proposes a small PR, that PR should explain **why the change is needed, which behavior must be preserved and what to check afterward**.
+Rather than cleaning up a whole repository at once, I think it makes sense to start with one completed experiment or one repeatedly slow CI job. When AI gathers evidence and proposes a small PR, that PR should explain **why the change is needed, which behavior must be preserved and what to check afterward**.
 
-After removing a flag, I would check that the released feature still behaves correctly in each environment. After improving CI, I would compare completion time and failure rate for the same workflow. Those results would help decide which cleanup work deserves time next.
+After removing a flag, check that the released feature still behaves correctly in each environment. After improving CI, compare completion time and failure rate for the same workflow. Those results help decide which cleanup work deserves time next.
 
 ## References
 

@@ -9,6 +9,8 @@ summary: Calling a CLI locally can bring personal settings and instructions into
 sample: false
 ---
 
+> Calling a CLI locally can bring personal settings and instructions into the session.
+
 I set up a study app so that pressing "Grade" makes a Python server run the `claude` command on my computer and return the answer. Since the app runs locally, I could use my existing Claude Code login without getting a separate API key.
 
 Once I connected it, I found that Claude Code launched by the app also read my PC's settings. Grading needed a question and an answer, but I also had to check which settings and tools the CLI brought with it. For longer answers, I needed to decide when the app should start displaying the response.

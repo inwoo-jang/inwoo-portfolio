@@ -182,7 +182,7 @@
     {
       "slug": "ax-domain-design-criteria",
       "file": "notes/ax-domain-design-criteria.md",
-      "revision": "184809fadd607758",
+      "revision": "fa99963bbc6549e9",
       "title": "AX는 산업마다 무엇이 달라져야 할까?",
       "category": "ax",
       "categories": [
@@ -210,7 +210,7 @@
     {
       "slug": "rag-stack-selection",
       "file": "notes/rag-stack-selection.md",
-      "revision": "35fa1fa3ce4c947e",
+      "revision": "8346a6158449bd7b",
       "title": "AI 검색·RAG 기술 스택은 어떻게 고를까?",
       "category": "ai",
       "categories": [
@@ -267,7 +267,7 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/ai-technical-debt.md",
-      "revision": "c187881e2ba4fff4",
+      "revision": "954806e0f768fcf4",
       "title": "AI를 활용한 코드 정리는 어떻게 할까?",
       "category": "infra",
       "categories": [
@@ -409,7 +409,7 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/ai-dev-tools-compare.md",
-      "revision": "1ac69a7f3f116df9",
+      "revision": "4d5d7898772bfe36",
       "title": "IDE 툴 비교 — VS Code · Kiro · Cursor",
       "category": "infra",
       "categories": [
@@ -461,7 +461,7 @@
     {
       "slug": "agent-eval",
       "file": "notes/agent-eval.md",
-      "revision": "89fc5ea5d9198689",
+      "revision": "a80dce38ca5fa2d2",
       "title": "글자 수로는 보고서를 평가할 수 없었다 — 코드 검사와 LLM Judge 나누기",
       "category": "ops",
       "categories": [
@@ -548,7 +548,7 @@
     {
       "slug": "mcp-api-design",
       "file": "notes/mcp-api-design.md",
-      "revision": "ce8ef8a175e9e5e6",
+      "revision": "ef531dc86f4f3301",
       "title": "MCP가 표준이 되면 API 설계는 어떻게 달라지는가?",
       "category": "dev",
       "categories": [
@@ -574,7 +574,7 @@
     {
       "slug": "why-ai-agent",
       "file": "notes/why-ai-agent.md",
-      "revision": "128e8fd434ab10d5",
+      "revision": "85574b2ee04c1be5",
       "title": "왜 AI 에이전트로 만들까? — 다음 행동을 미리 정할 수 있는가",
       "category": "planning",
       "categories": [
@@ -634,7 +634,7 @@
     {
       "slug": "ai-data-patterns",
       "file": "notes/ai-data-patterns.md",
-      "revision": "9194ce5fb0b313b0",
+      "revision": "989659a9081f2e38",
       "title": "AI가 데이터에서 찾은 패턴, 어디까지 믿어도 될까?",
       "category": "data",
       "categories": [
@@ -660,7 +660,7 @@
     {
       "slug": "rag-citation-rules",
       "file": "notes/rag-citation-rules.md",
-      "revision": "47526e31ab3a6d00",
+      "revision": "a0897bc00fc83a7b",
       "title": "근거가 없으면 답하지 않게 하기 — RAG 인용 검증 규칙",
       "category": "ai",
       "categories": [
@@ -829,7 +829,7 @@
     {
       "slug": "why-ai-service",
       "file": "notes/why-ai-service.md",
-      "revision": "003c0d70617bfd5b",
+      "revision": "1fb414e68fa3dcf8",
       "title": "왜 AI 서비스를 만들까? — 사용자의 어떤 일을 바꾸려는가",
       "category": "planning",
       "categories": [
@@ -916,7 +916,7 @@
     {
       "slug": "why-sllm",
       "file": "notes/why-sllm.md",
-      "revision": "4e01e44dfd57b867",
+      "revision": "f34c0553fee61d32",
       "title": "왜 sLLM을 사용할까? — 작아서가 아니라 조건이 맞아서",
       "category": "planning",
       "categories": [
@@ -973,7 +973,7 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/claude-cli-in-app.md",
-      "revision": "cd002aeed27f3be4",
+      "revision": "d0bbce087b368a14",
       "title": "앱에서 Claude Code를 호출하면 내 설정도 따라올까?",
       "category": "infra",
       "categories": [
@@ -1058,7 +1058,7 @@
     {
       "slug": "prompt-techniques",
       "file": "notes/prompt-techniques.md",
-      "revision": "cac3e8b541f8f498",
+      "revision": "9fde734d129d238e",
       "title": "프롬프트 기법 10가지 — 언제 무엇을 꺼내 쓸까",
       "category": "ai",
       "categories": [

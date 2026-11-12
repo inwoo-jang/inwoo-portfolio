@@ -11,6 +11,8 @@ sample: false
 related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 ---
 
+> Choosing an AI search and RAG stack starts with identifying whether failures occur in candidate retrieval, ranking, or evidence lookup.
+
 "Find a commission decision about a social media ad that displayed discount conditions in small print. Also show the statutory provisions the commission applied and how they were amended afterward."
 
 This question involves three tasks: finding similar decisions, selecting passages containing findings about the ad, and checking the versions and amendment history of the applicable provisions. The first is mainly retrieval and ranking, the second evidence selection, and the third data modeling and querying. The technology to change depends on which stage fails.

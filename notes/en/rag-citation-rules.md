@@ -8,6 +8,8 @@ sample: false
 related: [agent-eval]
 ---
 
+> When retrieval finds no supporting evidence, answer generation can be stopped, and code can filter out citations that are not on the allowed list.
+
 RAG is a way for an AI to build its answer from documents it retrieves. In the capstone, I set rules for **what to do when there's no evidence and when a citation is wrong**.
 
 ## Problems I ran into

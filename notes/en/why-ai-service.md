@@ -9,6 +9,8 @@ sample: false
 related: [why-ai-agent, why-ml-model, why-sllm]
 ---
 
+> Being able to generate answers with AI isn't a reason to adopt it.
+
 To me, planning an AI service means looking closely at the work users have to do and finding the parts AI actually improves. You can't stop at "it can generate an answer." You have to design the flow all the way through: the user checks the result and finishes the next step.
 
 ## Separate these first

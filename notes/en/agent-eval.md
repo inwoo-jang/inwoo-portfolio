@@ -8,6 +8,8 @@ summary: Code can check formatting and required fields, but whether the content 
 sample: false
 ---
 
+> Code can check formatting and required fields, but whether the content matches its evidence needs a separate evaluation.
+
 When I evaluated agent-generated reports by character count alone, reports with thin content passed. So I split the criteria: code checks the format, and an LLM judge (an AI model used as the evaluator) checks the meaning.
 
 ## What was slipping through

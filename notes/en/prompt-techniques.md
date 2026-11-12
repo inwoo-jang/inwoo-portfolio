@@ -7,6 +7,8 @@ summary: I think the desired result should guide the choice of prompt technique.
 sample: false
 ---
 
+> I think the desired result should guide the choice of prompt technique.
+
 A reference note on the prompt techniques from class, organized by **when to reach for each one**. RICE is the base structure, and other techniques go on top depending on the goal. For example, I lay out the request with RICE, then use Step-back to check the premise one more time.
 
 ## What to use when

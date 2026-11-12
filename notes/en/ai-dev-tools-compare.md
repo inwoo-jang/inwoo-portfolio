@@ -7,6 +7,8 @@ summary: VS Code is mix-and-match, Kiro is spec-driven, Cursor is agent-driven. 
 sample: false
 ---
 
+> When choosing an AI coding tool, what matters isn't only how fast it writes code, but whether requirements actually make it into the implementation and whether you can verify the results.
+
 I compared how VS Code, Kiro, and Cursor handle AI coding, project rules, and the flow of planning and verifying work, based on their official docs. All three let AI write and edit code and connect to external tools, but each puts the emphasis on a different part of development.
 
 ## In one line each

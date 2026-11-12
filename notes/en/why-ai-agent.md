@@ -10,6 +10,8 @@ sample: false
 related: [agent-eval, agent-guardrails, agent-hitl]
 ---
 
+> Calling an LLM multiple times or using tools does not by itself mean an agent is needed.
+
 Here, an AI agent means a setup where the model picks its own next action and tools while working toward a goal. That's a different topic from building software with AI coding tools. This note is about when there's a real reason to put an agent inside a service.
 
 ## Can you decide the next step in advance?

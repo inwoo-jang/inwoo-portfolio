@@ -12,6 +12,8 @@ sample: false
 related: [data-preprocessing, why-ml-model, agent-eval]
 ---
 
+> Before using a pattern found by AI to make a business decision, define what that pattern is meant to help decide.
+
 Suppose we give an LLM October's customer-support records and ask it to find notable patterns. It replies, "In October, payment inquiries accounted for a larger share of all inquiries on Fridays than on other days of the week." The summary table shows the same result. Does that mean we should assign more payment-support staff on Fridays next month?
 
 After reading MIT Technology Review Korea's article "AI가 발견하고 인간이 증명하는 시대" (an era in which AI discovers and humans prove), I wondered what a person would need to verify in this situation. At first, I thought checking the next month's data would be enough. Looking into more research examples, though, I found that **some problems emerge only when we change the analysis of the same data, while others persist even when we collect new data.** [MIT Technology Review Korea — AI가 발견하고 인간이 증명하는 시대](https://www.technologyreview.kr/ai가-발견하고-인간이-증명하는-시대/)
