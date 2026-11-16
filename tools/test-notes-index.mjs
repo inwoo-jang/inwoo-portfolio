@@ -88,7 +88,7 @@ await expectError("시리즈: seriesOrder 없이 series만 있으면 오류",
 await expectError("시리즈: 없는 시리즈 ID면 오류",
   { a: { category: "ax", series: "nope", seriesOrder: "1" } }, /series.json에 없음/);
 await expectError("시리즈: 기획에 없는 회차면 오류",
-  { a: { category: "ax", series: "domain-ax", seriesOrder: "8" } }, /기획 회차에 8회가 없음/);
+  { a: { category: "ax", series: "domain-ax", seriesOrder: "10" } }, /기획 회차에 10회가 없음/);
 await expectError("시리즈: 0이나 정수가 아닌 회차는 오류",
   { a: { category: "ax", series: "domain-ax", seriesOrder: "1.5" } }, /1 이상의 정수/);
 await expectError("시리즈: 같은 언어 안 회차 중복은 오류",
@@ -103,9 +103,23 @@ await check("시리즈 목차: 1·3편만 게시되면 2편은 링크 없이, �
   assert.equal(build(root, "ko").ok, true);
   const s = JSON.parse(await readFile(join(root, "notes", "index.json"), "utf8")).series[0];
   assert.equal(s.published, 2);
-  assert.equal(s.total, 7);
+  assert.equal(s.total, 9);
   assert.deepEqual(s.items.filter((i) => i.slug).map((i) => [i.order, i.slug]), [[1, "one"], [3, "three"]]);
   assert.equal(s.items.find((i) => i.order === 2).slug, undefined);
+  await rm(root, { recursive: true, force: true });
+});
+
+await check("목록: 같은 날짜의 시리즈는 제목과 무관하게 최신 회차 우선, 최신 날짜 우선", async () => {
+  const root = await fixture({ ko: {
+    fourth: { title: "A", category: "ax", series: "domain-ax", seriesOrder: "4" },
+    plain: { title: "M", category: "planning" },
+    third: { title: "Z", category: "ax", series: "domain-ax", seriesOrder: "3" },
+    newest: { category: "ax", date: "2026-11-02" },
+    older: { category: "ax", date: "2026-10-31", series: "domain-ax", seriesOrder: "2" }
+  } });
+  assert.equal(build(root, "ko").ok, true);
+  const data = JSON.parse(await readFile(join(root, "notes", "index.json"), "utf8"));
+  assert.deepEqual(data.notes.map((n) => n.slug), ["newest", "fourth", "plain", "third", "older"]);
   await rm(root, { recursive: true, force: true });
 });
 

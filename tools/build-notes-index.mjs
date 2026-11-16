@@ -155,6 +155,22 @@ if (problems.length) {
 
 // 완성 글을 먼저, 샘플은 뒤로. 같은 묶음 안에서는 최신순
 notes.sort((a, b) => (Number(a.sample) - Number(b.sample)) || (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title, lang || "ko"));
+
+// 같은 날짜·게시 상태의 시리즈 글은 목록의 해당 자리에서 최신 회차부터 배치한다.
+// 다른 글의 위치와 날짜 기준 최신순은 유지한다.
+const seriesGroups = new Map();
+const seriesGroupKey = (note) => JSON.stringify([note.sample, note.date, note.series.id]);
+for (const note of notes) {
+  if (!note.series) continue;
+  const key = seriesGroupKey(note);
+  if (!seriesGroups.has(key)) seriesGroups.set(key, []);
+  seriesGroups.get(key).push(note);
+}
+for (const group of seriesGroups.values()) group.sort((a, b) => b.series.order - a.series.order);
+for (let i = 0; i < notes.length; i++) {
+  if (notes[i].series) notes[i] = seriesGroups.get(seriesGroupKey(notes[i])).shift();
+}
+
 // 시리즈 목차: 기획 회차와 게시된 글을 합친다. 게시되지 않은 회차는 slug 없이(링크 없이) 둔다.
 const series = seriesList.map((s) => {
   const published = notes.filter((n) => n.series && n.series.id === s.id);

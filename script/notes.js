@@ -18,12 +18,79 @@
   var catBox = root.querySelector("[data-note-cats]");
   var guideEl = root.querySelector("[data-note-category-guide]");
   var searchEl = root.querySelector("#note-search");
+  var sortEl = root.querySelector("#note-sort");
   var readerEl = root.querySelector("[data-note-reader]");
   var viewSwitch = document.querySelector("[data-notes-view-switch]");
   var viewButtons = document.querySelectorAll("[data-notes-view]");
 
   var notes = [];
-  var state = { category: "all", query: "" };
+  var state = { category: "all", query: "", sort: "newest" };
+  try {
+    if (localStorage.getItem("inwoo-notes-sort") === "oldest") { state.sort = "oldest"; }
+  } catch (e) { /* 저장소 없이도 정렬 가능 */ }
+  if (sortEl) {
+    var sortControl = sortEl.parentNode;
+    var sortMenu = root.querySelector("#note-sort-options");
+    var sortValue = root.querySelector("#note-sort-value");
+    var sortOptions = Array.prototype.slice.call(sortMenu.querySelectorAll("[data-sort-value]"));
+    function syncSort() {
+      sortOptions.forEach(function (option) {
+        var selected = option.dataset.sortValue === state.sort;
+        option.setAttribute("aria-selected", String(selected));
+        if (selected) { sortValue.textContent = option.textContent; }
+      });
+    }
+    function closeSort(restoreFocus) {
+      sortMenu.hidden = true;
+      sortEl.setAttribute("aria-expanded", "false");
+      if (restoreFocus) { sortEl.focus(); }
+    }
+    function openSort(index) {
+      sortMenu.hidden = false;
+      sortEl.setAttribute("aria-expanded", "true");
+      if (index == null) {
+        index = sortOptions.findIndex(function (option) { return option.dataset.sortValue === state.sort; });
+      }
+      sortOptions[index].focus();
+    }
+    syncSort();
+    sortEl.addEventListener("click", function () {
+      if (sortMenu.hidden) { openSort(); } else { closeSort(false); }
+    });
+    sortEl.addEventListener("keydown", function (event) {
+      if (["ArrowDown", "ArrowUp", "Home", "End"].indexOf(event.key) < 0) { return; }
+      event.preventDefault();
+      openSort(event.key === "Home" ? 0 : event.key === "End" ? sortOptions.length - 1 : null);
+    });
+    sortOptions.forEach(function (option, index) {
+      option.addEventListener("click", function () {
+        state.sort = option.dataset.sortValue;
+        try { localStorage.setItem("inwoo-notes-sort", state.sort); } catch (e) { /* 현재 페이지에서만 유지 */ }
+        syncSort();
+        closeSort(true);
+        renderList();
+      });
+      option.addEventListener("keydown", function (event) {
+        var next = index;
+        if (event.key === "ArrowDown") { next = (index + 1) % sortOptions.length; }
+        else if (event.key === "ArrowUp") { next = (index + sortOptions.length - 1) % sortOptions.length; }
+        else if (event.key === "Home") { next = 0; }
+        else if (event.key === "End") { next = sortOptions.length - 1; }
+        else if (event.key === "Enter" || event.key === " ") { event.preventDefault(); option.click(); return; }
+        else if (event.key === "Escape") { event.preventDefault(); closeSort(true); return; }
+        else if (event.key === "Tab") { closeSort(true); return; }
+        else { return; }
+        event.preventDefault();
+        sortOptions[next].focus();
+      });
+    });
+    document.addEventListener("pointerdown", function (event) {
+      if (!sortControl.contains(event.target)) { closeSort(false); }
+    });
+    sortControl.addEventListener("focusout", function (event) {
+      if (!sortControl.contains(event.relatedTarget)) { closeSort(false); }
+    });
+  }
   var lastOpened = null;
   var currentRoute = null;
   var cache = {};
@@ -251,6 +318,11 @@
 
   function renderList() {
     var list = notes.filter(matches);
+    // 인덱스의 최신순(같은 날짜는 최신 회차 우선)을 뒤집되 샘플은 끝에 둔다.
+    if (state.sort === "oldest") {
+      list = list.filter(function (n) { return !n.sample; }).reverse()
+        .concat(list.filter(function (n) { return n.sample; }).reverse());
+    }
     gridEl.textContent = "";
     list.forEach(function (n) { gridEl.appendChild(noteCard(n)); });
     gridEl.hidden = !list.length;

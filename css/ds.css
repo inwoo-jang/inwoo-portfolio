@@ -461,6 +461,20 @@ mark {
 .toolbar__row { display: grid; grid-template-columns: 4rem minmax(0, 1fr); align-items: center; gap: var(--s3); }
 .toolbar__label { font-size: var(--fs-caption); font-weight: 600; color: var(--muted); }
 .count { margin: 0 0 var(--s4); font-size: var(--fs-small); color: var(--muted); }
+.notes-list-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s3); margin-bottom: var(--s4); }
+.notes-list-bar .count { margin: 0; }
+.notes-sort { display: flex; align-items: center; gap: var(--s2); margin-left: auto; }
+.notes-sort__label { font-size: var(--fs-caption); color: var(--muted); font-weight: 600; }
+.notes-sort__control { position: relative; min-width: 88px; }
+html[lang="en"] .notes-sort__control { min-width: 128px; }
+.notes-sort__trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); width: 100%; height: 32px; padding: 0 var(--s2); border: 1px solid var(--rule-strong); border-radius: var(--radius); background: var(--paper); color: var(--ink); font: inherit; font-size: var(--fs-caption); cursor: pointer; white-space: nowrap; }
+.notes-sort__trigger:hover, .notes-sort__trigger[aria-expanded="true"] { border-color: var(--ink); }
+.notes-sort__trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.notes-sort__options { position: absolute; top: calc(100% + 4px); right: 0; z-index: 20; box-sizing: border-box; width: 100%; margin: 0; padding: 4px; list-style: none; border: 1px solid var(--rule-strong); border-radius: var(--radius); background: var(--paper); box-shadow: 0 4px 12px rgb(0 0 0 / 8%); }
+.notes-sort__options [role="option"] { display: flex; align-items: center; min-height: 28px; margin: 0; padding: 0 4px; border-radius: 2px; font-size: var(--fs-caption); line-height: 1.4; white-space: nowrap; cursor: pointer; }
+.notes-sort__options [role="option"][aria-selected="true"] { font-weight: 600; }
+.notes-sort__options [role="option"]:hover, .notes-sort__options [role="option"]:focus { background: var(--paper-alt, #f4f4f5); outline: none; }
+
 @media (max-width: 767px) {
   .toolbar__row { grid-template-columns: 1fr; gap: var(--s2); }
   .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
