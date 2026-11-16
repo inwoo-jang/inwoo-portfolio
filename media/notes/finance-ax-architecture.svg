@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="600" viewBox="0 0 720 600" role="img" aria-labelledby="title">
+  <title id="title">금융 AI 아키텍처 — 기존 업무 경로 옆에 AI 보조 경로가 붙고, 세 지점에서 다시 만난다</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7b838b" stroke-width="1.5"/></marker>
+    <marker id="arrow-ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#9c3d65" stroke-width="1.8"/></marker>
+  </defs>
+  <rect width="720" height="600" fill="#fff"/>
+
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="15" font-weight="700" fill="#7b838b" text-anchor="middle">
+    <text x="190" y="38">기존 업무 경로</text>
+    <text x="560" y="38">AI 보조 경로</text>
+  </g>
+  <path d="M368 50V420" fill="none" stroke="#cdd2d7" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 기존 업무 경로 화살표 -->
+  <g fill="none" stroke="#7b838b" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M190 112V152" marker-end="url(#arrow)"/>
+    <path d="M190 208V228H111V248" marker-end="url(#arrow)"/>
+    <path d="M190 228H269V248" marker-end="url(#arrow)"/>
+    <path d="M111 320V360" marker-end="url(#arrow)"/>
+  </g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="12" fill="#7b838b">
+    <text x="198" y="137">MCI</text>
+    <text x="198" y="223">EAI</text>
+    <text x="119" y="345">FEP</text>
+  </g>
+
+  <!-- AI 보조 경로 화살표 -->
+  <g fill="none" stroke="#7b838b" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M416 112V372"/>
+    <path d="M416 180H440" marker-end="url(#arrow)"/>
+    <path d="M416 276H440" marker-end="url(#arrow)"/>
+    <path d="M416 372H440" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 상자 -->
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="16" fill="#20262c" text-anchor="middle">
+    <rect x="40" y="56" width="300" height="56" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="190" y="80">채널계</text>
+    <text x="190" y="100" font-size="13" fill="#5b636b">모바일뱅킹 · 영업점 · 콜센터</text>
+
+    <rect x="40" y="152" width="300" height="56" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="190" y="186">업무 서비스 · API Gateway</text>
+
+    <rect x="40" y="248" width="142" height="72" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="111" y="279">계정계</text>
+    <text x="111" y="300" font-size="13" fill="#5b636b">업무 원장 · 거래 확정</text>
+
+    <rect x="198" y="248" width="142" height="72" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="269" y="279">정보계 · ODS · DW</text>
+    <text x="269" y="300" font-size="13" fill="#5b636b">조회·분석용 복제</text>
+
+    <rect x="40" y="360" width="142" height="56" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="111" y="383">외부 기관</text>
+    <text x="111" y="403" font-size="13" fill="#5b636b">전문 연계</text>
+
+    <rect x="198" y="360" width="142" height="56" rx="6" fill="#fafafa" stroke="#cdd2d7"/>
+    <text x="269" y="383">문서 저장소</text>
+    <text x="269" y="403" font-size="13" fill="#5b636b">약관 · 규정 · 매뉴얼</text>
+
+    <rect x="400" y="56" width="280" height="56" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="540" y="80">AI 앱</text>
+    <text x="540" y="100" font-size="13" fill="#5b636b">상담 · 문서 · 분석 보조</text>
+
+    <rect x="440" y="152" width="240" height="56" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="560" y="176">AI Gateway</text>
+    <text x="560" y="196" font-size="13" fill="#5b636b">허용된 모델 · 사용 조건</text>
+
+    <rect x="440" y="248" width="240" height="56" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="560" y="272">MCP · Tool Gateway</text>
+    <text x="560" y="292" font-size="13" fill="#5b636b">업무 조회 도구 실행 권한</text>
+
+    <rect x="440" y="344" width="240" height="56" rx="6" fill="#f0f6fa" stroke="#cdd2d7"/>
+    <text x="560" y="368">RAG · 검색 색인</text>
+    <text x="560" y="388" font-size="13" fill="#5b636b">문서 버전 · 접근권한</text>
+  </g>
+
+  <!-- 다시 만나는 세 지점 -->
+  <g fill="none" stroke="#9c3d65" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="6 3">
+    <path d="M400 84H340" marker-end="url(#arrow-ax)"/>
+    <path d="M440 290H380V195H340" marker-end="url(#arrow-ax)"/>
+    <path d="M340 300H390V388"/>
+    <path d="M340 388H440" marker-end="url(#arrow-ax)"/>
+  </g>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">
+    <circle cx="370" cy="84" r="10" fill="#9c3d65"/><text x="370" y="88">3</text>
+    <circle cx="380" cy="242" r="10" fill="#9c3d65"/><text x="380" y="246">1</text>
+    <circle cx="390" cy="388" r="10" fill="#9c3d65"/><text x="390" y="392">2</text>
+  </g>
+
+  <!-- 범례 -->
+  <path d="M40 444H680" fill="none" stroke="#cdd2d7" stroke-width="1"/>
+  <g font-family="Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="14" fill="#20262c">
+    <circle cx="50" cy="472" r="9" fill="#9c3d65"/><text x="50" y="476" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="68" y="477">업무 조회는 기존 업무 서비스·API를 거쳐 조회 전용으로 연결한다.</text>
+    <text x="68" y="497">권한은 그 서비스가 다시 확인한다.</text>
+    <circle cx="50" cy="524" r="9" fill="#9c3d65"/><text x="50" y="528" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="68" y="529">정보계·문서 저장소의 변경은 CDC·문서 갱신으로 색인에 반영한다.</text>
+    <text x="68" y="549">적용 버전과 접근권한을 함께 붙인다.</text>
+    <circle cx="50" cy="576" r="9" fill="#9c3d65"/><text x="50" y="580" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="68" y="581">거래·상태 변경은 AI 앱이 아니라 기존 업무 경로에서 처리한다.</text>
+  </g>
+</svg>

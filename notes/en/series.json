@@ -15,22 +15,30 @@
       },
       {
         "order": 3,
-        "title": "Is accuracy enough for medical AI?"
+        "title": "How should financial AI connect to existing systems?"
       },
       {
         "order": 4,
-        "title": "How can legal and tax AI give answers people can trust?"
+        "title": "How can financial AI move from PoC to production?"
       },
       {
         "order": 5,
-        "title": "Why should manufacturing AX limit AI autonomy?"
+        "title": "Is accuracy enough for medical AI?"
       },
       {
         "order": 6,
-        "title": "How should retail AX measure the impact of AI adoption?"
+        "title": "How can legal and tax AI give answers people can trust?"
       },
       {
         "order": 7,
+        "title": "Why should manufacturing AX limit AI autonomy?"
+      },
+      {
+        "order": 8,
+        "title": "How should retail AX measure the impact of AI adoption?"
+      },
+      {
+        "order": 9,
         "title": "Can AI judgments in HR and public-sector AX be fair?"
       }
     ]

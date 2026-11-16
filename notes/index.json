@@ -87,8 +87,8 @@
       "label": "AX FIELD NOTES",
       "title": "산업별 AX",
       "description": "산업별 AI 도입·설계·검증 기준",
-      "total": 7,
-      "published": 1,
+      "total": 9,
+      "published": 4,
       "items": [
         {
           "order": 1,
@@ -97,26 +97,37 @@
         },
         {
           "order": 2,
-          "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?"
+          "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?",
+          "slug": "finance-ax-decision-execution"
         },
         {
           "order": 3,
-          "title": "의료 AI는 정확하기만 하면 충분할까?"
+          "title": "금융 AI는 기존 시스템과 어떻게 연결해야 할까?",
+          "slug": "finance-ax-system-integration"
         },
         {
           "order": 4,
-          "title": "법률·세무 AI는 어떻게 신뢰할 수 있는 답변을 만들까?"
+          "title": "금융 AI는 어떻게 PoC를 넘어 운영 서비스가 될까?",
+          "slug": "finance-ax-production-operations"
         },
         {
           "order": 5,
-          "title": "제조 AX는 왜 AI의 자율성을 제한해야 할까?"
+          "title": "의료 AI는 정확하기만 하면 충분할까?"
         },
         {
           "order": 6,
-          "title": "유통 AX는 AI 도입 성과를 어떻게 측정할까?"
+          "title": "법률·세무 AI는 어떻게 신뢰할 수 있는 답변을 만들까?"
         },
         {
           "order": 7,
+          "title": "제조 AX는 왜 AI의 자율성을 제한해야 할까?"
+        },
+        {
+          "order": 8,
+          "title": "유통 AX는 AI 도입 성과를 어떻게 측정할까?"
+        },
+        {
+          "order": 9,
           "title": "인사·공공 AX에서 AI 판단은 공정할 수 있을까?"
         }
       ]
@@ -146,6 +157,102 @@
     }
   ],
   "notes": [
+    {
+      "slug": "finance-ax-production-operations",
+      "file": "notes/finance-ax-production-operations.md",
+      "revision": "9497e6c99712cd65",
+      "title": "금융 AI는 어떻게 PoC를 넘어 운영 서비스가 될까?",
+      "category": "ax",
+      "categories": [
+        "ax",
+        "ops"
+      ],
+      "tags": [
+        "금융 AX",
+        "AI 운영",
+        "AgentOps",
+        "평가",
+        "변경관리",
+        "운영복원력"
+      ],
+      "date": "2026-11-16",
+      "summary": "금융 AI는 배포할 수 있다는 이유만으로 운영할 준비가 된 것은 아니다. 업무 단위로 출시 범위를 정하고, 평가셋을 운영 자산으로 유지하고, 변경마다 업무 영향 기준으로 다시 검증하고, 장애 때 업무를 이어 가며 고객 영향을 정정할 수 있을 때 운영 서비스가 된다. 은행·증권사 공개 사례로 각 조건을 확인했다.",
+      "sample": false,
+      "series": {
+        "id": "domain-ax",
+        "order": 4
+      },
+      "related": [
+        "finance-ax-decision-execution",
+        "finance-ax-system-integration",
+        "agent-kpi"
+      ]
+    },
+    {
+      "slug": "finance-ax-system-integration",
+      "file": "notes/finance-ax-system-integration.md",
+      "revision": "3aef4ae2c837fab5",
+      "title": "금융 AI는 기존 시스템과 어떻게 연결해야 할까?",
+      "category": "ax",
+      "categories": [
+        "ax",
+        "dev",
+        "infra"
+      ],
+      "tags": [
+        "금융 AX",
+        "시스템 연계",
+        "AI Gateway",
+        "MCP",
+        "RAG",
+        "데이터 권한"
+      ],
+      "date": "2026-11-16",
+      "summary": "금융 AI는 기존 시스템이 확정한 사실을 설명하는 역할로 연결한다. 문서는 적용 버전과 권한을 붙여 검색하고, 현재 값은 권한이 확인된 업무 API에서 받고, 상태를 바꾸는 일은 기존 거래 절차에 남긴다. 계정계·정보계·문서 저장소와 AI Gateway·MCP·RAG의 역할을 나누고, 각 연결 지점이 무엇을 통제하는지 정리했다.",
+      "sample": false,
+      "series": {
+        "id": "domain-ax",
+        "order": 3
+      },
+      "related": [
+        "finance-ax-decision-execution",
+        "finance-ax-production-operations",
+        "rag-stack-selection"
+      ]
+    },
+    {
+      "slug": "finance-ax-decision-execution",
+      "file": "notes/finance-ax-decision-execution.md",
+      "revision": "555cb310f61c834d",
+      "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?",
+      "category": "ax",
+      "categories": [
+        "ax",
+        "planning",
+        "ops"
+      ],
+      "tags": [
+        "금융 AX",
+        "AI 거버넌스",
+        "실행 권한",
+        "Agent Evaluation"
+      ],
+      "date": "2026-11-16",
+      "summary": "상담을 잘하는 AI에게 거래도 맡길 수 있을까? 국내외 금융기관 사례와 규제·연구를 바탕으로 조회·판단·실행의 경계를 나누고, 권한·승인·복구·평가를 업무 요구사항으로 연결하는 기준을 정리했다.",
+      "sample": false,
+      "series": {
+        "id": "domain-ax",
+        "order": 2
+      },
+      "related": [
+        "ax-domain-design-criteria",
+        "agent-autonomy",
+        "agent-governance",
+        "agent-kpi",
+        "finance-ax-system-integration",
+        "finance-ax-production-operations"
+      ]
+    },
     {
       "slug": "physical-ai-01",
       "file": "notes/physical-ai-01.md",
@@ -204,7 +311,8 @@
       "related": [
         "agent-autonomy",
         "agent-governance",
-        "agent-kpi"
+        "agent-kpi",
+        "finance-ax-decision-execution"
       ]
     },
     {
@@ -232,7 +340,8 @@
         "when-rag",
         "data-preprocessing",
         "rag-citation-rules",
-        "tech-stack-choice"
+        "tech-stack-choice",
+        "finance-ax-system-integration"
       ]
     },
     {
@@ -340,7 +449,8 @@
         "ai-failure-tracing",
         "agent-guardrails",
         "agent-memory",
-        "ax-domain-design-criteria"
+        "ax-domain-design-criteria",
+        "finance-ax-decision-execution"
       ]
     },
     {
@@ -370,6 +480,7 @@
         "agent-governance",
         "agent-kpi",
         "ax-domain-design-criteria",
+        "finance-ax-decision-execution",
         "multi-agent-vs-single",
         "physical-ai-01",
         "prompt-injection"
@@ -403,6 +514,8 @@
         "ai-coding-delivery",
         "ax-domain-design-criteria",
         "cross-device-agents",
+        "finance-ax-decision-execution",
+        "finance-ax-production-operations",
         "model-selection"
       ]
     },
