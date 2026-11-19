@@ -368,14 +368,15 @@ window.PROJECTS = [
     book: "skala",
     title: "표시광고 AI 사전검토 서비스(가칭)",
     scope: "SKALA 팀 프로젝트",
-    period: "2026.11 – 진행 중",
+    period: "2026.10.26 – 진행 중",
     types: ["Frontend", "AI Engineering"],
     overview: "광고 이미지의 문구를 추출해 원본과 대조하고, 담당자가 누락을 확인하고 수정·재검토할 수 있는 서비스를 만들고 있습니다.",
-    role: "프론트엔드 · AI OCR 서비스 개발",
-    briefNote: "화면과 OCR 구현, 팀 시스템 연동 진행 중. 진행 중으로 세부사항 비공개.",
+    role: "브랜드 디자인·UX·프론트엔드 전체 · OCR·VLM 기능 설계·구현",
+    briefDetails: "브랜드 이미지 디자인부터 UX·프론트엔드 전체를 맡았고, 이미지 광고의 문구 추출(OCR)과 시각적 맥락 구조화(VLM)를 설계·구현했습니다. OCR·VLM은 GPT-4.1 이미지 입력으로 구현하고, OCR 전사를 VLM 근거로 연결했습니다.",
+    briefNote: "OCR·화면은 구현, VLM 확장 기능은 로컬 독립 구현·연결 검증 단계입니다.",
     build: [],
     metrics: [],
-    stack: []
+    stack: ["React · TypeScript", "Python · Pydantic", "GPT-4.1 Vision", "OCR · VLM"]
   },
 
   /* ---------- 팀 ---------- */

@@ -79,7 +79,23 @@
             </div>
           </div>
 
-          <p class="count" data-quick-count aria-live="polite"></p>
+          <div class="notes-list-bar">
+            <p class="count" data-quick-count aria-live="polite"></p>
+            <div class="notes-sort">
+              <span id="project-sort-label" class="notes-sort__label">Sort</span>
+              <div class="notes-sort__control">
+                <button type="button" id="project-sort" class="notes-sort__trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="project-sort-options" aria-labelledby="project-sort-label project-sort-value">
+                  <span id="project-sort-value">By importance</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <ul id="project-sort-options" class="notes-sort__options" role="listbox" aria-labelledby="project-sort-label" hidden>
+                  <li role="option" tabindex="-1" aria-selected="true" data-sort-value="importance">By importance</li>
+                  <li role="option" tabindex="-1" aria-selected="false" data-sort-value="newest">Newest first</li>
+                  <li role="option" tabindex="-1" aria-selected="false" data-sort-value="oldest">Oldest first</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <ul class="cards" data-quick-grid></ul>
         </div>
 
@@ -538,7 +554,7 @@
                   <button type="button" class="toc__btn" data-goto="5">
                     <span class="toc__no">05</span>
                     <span class="toc__title">AI advertising pre-review service (working title)</span>
-                    <span class="toc__year">2026.11</span>
+                    <span class="toc__year">2026.10</span>
                   </button>
                 </li>
               </ol>
@@ -768,13 +784,58 @@
             <article class="note__page" data-page="5" hidden>
               <div class="spread__left">
                 <h3>AI advertising pre-review service (working title)</h3>
-                <p class="note__meta">SKALA team project · Preparing for submission</p>
+                <p class="note__meta">2026.10.26 – present · SKALA team project · Preparing for submission</p>
                 <figure class="note__shot"><img src="media/portfolio/project-in-progress.en.svg" alt="In progress — preparing for submission" width="800" height="500" loading="lazy" decoding="async"></figure>
               </div>
               <div class="spread__right">
                 <p>We are building a service that extracts text from ad images so reviewers can compare it with the original, check for omissions, make corrections and request another review.</p>
-                <p><strong>My role</strong> · Frontend and AI OCR service development</p>
-                <p class="note-box">UI and OCR implementation and team system integration are in progress. Further details are not public while development is ongoing.</p>
+                <p><strong>My role</strong> · Brand design, UX and all of the frontend · OCR and VLM design and implementation</p>
+                <p>I handled everything from the brand image design to UX and the entire frontend, and designed and built text extraction (OCR) and visual-context structuring (VLM) for image ads.
+                   I also wrote the input/output contracts and handoff documents for the backend and legal-review AI owners.</p>
+
+                <h4>How I used the models</h4>
+                <ul class="note__list">
+                  <li>One model, GPT-4.1, handles both OCR and VLM. I designed a separate prompt and output schema (Structured Outputs) for each step so the results can be checked in code</li>
+                  <li>Fixed call limits — one VLM call per image; small-text re-reads capped at 4 calls per request with an output-token limit. Failures are recorded as failures, with no automatic retries or model switching</li>
+                  <li>Revision drafts come from an image-editing model, and the result is read again by GPT-4.1 OCR to compare against the requested copy</li>
+                </ul>
+
+                <h4>How OCR and VLM connect</h4>
+                <ul class="note__list">
+                  <li>① OCR transcribes the text and structures it by hierarchy (H1, H2, body, conditions). Unreadable parts come back as “needs checking”</li>
+                  <li>② A snapshot hashes the original image bytes, the OCR transcript and any user edits, so the VLM sees the same image and transcript. If an OCR result already exists, OCR is not called again and the VLM runs once</li>
+                  <li>③ The VLM returns people, objects, layout, emphasis, and claim/condition candidates, citing only transcript line IDs and exact quotes as evidence</li>
+                  <li>④ Code checks that each quote appears exactly once in its line and computes the position. Missing or ambiguous quotes are rejected</li>
+                  <li>⑤ Verified claim–condition links are combined with display-size and cropping calculations and passed on for review. If only the display size changes, the calculation updates without calling the model</li>
+                  <li>⑥ Small text can be re-read by cropping and enlarging a selected area. Differences from the transcript are shown as candidates only; the original is never overwritten</li>
+                </ul>
+
+                <h4>What I built</h4>
+                <ul class="note__list">
+                  <li>Brand and screen design — the service's brand image and the design of every screen</li>
+                  <li>User flow — ad input → review → copy edits → draft comparison, with exceptions for image, text-only, multi-image and heavily revised ads, and legal issues separated from context issues on the result screen</li>
+                  <li>Entire frontend implementation — including OCR review and editing, enlarged original for comparison, async submit that returns to the list right away, a fix for requests sent before the upload finished, 390px mobile overflow fixes, separate review and effective dates for cited laws</li>
+                  <li>Display-size and cropping check — computes on-screen text height and cropping from web (CSS px) or print (mm) sizes, kept separate from legal judgment</li>
+                  <li>Revision drafts — only the selected area is composited onto the original, and the generated text is checked by an independent OCR pass. Results stay drafts, so the original and earlier review are preserved</li>
+                  <li>Company terms and product definitions (document version, validity period, applicable products), per-file analysis for multiple ads</li>
+                  <li>Working A/B mockups (integrated vs. separate page) for team discussion</li>
+                </ul>
+
+                <h4>Current status</h4>
+                <ul class="note__list">
+                  <li>OCR module, UI integration and frontend improvements are implemented</li>
+                  <li>VLM analysis, display-size checks, re-reading and revision drafts are standalone local implementations. Live model calls were confirmed only on synthetic ads; accuracy on real ads has not been measured yet</li>
+                  <li>The A/B screens are design mockups; production storage, permissions and final re-review integration are follow-up work</li>
+                  <li>Law and case search, comparison with public controversies and final legal judgment belong to other team members</li>
+                </ul>
+
+                <ul class="tag-row">
+                  <li class="tag tag--sky">React · TypeScript</li>
+                  <li class="tag tag--lime">Python · Pydantic</li>
+                  <li class="tag tag--peach">GPT-4.1 Vision</li>
+                  <li class="tag tag--lavender">OCR · VLM</li>
+                </ul>
+                <p class="note-box">OCR and UI are implemented; the VLM extensions are at the standalone local implementation and connection-check stage.</p>
                 <div class="project-gallery" data-project-gallery="ad-review" hidden></div>
               </div>
             </article>

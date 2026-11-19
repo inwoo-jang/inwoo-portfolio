@@ -38,7 +38,7 @@
   };
   var BOOK_IDS = Object.keys(BOOKS);
 
-  var filter = { book: "all", type: "all" };
+  var filter = { book: "all", type: "all", sort: "importance" };
   var lastOpenedId = null;
 
   /* ---------- 도우미 ---------- */
@@ -123,10 +123,90 @@
     });
   }
 
+  /* 중요도순: 대표 프로젝트(FEATURED) 먼저, 나머지는 데이터 순서.
+     최신순·오래된순: period의 시작 날짜(YYYY.MM.DD 중 있는 만큼) 기준, 같으면 중요도순 */
+  var featuredIds = (window.FEATURED || []).map(function (f) { return f.id; });
+  function importanceRank(p) {
+    var i = featuredIds.indexOf(p.id);
+    return i >= 0 ? i : featuredIds.length + projects.indexOf(p);
+  }
+  function startKey(p) {
+    var m = /(\d{4})(?:\.(\d{1,2}))?(?:\.(\d{1,2}))?/.exec(p.period || "");
+    if (!m) { return 0; }
+    return Number(m[1]) * 10000 + Number(m[2] || 0) * 100 + Number(m[3] || 0);
+  }
+
+  /* 정렬 드롭다운 — Dev Notes(script/notes.js)와 같은 동작 */
+  function initSort() {
+    var trigger = quickPanel.querySelector("#project-sort");
+    if (!trigger) { return; }
+    var control = trigger.parentNode;
+    var menu = quickPanel.querySelector("#project-sort-options");
+    var valueEl = quickPanel.querySelector("#project-sort-value");
+    var options = Array.prototype.slice.call(menu.querySelectorAll("[data-sort-value]"));
+    function sync() {
+      options.forEach(function (o) {
+        var on = o.dataset.sortValue === filter.sort;
+        o.setAttribute("aria-selected", String(on));
+        if (on) { valueEl.textContent = o.textContent; }
+      });
+    }
+    function close(restore) {
+      menu.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+      if (restore) { trigger.focus(); }
+    }
+    function open(index) {
+      menu.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      if (index == null) {
+        index = options.findIndex(function (o) { return o.dataset.sortValue === filter.sort; });
+      }
+      options[index].focus();
+    }
+    sync();
+    trigger.addEventListener("click", function () { if (menu.hidden) { open(); } else { close(false); } });
+    trigger.addEventListener("keydown", function (e) {
+      if (["ArrowDown", "ArrowUp", "Home", "End"].indexOf(e.key) < 0) { return; }
+      e.preventDefault();
+      open(e.key === "Home" ? 0 : e.key === "End" ? options.length - 1 : null);
+    });
+    options.forEach(function (o, i) {
+      o.addEventListener("click", function () {
+        filter.sort = o.dataset.sortValue;
+        sync();
+        close(true);
+        renderGrid();
+      });
+      o.addEventListener("keydown", function (e) {
+        var next = i;
+        if (e.key === "ArrowDown") { next = (i + 1) % options.length; }
+        else if (e.key === "ArrowUp") { next = (i + options.length - 1) % options.length; }
+        else if (e.key === "Home") { next = 0; }
+        else if (e.key === "End") { next = options.length - 1; }
+        else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); o.click(); return; }
+        else if (e.key === "Escape") { e.preventDefault(); close(true); return; }
+        else if (e.key === "Tab") { close(true); return; }
+        else { return; }
+        e.preventDefault();
+        options[next].focus();
+      });
+    });
+    document.addEventListener("pointerdown", function (e) { if (!control.contains(e.target)) { close(false); } });
+    control.addEventListener("focusout", function (e) { if (!control.contains(e.relatedTarget)) { close(false); } });
+  }
+
   function visibleProjects() {
-    return projects.filter(function (p) {
+    var list = projects.filter(function (p) {
       return (filter.book === "all" || p.book === filter.book) &&
              (filter.type === "all" || (p.roles || []).indexOf(filter.type) >= 0);
+    });
+    return list.sort(function (a, b) {
+      if (filter.sort !== "importance") {
+        var diff = startKey(a) - startKey(b);
+        if (diff) { return filter.sort === "newest" ? -diff : diff; }
+      }
+      return importanceRank(a) - importanceRank(b);
     });
   }
 
@@ -345,6 +425,12 @@
       if (p.briefDetails) { readerEl.appendChild(el("p", null, p.briefDetails)); }
       var briefGallery = article ? galleryFrom(article) : null;
       if (briefGallery) { readerEl.appendChild(briefGallery); }
+      if (article && article.querySelector("h4")) {
+        var briefProse = proseFrom(article);
+        briefProse.querySelectorAll(".note-box, .note__shot, .tag-row").forEach(function (n) { n.remove(); });
+        readerEl.appendChild(heading(T("상세 과정", "How it went")));
+        readerEl.appendChild(briefProse);
+      }
       readerEl.appendChild(el("p", "note-box", p.briefNote));
     } else {
       var S = p.summary;
@@ -524,6 +610,7 @@
 
   renderFeatured();
   renderFilterButtons();
+  initSort();
   renderGrid();
   route();
 })();

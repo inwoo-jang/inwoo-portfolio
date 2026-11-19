@@ -368,14 +368,15 @@ window.PROJECTS = [
     book: "skala",
     title: "AI advertising pre-review service (working title)",
     scope: "SKALA team project",
-    period: "2026.11 – present",
+    period: "2026.10.26 – present",
     types: ["Frontend", "AI Engineering"],
     overview: "We are building a service that extracts text from ad images so reviewers can compare it with the original, check for omissions, make corrections and request another review.",
-    role: "Frontend and AI OCR service development",
-    briefNote: "UI and OCR implementation and team system integration are in progress. Further details are not public while development is ongoing.",
+    role: "Brand design, UX and all of the frontend · OCR and VLM design and implementation",
+    briefDetails: "I handled everything from the brand image design to UX and the entire frontend, and designed and built text extraction (OCR) and visual-context structuring (VLM) for image ads. OCR and VLM run on GPT-4.1 image input, with the OCR transcript serving as the VLM's evidence.",
+    briefNote: "OCR and UI are implemented; the VLM extensions are at the standalone local implementation and connection-check stage.",
     build: [],
     metrics: [],
-    stack: []
+    stack: ["React · TypeScript", "Python · Pydantic", "GPT-4.1 Vision", "OCR · VLM"]
   },
 
   /* ---------- Team ---------- */
