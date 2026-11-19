@@ -679,6 +679,7 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 .proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule); }
 .proof li { position: relative; margin: 0; padding: var(--s5) var(--s5) var(--s5) 0; }
 .proof li + li { padding-left: var(--s5); border-left: 1px solid var(--rule); }
+.proof__kicker { display: block; margin-bottom: 2px; font-size: var(--fs-caption); font-weight: 700; letter-spacing: 0.04em; color: var(--accent); }
 .proof__value { display: block; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.3; color: var(--ink); }
 .proof__label { display: block; margin-top: var(--s1); font-size: var(--fs-small); color: var(--text); }
 .proof__scope { display: block; margin-top: 2px; font-size: var(--fs-caption); color: var(--muted); }
@@ -977,9 +978,12 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 .doc-sample__pre code { font: inherit; color: inherit; background: none; padding: 0; }
 
 /* ---------- 홈 소개 아래 근거 3개 (어두운 소개 영역) ---------- */
-.proof--intro { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--s6); border-top-color: var(--char-line); border-bottom: 0; }
-.proof--intro li { padding: var(--s4) var(--s4) 0 0; }
-.proof--intro li + li { padding-left: var(--s4); border-left-color: var(--char-line); }
+/* 세 칸의 글 영역 너비를 똑같이: 칸은 1fr, 간격은 gap으로 주고 구분선은 gap 가운데에 그린다 */
+.proof--intro { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: calc(var(--s4) * 2); margin-top: var(--s6); border-top-color: var(--char-line); border-bottom: 0; }
+.proof--intro li { padding: var(--s4) 0 0; }
+.proof--intro li + li { padding-left: 0; border-left: 0; }
+.proof--intro li + li::before { content: ""; position: absolute; top: var(--s4); bottom: 0; left: calc(-1 * var(--s4)); width: 1px; background: var(--char-line); }
+.proof--intro .proof__kicker { color: var(--char-accent); }
 .proof--intro .proof__value { font-size: 1.0625rem; color: #fff; }
 .proof--intro .proof__label { color: var(--char-text); font-size: var(--fs-caption); line-height: 1.55; }
 .proof--intro .proof__scope { color: var(--char-muted); }
@@ -988,6 +992,7 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 @media (max-width: 600px) {
   .proof--intro { grid-template-columns: 1fr; }
   .proof--intro li, .proof--intro li + li { padding: var(--s3) 0; border-left: 0; }
+  .proof--intro li + li::before { content: none; }
   .proof--intro li + li { border-top: 1px solid var(--char-line); }
   .proof--intro li:nth-child(n+3) { border-top: 1px solid var(--char-line); }
 }
