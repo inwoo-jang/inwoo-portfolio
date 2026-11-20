@@ -804,7 +804,7 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 
 /* 홈 첫 화면: 오른쪽 요약 프로필 */
 .intro__lead { margin: var(--s4) 0 var(--s5); max-width: 620px; font-size: 1.0625rem; line-height: 1.75; color: var(--char-text); }
-.intro--home .intro__title { font-size: clamp(1.25rem, 2vw, 1.625rem); line-height: 1.45; text-wrap: balance; }
+.intro--home .intro__title { font-size: clamp(1.375rem, calc(1.125rem + 1.25vw), 2.125rem); line-height: 1.35; text-wrap: balance; }
 .intro--home + .works { margin-top: var(--s6); }
 .intro--home + .works .works__label { color: var(--muted); }
 .intro-profile { padding: 0; border: 1px solid var(--char-line); border-radius: 10px; background: #1E2126; font-size: var(--fs-small); overflow: hidden; }
