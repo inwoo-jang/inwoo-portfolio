@@ -1,5 +1,5 @@
 ---
-title: AI가 코드를 만드는 시대에 좋은 요구사항 정의란? | 분량이 아니라 합의와 판정 기준
+title: AI가 코드를 만드는 시대에 좋은 요구사항 정의란?
 category: planning
 categories: [planning, dev]
 tags: [요구사항 정의, Spec-Driven Development, 수용 기준, BDD, AI Coding]
