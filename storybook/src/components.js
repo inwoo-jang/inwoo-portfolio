@@ -35,7 +35,7 @@ export function siteFooter() {
   <div class="site-footer__inner">
     <p>inwoo.log | 장인우의 기획·개발 기록 · © 2026</p>
     <ul>
-      <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
+      <li><button lang="ko" type="button" class="email-copy-link" data-copy-email>이메일 주소 복사</button></li>
       <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </div>
@@ -118,7 +118,7 @@ export function hero({ name, role, title, summary = [], actions = [], profile })
 export function profileCard({ initial = "프로필", rows = [] } = {}) {
   return `<aside class="profile-card" aria-label="요약 정보">
   <h2 class="profile-card__head">Profile</h2>
-  <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+  <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${k === "연락" ? '<button lang="ko" type="button" class="email-copy-link" data-copy-email="' + esc(v) + '">이메일 주소 복사</button>' : esc(v)}</dd>`).join("")}</dl>
 </aside>`;
 }
 
@@ -136,7 +136,7 @@ export function contact({ title = "새로운 기회를 기다립니다", desc = 
   return `<section class="contact" aria-label="연락">
   <div><h2>${esc(title)}</h2><p>${esc(desc)}</p></div>
   <div class="hero__actions">
-    <a class="btn btn--primary" href="mailto:${esc(email)}">이메일 보내기</a>
+    <button lang="ko" type="button" class="btn btn--primary" data-copy-email="${esc(email)}">이메일 주소 복사</button>
     <a class="btn btn--quiet" href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>`;
@@ -165,7 +165,7 @@ export function projectCards(list = []) {
 
 /** 프로젝트 상세 머리의 사실 줄: 기간 · 소속 · 내 역할 · 구현 · 상태 */
 export function facts(rows = []) {
-  return `<dl class="facts">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
+  return `<dl class="facts">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${k === "연락" ? '<button lang="ko" type="button" class="email-copy-link" data-copy-email="' + esc(v) + '">이메일 주소 복사</button>' : esc(v)}</dd></div>`).join("")}</dl>`;
 }
 
 export function shot({ src, alt, caption, notes = [] } = {}) {

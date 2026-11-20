@@ -39,7 +39,7 @@ function preview(layout, comparisonTitle) {
     heading.id = "title-" + layout;
     heading.textContent = comparisonTitle;
     works.setAttribute("aria-labelledby", heading.id);
-    works.querySelector(".works__more").remove();
+    works.querySelector(".home-section-more").remove();
     return works;
   }
   return main;

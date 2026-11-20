@@ -234,6 +234,7 @@
     top.appendChild(el("span", null, p.brief ? p.scope : BOOKS[p.book].label + " · " + p.period));
     top.appendChild(statusEl(p));
     body.appendChild(top);
+    body.appendChild(el("p", "project-domain", p.domain));
 
     var h = el("h3", "card__title");
     var link = el("a", null, p.title);
@@ -271,6 +272,7 @@
       top.appendChild(el("span", null, BOOKS[p.book].label + " · " + p.period));
       top.appendChild(statusEl(p));
       li.appendChild(top);
+      li.appendChild(el("p", "project-domain", p.domain));
       var h = el("h3", "pick__title");
       var a = el("a", null, p.title);
       a.href = "#p-" + p.id;
@@ -387,7 +389,7 @@
 
     // 기간 · 팀 · 내 역할 · 현재 상태: 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
-    [[T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope], [T("내 역할", "My role"), p.role]].forEach(function (pair) {
+    [[T("도메인", "Domain"), p.domain], [T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope], [T("내 역할", "My role"), p.role]].forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
@@ -608,6 +610,11 @@
 
   window.addEventListener("hashchange", route);
 
+  projects.forEach(function (p) {
+    var article = articleOf(p.id);
+    var meta = article && article.querySelector(".note__meta");
+    if (meta) { meta.prepend(p.domain + " · "); }
+  });
   renderFeatured();
   renderFilterButtons();
   initSort();

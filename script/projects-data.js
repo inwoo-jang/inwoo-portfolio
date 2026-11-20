@@ -44,6 +44,7 @@ window.PROJECTS = [
   /* ---------- 실무: 지킴컴퍼니 ---------- */
   {
     id: "order-sync",
+    domain: "약국 물류 · 수거·정산",
     roles: ["기획", "PM"],
     status: "운영 적용",
     statusKind: "live",
@@ -75,6 +76,7 @@ window.PROJECTS = [
   },
   {
     id: "payroll",
+    domain: "약국 인사·급여",
     roles: ["기획", "PM"],
     image: "media/portfolio/payroll-slip.jpg",
     imageAlt: "급여명세서 화면 예시(회사 공개 소개 이미지, 예시 데이터)",
@@ -106,6 +108,7 @@ window.PROJECTS = [
   },
   {
     id: "samil",
+    domain: "약국 세무·노무 상담",
     image: "media/portfolio/jikim-tile-samil.jpg",
     imageAlt: "지킴 로고",
     roles: ["기획", "PM"],
@@ -139,6 +142,7 @@ window.PROJECTS = [
   },
   {
     id: "pharmacy-link",
+    domain: "약국 경영관리 · 회계 데이터 연동",
     image: "media/portfolio/jikim-home-card.jpg",
     imageAlt: "지킴 앱 홈 화면: 약국 가계부와 손익",
     roles: ["기획", "PM"],
@@ -165,6 +169,7 @@ window.PROJECTS = [
   },
   {
     id: "rx-ops",
+    domain: "약국 물류 · 처방전 보관",
     image: "media/portfolio/jikim-rx-card.jpg",
     imageAlt: "지킴 앱 처방전 자동입력 화면(환자 정보 흐림 처리)",
     roles: ["기획", "PM"],
@@ -191,6 +196,7 @@ window.PROJECTS = [
   },
   {
     id: "income-tax",
+    domain: "세무 · 종합소득세 예측",
     image: "media/portfolio/jikim-tile-tax.jpg",
     imageAlt: "지킴 로고",
     roles: ["기획", "PM"],
@@ -215,6 +221,7 @@ window.PROJECTS = [
   },
   {
     id: "client-contract",
+    domain: "세무사무소 운영 · 수임계약",
     image: "media/portfolio/jikim-tile-client.jpg",
     imageAlt: "지킴 로고",
     roles: ["기획", "PM"],
@@ -243,6 +250,7 @@ window.PROJECTS = [
   /* ---------- SKALA 교육 과정 ---------- */
   {
     id: "taxdesk",
+    domain: "금융 · 투자소득 세무",
     roles: ["기획", "AI 엔지니어링", "백엔드"],
     image: "media/portfolio/taxdesk-hold-2611-crop.jpg",
     imageAlt: "다른 종합소득이 확인되지 않아 세액을 계산하지 않고 소득금액을 되묻는 상담 화면(합성 데이터)",
@@ -276,6 +284,7 @@ window.PROJECTS = [
   },
   {
     id: "gtsrb",
+    domain: "모빌리티 · 도로 표지판 인식",
     roles: ["AI 엔지니어링"],
     image: "media/portfolio/gtsrb-tradeoff.png",
     imageAlt: "후보 모델별 정확도와 파라미터 수 비교 그래프",
@@ -303,6 +312,7 @@ window.PROJECTS = [
   },
   {
     id: "edu-up",
+    domain: "교육복지 · 복지포인트",
     roles: ["프론트엔드"],
     image: "media/portfolio/eduup-home.png",
     imageAlt: "EDU:UP 메인 화면: 맞춤 추천 강의와 도서(모의 데이터)",
@@ -329,6 +339,7 @@ window.PROJECTS = [
   },
   {
     id: "relationship-design",
+    domain: "개인 생활 · 관계 기록",
     roles: ["기획", "프론트엔드"],
     status: "교육 · 프로토타입",
     statusKind: "edu",
@@ -359,6 +370,7 @@ window.PROJECTS = [
 
   {
     id: "ad-review",
+    domain: "광고 · 표시광고 규정 검토",
     brief: true,
     roles: ["프론트엔드", "AI 엔지니어링"],
     status: "출품 준비 중",
@@ -382,6 +394,7 @@ window.PROJECTS = [
   /* ---------- 팀 ---------- */
   {
     id: "quiket",
+    domain: "교육 · 퀴즈 학습",
     roles: ["기획", "PM"],
     status: "출시 후 운영 중단",
     statusKind: "other",
@@ -415,6 +428,7 @@ window.PROJECTS = [
   },
   {
     id: "archivelink",
+    domain: "개인 생산성 · 북마크 관리",
     roles: ["기획", "PM"],
     image: "media/portfolio/qlink-web.png",
     imageAlt: "에이링크 웹 프로토타입 화면(샘플 링크)",
@@ -440,6 +454,7 @@ window.PROJECTS = [
   },
   {
     id: "dacon",
+    domain: "모빌리티 · 블랙박스 영상 분석",
     image: "media/portfolio/dacon-labeling-marked.jpg",
     imageAlt: "라벨링 도구 Stage 2 화면: 충돌·진입 프레임, 진입 방향, 회피 공간을 표시한 상태",
     roles: ["AI 엔지니어링"],
@@ -470,6 +485,7 @@ window.PROJECTS = [
   /* ---------- 개인 ---------- */
   {
     id: "possessed",
+    domain: "AI 안전 · 에이전트 권한 검증",
     brief: true,
     roles: ["기획", "풀스택 개발", "AI 엔지니어링"],
     status: "출품 준비 중",
@@ -491,6 +507,7 @@ window.PROJECTS = [
   },
   {
     id: "marketdesk",
+    domain: "금융 · 투자 리서치",
     image: "media/portfolio/marketdesk-flow-card.jpg",
     imageAlt: "마켓데스크 흐름 보드: AI 산업의 한 달 흐름 요약",
     roles: ["기획", "풀스택 개발", "AI 엔지니어링"],
@@ -517,6 +534,7 @@ window.PROJECTS = [
   },
   {
     id: "triage",
+    domain: "고용지원 · 일경험 사업 운영",
     roles: ["기획", "AI 엔지니어링"],
     status: "데모",
     statusKind: "other",
@@ -543,6 +561,7 @@ window.PROJECTS = [
   },
   {
     id: "classtrack",
+    domain: "교육 · 강의·과제 관리",
     roles: ["풀스택 개발"],
     image: "media/portfolio/classtrack-dashboard.jpg",
     imageAlt: "ClassTrack 대시보드: 강의·과제 집계와 수업일 캘린더",
@@ -569,6 +588,7 @@ window.PROJECTS = [
   },
   {
     id: "templets-hub",
+    domain: "문서 제작 · 디자인 템플릿",
     roles: ["기획", "프론트엔드"],
     status: "공개 중",
     statusKind: "other",
@@ -593,6 +613,7 @@ window.PROJECTS = [
   },
   {
     id: "vibe-guide",
+    domain: "개발 교육 · AI 활용 코딩",
     roles: ["기획", "프론트엔드"],
     status: "공개 중",
     statusKind: "other",
@@ -617,6 +638,7 @@ window.PROJECTS = [
   },
   {
     id: "personal-tools",
+    domain: "개인 생산성 · 메일·학습 관리",
     image: "media/portfolio/study-note-serving.jpg",
     imageAlt: "과목별 학습 노트: 모델 서빙 & AIOps 구성 첫 화면",
     roles: ["풀스택 개발", "AI 엔지니어링"],

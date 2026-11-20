@@ -44,6 +44,7 @@ window.PROJECTS = [
   /* ---------- Work: JEEKIM COMPANY ---------- */
   {
     id: "order-sync",
+    domain: "Pharmacy logistics · Pickups and settlement",
     roles: ["Product Planning", "PM"],
     status: "Went live",
     statusKind: "live",
@@ -75,6 +76,7 @@ window.PROJECTS = [
   },
   {
     id: "payroll",
+    domain: "Pharmacy payroll",
     roles: ["Product Planning", "PM"],
     image: "media/portfolio/payroll-slip.jpg",
     imageAlt: "Sample payslip screen (company marketing image, sample data)",
@@ -106,6 +108,7 @@ window.PROJECTS = [
   },
   {
     id: "samil",
+    domain: "Tax and employment advice for pharmacies",
     image: "media/portfolio/jikim-tile-samil.jpg",
     imageAlt: "JEEKIM logo",
     roles: ["Product Planning", "PM"],
@@ -139,6 +142,7 @@ window.PROJECTS = [
   },
   {
     id: "pharmacy-link",
+    domain: "Pharmacy accounting · Data integration",
     image: "media/portfolio/jikim-home-card.jpg",
     imageAlt: "JEEKIM app home screen: Pharmacy Ledger and profit and loss",
     roles: ["Product Planning", "PM"],
@@ -165,6 +169,7 @@ window.PROJECTS = [
   },
   {
     id: "rx-ops",
+    domain: "Pharmacy logistics · Prescription storage",
     image: "media/portfolio/jikim-rx-card.jpg",
     imageAlt: "JEEKIM app prescription auto-entry screen (patient info blurred)",
     roles: ["Product Planning", "PM"],
@@ -191,6 +196,7 @@ window.PROJECTS = [
   },
   {
     id: "income-tax",
+    domain: "Tax · Income tax estimation",
     image: "media/portfolio/jikim-tile-tax.jpg",
     imageAlt: "JEEKIM logo",
     roles: ["Product Planning", "PM"],
@@ -215,6 +221,7 @@ window.PROJECTS = [
   },
   {
     id: "client-contract",
+    domain: "Tax practice operations · Client contracts",
     image: "media/portfolio/jikim-tile-client.jpg",
     imageAlt: "JEEKIM logo",
     roles: ["Product Planning", "PM"],
@@ -243,6 +250,7 @@ window.PROJECTS = [
   /* ---------- SKALA bootcamp ---------- */
   {
     id: "taxdesk",
+    domain: "Finance · Investment income tax",
     roles: ["Product Planning", "AI Engineering", "Backend"],
     image: "media/portfolio/taxdesk-hold-2611-crop.jpg",
     imageAlt: "Consultation screen that asks for the income amount instead of calculating tax, because other comprehensive income isn't confirmed (synthetic data)",
@@ -276,6 +284,7 @@ window.PROJECTS = [
   },
   {
     id: "gtsrb",
+    domain: "Mobility · Traffic sign recognition",
     roles: ["AI Engineering"],
     image: "media/portfolio/gtsrb-tradeoff.png",
     imageAlt: "Chart comparing accuracy and parameter count for each candidate model",
@@ -303,6 +312,7 @@ window.PROJECTS = [
   },
   {
     id: "edu-up",
+    domain: "Education benefits · Learning allowances",
     roles: ["Frontend"],
     image: "media/portfolio/eduup-home.png",
     imageAlt: "EDU:UP home screen: recommended courses and books (mock data)",
@@ -329,6 +339,7 @@ window.PROJECTS = [
   },
   {
     id: "relationship-design",
+    domain: "Personal organization · Relationship journaling",
     roles: ["Product Planning", "Frontend"],
     status: "Bootcamp · Prototype",
     statusKind: "edu",
@@ -359,6 +370,7 @@ window.PROJECTS = [
 
   {
     id: "ad-review",
+    domain: "Advertising · Compliance review",
     brief: true,
     roles: ["Frontend", "AI Engineering"],
     status: "Preparing for submission",
@@ -382,6 +394,7 @@ window.PROJECTS = [
   /* ---------- Team ---------- */
   {
     id: "quiket",
+    domain: "Education · Quiz-based learning",
     roles: ["Product Planning", "PM"],
     status: "Launched, since discontinued",
     statusKind: "other",
@@ -415,6 +428,7 @@ window.PROJECTS = [
   },
   {
     id: "archivelink",
+    domain: "Personal productivity · Bookmarks",
     roles: ["Product Planning", "PM"],
     image: "media/portfolio/qlink-web.png",
     imageAlt: "ArchiveLink web prototype (sample links)",
@@ -440,6 +454,7 @@ window.PROJECTS = [
   },
   {
     id: "dacon",
+    domain: "Mobility · Dashcam video analysis",
     image: "media/portfolio/dacon-labeling-marked.jpg",
     imageAlt: "Labeling tool, Stage 2: collision and entry frames, entry direction and escape space marked",
     roles: ["AI Engineering"],
@@ -470,6 +485,7 @@ window.PROJECTS = [
   /* ---------- Personal ---------- */
   {
     id: "possessed",
+    domain: "AI safety · Agent permissions",
     brief: true,
     roles: ["Product Planning", "Full-stack", "AI Engineering"],
     status: "Preparing for submission",
@@ -491,6 +507,7 @@ window.PROJECTS = [
   },
   {
     id: "marketdesk",
+    domain: "Finance · Investment research",
     image: "media/portfolio/marketdesk-flow-card.jpg",
     imageAlt: "MarketDesk flow board: a month of trends in the AI industry, summarized",
     roles: ["Product Planning", "Full-stack", "AI Engineering"],
@@ -517,6 +534,7 @@ window.PROJECTS = [
   },
   {
     id: "triage",
+    domain: "Employment programs · Work experience",
     roles: ["Product Planning", "AI Engineering"],
     status: "Demo",
     statusKind: "other",
@@ -543,6 +561,7 @@ window.PROJECTS = [
   },
   {
     id: "classtrack",
+    domain: "Education · Coursework management",
     roles: ["Full-stack"],
     image: "media/portfolio/classtrack-dashboard.jpg",
     imageAlt: "ClassTrack dashboard: course and assignment totals with a class-day calendar",
@@ -569,6 +588,7 @@ window.PROJECTS = [
   },
   {
     id: "templets-hub",
+    domain: "Document design · Templates",
     roles: ["Product Planning", "Frontend"],
     status: "Public",
     statusKind: "other",
@@ -593,6 +613,7 @@ window.PROJECTS = [
   },
   {
     id: "vibe-guide",
+    domain: "Developer education · AI-assisted coding",
     roles: ["Product Planning", "Frontend"],
     status: "Public",
     statusKind: "other",
@@ -617,6 +638,7 @@ window.PROJECTS = [
   },
   {
     id: "personal-tools",
+    domain: "Personal productivity · Email and study",
     image: "media/portfolio/study-note-serving.jpg",
     imageAlt: "Study notes by subject: first screen of the Model Serving & AIOps notes",
     roles: ["Full-stack", "AI Engineering"],

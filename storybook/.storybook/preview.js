@@ -1,4 +1,5 @@
 import "../../css/ds.css";
+import "../../script/copy-email.js";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {

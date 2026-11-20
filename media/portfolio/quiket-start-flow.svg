@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 0 1440 1000" width="1440" height="1000">
+  <title>Quiket</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#77818a" stroke-width="1.5" />
+    </marker>
+  </defs>
+  <g fill="none" stroke="#77818a" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M700 74V105" />
+    <path d="M784 129H846" />
+    <path d="M700 153V206" />
+    <path d="M616 230H240V453" />
+    <path d="M700 254V306" />
+    <path d="M784 230H1250V306" />
+    <path d="M240 499V565" />
+    <path d="M324 589H372" />
+    <path d="M240 613V674" />
+    <path d="M324 698H372" />
+    <path d="M492 698H520V476H313" />
+    <path d="M240 722V790" />
+    <path d="M240 836V900" />
+    <path d="M700 352V406" />
+    <path d="M784 430H846" />
+    <path d="M700 454V526" />
+    <path d="M784 550H836" />
+    <path d="M1004 550H1020" />
+    <path d="M920 574V687" />
+    <path d="M700 574V686" />
+    <path d="M784 710H859" />
+    <path d="M700 734V806" />
+    <path d="M773 829H920V733" />
+    <path d="M1250 352V401" />
+    <path d="M1250 447V506" />
+    <path d="M1334 530H1416V424H1323" />
+    <path d="M1250 554V606" />
+    <path d="M1250 652V706" />
+    <path d="M1250 752V806" />
+    <path d="M1334 830H1390" />
+    <path d="M1250 854V906" />
+    <path d="M1250 952V970H1145V729H1189" />
+  </g>
+  <g stroke="#89939c" stroke-width="1.8">
+    <ellipse cx="700" cy="44" rx="48" ry="30" fill="#c4e4fc" />
+    <rect x="676" y="40" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="616,129 700,105 784,129 700,153" fill="#ffebba" />
+    <rect x="676" y="125" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="846" y="106" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="882" y="125" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="616,230 700,206 784,230 700,254" fill="#ffebba" />
+    <rect x="676" y="226" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="167" y="453" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="216" y="472" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="156,589 240,565 324,589 240,613" fill="#ffebba" />
+    <rect x="216" y="585" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="372" y="566" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="408" y="585" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="156,698 240,674 324,698 240,722" fill="#ffebba" />
+    <rect x="216" y="694" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="372" y="675" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="408" y="694" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="167" y="790" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="216" y="809" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="167" y="900" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="216" y="919" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="627" y="306" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="676" y="325" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="616,430 700,406 784,430 700,454" fill="#ffebba" />
+    <rect x="676" y="426" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="846" y="407" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="882" y="426" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="616,550 700,526 784,550 700,574" fill="#ffebba" />
+    <rect x="676" y="546" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="836,550 920,526 1004,550 920,574" fill="#ffebba" />
+    <rect x="896" y="546" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1020" y="527" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="1056" y="546" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="616,710 700,686 784,710 700,734" fill="#ffebba" />
+    <rect x="676" y="706" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="860" y="687" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="896" y="706" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="627" y="806" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="676" y="825" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+  </g>
+  <g transform="translate(80 0)" stroke="#89939c" stroke-width="1.8">
+    <rect x="1110" y="306" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="1146" y="325" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1097" y="401" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="1146" y="420" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="1086,530 1170,506 1254,530 1170,554" fill="#ffebba" />
+    <rect x="1146" y="526" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1097" y="606" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="1146" y="625" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1110" y="706" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="1146" y="725" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <polygon points="1086,830 1170,806 1254,830 1170,854" fill="#ffebba" />
+    <rect x="1146" y="826" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1310" y="807" width="120" height="46" rx="4" fill="#c4e4fc" />
+    <rect x="1346" y="826" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+    <rect x="1097" y="906" width="146" height="46" rx="4" fill="#fff" />
+    <rect x="1146" y="925" width="48" height="8" rx="4" fill="#b7bec5" stroke="none" />
+  </g>
+</svg>
