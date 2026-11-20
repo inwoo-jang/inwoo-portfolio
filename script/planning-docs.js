@@ -7,12 +7,11 @@
   const pages = Array.from(source.querySelectorAll(".doc-sample"));
   if (!pages.length) return;
 
-  const intro = source.querySelector(".more__body > p");
   const body = dialog.querySelector(".doc-viewer__body");
   const position = dialog.querySelector("[data-doc-position]");
   const previous = dialog.querySelector("[data-doc-prev]");
   const next = dialog.querySelector("[data-doc-next]");
-  body.append(intro, ...pages);
+  body.append(...pages);
   source.hidden = true;
   opener.hidden = false;
 
@@ -20,8 +19,7 @@
   function showPage(index) {
     current = index;
     pages.forEach((page, i) => { page.hidden = i !== index; });
-    intro.hidden = index !== 0;
-    const title = pages[index].querySelector(".doc-sample__head strong").textContent;
+    const title = pages[index].dataset.docLabel;
     position.textContent = (index + 1) + " / " + pages.length + " · " + title;
     previous.disabled = index === 0;
     next.textContent = index === pages.length - 1 ? next.dataset.doneLabel : next.dataset.nextLabel;

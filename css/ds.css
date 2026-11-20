@@ -1059,15 +1059,23 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 /* 29. How I Work: 기획 문서 발췌 */
 .doc-sample { margin: var(--s5) 0 0; padding-top: var(--s4); border-top: 1px solid var(--rule); }
 .doc-sample:first-of-type { border-top: 0; padding-top: 0; }
-.doc-sample__head { margin: 0 0 var(--s2); font-size: var(--fs-small); color: var(--muted); }
-.doc-sample__head strong { margin-right: var(--s2); font-size: 1rem; color: var(--ink); }
-.doc-sample__head a { margin-left: var(--s2); font-size: var(--fs-caption); }
+.doc-sample__head { margin-bottom: var(--s5); padding-bottom: var(--s4); border-bottom: 2px solid var(--ink); }
+.doc-sample__head p { margin: 0 0 var(--s2); color: var(--accent); font-size: var(--fs-caption); font-weight: 650; }
+.doc-sample .doc-sample__head h3 { margin: 0; font-size: clamp(1.4rem, 3vw, 1.875rem); line-height: 1.25; }
 .doc-sample ul { margin: 0; font-size: var(--fs-small); }
-.doc-sample .prd-title { margin: var(--s3) 0 var(--s2); font-size: var(--fs-h3); }
-.prd-decisions { margin: var(--s4) 0; }
-.prd-decisions > div { border-top: 1px solid var(--rule); padding-block: var(--s3); }
-.prd-decisions dt { font-weight: 700; }
-.prd-decisions dd { margin: var(--s1) 0 0; }
+.doc-sample__head small, .doc-sample .prd-note { color: var(--muted); font-size: var(--fs-caption); }
+.prd-section { border-bottom: 1px solid var(--rule-strong); }
+.prd-section summary { cursor: pointer; }
+.prd-section > summary { padding: var(--s3) 0; font-size: 1rem; font-weight: 700; }
+.prd-section summary::marker { color: var(--accent); font-size: .8em; }
+.prd-persona { padding-inline-start: var(--s2); }
+.prd-persona > summary, .doc-sample .prd-group { padding: var(--s2) 0; color: var(--accent); font-size: var(--fs-small); font-weight: 650; }
+.prd-section .prd-group, .prd-section .prd-note { margin: 0; }
+.prd-table { width: 100%; border-collapse: collapse; margin: var(--s2) 0 var(--s4); font-size: var(--fs-small); line-height: 1.55; }
+.prd-table th, .prd-table td { border-bottom: 1px solid var(--rule); padding: var(--s2); vertical-align: top; text-align: start; overflow-wrap: anywhere; }
+.prd-table thead th { background: var(--paper-2); font-size: var(--fs-caption); }
+.prd-table tbody th { font-weight: 600; }
+.prd-persona .prd-table th:first-child { width: 28%; }
 .doc-sample__pre { margin: 0; padding: var(--s4); overflow-x: auto; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8125rem; line-height: 1.75; color: var(--ink); white-space: pre; }
 .doc-sample .table-wrap { margin: 0; }
 
@@ -1086,34 +1094,42 @@ html[lang="en"] .notes-sort__control { min-width: 128px; }
 .doc-sample__figure figcaption { margin-top: var(--s2); font-size: var(--fs-caption); line-height: 1.6; color: var(--muted); }
 .doc-sample__pre code { font: inherit; color: inherit; background: none; padding: 0; }
 #planning-preview { scroll-margin-top: 88px; }
-.planning-preview {
+.planning-attachment {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
   gap: var(--s4);
-  padding: var(--s4) var(--s5);
-  border: 1px solid var(--rule);
-  border-inline-start: 3px solid var(--accent);
-  border-radius: var(--radius);
-  background: var(--paper);
+  padding: var(--s4) 0;
+  border: 0;
+  border-block: 1px solid var(--rule-strong);
+  background: transparent;
   color: var(--ink);
   font: inherit;
   text-align: start;
   cursor: pointer;
 }
-.planning-preview:hover, .planning-preview:focus-visible { background: var(--accent-soft); }
-.planning-preview strong, .planning-preview small { display: block; }
-.planning-preview small { margin-top: var(--s1); color: var(--muted); font-size: var(--fs-caption); }
-.planning-preview__arrow { color: var(--accent); font-size: var(--fs-h3); }
+.planning-attachment:hover, .planning-attachment:focus-visible { color: var(--accent); }
+.planning-attachment small { display: block; color: var(--muted); font-size: var(--fs-caption); }
+.planning-attachment__icon {
+  width: 26px; height: 32px; flex: none;
+  border: 1px solid var(--rule-strong);
+  background: linear-gradient(var(--muted), var(--muted)) 5px 10px / 14px 1px no-repeat,
+              linear-gradient(var(--muted), var(--muted)) 5px 15px / 9px 1px no-repeat, var(--paper);
+  box-shadow: 3px 3px 0 -1px var(--paper), 3px 3px 0 var(--rule-strong);
+}
+.planning-attachment__count { margin-inline-start: auto; white-space: nowrap; color: var(--muted); font-size: var(--fs-small); }
 .doc-viewer {
-  width: min(48rem, calc(100% - 2rem));
-  height: min(42rem, calc(100% - 2rem));
-  max-height: calc(100dvh - 2rem);
+  --sheet-inset: clamp(16px, 4vw, 44px);
+  width: min(46rem, calc(100vw - 24px), calc((100dvh - 24px) * 210 / 297));
+  aspect-ratio: 210 / 297;
+  height: auto;
+  max-width: none;
+  max-height: none;
   margin: auto;
   padding: 0;
   border: 1px solid var(--rule);
-  border-radius: 10px;
+  border-radius: 2px;
+  box-shadow: 0 12px 44px rgb(0 0 0 / .18);
   color: var(--text);
   background: var(--paper);
 }
@@ -1125,15 +1141,18 @@ html:has(.doc-viewer[open]) { overflow: hidden; }
   align-items: center;
   justify-content: space-between;
   gap: var(--s2);
-  padding: var(--s3) clamp(.75rem, 3vw, 1.5rem);
+  padding: var(--s2) var(--s4);
 }
-header.doc-viewer__bar { border-bottom: 1px solid var(--rule); }
-footer.doc-viewer__bar { border-top: 1px solid var(--rule); font-size: var(--fs-small); }
+header.doc-viewer__bar { border-bottom: 1px solid var(--rule); color: var(--muted); font-size: var(--fs-caption); }
+footer.doc-viewer__bar { border-top: 1px solid var(--rule); font-size: var(--fs-caption); font-variant-numeric: tabular-nums; }
 .doc-viewer__actions { display: flex; gap: var(--s2); }
 .doc-viewer__bar .btn { white-space: nowrap; }
 .doc-viewer__bar .btn:disabled { opacity: .45; cursor: default; }
-.doc-viewer__body { padding: clamp(1rem, 3vw, 1.5rem); overflow: auto; overscroll-behavior: contain; }
+.doc-viewer__body { padding: var(--sheet-inset); min-width: 0; overflow: auto; overscroll-behavior: contain; font-size: 1rem; line-height: 1.7; }
 .doc-viewer__body .doc-sample { margin: 0; padding: 0; border: 0; }
+.doc-viewer__body .doc-sample__pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.doc-viewer__body .table--spec tbody th { width: 25%; }
+.doc-viewer__body .doc-sample__format { margin-top: var(--s5); }
 
 /* ---------- 홈 소개 아래 근거 3개 (어두운 소개 영역) ---------- */
 /* 세 칸의 글 영역 너비를 똑같이: 칸은 1fr, 간격은 gap으로 주고 구분선은 gap 가운데에 그린다 */

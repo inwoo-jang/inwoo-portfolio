@@ -150,31 +150,150 @@
           </ol>
 
           <div id="planning-preview">
-            <button type="button" class="planning-preview" data-doc-open aria-haspopup="dialog" aria-controls="planning-docs" hidden>
-              <span><strong>첫 버전에 뭘 넣고, 뭘 미뤘을까?</strong><small>PRD부터 와이어프레임까지 · 기획 문서 5개</small></span>
-              <span class="planning-preview__arrow" aria-hidden="true">→</span>
+            <button type="button" class="planning-attachment" data-doc-open aria-haspopup="dialog" aria-controls="planning-docs" hidden>
+              <span class="planning-attachment__icon" aria-hidden="true"></span>
+              <span><strong>마켓데스크 · 퀴켓 기획 문서</strong><small>PRD부터 와이어프레임까지</small></span>
+              <span class="planning-attachment__count">5개</span>
             </button>
           </div>
           <details class="more" data-doc-source>
-            <summary>첫 버전에 뭘 넣고, 뭘 미뤘을까? <small>PRD부터 와이어프레임까지 · 기획 문서 5개</small></summary>
+            <summary>마켓데스크 · 퀴켓 기획 문서 <small>(5개)</small></summary>
             <div class="more__body">
-              <p>마켓데스크의 기획 내용을 짧게 정리한 Markdown 예시와 퀴켓의 Figma 양식 예시입니다. PRD → IA → 유저플로우 → 기능명세 → 와이어프레임 순서로 작성하며, 단계마다 앞 문서와 맞는지 확인합니다.</p>
+              <p>퀴켓의 PRD와 Figma 양식, 마켓데스크의 기획 문서를 발췌했습니다.</p>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>PRD</strong> · 마켓데스크</p>
-                <h4 class="prd-title">산업 리포트를 읽고 나서, 내 일에 쓸 내용을 다시 찾는 사람들</h4>
-                <p>경제 공부를 하며 산업 리포트와 기업 리포트를 함께 읽었습니다. 한 편을 다 읽기도 벅찬데, 지난번에 본 기업과 이번 산업 변화가 어떻게 이어지는지 알려면 앞선 자료를 다시 펼쳐야 했습니다. 마켓데스크는 여기서 시작한 개인 프로젝트입니다.</p>
-                <dl class="prd-decisions">
-                  <div><dt>핵심 페르소나 · 기획 직무를 준비하는 취업 준비생</dt><dd>지원할 회사를 알아보려고 산업 리포트를 읽습니다. 전체 내용을 요약해도 “이 변화가 그 회사의 제품이나 사업에는 어떤 의미일까?”라는 질문은 남습니다. 같은 자료에서도 지원 직무에 필요한 대목을 골라 원문 근거와 함께 다시 보고 싶습니다.</dd></div>
-                  <div><dt>두 번째 페르소나 · 관심 기업을 꾸준히 보는 개인 투자자</dt><dd>같은 산업의 리포트를 여러 날에 걸쳐 읽습니다. 오늘 요약만 보면 어떤 숫자나 전제가 지난달과 달라졌는지 알기 어렵습니다. 날짜별로 쌓인 근거를 한 달 단위로 비교하고 싶습니다.</dd></div>
-                  <div><dt>그래서 첫 버전에 넣은 것</dt><dd>PDF나 텍스트를 올리면 취업·투자 중 선택한 목적별로 요약을 저장합니다. 취업을 고르면 직무까지 선택합니다. 일별 요약을 산업별로 모아 ‘이달의 흐름’을 보여주되, 원문에 없는 숫자나 전망은 비워 둡니다. 이미지 입력과 연간 회고는 다음 단계로 미뤘습니다.</dd></div>
-                  <div><dt>검증할 가설</dt><dd>직무별 요약이 유용하다면 다음 리포트를 읽을 때 다시 찾을 것입니다. 일별 기록이 쌓여야 보이는 가치가 있다면 월별 화면도 열어볼 것입니다. 그래서 7일 재방문율과 월별 흐름 열람률을 검증 지표로 잡았습니다. 현재는 제가 개인적으로 사용 중이며, 이 수치는 아직 검증 전입니다.</dd></div>
-                </dl>
-                <p><a href="portfolio.html#p-marketdesk">마켓데스크 프로젝트 보기</a></p>
+              <div class="doc-sample" data-doc-label="PRD">
+                <header class="doc-sample__head">
+                  <p>퀴켓 · 원문 발췌</p>
+                  <h3>제품 요구사항 정의서</h3>
+                  <small>v1.0 · 2026.03.28 최초 작성</small>
+                </header>
+                <details class="prd-section" open>
+                  <summary>1. 타겟 유저</summary>
+                  <details class="prd-persona" open>
+                    <summary>페르소나 A · 주 타겟</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">항목</th><th scope="col">내용</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">이름 (가상)</th><td>김대학 / 25세 / 대학교 3학년</td></tr>
+                        <tr><th scope="row">특징</th><td>기말고사 시즌. 교수님 PPT와 워드 필기 15주치. 통학 시간 40분을 활용하고 싶음.</td></tr>
+                        <tr><th scope="row">주요 불편함</th><td>기출문제가 없고 15주치 중 뭐가 중요한지 모르겠음. 읽으면 다 아는 기분임.</td></tr>
+                        <tr><th scope="row">우리 서비스 사용 목적</th><td>PDF를 올리면 AI가 파트를 나눠주고, 통학 중에 퀴즈로 풀어볼 수 있음.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                  <details class="prd-persona">
+                    <summary>페르소나 B · 부 타겟</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">항목</th><th scope="col">내용</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">이름 (가상)</th><td>이취준 / 28세 / 취업준비생·자격증 수험생</td></tr>
+                        <tr><th scope="row">특징</th><td>SQLD·정보처리기사 준비 중. 태블릿과 PDF에 이론을 정리해 둠.</td></tr>
+                        <tr><th scope="row">주요 불편함</th><td>기출은 다 풀었고 추가 문제가 필요함. 오답노트도 관리해야 함.</td></tr>
+                        <tr><th scope="row">우리 서비스 사용 목적</th><td>내 노트로 추가 문제를 만들고, 기존 문제집의 오답도 올려 함께 관리하고 싶음.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                  <details class="prd-persona">
+                    <summary>페르소나 C · 부 타겟</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">항목</th><th scope="col">내용</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">이름 (가상)</th><td>정열정 / 34세 / 자기계발 러버</td></tr>
+                        <tr><th scope="row">특징</th><td>퇴근 후 온라인 강의를 수강함.</td></tr>
+                        <tr><th scope="row">주요 불편함</th><td>수강 기간이 길어져 지난 강의 내용이 잘 기억나지 않음.</td></tr>
+                        <tr><th scope="row">우리 서비스 사용 목적</th><td>강의 PDF로 짧은 퀴즈를 만들어 복습하고 싶음.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                </details>
+                <details class="prd-section">
+                  <summary>2. 유저 스토리</summary>
+                  <p class="prd-note">37개 중 6개 발췌</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">ID</th><th scope="col">유저 스토리</th><th scope="col">우선순위</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">US-005</th><td>PDF 파일을 업로드할 수 있어야 한다.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-008</th><td>PPTX·DOCX 파일을 업로드할 수 있어야 한다.</td><td>Could</td></tr>
+                      <tr><th scope="row">US-010</th><td>AI가 분류한 파트의 이름·병합·분리·순서를 확인하고 수정할 수 있어야 한다.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-013</th><td>객관식·O/X 퀴즈를 생성할 수 있어야 한다.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-014</th><td>쪽지시험(단답형)과 플래시카드를 생성할 수 있어야 한다.</td><td>Should</td></tr>
+                      <tr><th scope="row">US-015</th><td>주관식 문제를 생성할 수 있어야 한다.</td><td>Won’t</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>3. 기능 목록</summary>
+                  <p class="prd-group">Must · MVP 필수</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">기능명</th><th scope="col">설명 · 비고</th><th scope="col">관련 US</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">PDF 업로드</th><td>파일당 최대 20MB. 테스트 후 조정.</td><td>US-005</td></tr>
+                      <tr><th scope="row">파트 검수·편집</th><td>이름 수정, 병합·분리, 순서 변경, 제외, 내용 편집.</td><td>US-010</td></tr>
+                      <tr><th scope="row">객관식·O/X 문제 풀기</th><td>한 문제씩 또는 한 번에 풀고 제출하면 자동 채점.</td><td>US-012, US-013</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Should · MVP 포함 또는 다음 개발</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">기능명</th><th scope="col">설명 · 비고</th><th scope="col">관련 US</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">쪽지시험·플래시카드</th><td>쪽지시험은 두 풀이 방식 지원. 플래시카드는 한 문제씩.</td><td>US-014</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Could · 가능하면 v2에 추가</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">기능명</th><th scope="col">설명 · 비고</th><th scope="col">관련 US</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">PPTX·DOCX 업로드</th><td>PPT·Word 파일 형식 추가.</td><td>US-008</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Won’t · 이번 버전 제외</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">기능명</th><th scope="col">설명 · 비고</th><th scope="col">관련 US</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">주관식 문제 생성</th><td>AI 채점 정확도를 먼저 검증해야 해 추후 검토.</td><td>US-015</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>4. 비기능 요구사항</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">항목</th><th scope="col">요구사항</th><th scope="col">비고</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">AI 텍스트 추출·분류</th><td>30초 이내</td><td>테스트 후 논의</td></tr>
+                      <tr><th scope="row">AI 퀴즈 생성</th><td>30초 이내</td><td>테스트 후 논의</td></tr>
+                      <tr><th scope="row">OCR 처리</th><td>이미지 1장당 15초 이내</td><td>테스트 후 논의</td></tr>
+                      <tr><th scope="row">파일 크기</th><td>20MB 이하</td><td>테스트 후 조정</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>5. 성공 지표 (KPI)</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">지표</th><th scope="col">목표 · 출시 후 1개월 이내</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">월간 활성 사용자 (MAU)</th><td>200명 이상</td></tr>
+                      <tr><th scope="row">퀴즈 생성 횟수</th><td>누적 300건 이상</td></tr>
+                      <tr><th scope="row">퀴즈 완료율</th><td>생성 대비 50% 이상</td></tr>
+                      <tr><th scope="row">앱스토어 평점</th><td>4점 이상</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>변경 이력</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">버전</th><th scope="col">날짜</th><th scope="col">변경 내용</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">v1.0</th><td>26.03.28</td><td>최초 작성</td></tr>
+                    </tbody>
+                  </table>
+                </details>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>IA</strong></p>
+              <div class="doc-sample" data-doc-label="IA">
+                <header class="doc-sample__head">
+                  <p>퀴켓 · 마켓데스크</p>
+                  <h3>정보 구조도</h3>
+                </header>
                 <p class="doc-sample__format">Figma 예시 <span>퀴켓 · 내용 비운 양식</span></p>
                 <figure class="doc-sample__figure"><a href="media/portfolio/ia-figma-example.png" target="_blank" rel="noopener" aria-label="IA Figma 예시 확대"><img src="media/portfolio/ia-figma-example.png" alt="내용을 비운 퀴켓 IA 도식: 주요 메뉴 계층과 가입·로그인 구조" width="1600" height="683" loading="lazy" decoding="async"></a><figcaption>퀴켓 · 주요 메뉴 계층과 가입·로그인 구조 일부 · 도형·연결선은 유지하고 내용은 회색 막대로 비웠습니다.</figcaption></figure>
                 <p class="doc-sample__format">Markdown 예시 <span>마켓데스크 · 공개용 요약</span></p>
@@ -191,8 +310,11 @@
     - 연별: 연간 회고: 2단계 범위</code></pre>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>유저플로우</strong></p>
+              <div class="doc-sample" data-doc-label="유저플로우">
+                <header class="doc-sample__head">
+                  <p>퀴켓 · 마켓데스크</p>
+                  <h3>사용자 흐름도</h3>
+                </header>
                 <p class="doc-sample__format">Figma 예시 <span>퀴켓 · 공개용으로 다시 그린 분기 도식</span></p>
                 <figure class="doc-sample__figure"><a href="media/portfolio/quiket-start-flow.svg" target="_blank" rel="noopener" aria-label="유저플로우 Figma 예시 확대"><img src="media/portfolio/quiket-start-flow.svg" alt="퀴켓 앱 시작 도식. 세 갈래 경로와 재시도 경로를 분리했으며 내부 문구는 가려져 있습니다." width="1440" height="1000" loading="lazy" decoding="async"></a><figcaption>퀴켓 · 앱 시작과 가입·로그인 분기를 공개용으로 다시 배치한 도식입니다. 내부 문구는 가렸습니다.</figcaption></figure>
                 <p class="doc-sample__format">Markdown 예시 <span>마켓데스크 · 공개용 요약</span></p>
@@ -214,8 +336,11 @@
 사용자 검토·수정 → 일별 저장 → 일별 보기에 누적</code></pre>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>기능명세</strong>: 렌즈별 요약 기능 예시</p>
+              <div class="doc-sample" data-doc-label="기능명세">
+                <header class="doc-sample__head">
+                  <p>마켓데스크</p>
+                  <h3>기능 명세서</h3>
+                </header>
                 <div class="table-wrap">
                   <table class="table table--spec">
                     <thead><tr><th scope="col">F07 렌즈별 구조화 요약</th><th scope="col">내용</th></tr></thead>
@@ -231,8 +356,11 @@
                 </div>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>와이어프레임</strong>: 퀴켓 양식 예시</p>
+              <div class="doc-sample" data-doc-label="와이어프레임">
+                <header class="doc-sample__head">
+                  <p>퀴켓</p>
+                  <h3>화면 설계서</h3>
+                </header>
                 <p>화면 구조와 아이콘을 남기고, 내용은 회색 막대로 비웠습니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
                 <div class="wireframe-examples">
                   <figure><a href="media/portfolio/wireframe-1.png" target="_blank" rel="noopener" aria-label="파트명 입력 화면 양식 예시 확대"><img src="media/portfolio/wireframe-1.png" alt="내용을 비운 파트명 입력 화면 와이어프레임" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>파트명 입력 화면</strong><br>화면 이름 ‘파트명 입력’만 남겼습니다.</figcaption></figure>

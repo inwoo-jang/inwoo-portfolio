@@ -150,31 +150,150 @@
           </ol>
 
           <div id="planning-preview">
-            <button type="button" class="planning-preview" data-doc-open aria-haspopup="dialog" aria-controls="planning-docs" hidden>
-              <span><strong>What made the first version, and what could wait?</strong><small>Five planning documents, from PRD to wireframe</small></span>
-              <span class="planning-preview__arrow" aria-hidden="true">→</span>
+            <button type="button" class="planning-attachment" data-doc-open aria-haspopup="dialog" aria-controls="planning-docs" hidden>
+              <span class="planning-attachment__icon" aria-hidden="true"></span>
+              <span><strong>MarketDesk and Quiket planning documents</strong><small>From PRD to wireframes</small></span>
+              <span class="planning-attachment__count">5 docs</span>
             </button>
           </div>
           <details class="more" data-doc-source>
-            <summary>What made the first version, and what could wait? <small>Five planning documents, from PRD to wireframe</small></summary>
+            <summary>MarketDesk and Quiket planning documents <small>(5 docs)</small></summary>
             <div class="more__body">
-              <p>A short Markdown summary of MarketDesk's planning, plus Figma template samples from Quiket. I write them in this order: PRD → IA → user flow → functional spec → wireframe: and at each step check that the new doc matches the ones before it.</p>
+              <p>Excerpts from Quiket’s PRD and Figma templates, alongside MarketDesk’s planning documents.</p>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>PRD</strong> · MarketDesk</p>
-                <h4 class="prd-title">Finding what matters after reading an industry report</h4>
-                <p>I started MarketDesk while studying the economy. Even one report was a long read. To connect a change in an industry with a company I had read about earlier, I had to reopen the older reports.</p>
-                <dl class="prd-decisions">
-                  <div><dt>Primary persona · job seeker preparing for a product role</dt><dd>They read industry reports to understand a prospective employer. A general summary still leaves them asking what the change means for that company’s products or business. They want to find the passages relevant to their role and revisit the evidence in the original report.</dd></div>
-                  <div><dt>Secondary persona · individual investor following a company</dt><dd>They follow the same industry across several reports. Today’s summary alone makes it hard to see which figures or assumptions have changed since last month. They want to compare dated evidence across a month.</dd></div>
-                  <div><dt>First-version scope</dt><dd>Readers upload a PDF or text and save separate summaries for the career and investment perspectives they select. Career readers can also choose a role. The monthly view draws on daily entries for the same industry. Figures or forecasts absent from the source stay blank. Image input and annual reviews were deferred.</dd></div>
-                  <div><dt>Hypotheses to test</dt><dd>If readers find the role-specific summary useful, they should return with their next report. If the accumulated entries reveal a trend, readers should open the monthly view. The PRD proposes seven-day return rate and monthly view usage as measures. I use the tool myself. Both measures still need validation.</dd></div>
-                </dl>
-                <p><a href="portfolio.en.html#p-marketdesk">See the MarketDesk project</a></p>
+              <div class="doc-sample" data-doc-label="PRD">
+                <header class="doc-sample__head">
+                  <p>Quiket · PRD excerpt</p>
+                  <h3>Product requirements</h3>
+                  <small>v1.0 · First draft, 28 Mar 2026</small>
+                </header>
+                <details class="prd-section" open>
+                  <summary>1. Target users</summary>
+                  <details class="prd-persona" open>
+                    <summary>Persona A · Primary</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">Fictional user</th><td>Kim Daehak / 25 / third-year university student</td></tr>
+                        <tr><th scope="row">Context</th><td>Finals are approaching. Has 15 weeks of slides and notes and a 40-minute commute.</td></tr>
+                        <tr><th scope="row">Pain point</th><td>No past papers. It is hard to tell what matters across 15 weeks of material. Everything feels familiar when rereading.</td></tr>
+                        <tr><th scope="row">Reason to use Quiket</th><td>Upload a PDF, have AI split it into parts and take quizzes on the commute.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                  <details class="prd-persona">
+                    <summary>Persona B · Secondary</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">Fictional user</th><td>Lee Chwijun / 28 / job seeker studying for certifications</td></tr>
+                        <tr><th scope="row">Context</th><td>Preparing for SQLD and an IT qualification. Theory notes are on a tablet and in PDFs.</td></tr>
+                        <tr><th scope="row">Pain point</th><td>Has finished the past papers, needs more questions and has mistakes to keep track of.</td></tr>
+                        <tr><th scope="row">Reason to use Quiket</th><td>Generate practice questions from notes and keep mistakes from existing workbooks together.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                  <details class="prd-persona">
+                    <summary>Persona C · Secondary</summary>
+                    <table class="prd-table">
+                      <thead><tr><th scope="col">Field</th><th scope="col">Details</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">Fictional user</th><td>Jeong Yeoljeong / 34 / adult learner</td></tr>
+                        <tr><th scope="row">Context</th><td>Takes online classes after work.</td></tr>
+                        <tr><th scope="row">Pain point</th><td>The course stretches over several weeks and earlier lessons are hard to recall.</td></tr>
+                        <tr><th scope="row">Reason to use Quiket</th><td>Turn lecture PDFs into short review quizzes.</td></tr>
+                      </tbody>
+                    </table>
+                  </details>
+                </details>
+                <details class="prd-section">
+                  <summary>2. User stories</summary>
+                  <p class="prd-note">6 of 37 stories shown</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">ID</th><th scope="col">User story</th><th scope="col">Priority</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">US-005</th><td>Upload a PDF.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-008</th><td>Upload PPTX and DOCX files.</td><td>Could</td></tr>
+                      <tr><th scope="row">US-010</th><td>Review AI-generated parts, rename them, merge or split them, and change their order.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-013</th><td>Generate multiple-choice and true/false quizzes.</td><td>Must</td></tr>
+                      <tr><th scope="row">US-014</th><td>Generate short-answer quizzes and flashcards.</td><td>Should</td></tr>
+                      <tr><th scope="row">US-015</th><td>Generate open-ended questions.</td><td>Won’t</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>3. Feature list</summary>
+                  <p class="prd-group">Must · Required for MVP</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Feature</th><th scope="col">Specification and notes</th><th scope="col">Story</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">PDF upload</th><td>Up to 20 MB per file, subject to testing.</td><td>US-005</td></tr>
+                      <tr><th scope="row">Part editor</th><td>Rename, merge, split, reorder, exclude or edit content.</td><td>US-010</td></tr>
+                      <tr><th scope="row">Multiple choice and true/false</th><td>Answer one at a time or all at once. Grade on submission.</td><td>US-012, US-013</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Should · MVP or next iteration</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Feature</th><th scope="col">Specification and notes</th><th scope="col">Story</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Short answers and flashcards</th><td>Both modes for short answers. Flashcards one at a time.</td><td>US-014</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Could · Potential v2 addition</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Feature</th><th scope="col">Specification and notes</th><th scope="col">Story</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">PPTX and DOCX upload</th><td>Support PowerPoint and Word files.</td><td>US-008</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="prd-group">Won’t · Out of this release</p>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Feature</th><th scope="col">Specification and notes</th><th scope="col">Story</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Open-ended questions</th><td>Deferred pending validation of AI grading accuracy.</td><td>US-015</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>4. Non-functional requirements</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Item</th><th scope="col">Requirement</th><th scope="col">Status</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">AI text extraction and classification</th><td>Within 30 seconds</td><td>Review after testing</td></tr>
+                      <tr><th scope="row">AI quiz generation</th><td>Within 30 seconds</td><td>Review after testing</td></tr>
+                      <tr><th scope="row">OCR processing</th><td>Within 15 seconds per image</td><td>Review after testing</td></tr>
+                      <tr><th scope="row">File size</th><td>Up to 20 MB</td><td>Adjust after testing</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>5. Success metrics (KPIs)</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Metric</th><th scope="col">First-month target</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Monthly active users</th><td>At least 200</td></tr>
+                      <tr><th scope="row">Quizzes generated</th><td>At least 300 total</td></tr>
+                      <tr><th scope="row">Quiz completion</th><td>At least 50% of quizzes generated</td></tr>
+                      <tr><th scope="row">App Store rating</th><td>At least 4 stars</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+                <details class="prd-section">
+                  <summary>Revision history</summary>
+                  <table class="prd-table">
+                    <thead><tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">v1.0</th><td>28 Mar 2026</td><td>First draft</td></tr>
+                    </tbody>
+                  </table>
+                </details>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>IA</strong></p>
+              <div class="doc-sample" data-doc-label="IA">
+                <header class="doc-sample__head">
+                  <p>Quiket · MarketDesk</p>
+                  <h3>Information architecture</h3>
+                </header>
                 <p class="doc-sample__format">Figma sample <span>Quiket · template with content removed</span></p>
                 <figure class="doc-sample__figure"><a href="media/portfolio/ia-figma-example.png" target="_blank" rel="noopener" aria-label="Enlarge IA Figma sample"><img src="media/portfolio/ia-figma-example.png" alt="Quiket IA diagram with content removed: main menu hierarchy and sign-up and login structure" width="1600" height="683" loading="lazy" decoding="async"></a><figcaption>Quiket · part of the main menu hierarchy and sign-up and login structure · shapes and connectors kept, content replaced with gray bars.</figcaption></figure>
                 <p class="doc-sample__format">Markdown sample <span>MarketDesk · public summary</span></p>
@@ -191,8 +310,11 @@
     - Yearly: annual review: phase 2 scope</code></pre>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>User flow</strong></p>
+              <div class="doc-sample" data-doc-label="User flow">
+                <header class="doc-sample__head">
+                  <p>Quiket · MarketDesk</p>
+                  <h3>User flow</h3>
+                </header>
                 <p class="doc-sample__format">Figma sample <span>Quiket · public redraw of the branching diagram</span></p>
                 <figure class="doc-sample__figure"><a href="media/portfolio/quiket-start-flow.svg" target="_blank" rel="noopener" aria-label="Enlarge user flow Figma sample"><img src="media/portfolio/quiket-start-flow.svg" alt="Quiket app launch with three separate paths and retry loops. Internal text is masked." width="1440" height="1000" loading="lazy" decoding="async"></a><figcaption>Quiket’s app launch and sign-up or login branches, redrawn for this public example. Internal wording is masked.</figcaption></figure>
                 <p class="doc-sample__format">Markdown sample <span>MarketDesk · public summary</span></p>
@@ -214,8 +336,11 @@ Log in → pick lenses on first use → dashboard
 User reviews and edits → save to daily → added to the daily view</code></pre>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>Functional spec</strong>: sample for the lens-based summary feature</p>
+              <div class="doc-sample" data-doc-label="Functional spec">
+                <header class="doc-sample__head">
+                  <p>MarketDesk</p>
+                  <h3>Functional specification</h3>
+                </header>
                 <div class="table-wrap">
                   <table class="table table--spec">
                     <thead><tr><th scope="col">F07 Structured summary per lens</th><th scope="col">Details</th></tr></thead>
@@ -231,8 +356,11 @@ User reviews and edits → save to daily → added to the daily view</code></pre
                 </div>
               </div>
 
-              <div class="doc-sample">
-                <p class="doc-sample__head"><strong>Wireframe</strong>: Quiket template samples</p>
+              <div class="doc-sample" data-doc-label="Wireframe">
+                <header class="doc-sample__head">
+                  <p>Quiket</p>
+                  <h3>Wireframes</h3>
+                </header>
                 <p>Screen structure and icons are kept, and content is replaced with gray bars. Click an image to see it larger.</p>
                 <div class="wireframe-examples">
                   <figure><a href="media/portfolio/wireframe-1.png" target="_blank" rel="noopener" aria-label="Enlarge part name input screen template"><img src="media/portfolio/wireframe-1.png" alt="Part name input screen wireframe with content removed" width="804" height="1748" loading="lazy" decoding="async"></a><figcaption><strong>Part name input screen</strong><br>Only the screen name, “Enter part name,” is kept.</figcaption></figure>
