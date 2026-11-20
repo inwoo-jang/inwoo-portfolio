@@ -158,6 +158,32 @@
   ],
   "notes": [
     {
+      "slug": "ai-requirements-definition",
+      "file": "notes/ai-requirements-definition.md",
+      "revision": "54e6f5e8ce91abf3",
+      "title": "AI가 코드를 만드는 시대에 좋은 요구사항 정의란? | 분량이 아니라 합의와 판정 기준",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "dev"
+      ],
+      "tags": [
+        "요구사항 정의",
+        "Spec-Driven Development",
+        "수용 기준",
+        "BDD",
+        "AI Coding"
+      ],
+      "date": "2026-11-20",
+      "summary": "좋은 요구사항은 구현 방법을 다 지정한 문서가 아니라, 무엇을 만들지에 대한 합의와 무엇이 잘못된 결과인지 판정할 기준을 담은 문서다. AI가 코드를 빨리 쓸수록 분량보다 이 두 가지가 중요해진다. 사용자의 문제, 지켜야 할 업무 규칙, 아직 결정하지 않은 조건, 검증 가능한 결과를 구분해 적는 틀을 정리했다.",
+      "sample": false,
+      "related": [
+        "ai-coding-delivery",
+        "tech-stack-choice",
+        "ai-dev-tools-compare"
+      ]
+    },
+    {
       "slug": "finance-ax-production-operations",
       "file": "notes/finance-ax-production-operations.md",
       "revision": "53b5d94e29f49c48",
@@ -370,6 +396,7 @@
         "ai-dev-tools-compare",
         "tech-stack-choice",
         "agent-kpi",
+        "ai-requirements-definition",
         "ai-technical-debt"
       ]
     },
@@ -538,6 +565,7 @@
       "sample": false,
       "related": [
         "ai-coding-delivery",
+        "ai-requirements-definition",
         "ai-technical-debt",
         "mcp-api-design"
       ]
@@ -624,6 +652,7 @@
         "multi-agent-vs-single",
         "why-ai-agent",
         "ai-coding-delivery",
+        "ai-requirements-definition",
         "ai-waiting-ux",
         "mcp-api-design",
         "rag-stack-selection"
