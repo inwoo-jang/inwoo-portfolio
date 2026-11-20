@@ -6,7 +6,7 @@ tags: [Agent Evaluation, Product KPI, Business Impact]
 date: 2026-11-06
 summary: 정확하게 작동하는 에이전트와 업무를 실제로 개선하는 에이전트는 다르다. 해결할 업무와 성공의 기준을 먼저 정하고, 완료율뿐 아니라 검토·재작업 시간과 비용, 권한 준수 여부도 함께 봐야 한다. 목표 → 성공 기준 → KPI → 측정·검증 → 개선 순서로 지표를 고르는 기준을 정리했다.
 sample: false
-related: [agent-eval, agent-autonomy, multi-agent-vs-single, why-ai-service]
+related: [agent-eval, agent-autonomy, multi-agent-vs-single]
 ---
 
 > AI 서비스 기획자의 역할은 성공률을 높이는 데 그치지 않고, 무엇을 성공으로 볼지 정의하고 그 성과를 검증 가능한 구조로 만드는 것이라고 생각한다.
@@ -21,7 +21,7 @@ AI 에이전트의 성능을 평가할 때 가장 먼저 떠오르는 지표는 
 
 ## 리서치: AI 에이전트는 어떻게 평가하고 있는가?
 
-### Google Cloud — 운영 환경의 KPI 프레임워크
+### Google Cloud | 운영 환경의 KPI 프레임워크
 
 Google Cloud는 2026년 2월 *The KPIs that actually matter for production AI agents*에서 운영 환경의 AI 에이전트 KPI를 세 영역으로 나눴다.
 
@@ -33,7 +33,7 @@ Google Cloud는 2026년 2월 *The KPIs that actually matter for production AI ag
 
 특히 주목한 지표는 **Cost per Successful Task(성공 업무당 비용)** 다. AI 호출 비용이 싼지를 보는 게 아니라, 실제로 성공한 업무를 기준으로 비용이 얼마나 들었는지 확인하는 방식이다. 또한 AI가 작업을 끝낸 시간뿐 아니라, 사람이 결과를 검토하고 승인하기까지 걸린 시간도 중요하게 다룬다.
 
-### Google Cloud — 목적 중심의 에이전트 평가
+### Google Cloud | 목적 중심의 에이전트 평가
 
 2025년 11월 *A methodical approach to agent evaluation*에서는 평가 설계의 출발점으로 에이전트의 명확한 성공 조건을 강조한다. 평가 기준은 크게 세 가지다.
 
@@ -43,7 +43,7 @@ Google Cloud는 2026년 2월 *The KPIs that actually matter for production AI ag
 
 에이전트는 올바른 답을 만들었더라도 잘못된 데이터를 조회했거나 불필요한 도구를 호출했을 수 있다. 그래서 최종 결과뿐 아니라 **어떤 과정을 거쳐 그 결과에 도달했는지**도 평가해야 한다.
 
-### ACL 2026 — A Survey on Evaluation of LLM-based Agents
+### ACL 2026 | A Survey on Evaluation of LLM-based Agents
 
 에이전트 평가 방법과 벤치마크를 종합적으로 조사한 연구다. 에이전트 평가가 정적인 정답 비교에서 실제 환경의 복잡한 업무 수행 평가로 넓어지고 있고, 특히 비용 효율성·안전성·강건성 평가에는 아직 풀어야 할 과제가 있다고 지적한다.
 

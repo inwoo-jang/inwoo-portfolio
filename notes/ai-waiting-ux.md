@@ -40,11 +40,11 @@ related: [tech-stack-choice, claude-cli-in-app]
 ### Queue와 Worker는 왜 필요할까?
 
 > [!예시] 100페이지 분량의 문서를 AI로 분석한다면
-> 1. **사용자** — 문서 분석 요청
-> 2. **API 서버** — 요청 접수, 작업 ID 발급
-> 3. **Queue** — 처리할 작업을 대기열에 등록
-> 4. **Worker** — 작업을 가져와 문서 분석과 AI 호출 수행
-> 5. **결과 저장** — 완료된 결과를 저장하고 사용자가 조회할 수 있게 제공
+> 1. **사용자**: 문서 분석 요청
+> 2. **API 서버**: 요청 접수, 작업 ID 발급
+> 3. **Queue**: 처리할 작업을 대기열에 등록
+> 4. **Worker**: 작업을 가져와 문서 분석과 AI 호출 수행
+> 5. **결과 저장**: 완료된 결과를 저장하고 사용자가 조회할 수 있게 제공
 >
 > 사용자는 분석이 끝날 때까지 화면을 열어 둘 필요가 없다.
 
@@ -116,6 +116,6 @@ AI 서비스에서 응답 시간이 길다는 이유만으로 비동기나 Queue
 
 ## 참고
 
-- [Microsoft Learn — Asynchronous Request-Reply Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/async-request-reply)
-- [MDN — Using Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
-- [AWS — Amazon SQS Standard Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html)
+- [Microsoft Learn: Asynchronous Request-Reply Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/async-request-reply)
+- [MDN: Using Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [AWS: Amazon SQS Standard Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html)

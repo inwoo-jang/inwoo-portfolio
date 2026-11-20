@@ -1,5 +1,5 @@
 ---
-title: Where should an agent be stopped? — guardrails on input, call counts, and output
+title: Where should an agent be stopped? guardrails on input, call counts, and output
 category: ai
 tags: [AI Agent, Guardrails, LangChain, Middleware]
 date: 2026-09-11

@@ -1,5 +1,5 @@
 ---
-title: How should you choose an LLM? — balancing performance, reasoning, and cost
+title: How should you choose an LLM? balancing performance, reasoning, and cost
 category: planning
 categories: [planning, ai]
 tags: [LLM, Model Selection, Reasoning, Inference Cost, AI Service Planning]
@@ -38,7 +38,7 @@ What matters is **evaluating both the size of the performance gain and the busin
 
 Parameters are numerical values, like weights, that a model learns. Scaling up a model can increase its capacity to learn more complex patterns. But a large parameter count alone doesn't tell you the model actually performs better.
 
-### Chinchilla — how you allocate training compute matters as much as model size
+### Chinchilla | how you allocate training compute matters as much as model size
 
 DeepMind's *Training Compute-Optimal Large Language Models* (2022) analyzed the relationship between model size and amount of training data. The researchers trained the 70-billion-parameter Chinchilla and compared it with the 280-billion-parameter Gopher. Chinchilla had about a quarter of the parameters but outperformed Gopher on most of the tasks they evaluated. The finding was that, for the same training compute budget, splitting it well between model size and training data matters.
 
@@ -204,9 +204,9 @@ In the end, I think **the right choice isn't the highest-performing model, but t
 
 Checked: 2026.11.11
 
-- [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) — DeepMind, NeurIPS 2022. The relationship between parameter count and amount of training data
-- [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) — JMLR 2022. MoE architecture and selective parameter activation
-- [Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models](https://arxiv.org/search/?query=Does+Thinking+More+Always+Help&searchtype=all) — related NeurIPS 2025 research. The effects and limits of extra reasoning
-- [OpenAI — A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — setting a performance baseline, then choosing and optimizing models
-- [OpenAI — Model Selection](https://platform.openai.com/docs/guides/model-selection) — weighing performance, latency, and cost when choosing a model
-- [Anthropic — Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing) — token usage and cost structure by model
+- [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556): DeepMind, NeurIPS 2022. The relationship between parameter count and amount of training data
+- [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961): JMLR 2022. MoE architecture and selective parameter activation
+- [Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models](https://arxiv.org/search/?query=Does+Thinking+More+Always+Help&searchtype=all): related NeurIPS 2025 research. The effects and limits of extra reasoning
+- [OpenAI: A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf): setting a performance baseline, then choosing and optimizing models
+- [OpenAI: Model Selection](https://platform.openai.com/docs/guides/model-selection): weighing performance, latency, and cost when choosing a model
+- [Anthropic: Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing): token usage and cost structure by model

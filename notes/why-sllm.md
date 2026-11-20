@@ -1,5 +1,5 @@
 ---
-title: 왜 sLLM을 사용할까? — 작아서가 아니라 조건이 맞아서
+title: 왜 sLLM을 사용할까? 작아서가 아니라 조건이 맞아서
 category: planning
 categories: [planning, ai]
 tags: [AI 기획, sLLM, 언어모델, 운영 비용]

@@ -40,11 +40,11 @@ Sync vs. async has to be looked at separately from **the user-experience side** 
 ### Why do you need queues and workers?
 
 > [!Example] Analyzing a 100-page document with AI
-> 1. **User** — requests a document analysis
-> 2. **API server** — accepts the request and issues a job ID
-> 3. **Queue** — registers the job to be processed
-> 4. **Worker** — picks up the job and runs the document analysis and AI calls
-> 5. **Result storage** — saves the finished result and makes it available to the user
+> 1. **User**: requests a document analysis
+> 2. **API server**: accepts the request and issues a job ID
+> 3. **Queue**: registers the job to be processed
+> 4. **Worker**: picks up the job and runs the document analysis and AI calls
+> 5. **Result storage**: saves the finished result and makes it available to the user
 >
 > The user doesn't need to keep the screen open until the analysis finishes.
 
@@ -102,7 +102,7 @@ Once the statuses are set, there are more things to think through.
 
 **Leaving the screen and canceling the job are different things.** A user closing the page or moving to another screen doesn't automatically stop the AI job on the server. You need a rule for whether the job keeps running after the user leaves, and whether a cancel request actually stops the underlying work.
 
-**Define the scope of failures and retries.** Re-running an AI call costs money again. If the job saves or changes data in an external system, duplicate runs can cause side effects. Whether to retry automatically, the maximum number of attempts, and how to handle duplicate requests should be reviewed with the dev team. **Idempotency** — making sure repeated identical requests don't create unintended duplicate results or side effects — is also an important consideration.
+**Define the scope of failures and retries.** Re-running an AI call costs money again. If the job saves or changes data in an external system, duplicate runs can cause side effects. Whether to retry automatically, the maximum number of attempts, and how to handle duplicate requests should be reviewed with the dev team. **Idempotency** (making sure repeated identical requests don't create unintended duplicate results or side effects) is also an important consideration.
 
 ## Where I've landed
 
@@ -116,6 +116,6 @@ Whatever structure you choose, though, users need to know whether their request 
 
 ## References
 
-- [Microsoft Learn — Asynchronous Request-Reply Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/async-request-reply)
-- [MDN — Using Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
-- [AWS — Amazon SQS Standard Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html)
+- [Microsoft Learn: Asynchronous Request-Reply Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/async-request-reply)
+- [MDN: Using Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [AWS: Amazon SQS Standard Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html)

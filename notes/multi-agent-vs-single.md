@@ -122,8 +122,8 @@ Multi-Agent는 복잡한 업무를 나누고 독립 작업을 병렬로 처리�
 
 ## 참고
 
-- [Microsoft AutoGen](https://github.com/microsoft/autogen) — Multi-Agent 협업 및 팀 구성 패턴
-- [LangGraph](https://github.com/langchain-ai/langgraph) — 상태 기반 실행 및 에이전트 오케스트레이션
-- [LangChain Multi-Agent Documentation](https://docs.langchain.com/oss/python/langchain/multi-agent) — Multi-Agent 아키텍처와 패턴
-- [OpenAI Agent Orchestration](https://openai.github.io/openai-agents-python/multi_agent/) — Handoff 및 Manager 기반 오케스트레이션
-- [Anthropic: How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system) — 멀티 에이전트 설계와 운영 사례
+- [Microsoft AutoGen](https://github.com/microsoft/autogen): Multi-Agent 협업 및 팀 구성 패턴
+- [LangGraph](https://github.com/langchain-ai/langgraph): 상태 기반 실행 및 에이전트 오케스트레이션
+- [LangChain Multi-Agent Documentation](https://docs.langchain.com/oss/python/langchain/multi-agent): Multi-Agent 아키텍처와 패턴
+- [OpenAI Agent Orchestration](https://openai.github.io/openai-agents-python/multi_agent/): Handoff 및 Manager 기반 오케스트레이션
+- [Anthropic: How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system): 멀티 에이전트 설계와 운영 사례

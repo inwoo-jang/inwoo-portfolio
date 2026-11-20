@@ -153,6 +153,6 @@ AI Agent를 기획할 때는 모델에게 무엇을 지시할지뿐 아니라 **
 
 ## 참고
 
-- [LangGraph GitHub](https://github.com/langchain-ai/langgraph) — 상태 기반 Agent 워크플로 및 구현 참고
-- [LangChain 공식 문서](https://docs.langchain.com/) — Agent, RAG, Memory 관련 개념 및 구현 참고
-- [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Agent 컨텍스트 구성과 관리 방법 참고
+- [LangGraph GitHub](https://github.com/langchain-ai/langgraph): 상태 기반 Agent 워크플로 및 구현 참고
+- [LangChain 공식 문서](https://docs.langchain.com/): Agent, RAG, Memory 관련 개념 및 구현 참고
+- [Anthropic: Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents): Agent 컨텍스트 구성과 관리 방법 참고

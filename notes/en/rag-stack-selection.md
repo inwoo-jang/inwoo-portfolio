@@ -51,7 +51,7 @@ This structure can also be implemented in SQL. An ontology becomes more valuable
 | Query rewriting and decomposition | Splits a compound question into tasks such as finding similar decisions and looking up amendments to applied provisions. Preserve original constraints such as case identifiers and reference dates. |
 | SQL and graph traversal | Retrieves evidence through verified relationships. Start with SQL joins for consistent query paths; compare graph queries when traversal paths vary by question. |
 
-[Elastic hybrid search](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search — Hybrid search ranking](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
+[Elastic hybrid search](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search: Hybrid search ranking](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
 
 ## What if the candidates are present but ranked incorrectly?
 
@@ -64,7 +64,7 @@ This structure can also be implemented in SQL. An ontology becomes more valuable
 
 A Cross-Encoder score can also be an input to a tree-based ranker. For example, a model can learn from textual relevance alongside signals such as "same medium" and "matching verified applied provision." Handle mandatory conditions through lookup or filtering, and preferences through ranking.
 
-Reranking cannot recover candidates that retrieval missed. Compare rankers on the same candidate list, and measure candidate retrieval performance separately. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers — Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
+Reranking cannot recover candidates that retrieval missed. Compare rankers on the same candidate list, and measure candidate retrieval performance separately. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers: Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
 
 ## What evidence should go into the answer?
 
@@ -76,7 +76,7 @@ Reranking cannot recover candidates that retrieval missed. Compare rankers on th
 
 GraphRAG uses graphs to retrieve evidence. Local search in Microsoft's implementation combines an AI-extracted graph with chunks of the source text. For legal data, check extracted relationships against the source and distinguish a citation from an actual application of a provision.
 
-After generation, check that case IDs, findings passages, and provision versions match the query results. Even when IDs match, whether the evidence supports the answer's claims needs a separate evaluation. A feature that only presents search results and source documents can work without calling an LLM. [RAG paper](https://arxiv.org/abs/2005.11401) · [Microsoft GraphRAG — Query Overview](https://microsoft.github.io/graphrag/query/overview/)
+After generation, check that case IDs, findings passages, and provision versions match the query results. Even when IDs match, whether the evidence supports the answer's claims needs a separate evaluation. A feature that only presents search results and source documents can work without calling an LLM. [RAG paper](https://arxiv.org/abs/2005.11401) · [Microsoft GraphRAG: Query Overview](https://microsoft.github.io/graphrag/query/overview/)
 
 ## Configurations and metrics to compare for the AI Advertising Pre-Review Service (working title)
 
@@ -120,7 +120,7 @@ B and C can each combine keyword and vector results using RRF. If historical ad 
 | **GraphRAG** | Follows knowledge graph relationships to retrieve **evidence for the answer**. For example, it can follow a finding to the provision version applicable at the time and its amendment history, supplying these with source text to the LLM. A formal OWL ontology is optional. |
 | **Tree-based ranker** | Learns the **relevance order** of the combined decision candidates. LambdaMART is a ranking method, and LightGBM is a library that can implement it. Retrieval scores serve as signals of candidate relevance. |
 
-[LangGraph — Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph) · [LightGBM — Parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html)
+[LangGraph: Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph) · [LightGBM: Parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html)
 
 LangGraph can orchestrate the three parallel retrieval paths, while document RAG can supply the top source passages to the LLM. **GraphRAG enters at the evidence retrieval stage**: it follows verified “applies” and “amends” relationships to find related sources. While query paths remain consistent, SQL lookup of applied provisions and findings passages can serve as the baseline.
 

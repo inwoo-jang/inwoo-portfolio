@@ -58,9 +58,9 @@ After removing a flag, check that the released feature still behaves correctly i
 
 ## References
 
-- [OpenAI · Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) — unused code cleanup with Codex, model cost comparisons and CI improvements
-- [LaunchDarkly · Reducing technical debt from feature flags](https://launchdarkly.com/docs/eu-docs/guides/flags/technical-debt) — identifying stale flags and planning cleanup
-- [LaunchDarkly · Archiving flags](https://launchdarkly.com/docs/fed-docs/home/flags/archive) — recent usage and dependencies to check before archiving
-- [Pete Hodgson · Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) — categories of flags and tracking removal in the backlog
-- [Uber Engineering · Introducing Piranha](https://www.uber.com/ke/en/blog/piranha/) — automatically removing branches from completed experiments
-- [GitHub Docs · About GitHub Actions metrics](https://docs.github.com/en/actions/concepts/metrics) — queue time, execution time and failure rate metrics
+- [OpenAI · Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family): unused code cleanup with Codex, model cost comparisons and CI improvements
+- [LaunchDarkly · Reducing technical debt from feature flags](https://launchdarkly.com/docs/eu-docs/guides/flags/technical-debt): identifying stale flags and planning cleanup
+- [LaunchDarkly · Archiving flags](https://launchdarkly.com/docs/fed-docs/home/flags/archive): recent usage and dependencies to check before archiving
+- [Pete Hodgson · Feature Toggles](https://martinfowler.com/articles/feature-toggles.html): categories of flags and tracking removal in the backlog
+- [Uber Engineering · Introducing Piranha](https://www.uber.com/ke/en/blog/piranha/): automatically removing branches from completed experiments
+- [GitHub Docs · About GitHub Actions metrics](https://docs.github.com/en/actions/concepts/metrics): queue time, execution time and failure rate metrics

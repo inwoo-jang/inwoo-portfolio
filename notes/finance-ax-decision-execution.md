@@ -36,25 +36,25 @@ AI 도입률과 자율성도 별개의 지표다. 영국 중앙은행·FCA의 20
 
 ## 금융기관 사례에서 볼 것은 모델 이름보다 업무 경계다
 
-### Morgan Stanley — 초안 생성과 고객 발송 사이에 검토를 둔다
+### Morgan Stanley | 초안 생성과 고객 발송 사이에 검토를 둔다
 
 Morgan Stanley는 2024년 6월 AI @ Morgan Stanley Debrief를 발표했다. 고객 동의를 받아 상담 내용을 정리하고 후속 조치와 이메일 초안을 생성하며, 상담사가 이메일을 검토·수정한 뒤 자신의 판단에 따라 발송하는 구조다. 상담 기록은 Salesforce에 저장한다. [공식 발표](https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch)
 
 참고할 부분은 **초안 생성과 대외 발송을 분리했다는 점**이다. 이 사례를 자율 매매의 근거로 확대할 수는 없다. 내가 검토 화면을 설계한다면 원문 근거, 수치, 후속 조치 담당자, 불확실한 항목을 함께 보여주겠다. 이는 실제 제품에서 모두 확인한 기능이 아니라 이 사례에서 확장한 설계 제안이다.
 
-### DBS — 처리시간이 줄어도 고객 문제가 해결됐는지 봐야 한다
+### DBS | 처리시간이 줄어도 고객 문제가 해결됐는지 봐야 한다
 
 DBS의 CSO Assistant는 상담 내용을 전사·요약하고 필요한 정보를 찾아 상담원을 지원한다. 2024년 7월 발표에서는 통화 처리시간을 최대 20% 줄일 것으로 예상했고, 같은 해 11월 공식 소개에서는 20% 단축을 성과로 제시했다. [초기 발표](https://www.dbs.com/newsroom/DBS_empowers_its_Customer_Service_Officers_with_Gen_AI_powered_virtual_assistant_to_reduce_toil_and_enhance_customer_experience), [후속 소개](https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/singapore-fintech-festival-ai-in-banking-finance.html)
 
 기업이 보고한 성과로 읽되, 공개 자료만으로 대조군·문의 난이도·측정기간을 모두 확인할 수는 없다. 우리 업무에 적용한다면 통화시간과 함께 **재문의, AI 답변을 수정하는 시간, 고객의 권리 행사나 분쟁 처리 지연**을 보겠다. 상담이 빨리 끝난 것과 문제가 해결된 것은 다르기 때문이다.
 
-### HSBC — 탐지 성능과 정상 고객의 불편을 함께 본다
+### HSBC | 탐지 성능과 정상 고객의 불편을 함께 본다
 
 HSBC는 2024년 6월 금융범죄 탐지용 Dynamic Risk Assessment에 대해 이전보다 더 많은 금융범죄를 찾아내고 오탐 사례는 **60% 줄었다**고 자체 발표했다. 탐지·분석에 관한 설명이며, 생성형 AI가 계좌 차단이나 신고까지 자율 수행했다는 의미는 아니다. [HSBC 공식 설명](https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime)
 
 이 사례에서는 단일 정확도보다 **유효한 탐지와 불필요한 조사·고객 접촉의 감소를 함께 보는 관점**을 가져올 수 있다. 다만 공개 성과만으로 모든 범죄 유형의 미탐률이나 독립적인 인과효과까지 확인한 것은 아니다.
 
-### 토스 — 모델 호출, 도구 실행, 데이터 접근을 나눈다
+### 토스 | 모델 호출, 도구 실행, 데이터 접근을 나눈다
 
 토스의 2026년 10월 기술 블로그는 모델 사용 조건을 적용하는 GenAI Gateway와 사내 도구 실행 권한을 확인하는 MCP Gateway를 구분한다. 검색 도구의 실행이 허용돼도 실제 문서 접근권한은 연결된 서비스에서 별도로 확인해야 한다고 설명한다. [토스 기술 블로그](https://toss.tech/article/ai-platform-foundation)
 
@@ -96,7 +96,7 @@ HSBC는 2024년 6월 금융범죄 탐지용 Dynamic Risk Assessment에 대해 �
 | 보험 | 청구서류 정리, 약관 검색, 누락 안내 | 지급·부지급 및 인수 판단, 민감정보, 이의제기 |
 | 결제·송금·환불 | 의도 파악, 실행안과 예상 결과 제시 | 인증·인가, 대상·금액 확정, 중복 방지, 원장 확인 |
 
-### 상담 — 최신 문서와 이 고객에게 적용되는 조건은 다르다
+### 상담 | 최신 문서와 이 고객에게 적용되는 조건은 다르다
 
 금융 RAG는 문서 관련성뿐 아니라 상품·채널, 신규·기존 고객, 가입일, 약관 버전, 우대 조건, 수수료 구간을 함께 확인해야 한다. 최신 판매 조건이 과거에 체결한 계약에도 적용되는 것은 아니다.
 
@@ -104,7 +104,7 @@ HSBC는 2024년 6월 금융범죄 탐지용 Dynamic Risk Assessment에 대해 �
 
 사람 상담으로 연결되는 비율이 줄었다는 사실만으로 성과를 판단하기도 어렵다. CFPB의 2023년 보고서는 부정확한 안내와 반복 대화, 사람 지원 접근 제한이 고객에게 피해를 줄 수 있다고 지적했다. 당시 조사에서 제기한 문제이며 최신 챗봇 전체의 실패율을 뜻하지 않는다. [CFPB 보고서](https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/)
 
-### 신용심사 — 예측, 결정, 설명을 따로 검증한다
+### 신용심사 | 예측, 결정, 설명을 따로 검증한다
 
 > **위험모델의 예측값 → 업무 정책을 적용한 결정 → 고객에게 전달하는 설명.**
 
@@ -114,7 +114,7 @@ HSBC는 2024년 6월 금융범죄 탐지용 Dynamic Risk Assessment에 대해 �
 
 FinRegLab과 Stanford 연구진의 연구도 설명가능성 도구의 성능이 모델과 과업에 따라 달라지므로 목적에 맞게 검증해야 한다고 보고했다. 공정성 역시 전체 예측 정확도로 대체하지 않고, 집단별 오류와 적법한 데이터 처리 조건을 따로 평가해야 한다. 보호가 필요한 속성을 입력에서 뺐다는 사실만으로 차별 문제가 해결됐다고 볼 수는 없다. [FinRegLab 연구 소개](https://finreglab.org/press-releases/finreglab-finds-machine-learning-tools-have-potential-to-usher-in-fairer-credit-decisions/)
 
-### 탐지·거래 — 잘 찾는 능력과 안전하게 실행하는 능력은 다르다
+### 탐지·거래 | 잘 찾는 능력과 안전하게 실행하는 능력은 다르다
 
 이상거래 탐지에서는 탐지, 검토 대상 지정, 추가 인증, 일시 제한, 최종 조치를 나눠 설계한다. 더 많이 차단하면 정상 고객의 피해가 늘 수 있고, 검사를 약화하면 미탐 위험이 커진다. 실시간 자동 통제와 사후 설명·재검토·해제·감사를 각각 정의할 필요가 있다.
 
@@ -251,27 +251,27 @@ FINOS의 AI Governance Framework v2.0은 프롬프트 인젝션, 메모리 오�
 
 ### 규제·감독·조사
 
-- [BoE·FCA — Artificial intelligence in UK financial services, 2026](https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026)
-- [금융위원회 — 금융분야 인공지능 가이드라인 개정 발표, 2026.06.18](https://www.fsc.go.kr/po010103/87142)
+- [BoE·FCA: Artificial intelligence in UK financial services, 2026](https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026)
+- [금융위원회: 금융분야 인공지능 가이드라인 개정 발표, 2026.06.18](https://www.fsc.go.kr/po010103/87142)
 - [신용정보법 제36조의2](https://www.law.go.kr/법령/신용정보의이용및보호에관한법률/제36조의2) · [개인정보 보호법 제37조의2](https://www.law.go.kr/법령/개인정보보호법/제37조의2)
-- [금융보안원 — 금융분야 AI 에이전트 보안 평가기준, 2026.10.08](https://www.fsec.or.kr/bbs/detail?bbsNo=12122&menuNo=69)
-- [Federal Reserve — SR 26-2, 2026.04.17](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) · [지침 원문](https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf)
-- [CFPB — Regulation B §1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/)
-- [CFPB — Chatbots in consumer finance, 2023](https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/)
-- [FSB — The Financial Stability Implications of Artificial Intelligence, 2024](https://www.fsb.org/2024/11/fsb-assesses-the-financial-stability-implications-of-artificial-intelligence/)
+- [금융보안원: 금융분야 AI 에이전트 보안 평가기준, 2026.10.08](https://www.fsec.or.kr/bbs/detail?bbsNo=12122&menuNo=69)
+- [Federal Reserve: SR 26-2, 2026.04.17](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) · [지침 원문](https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf)
+- [CFPB: Regulation B §1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/)
+- [CFPB: Chatbots in consumer finance, 2023](https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/)
+- [FSB: The Financial Stability Implications of Artificial Intelligence, 2024](https://www.fsb.org/2024/11/fsb-assesses-the-financial-stability-implications-of-artificial-intelligence/)
 
 ### 금융기관 사례
 
-- [Morgan Stanley — AI @ Morgan Stanley Debrief, 2024.06.26](https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch)
-- [DBS — CSO Assistant 도입 발표, 2024.07.18](https://www.dbs.com/newsroom/DBS_empowers_its_Customer_Service_Officers_with_Gen_AI_powered_virtual_assistant_to_reduce_toil_and_enhance_customer_experience)
-- [DBS — AI in banking: Transforming the way we work with AI, 2024.11.05](https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/singapore-fintech-festival-ai-in-banking-finance.html)
-- [HSBC — Harnessing the power of AI to fight financial crime, 2024.06.10](https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime)
-- [토스 — 서비스 개발에 집중할 수 있는 AI 플랫폼 만들기, 2026.10.13](https://toss.tech/article/ai-platform-foundation)
+- [Morgan Stanley: AI @ Morgan Stanley Debrief, 2024.06.26](https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch)
+- [DBS: CSO Assistant 도입 발표, 2024.07.18](https://www.dbs.com/newsroom/DBS_empowers_its_Customer_Service_Officers_with_Gen_AI_powered_virtual_assistant_to_reduce_toil_and_enhance_customer_experience)
+- [DBS: AI in banking: Transforming the way we work with AI, 2024.11.05](https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/singapore-fintech-festival-ai-in-banking-finance.html)
+- [HSBC: Harnessing the power of AI to fight financial crime, 2024.06.10](https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime)
+- [토스: 서비스 개발에 집중할 수 있는 AI 플랫폼 만들기, 2026.10.13](https://toss.tech/article/ai-platform-foundation)
 
 ### 연구·산업 커뮤니티
 
-- [FinRegLab — 설명가능성·공정성 연구 소개, 2023](https://finreglab.org/press-releases/finreglab-finds-machine-learning-tools-have-potential-to-usher-in-fairer-credit-decisions/)
+- [FinRegLab: 설명가능성·공정성 연구 소개, 2023](https://finreglab.org/press-releases/finreglab-finds-machine-learning-tools-have-potential-to-usher-in-fairer-credit-decisions/)
 - [FinanceBench, 2023](https://arxiv.org/abs/2311.11944)
 - [FinQA, EMNLP 2021](https://aclanthology.org/2021.emnlp-main.300/)
 - [τ-bench, 2024](https://arxiv.org/abs/2406.12045)
-- [FINOS — AI Governance Framework v2.0, 2025.11.12](https://www.finos.org/blog/finos-ai-governance-framework-v2.0-addressing-agentic-ai-risks-in-a-rapidly-evolving-landscape)
+- [FINOS: AI Governance Framework v2.0, 2025.11.12](https://www.finos.org/blog/finos-ai-governance-framework-v2.0-addressing-agentic-ai-risks-in-a-rapidly-evolving-landscape)

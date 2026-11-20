@@ -63,7 +63,7 @@
     {
       "id": "ax",
       "label": "AX",
-      "description": "조직의 AI 전환 — 거버넌스, 성과 측정, 산업별 도입",
+      "description": "조직의 AI 전환: 거버넌스, 성과 측정, 산업별 도입",
       "color": {
         "ink": "#9C3D65",
         "soft": "#FCEAF2",
@@ -73,7 +73,7 @@
     {
       "id": "emerging",
       "label": "신기술·트렌드",
-      "description": "새로 등장한 기술이 무엇이고 무엇을 바꾸는지 — Physical AI, 디지털 트윈, 양자 컴퓨팅 등",
+      "description": "새로 등장한 기술이 무엇이고 무엇을 바꾸는지: Physical AI, 디지털 트윈, 양자 컴퓨팅 등",
       "color": {
         "ink": "#12657C",
         "soft": "#E4F3F8",
@@ -160,7 +160,7 @@
     {
       "slug": "finance-ax-production-operations",
       "file": "notes/finance-ax-production-operations.md",
-      "revision": "9497e6c99712cd65",
+      "revision": "53b5d94e29f49c48",
       "title": "금융 AI는 어떻게 PoC를 넘어 운영 서비스가 될까?",
       "category": "ax",
       "categories": [
@@ -191,7 +191,7 @@
     {
       "slug": "finance-ax-system-integration",
       "file": "notes/finance-ax-system-integration.md",
-      "revision": "3aef4ae2c837fab5",
+      "revision": "8541c46644cfba25",
       "title": "금융 AI는 기존 시스템과 어떻게 연결해야 할까?",
       "category": "ax",
       "categories": [
@@ -223,7 +223,7 @@
     {
       "slug": "finance-ax-decision-execution",
       "file": "notes/finance-ax-decision-execution.md",
-      "revision": "555cb310f61c834d",
+      "revision": "9652d308e4c7f026",
       "title": "금융 AX에서 AI는 어디까지 판단하고 실행할 수 있을까?",
       "category": "ax",
       "categories": [
@@ -289,7 +289,7 @@
     {
       "slug": "ax-domain-design-criteria",
       "file": "notes/ax-domain-design-criteria.md",
-      "revision": "fa99963bbc6549e9",
+      "revision": "437f2438a7ed5f5b",
       "title": "AX는 산업마다 무엇이 달라져야 할까?",
       "category": "ax",
       "categories": [
@@ -318,7 +318,7 @@
     {
       "slug": "rag-stack-selection",
       "file": "notes/rag-stack-selection.md",
-      "revision": "8346a6158449bd7b",
+      "revision": "0ea32f49b92d464f",
       "title": "AI 검색·RAG 기술 스택은 어떻게 고를까?",
       "category": "ai",
       "categories": [
@@ -347,7 +347,7 @@
     {
       "slug": "ai-coding-delivery",
       "file": "notes/ai-coding-delivery.md",
-      "revision": "e3fdc4d5e980f13b",
+      "revision": "90a4e50aea887ff8",
       "title": "AI가 코드를 더 빨리 만들수록, 개발 시스템은 무엇이 달라져야 할까?",
       "category": "ax",
       "categories": [
@@ -376,7 +376,7 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/ai-technical-debt.md",
-      "revision": "954806e0f768fcf4",
+      "revision": "c5a2bfc1309c3478",
       "title": "AI를 활용한 코드 정리는 어떻게 할까?",
       "category": "infra",
       "categories": [
@@ -401,7 +401,7 @@
     {
       "slug": "ai-waiting-ux",
       "file": "notes/ai-waiting-ux.md",
-      "revision": "7ef639e578d496a3",
+      "revision": "0bc1c2342888cfb1",
       "title": "AI 답변을 기다리는 동안 서비스는 어떻게 동작해야 할까?",
       "category": "planning",
       "categories": [
@@ -426,7 +426,7 @@
     {
       "slug": "agent-governance",
       "file": "notes/agent-governance.md",
-      "revision": "ce0c8491089e9d21",
+      "revision": "460a92b0ae69b73c",
       "title": "AI 에이전트가 늘어날수록, 기업은 무엇을 관리해야 하는가?",
       "category": "ax",
       "categories": [
@@ -456,7 +456,7 @@
     {
       "slug": "agent-autonomy",
       "file": "notes/agent-autonomy.md",
-      "revision": "913ef52a866341d6",
+      "revision": "7be492e41f86b955",
       "title": "에이전트는 얼마나 자율적이어야 하는가?",
       "category": "planning",
       "categories": [
@@ -489,7 +489,7 @@
     {
       "slug": "agent-kpi",
       "file": "notes/agent-kpi.md",
-      "revision": "c55e93dbc8b23e41",
+      "revision": "fb968b81a5c1b03c",
       "title": "AI 에이전트의 KPI는 어떻게 설계해야 하는가?",
       "category": "ax",
       "categories": [
@@ -509,7 +509,6 @@
         "agent-eval",
         "agent-autonomy",
         "multi-agent-vs-single",
-        "why-ai-service",
         "agent-governance",
         "ai-coding-delivery",
         "ax-domain-design-criteria",
@@ -522,8 +521,8 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/ai-dev-tools-compare.md",
-      "revision": "4d5d7898772bfe36",
-      "title": "IDE 툴 비교 — VS Code · Kiro · Cursor",
+      "revision": "2b573f7fdb17f685",
+      "title": "IDE 툴 비교 | VS Code · Kiro · Cursor",
       "category": "infra",
       "categories": [
         "infra"
@@ -546,7 +545,7 @@
     {
       "slug": "cross-device-agents",
       "file": "notes/cross-device-agents.md",
-      "revision": "e866fc5cbe32037d",
+      "revision": "dff79f27f34bce16",
       "title": "AI 에이전트의 작업은 기기가 바뀌어도 어떻게 이어질까?",
       "category": "dev",
       "categories": [
@@ -574,8 +573,8 @@
     {
       "slug": "agent-eval",
       "file": "notes/agent-eval.md",
-      "revision": "a80dce38ca5fa2d2",
-      "title": "글자 수로는 보고서를 평가할 수 없었다 — 코드 검사와 LLM Judge 나누기",
+      "revision": "21ea0ad06fa9aeea",
+      "title": "글자 수로는 보고서를 평가할 수 없었다 | 코드 검사와 LLM Judge 나누기",
       "category": "ops",
       "categories": [
         "ops",
@@ -603,7 +602,7 @@
     {
       "slug": "tech-stack-choice",
       "file": "notes/tech-stack-choice.md",
-      "revision": "094c044a11ac5bc1",
+      "revision": "15c86f5189c96c4d",
       "title": "서비스를 만들 때 기술스택은 어떻게 조합할까?",
       "category": "dev",
       "categories": [
@@ -633,7 +632,7 @@
     {
       "slug": "ai-failure-tracing",
       "file": "notes/ai-failure-tracing.md",
-      "revision": "59a5505576ceceb7",
+      "revision": "23e5edfad16c901a",
       "title": "AI의 답변이 틀렸을 때 어디서 실패했는지 어떻게 찾는가?",
       "category": "ops",
       "categories": [
@@ -661,7 +660,7 @@
     {
       "slug": "mcp-api-design",
       "file": "notes/mcp-api-design.md",
-      "revision": "ef531dc86f4f3301",
+      "revision": "77883b0b19211aa0",
       "title": "MCP가 표준이 되면 API 설계는 어떻게 달라지는가?",
       "category": "dev",
       "categories": [
@@ -687,8 +686,8 @@
     {
       "slug": "why-ai-agent",
       "file": "notes/why-ai-agent.md",
-      "revision": "85574b2ee04c1be5",
-      "title": "왜 AI 에이전트로 만들까? — 다음 행동을 미리 정할 수 있는가",
+      "revision": "6dda999736cba5d6",
+      "title": "왜 AI 에이전트로 만들까? 다음 행동을 미리 정할 수 있는가",
       "category": "planning",
       "categories": [
         "planning",
@@ -712,14 +711,13 @@
         "multi-agent-vs-single",
         "physical-ai-01",
         "tech-stack-choice",
-        "why-ai-service",
         "why-sllm"
       ]
     },
     {
       "slug": "when-rag",
       "file": "notes/when-rag.md",
-      "revision": "e344079584b29077",
+      "revision": "476e740c2021cd83",
       "title": "RAG는 언제 필요하고, 언제 오히려 독이 되는가?",
       "category": "ai",
       "categories": [
@@ -747,7 +745,7 @@
     {
       "slug": "ai-data-patterns",
       "file": "notes/ai-data-patterns.md",
-      "revision": "989659a9081f2e38",
+      "revision": "445f1744cc2eeeb2",
       "title": "AI가 데이터에서 찾은 패턴, 어디까지 믿어도 될까?",
       "category": "data",
       "categories": [
@@ -773,8 +771,8 @@
     {
       "slug": "rag-citation-rules",
       "file": "notes/rag-citation-rules.md",
-      "revision": "a0897bc00fc83a7b",
-      "title": "근거가 없으면 답하지 않게 하기 — RAG 인용 검증 규칙",
+      "revision": "3ca70f3f9d25b5ac",
+      "title": "근거가 없으면 답하지 않게 하기 | RAG 인용 검증 규칙",
       "category": "ai",
       "categories": [
         "ai"
@@ -801,7 +799,7 @@
     {
       "slug": "prompt-injection",
       "file": "notes/prompt-injection.md",
-      "revision": "f11bf28e1224a232",
+      "revision": "8a77e15d6c1c3ba5",
       "title": "Prompt Injection은 프롬프트 수정만으로 막을 수 있는가?",
       "category": "ai",
       "categories": [
@@ -828,7 +826,7 @@
     {
       "slug": "agent-memory",
       "file": "notes/agent-memory.md",
-      "revision": "3320977f7781f435",
+      "revision": "280dbf21bdd23fc5",
       "title": "AI Agent는 무엇을 기억하고, 언제 잊어야 하는가?",
       "category": "ai",
       "categories": [
@@ -855,7 +853,7 @@
     {
       "slug": "multi-agent-vs-single",
       "file": "notes/multi-agent-vs-single.md",
-      "revision": "7f4d5af7e21e6d0a",
+      "revision": "c44e6958eeb79c41",
       "title": "Multi-Agent는 정말 Single-Agent보다 우수한가?",
       "category": "planning",
       "categories": [
@@ -885,8 +883,8 @@
     {
       "slug": "agent-hitl",
       "file": "notes/agent-hitl.md",
-      "revision": "c6212fe13ffed89a",
-      "title": "승인은 어디에 걸어야 할까? — LangChain HITL 실습",
+      "revision": "a2a90eaa0235bcfa",
+      "title": "승인은 어디에 걸어야 할까? LangChain HITL 실습",
       "category": "ai",
       "categories": [
         "ai"
@@ -912,8 +910,8 @@
     {
       "slug": "agent-guardrails",
       "file": "notes/agent-guardrails.md",
-      "revision": "63622b06d22754bb",
-      "title": "에이전트를 어디서 멈춰 세울까? — 입력·호출 횟수·출력 가드레일",
+      "revision": "3e7bea98fae44480",
+      "title": "에이전트를 어디서 멈춰 세울까? 입력·호출 횟수·출력 가드레일",
       "category": "ai",
       "categories": [
         "ai"
@@ -940,36 +938,10 @@
       ]
     },
     {
-      "slug": "why-ai-service",
-      "file": "notes/why-ai-service.md",
-      "revision": "1fb414e68fa3dcf8",
-      "title": "왜 AI 서비스를 만들까? — 사용자의 어떤 일을 바꾸려는가",
-      "category": "planning",
-      "categories": [
-        "planning"
-      ],
-      "tags": [
-        "AI 기획",
-        "문제 정의",
-        "사용자 흐름",
-        "도입 판단"
-      ],
-      "date": "2026-09-11",
-      "dateType": "class",
-      "summary": "‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 어떻게 알아채고 바로잡을 수 있는지 흐름까지 함께 설계해야 한다고 생각한다.",
-      "sample": false,
-      "related": [
-        "why-ai-agent",
-        "why-ml-model",
-        "why-sllm",
-        "agent-kpi"
-      ]
-    },
-    {
       "slug": "model-selection",
       "file": "notes/model-selection.md",
-      "revision": "ca27316d1cf0618a",
-      "title": "LLM 모델은 어떤 기준으로 선택해야 할까? — 성능·추론·비용의 균형",
+      "revision": "b829434cbae981da",
+      "title": "LLM 모델은 어떤 기준으로 선택해야 할까? 성능·추론·비용의 균형",
       "category": "planning",
       "categories": [
         "planning",
@@ -1022,15 +994,14 @@
         "ai-data-patterns",
         "data-preprocessing",
         "model-selection",
-        "why-ai-service",
         "why-python-ai"
       ]
     },
     {
       "slug": "why-sllm",
       "file": "notes/why-sllm.md",
-      "revision": "f34c0553fee61d32",
-      "title": "왜 sLLM을 사용할까? — 작아서가 아니라 조건이 맞아서",
+      "revision": "0be0b308e81410b6",
+      "title": "왜 sLLM을 사용할까? 작아서가 아니라 조건이 맞아서",
       "category": "planning",
       "categories": [
         "planning",
@@ -1049,7 +1020,6 @@
       "related": [
         "why-ai-agent",
         "model-selection",
-        "why-ai-service",
         "why-ml-model",
         "why-python-ai"
       ]
@@ -1057,7 +1027,7 @@
     {
       "slug": "data-preprocessing",
       "file": "notes/data-preprocessing.md",
-      "revision": "31a18dce397f875e",
+      "revision": "25f4f4117f999636",
       "title": "데이터 전처리는 왜 필요하고, 어디까지 해야 할까?",
       "category": "data",
       "categories": [
@@ -1086,7 +1056,7 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/claude-cli-in-app.md",
-      "revision": "d0bbce087b368a14",
+      "revision": "96e8260116db1c31",
       "title": "앱에서 Claude Code를 호출하면 내 설정도 따라올까?",
       "category": "infra",
       "categories": [
@@ -1140,7 +1110,7 @@
     {
       "slug": "context-engineering",
       "file": "notes/context-engineering.md",
-      "revision": "89b8199e2eedcea6",
+      "revision": "778ef1acb94e6f3a",
       "title": "AI Agent에게 어떤 정보를 언제, 얼마나 제공해야 하는가?",
       "category": "ai",
       "categories": [
@@ -1171,8 +1141,8 @@
     {
       "slug": "prompt-techniques",
       "file": "notes/prompt-techniques.md",
-      "revision": "9fde734d129d238e",
-      "title": "프롬프트 기법 10가지 — 언제 무엇을 꺼내 쓸까",
+      "revision": "1c1a16eca08afa64",
+      "title": "프롬프트 기법 10가지 | 언제 무엇을 꺼내 쓸까",
       "category": "ai",
       "categories": [
         "ai"

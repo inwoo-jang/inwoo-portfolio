@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/image-en.js — 영어판 전용: 이미지 속 한글을 영어로 보여 준다
+   script/image-en.js: 영어판 전용: 이미지 속 한글을 영어로 보여 준다
    - 문구는 script/image-text.en.js 의 window.IMAGE_TEXT_EN[이미지 경로]
    - 한글이 있는 이미지 왼쪽 위에 작은 "EN" 버튼을 단다.
      버튼에 마우스를 올리면 잠깐, 누르면 고정해서 영어 문구를 이미지 위에 띄운다.
@@ -15,7 +15,7 @@
     return src.replace(/^\.\//, "").split("?")[0];
   }
 
-  /* 패널은 이미지 영역 전체를 덮는다 — 확대 버튼 안 이미지는 버튼 영역, 그 밖에는 이미지를 감싼 상자 전체 */
+  /* 패널은 이미지 영역 전체를 덮는다: 확대 버튼 안 이미지는 버튼 영역, 그 밖에는 이미지를 감싼 상자 전체 */
   function place(panel, box) {
     panel.style.top = box.offsetTop + "px";
     panel.style.left = box.offsetLeft + "px";
@@ -29,7 +29,7 @@
     if (!lines || !lines.length) { return; }
     img.dataset.enDone = "1";
 
-    // 확대 버튼(button) 안의 이미지는 버튼 밖(figure)에 붙인다 — 버튼 안에 버튼을 넣을 수 없다
+    // 확대 버튼(button) 안의 이미지는 버튼 밖(figure)에 붙인다: 버튼 안에 버튼을 넣을 수 없다
     var opener = img.closest(".project-gallery__open");
     var host = opener ? opener.parentElement : img.parentElement;
     if (!host) { return; }
@@ -98,7 +98,7 @@
     });
   }).observe(document.body, { childList: true, subtree: true });
 
-  // 확대보기 — 캡션 아래에 영어 문구
+  // 확대보기: 캡션 아래에 영어 문구
   var viewer = document.querySelector("dialog.image-viewer");
   if (viewer) {
     var box = document.createElement("div");

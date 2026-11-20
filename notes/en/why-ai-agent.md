@@ -1,5 +1,5 @@
 ---
-title: Why build it as an AI agent? — can you decide the next step in advance
+title: Why build it as an AI agent? can you decide the next step in advance
 category: planning
 categories: [planning, ai]
 tags: [AI product planning, AI Agent, Workflow, Execution scope]

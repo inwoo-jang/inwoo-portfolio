@@ -48,7 +48,7 @@ So preprocessing is both a cleanup task and **a way of protecting the data's mea
 
 ## Preprocessing document data
 
-In a RAG system, documents in many formats — PDFs, images, Word files — have to be turned into something searchable.
+In a RAG system, documents in many formats (PDFs, images and Word files) have to be turned into something searchable.
 
 A typical pipeline looks like this:
 
@@ -124,7 +124,7 @@ In RAG especially, a more important criterion than chunk size itself may be whet
 
 ## References
 
-- [scikit-learn — Common Pitfalls](https://scikit-learn.org/stable/common_pitfalls)
-- [Microsoft — Chunk Documents for RAG](https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents)
-- [Google Cloud — Document AI Layout Parser](https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk)
-- [LangChain — Text Splitters](https://docs.langchain.com/oss/python/integrations/splitters)
+- [scikit-learn: Common Pitfalls](https://scikit-learn.org/stable/common_pitfalls)
+- [Microsoft: Chunk Documents for RAG](https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents)
+- [Google Cloud: Document AI Layout Parser](https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk)
+- [LangChain: Text Splitters](https://docs.langchain.com/oss/python/integrations/splitters)

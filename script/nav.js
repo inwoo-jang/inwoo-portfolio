@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/nav.js — 모바일 햄버거 메뉴
+   script/nav.js: 모바일 햄버거 메뉴
    ========================================================== */
 
 var navToggle = document.getElementById("navToggle");
@@ -34,7 +34,7 @@ if (navToggle && siteNav) {
   });
 }
 
-/* 언어 전환 — 같은 페이지의 다른 언어로 가되, 지금 보고 있는 위치(#해시)는 그대로 가져간다 */
+/* 언어 전환: 같은 페이지의 다른 언어로 가되, 지금 보고 있는 위치(#해시)는 그대로 가져간다 */
 document.querySelectorAll("[data-lang-link]").forEach(function (a) {
   a.addEventListener("click", function () {
     if (location.hash) { a.href = a.getAttribute("href").split("#")[0] + location.hash; }

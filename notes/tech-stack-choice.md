@@ -172,13 +172,13 @@ AWS Well-Architected Framework는 아키텍처를 평가할 때 운영 우수성
 
 여기서 총비용은 인프라 요금만이 아니라 개발 기간, 학습, 유지보수, 장애 대응, 기술 변경 비용까지 포함한다. 목적은 가장 단순한 기술스택이 아니라, **필요한 품질을 충족하는 범위에서 불필요한 복잡성을 줄이는 것**이다.
 
-## 기술 선택의 근거 남기기 — ADR
+## 기술 선택의 근거 남기기 | ADR
 
 기술스택은 한 번 고르면 끝나는 게 아니다. 사용자가 늘거나 요구가 바뀌면 다시 검토해야 하는데, 왜 그 기술을 골랐는지 기록이 없으면 같은 검토를 반복하게 된다.
 
 **ADR(Architecture Decision Record)** 은 주요 아키텍처 결정에 대해 당시의 상황, 검토한 대안, 선택한 이유, 예상되는 영향을 남기는 문서다.
 
-> [!예시] ADR — Redis 도입 여부
+> [!예시] ADR: Redis 도입 여부
 > **상황** · 초기 B2B SaaS에서 PostgreSQL로 조회 기능을 구현했고, 현재 응답 시간 요구를 충족한다.
 >
 > **검토한 대안** · 기존 PostgreSQL 유지 / 쿼리·인덱스 최적화 / Redis 캐시 도입
@@ -201,10 +201,10 @@ AWS Well-Architected Framework는 아키텍처를 평가할 때 운영 우수성
 
 ## 참고
 
-- [Microsoft Azure Architecture Center — Architecture Styles](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles) — 아키텍처 유형별 특성과 트레이드오프
-- [AWS — Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — 안정성, 보안, 운영, 성능, 비용 등 평가 기준
-- [Google Cloud — Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) — 클라우드 아키텍처 설계와 운영 원칙
-- [Thoughtworks — Technology Radar](https://www.thoughtworks.com/radar) — 기술의 도입·검증·탐색·주의 기준
-- [Martin Fowler — Monolith First](https://martinfowler.com/bliki/MonolithFirst.html) — 초기 모놀리식 설계와 마이크로서비스 전환
-- [Martin Fowler — YAGNI](https://martinfowler.com/bliki/Yagni.html) — 불확실한 미래 요구를 위한 선제 구현의 위험
-- [AWS — Architectural Decision Records](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/) — 결정의 배경, 대안, 결과를 기록하는 방법
+- [Microsoft Azure Architecture Center: Architecture Styles](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles): 아키텍처 유형별 특성과 트레이드오프
+- [AWS: Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html): 안정성, 보안, 운영, 성능, 비용 등 평가 기준
+- [Google Cloud: Well-Architected Framework](https://docs.cloud.google.com/architecture/framework): 클라우드 아키텍처 설계와 운영 원칙
+- [Thoughtworks: Technology Radar](https://www.thoughtworks.com/radar): 기술의 도입·검증·탐색·주의 기준
+- [Martin Fowler: Monolith First](https://martinfowler.com/bliki/MonolithFirst.html): 초기 모놀리식 설계와 마이크로서비스 전환
+- [Martin Fowler: YAGNI](https://martinfowler.com/bliki/Yagni.html): 불확실한 미래 요구를 위한 선제 구현의 위험
+- [AWS: Architectural Decision Records](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/): 결정의 배경, 대안, 결과를 기록하는 방법

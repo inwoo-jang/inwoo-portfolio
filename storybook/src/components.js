@@ -1,5 +1,5 @@
 /* ==========================================================
-   inwoo.log 컴포넌트 — HTML 문자열을 돌려주는 함수
+   inwoo.log 컴포넌트: HTML 문자열을 돌려주는 함수
    - 스타일은 사이트와 같은 css/ds.css
    - 문자열 입력은 모두 esc()로 이스케이프한다. 의도한 마크업만 html 인자로 받는다.
    ========================================================== */
@@ -33,7 +33,7 @@ export function siteHeader({ current = "Home", dark = true } = {}) {
 export function siteFooter() {
   return `<footer class="site-footer">
   <div class="site-footer__inner">
-    <p>inwoo.log — 장인우의 기획·개발 기록 · © 2026</p>
+    <p>inwoo.log | 장인우의 기획·개발 기록 · © 2026</p>
     <ul>
       <li><a href="mailto:roseprincess0331@gmail.com">이메일</a></li>
       <li><a href="https://github.com/inwoo-jang" target="_blank" rel="noopener">GitHub</a></li>
@@ -69,7 +69,7 @@ export function tags(items = []) {
   return `<ul class="tags" aria-label="태그">${items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
 }
 
-/** 진행 상태 — live: 운영 적용·출시 / edu: 교육 실습 / 그 밖: 프로토타입·기획 단계·개인 사용 */
+/** 진행 상태: live: 운영 적용·출시 / edu: 교육 실습 / 그 밖: 프로토타입·기획 단계·개인 사용 */
 export function status({ label = "운영 적용", kind = "live" } = {}) {
   const cls = kind === "live" ? "status status--live" : kind === "edu" ? "status status--edu" : "status";
   return `<span class="${cls}">${esc(label)}</span>`;
@@ -163,7 +163,7 @@ export function projectCards(list = []) {
   return `<ul class="cards">${list.map(projectCard).join("")}</ul>`;
 }
 
-/** 프로젝트 상세 머리의 사실 줄 — 기간 · 소속 · 내 역할 · 구현 · 상태 */
+/** 프로젝트 상세 머리의 사실 줄: 기간 · 소속 · 내 역할 · 구현 · 상태 */
 export function facts(rows = []) {
   return `<dl class="facts">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
 }
@@ -171,7 +171,7 @@ export function facts(rows = []) {
 export function shot({ src, alt, caption, notes = [] } = {}) {
   const img = src
     ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`
-    : `<div class="empty" role="img" aria-label="${esc(alt || "스크린샷 자리")}">스크린샷 자리 — 공개 가능한 화면을 확인한 뒤 넣습니다</div>`;
+    : `<div class="empty" role="img" aria-label="${esc(alt || "스크린샷 자리")}">스크린샷 자리: 공개 가능한 화면을 확인한 뒤 넣습니다</div>`;
   return `<figure class="shot">${img}<figcaption>${esc(caption || "")}</figcaption>${
     notes.length ? `<ol class="shot-notes">${notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ol>` : ""
   }</figure>`;
@@ -228,7 +228,7 @@ export function entry({ date, title, href = "#", summary, tags: t = [], category
   return `<li class="entry"${categoryAttrs}>${tapes}<div class="entry__meta"><span class="entry__date">${esc(date)}</span><div class="entry__categories">${badges}</div></div><div class="entry__body">${series ? `<p class="entry__series">${esc(series)}</p>` : ""}<h3 class="entry__title"><a href="${esc(href)}">${esc(title)}</a></h3><p class="entry__summary">${esc(summary)}</p>${tags(t)}</div></li>`;
 }
 
-/* 시리즈 목차 — script/notes.js의 seriesBlock과 같은 마크업 */
+/* 시리즈 목차: script/notes.js의 seriesBlock과 같은 마크업 */
 export function seriesNav({ label, title, order, total, published, items = [], prev, next } = {}) {
   const pad = (n) => String(n).padStart(2, "0");
   const li = (i) => i.order === order
@@ -244,9 +244,9 @@ export function entries(list = []) {
   return `<ol class="entries">${list.map(entry).join("")}</ol>`;
 }
 
-/** 글 정보 표시 — 글 유형 · 도구 · 대상 버전 · OS · 샘플 여부 */
+/** 글 정보 표시: 글 유형 · 도구 · 대상 버전 · OS · 샘플 여부 */
 export function docFlags({ items = [], sample = false } = {}) {
-  return `<ul class="doc-flags">${items.map((i) => `<li>${esc(i)}</li>`).join("")}${sample ? '<li class="is-sample">샘플 — 실제 사용 기록 아님</li>' : ""}</ul>`;
+  return `<ul class="doc-flags">${items.map((i) => `<li>${esc(i)}</li>`).join("")}${sample ? '<li class="is-sample">샘플: 실제 사용 기록 아님</li>' : ""}</ul>`;
 }
 
 export function emptyState({ text = "조건에 맞는 글이 없습니다. 다른 키워드나 ‘전체’로 찾아보세요." } = {}) {

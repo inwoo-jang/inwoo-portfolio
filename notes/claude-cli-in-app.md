@@ -153,9 +153,9 @@ else:
 
 ## 참고
 
-- [Claude Code CLI 레퍼런스](https://code.claude.com/docs/en/cli-reference) — 설정 소스, 도구, 스킬, safe mode 옵션
-- [Claude Code를 프로그래밍 방식으로 실행하기](https://code.claude.com/docs/en/headless) — 비대화형 실행과 스트리밍
-- [Codex CLI 명령](https://learn.chatgpt.com/docs/developer-commands?surface=cli) — `exec`, `--ignore-user-config`, `--json`
-- [Codex의 AGENTS.md 로딩](https://learn.chatgpt.com/docs/agent-configuration/agents-md) — 개인·프로젝트 지침과 `CODEX_HOME`
-- [Codex 스킬](https://learn.chatgpt.com/docs/build-skills) — 스킬 탐색 위치
-- [Codex 설정 레퍼런스](https://learn.chatgpt.com/docs/config-file/config-reference) — `project_doc_max_bytes`, `skills.config`
+- [Claude Code CLI 레퍼런스](https://code.claude.com/docs/en/cli-reference): 설정 소스, 도구, 스킬, safe mode 옵션
+- [Claude Code를 프로그래밍 방식으로 실행하기](https://code.claude.com/docs/en/headless): 비대화형 실행과 스트리밍
+- [Codex CLI 명령](https://learn.chatgpt.com/docs/developer-commands?surface=cli): `exec`, `--ignore-user-config`, `--json`
+- [Codex의 AGENTS.md 로딩](https://learn.chatgpt.com/docs/agent-configuration/agents-md): 개인·프로젝트 지침과 `CODEX_HOME`
+- [Codex 스킬](https://learn.chatgpt.com/docs/build-skills): 스킬 탐색 위치
+- [Codex 설정 레퍼런스](https://learn.chatgpt.com/docs/config-file/config-reference): `project_doc_max_bytes`, `skills.config`

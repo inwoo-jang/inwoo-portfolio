@@ -1,5 +1,5 @@
 ---
-title: No evidence, no answer — citation checks for RAG
+title: No evidence, no answer | citation checks for RAG
 category: ai
 tags: [RAG, Citation, AI Agent, LangGraph]
 date: 2026-09-22

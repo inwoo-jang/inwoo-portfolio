@@ -13,7 +13,7 @@ export const 읽는사람 = {
 <ol class="flow">
   <li class="flow__step"><span class="flow__title">누구인지</span><span class="flow__desc">이름 · 직무 · 한 줄 헤드라인</span></li>
   <li class="flow__step"><span class="flow__title">무엇을 해 봤는지</span><span class="flow__desc">숫자와 결과가 있는 요약 3줄</span></li>
-  <li class="flow__step"><span class="flow__title">근거</span><span class="flow__desc">대표 프로젝트 3개 — 상태(운영 적용·출시)와 내 역할이 카드에 보임</span></li>
+  <li class="flow__step"><span class="flow__title">근거</span><span class="flow__desc">대표 프로젝트 3개: 상태(운영 적용·출시)와 내 역할이 카드에 보임</span></li>
   <li class="flow__step"><span class="flow__title">어떻게 일하는지</span><span class="flow__desc">기획 · 개발 · 협업 각 한 줄</span></li>
   <li class="flow__step"><span class="flow__title">연락</span><span class="flow__desc">첫 화면과 맨 아래 두 곳</span></li>
 </ol>`),
@@ -24,10 +24,10 @@ export const 원칙 = {
   render: () => wrap(`
 <h2 style="font-size:var(--fs-h2);margin-bottom:var(--s4)">원칙</h2>
 <ul>
-  <li><strong>가독성이 먼저</strong> — 흰 바탕, 본문 대비 13:1, 보조 글자도 7:1. 본문 17px · 줄 간격 1.78.</li>
-  <li><strong>결과가 먼저</strong> — 카드·목록은 “무엇이 바뀌었나”를 첫 줄에, 역할 경계(구현 담당)는 바로 아래에.</li>
-  <li><strong>하나씩</strong> — 서체 Pretendard 하나, 강조색 남색 하나, 모션은 로고 끝 커서(_) 하나.</li>
-  <li><strong>정직한 표시</strong> — 상태(운영 적용 · 출시 · 베타 · 교육 · 프로토타입)와 범위(팀 결과 · 목표 · 추정)를 숫자 옆에.</li>
+  <li><strong>가독성이 먼저</strong>: 흰 바탕, 본문 대비 13:1, 보조 글자도 7:1. 본문 17px · 줄 간격 1.78.</li>
+  <li><strong>결과가 먼저</strong>: 카드·목록은 “무엇이 바뀌었나”를 첫 줄에, 역할 경계(구현 담당)는 바로 아래에.</li>
+  <li><strong>하나씩</strong>: 서체 Pretendard 하나, 강조색 남색 하나, 모션은 로고 끝 커서(_) 하나.</li>
+  <li><strong>정직한 표시</strong>: 상태(운영 적용 · 출시 · 베타 · 교육 · 프로토타입)와 범위(팀 결과 · 목표 · 추정)를 숫자 옆에.</li>
 </ul>
 <div class="split">
   <div class="split__col"><span class="split__head">쓰지 않는다</span><ul>

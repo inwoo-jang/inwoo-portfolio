@@ -157,7 +157,7 @@ In the end, AI service planning also has to design **not just what to build, but
 
 Checked: 2026.11.10
 
-- [LangSmith — Observability](https://www.langchain.com/langsmith/observability) — Tracing agent execution steps; watching latency, cost, and response quality
-- [Langfuse — GitHub](https://github.com/langfuse/langfuse) — Tracing, evaluation, and operational observability for LLM applications
-- [Arize Phoenix — Official docs](https://arize.com/docs/phoenix/) — OpenTelemetry-based tracing, evaluation, datasets, and experiments
-- [Phoenix — Traces & Spans](https://github.com/Arize-ai/phoenix/blob/main/.agents/skills/phoenix-tracing/references/fundamentals-overview.md) — Concepts of traces, spans, and their hierarchy
+- [LangSmith: Observability](https://www.langchain.com/langsmith/observability): Tracing agent execution steps; watching latency, cost, and response quality
+- [Langfuse: GitHub](https://github.com/langfuse/langfuse): Tracing, evaluation, and operational observability for LLM applications
+- [Arize Phoenix: Official docs](https://arize.com/docs/phoenix/): OpenTelemetry-based tracing, evaluation, datasets, and experiments
+- [Phoenix: Traces & Spans](https://github.com/Arize-ai/phoenix/blob/main/.agents/skills/phoenix-tracing/references/fundamentals-overview.md): Concepts of traces, spans, and their hierarchy

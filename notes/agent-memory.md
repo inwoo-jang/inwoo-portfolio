@@ -55,7 +55,7 @@ LangGraph 공식 문서는 메모리를 단기 기억(Short-term Memory)과 장�
 
 ## 기억을 많이 하는 AI가 더 좋은 AI일까?
 
-### LongMemEval — 기억은 저장보다 활용과 갱신이 중요하다
+### LongMemEval | 기억은 저장보다 활용과 갱신이 중요하다
 
 ICLR 2025에 발표된 *LongMemEval*은 장기 기억 능력을 다섯 가지 측면에서 평가한다.
 
@@ -76,7 +76,7 @@ ICLR 2025에 발표된 *LongMemEval*은 장기 기억 능력을 다섯 가지 �
 
 그래서 메모리는 **과거 기록을 보존하는 것**과 **지금 유효한 조건을 판단하는 것**을 구분해야 한다.
 
-### MemoryAgentBench — 잘 잊는 능력도 평가 대상이다
+### MemoryAgentBench | 잘 잊는 능력도 평가 대상이다
 
 ICLR 2026의 *MemoryAgentBench*는 에이전트 메모리의 평가 영역에 Selective Forgetting(선택적 망각)을 포함한다. 중요한 정보를 기억하는 것뿐 아니라, 더 이상 맞지 않는 정보를 현재 판단에서 빼는 능력도 필요하다는 뜻이다.
 
@@ -228,11 +228,11 @@ AI Agent의 메모리를 처음 접했을 때는 이전 대화를 얼마나 오�
 ## 참고
 
 
-- [LangChain — Memory Overview](https://docs.langchain.com/oss/python/concepts/memory) — 단기·장기 기억, Semantic·Episodic·Procedural Memory
-- [LangGraph — Long-term Memory](https://docs.langchain.com/oss/python/langgraph/memory) — 메모리 저장과 상태 관리
-- [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) — ICLR 2025, 장기 기억의 정보 검색·시간 추론·지식 갱신·답변 보류 평가
-- [MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions](https://arxiv.org/abs/2507.05257) — ICLR 2026, 장기 기억과 선택적 망각 평가
-- [Letta — Memory Management](https://docs.letta.com/configuration/memory) — 상태를 유지하는 에이전트의 기억 관리
-- [개인정보 보호법 제21조](https://www.law.go.kr/법령/개인정보보호법/제21조) — 개인정보의 파기
-- [개인정보 보호법 제36조](https://www.law.go.kr/법령/개인정보보호법/제36조) — 개인정보의 정정·삭제
-- [GDPR Article 5](https://gdpr-info.eu/art-5-gdpr/) — 정확성, 데이터 최소화, 보관기간 제한
+- [LangChain: Memory Overview](https://docs.langchain.com/oss/python/concepts/memory): 단기·장기 기억, Semantic·Episodic·Procedural Memory
+- [LangGraph: Long-term Memory](https://docs.langchain.com/oss/python/langgraph/memory): 메모리 저장과 상태 관리
+- [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813): ICLR 2025, 장기 기억의 정보 검색·시간 추론·지식 갱신·답변 보류 평가
+- [MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions](https://arxiv.org/abs/2507.05257): ICLR 2026, 장기 기억과 선택적 망각 평가
+- [Letta: Memory Management](https://docs.letta.com/configuration/memory): 상태를 유지하는 에이전트의 기억 관리
+- [개인정보 보호법 제21조](https://www.law.go.kr/법령/개인정보보호법/제21조): 개인정보의 파기
+- [개인정보 보호법 제36조](https://www.law.go.kr/법령/개인정보보호법/제36조): 개인정보의 정정·삭제
+- [GDPR Article 5](https://gdpr-info.eu/art-5-gdpr/): 정확성, 데이터 최소화, 보관기간 제한

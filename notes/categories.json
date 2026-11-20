@@ -62,7 +62,7 @@
   {
     "id": "ax",
     "label": "AX",
-    "description": "조직의 AI 전환 — 거버넌스, 성과 측정, 산업별 도입",
+    "description": "조직의 AI 전환: 거버넌스, 성과 측정, 산업별 도입",
     "color": {
       "ink": "#9C3D65",
       "soft": "#FCEAF2",
@@ -72,7 +72,7 @@
   {
     "id": "emerging",
     "label": "신기술·트렌드",
-    "description": "새로 등장한 기술이 무엇이고 무엇을 바꾸는지 — Physical AI, 디지털 트윈, 양자 컴퓨팅 등",
+    "description": "새로 등장한 기술이 무엇이고 무엇을 바꾸는지: Physical AI, 디지털 트윈, 양자 컴퓨팅 등",
     "color": {
       "ink": "#12657C",
       "soft": "#E4F3F8",

@@ -1,5 +1,5 @@
 /* ==========================================================
-   스토리용 데이터 — 사이트(portfolio.html·projects-data.js)와 같은 사실만 쓴다.
+   스토리용 데이터: 사이트(portfolio.html·projects-data.js)와 같은 사실만 쓴다.
    기준: 포트폴리오_전체_프로젝트_소재집_20261106 + 팩트시트 최신 정정.
    이미지는 README에 공개용으로 등록된 것만 사용한다.
    ========================================================== */
@@ -42,23 +42,23 @@ export const PROJECTS = [
     result: "위하고 결과와 계산식을 대조하고 Apps Script 기준 코드로 전달했습니다. 설명·가이드 후 실제 급여 계산에 쓰이기 시작했습니다.",
     role: "본인: 계산 기준·정책·화면 기획 · 구현: 개발팀", tags: ["계산 기준", "현업 적용"] },
   { id: "samil", group: "실무", kind: "실무 · 지킴컴퍼니", period: "2026.01 – 06", status: other("베타 테스트 단계"),
-    title: "약국 AI 세무 상담 — 삼일회계법인 협업", headline: "답할 것과 넘길 것의 경계", headlineScope: "AI 서비스 정책 · 예외 처리",
+    title: "약국 AI 세무 상담 | 삼일회계법인 협업", headline: "답할 것과 넘길 것의 경계", headlineScope: "AI 서비스 정책 · 예외 처리",
     result: "범위 밖 질문·응답 불가·시스템 오류를 나누고 경우마다 다음 행동을 정의했습니다. 베타 단계에서 FAQ 응답을 확인했습니다.",
     role: "본인: 화면·서비스 정책 · 모델·DB: 협력사", tags: ["AI 정책", "외부 협업"] },
   { id: "quiket", group: "팀", kind: "사이드 프로젝트 · 7인 팀", period: "2026.03 – 07", status: other("출시 후 운영 중단"),
-    title: "퀴켓 — AI 퀴즈 학습 앱", image: "media/portfolio/quiket-card.png", imageAlt: "App Store에 출시된 퀴켓 소개 화면",
+    title: "퀴켓 | AI 퀴즈 학습 앱", image: "media/portfolio/quiket-card.png", imageAlt: "App Store에 출시된 퀴켓 소개 화면",
     result: "미니 버전으로 문항 수 기준을 먼저 정하고, MoSCoW로 첫 출시 범위를 조율해 App Store·Google Play에 출시했습니다(팀 결과).",
     role: "본인: PM·기획 · 정식 앱 구현: 개발팀", tags: ["PM", "사용자 테스트", "PM MVP"] },
   { id: "taxdesk", group: "교육", kind: "교육 실습 · 1인", period: "2026.08", status: edu(),
-    title: "TaxDesk — 금융소득 세무상담", headline: "숫자는 코드가 계산", headlineScope: "서버 제어 흐름 · RAG · Spring AI",
+    title: "TaxDesk | 금융소득 세무상담", headline: "숫자는 코드가 계산", headlineScope: "서버 제어 흐름 · RAG · Spring AI",
     result: "법령 근거는 검색으로, 세액은 계산 코드로 나눴습니다. 오류 주입 시험 7종 중 6종을 테스트가 검출했습니다(주입은 AI 도구).",
     role: "1인 설계·구현·검증 · AI 코딩 도구 활용", tags: ["Spring AI", "RAG", "Tool Calling"] },
   { id: "marketdesk", group: "개인", kind: "개인 프로젝트", period: "2026.06 시작", status: other("개발 완료 · 개인 사용 중"),
-    title: "마켓데스크 — AI 리포트 분석", headline: "목적별 리포트 요약", headlineScope: "태스크 46개 · 결정 기록 15건",
+    title: "마켓데스크 | AI 리포트 분석", headline: "목적별 리포트 요약", headlineScope: "태스크 46개 · 결정 기록 15건",
     result: "스펙을 태스크 6항목으로 정하고, AI 구현 뒤 화면에서 다시 확인했습니다. 발간일을 지어내던 문제를 찾아 고쳤습니다.",
     role: "1인 기획·AI 활용 구현·검증", tags: ["Next.js", "PostgreSQL", "가드레일"] },
   { id: "relationship-design", group: "교육", kind: "교육 미니프로젝트 · 1인", period: "2026.09", status: edu("교육 · 프로토타입"),
-    title: "관계부 — 기능·화면·ERD·API 설계", image: "media/portfolio/gwangyebu-uiflow.png", imageAlt: "관계부 화면 11개의 이동 흐름도",
+    title: "관계부 | 기능·화면·ERD·API 설계", image: "media/portfolio/gwangyebu-uiflow.png", imageAlt: "관계부 화면 11개의 이동 흐름도",
     result: "페인 포인트 4개를 기능 18 · 화면 11 · 테이블 6 · API 33으로 연결하고, Vue 3 화면 10개로 흐름을 확인했습니다.",
     role: "본인: 설계·프론트엔드 프로토타입", tags: ["요구사항 정의", "ERD", "Vue 3"] },
   { id: "dacon", group: "팀", kind: "대회 · 팀", period: "2026.08 – 09", status: other("대회 종료"),
@@ -81,18 +81,18 @@ export const WAYS = [
 
 export const NOTES = [
   {
-    "date": "2026.09.11",
-    "title": "왜 AI 서비스를 만들까? — 사용자 문제와 도입 효과를 먼저 정의하기",
-    "href": "notes.html#n-why-ai-service",
-    "summary": "‘AI로 답을 만들 수 있다’는 도입 이유가 되지 못한다. 사용자의 어떤 작업을 개선할지, AI 없이도 풀리는지, 틀렸을 때 사용자가 어떻게 알아채고 바로잡을 수 있는지 흐름까지 함께 설계해야 한다고 생각한다.",
+    "date": "2026.09.22",
+    "title": "RAG 답변의 인용을 확인하는 법",
+    "href": "notes.html#n-rag-citation-rules",
+    "summary": "검색 결과가 없거나 답변에 엉뚱한 출처가 붙었을 때 쓰는 처리 규칙.",
     "tags": [
-      "기획",
-      "도입 판단"
+      "RAG",
+      "인용"
     ]
   },
   {
     "date": "2026.11.06",
-    "title": "AI 개발 도구 비교 — VS Code·Kiro·Cursor의 작업 방식과 규칙 설정",
+    "title": "AI 개발 도구 비교 | VS Code·Kiro·Cursor의 작업 방식과 규칙 설정",
     "href": "notes.html#n-ai-dev-tools-compare",
     "summary": "VS Code는 조합형, Kiro는 명세 중심, Cursor는 에이전트 중심. AI 코딩 방식, 프로젝트 규칙 관리, 작업 계획·검증 흐름을 공식 문서 기준으로 비교했다.",
     "tags": [
@@ -102,7 +102,7 @@ export const NOTES = [
   },
   {
     "date": "2026.07.15",
-    "title": "프롬프트 기법 10가지 — 사용 상황과 작성 예시",
+    "title": "프롬프트 기법 10가지 | 사용 상황과 작성 예시",
     "href": "notes.html#n-prompt-techniques",
     "summary": "원하는 결과가 무엇인지 먼저 정해야 프롬프트 기법도 고를 수 있다고 생각한다. 요청은 RICE로 구체화하고, 출력 형식이 중요하면 예시를 주고 전제를 점검할 때는 Step-back을 쓰는 식으로 목적에 맞게 선택한다.",
     "tags": [
@@ -113,10 +113,8 @@ export const NOTES = [
 ];
 
 export const TIMELINE = [
-  { when: "2026.07 – 진행 중", title: "AI 서비스 개발 교육 과정 (SKALA 4기)", desc: "풀스택 기초, 데이터 분석, 클라우드, 생성형 AI, 프로젝트 방법론. 11월부터 팀 프로젝트 진행 중." },
   { when: "2024.10 – 2026.06", title: "(주)지킴컴퍼니 · 프로덕트팀 서비스 기획·운영", desc: "약국 대상 세무·급여·처방전 보관 서비스. 5인 팀의 유일한 기획자로 정책·예외를 정리하고 구현 결과를 대조했습니다. 처방전 스캔센터 운영." },
   { when: "2021.12 – 2024.06", title: "제이머메이드 · 온라인 쇼핑몰 1인 창업", desc: "소싱·촬영·상세페이지·CS·물류. 중국 도매업체와 중국어로 직접 협상." },
-  { when: "2016 – 2020", title: "복단대학교 법학", desc: "중국 상하이." },
 ];
 
 export const SKILLS = [

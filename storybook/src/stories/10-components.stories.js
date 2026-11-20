@@ -25,7 +25,7 @@ export const 위치표시 = {
 
 export const 앞뒤글 = {
   name: "앞뒤 글",
-  render: () => `<div style="padding:24px;max-width:760px">${C.pager({ prev: { href: "#", label: "급여명세서 서비스 기획" }, next: { href: "#", label: "퀴켓 — AI 퀴즈 학습 앱" } })}</div>`,
+  render: () => `<div style="padding:24px;max-width:760px">${C.pager({ prev: { href: "#", label: "급여명세서 서비스 기획" }, next: { href: "#", label: "퀴켓: AI 퀴즈 학습 앱" } })}</div>`,
 };
 
 export const 푸터 = { render: () => C.siteFooter() };

@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/markdown.js — 노트용 경량 Markdown 렌더러 (외부 라이브러리 없음)
+   script/markdown.js: 노트용 경량 Markdown 렌더러 (외부 라이브러리 없음)
 
    안전 원칙
    - 원문 HTML은 쓰지 않는다. 모든 텍스트를 먼저 이스케이프하고,
@@ -36,7 +36,7 @@
     return /^https?:\/\//i.test(url);
   }
 
-  /** 인라인 문법 — 입력은 이스케이프되지 않은 원문 한 줄 */
+  /** 인라인 문법: 입력은 이스케이프되지 않은 원문 한 줄 */
   function inline(text) {
     var codes = [];
     // 1) 코드 조각을 먼저 빼 둔다 (안의 문법은 해석하지 않음)
@@ -107,7 +107,7 @@
    * @param {string} markdown
    * @param {{ idPrefix?: string }} [opts]
    */
-  /* 코드 색 입히기 — 원문을 토큰으로 나눈 뒤 토큰마다 escapeHtml 하고 span으로 감싼다.
+  /* 코드 색 입히기: 원문을 토큰으로 나눈 뒤 토큰마다 escapeHtml 하고 span으로 감싼다.
      (이스케이프 전에 자르므로 HTML이 끼어들 틈이 없다) */
   var HL_KEYWORDS = {
     python: "and as assert async await break class continue def del elif else except False finally for from global if import in is lambda None nonlocal not or pass raise return True try while with yield",
@@ -192,7 +192,7 @@
         continue;
       }
 
-      // 제목 — 페이지 제목이 h1(노트 제목은 h2)이므로 본문은 h3부터
+      // 제목: 페이지 제목이 h1(노트 제목은 h2)이므로 본문은 h3부터
       var heading = /^(#{1,6})\s+(.*?)\s*#*\s*$/.exec(line);
       if (heading) {
         var level = Math.min(4, Math.max(3, heading[1].length + 1));
@@ -209,7 +209,7 @@
       if (/^>\s?/.test(line)) {
         var quote = [];
         while (i < lines.length && /^>\s?/.test(lines[i])) { quote.push(lines[i].replace(/^>\s?/, "")); i++; }
-        // > [!예시] 제목 — 설명을 위한 예시 상자(인용과 구분)
+        // > [!예시] 제목: 설명을 위한 예시 상자(인용과 구분)
         var callout = /^\[!(?:예시|Example)\]\s*(.*)$/.exec(quote[0]);
         if (callout) {
           html.push('<aside class="md-example"><p class="md-example__label">' + (document.documentElement.lang === "en" ? "Example" : "예시") + (callout[1] ? " · " + inline(callout[1]) : "") + "</p>" +
@@ -220,7 +220,7 @@
         continue;
       }
 
-      // 표 — 머리줄 + 구분줄(|---|) 이 있어야 표로 본다
+      // 표: 머리줄 + 구분줄(|---|) 이 있어야 표로 본다
       if (/^\s*\|.*\|\s*$/.test(line) && i + 1 < lines.length && /^\s*\|?\s*:?-{3,}/.test(lines[i + 1])) {
         var headCells = splitRow(line);
         i += 2;
@@ -265,7 +265,7 @@
         continue;
       }
 
-      // 문단 — 빈 줄이나 다른 블록이 나올 때까지
+      // 문단: 빈 줄이나 다른 블록이 나올 때까지
       var para = [];
       while (i < lines.length && lines[i].trim() && !(para.length && isBlockStart(lines[i]))) {
         para.push(lines[i].trim());

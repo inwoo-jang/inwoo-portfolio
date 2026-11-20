@@ -156,7 +156,7 @@ AI의 답변이 틀렸을 때 중요한 것은 프롬프트를 고치거나 모�
 ## 참고
 
 
-- [LangSmith — Observability](https://www.langchain.com/langsmith/observability) — Agent 실행 단계 추적, 지연 시간·비용·응답 품질 관찰
-- [Langfuse — GitHub](https://github.com/langfuse/langfuse) — LLM 애플리케이션의 Tracing, Evaluation 및 운영 관측
-- [Arize Phoenix — 공식 문서](https://arize.com/docs/phoenix/) — OpenTelemetry 기반 Tracing, 평가, 데이터셋과 실험
-- [Phoenix — Traces & Spans](https://github.com/Arize-ai/phoenix/blob/main/.agents/skills/phoenix-tracing/references/fundamentals-overview.md) — Trace, Span 및 계층 구조 개념
+- [LangSmith: Observability](https://www.langchain.com/langsmith/observability): Agent 실행 단계 추적, 지연 시간·비용·응답 품질 관찰
+- [Langfuse: GitHub](https://github.com/langfuse/langfuse): LLM 애플리케이션의 Tracing, Evaluation 및 운영 관측
+- [Arize Phoenix: 공식 문서](https://arize.com/docs/phoenix/): OpenTelemetry 기반 Tracing, 평가, 데이터셋과 실험
+- [Phoenix: Traces & Spans](https://github.com/Arize-ai/phoenix/blob/main/.agents/skills/phoenix-tracing/references/fundamentals-overview.md): Trace, Span 및 계층 구조 개념

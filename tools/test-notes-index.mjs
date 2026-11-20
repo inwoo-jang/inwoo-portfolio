@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ==========================================================
-   tools/test-notes-index.mjs — 노트 인덱스 생성기의 핵심 계약 검사
+   tools/test-notes-index.mjs: 노트 인덱스 생성기의 핵심 계약 검사
    사용: node tools/test-notes-index.mjs
    - 임시 폴더에 작은 노트 묶음을 만들고 build-notes-index.mjs를 실행해 결과를 확인한다.
    - 실제 notes/ 파일은 건드리지 않는다.

@@ -39,7 +39,7 @@ Work runs separately from the user's local computer. When the sandbox shuts down
 
 What matters here is not merely support for multiple devices, but **the separation between the environment doing the work and the interface through which the user controls it**.
 
-Reference: [GitHub — Work from Anywhere with a Connected Copilot Cloud Experience (2026-10-28)](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
+Reference: [GitHub: Work from Anywhere with a Connected Copilot Cloud Experience (2026-10-28)](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
 
 ## How is conversation history different from task state?
 
@@ -93,7 +93,7 @@ The change reflects how existing classifications could fail to show meaningful e
 
 The rules for calculating adoption phases themselves did not change.
 
-Reference: [GitHub — Copilot Impact Dashboard Update (2026-11-06)](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/)
+Reference: [GitHub: Copilot Impact Dashboard Update (2026-11-06)](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/)
 
 In a multi-device environment, it also matters what counts as one use.
 
@@ -122,7 +122,7 @@ This illustrates an important distinction in usage analysis:
 
 When the same functionality is offered across platforms, consistent event definitions and collection criteria matter.
 
-Reference: [GitHub — Restore Agent Activity in Copilot Usage Metrics (2026-10-06)](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/)
+Reference: [GitHub: Restore Agent Activity in Copilot Usage Metrics (2026-10-06)](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/)
 
 ## Where I've landed
 
@@ -146,8 +146,8 @@ I think **AI agent UX is evolving from an experience contained in one screen int
 
 ## References
 
-- [GitHub — Connected Copilot Cloud Experience (2026-10-28)](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
-- [GitHub — Copilot Impact Dashboard Update (2026-11-06)](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/)
-- [GitHub — Copilot Usage Metrics API: AI Adoption Cohorts (2026-05-29)](https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption/)
-- [GitHub — Restore Agent Activity in Usage Metrics (2026-10-06)](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/)
-- [GitHub Docs — Using Copilot in the Cloud on GitHub Mobile](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-mobile)
+- [GitHub: Connected Copilot Cloud Experience (2026-10-28)](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/)
+- [GitHub: Copilot Impact Dashboard Update (2026-11-06)](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/)
+- [GitHub: Copilot Usage Metrics API: AI Adoption Cohorts (2026-05-29)](https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption/)
+- [GitHub: Restore Agent Activity in Usage Metrics (2026-10-06)](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/)
+- [GitHub Docs: Using Copilot in the Cloud on GitHub Mobile](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-mobile)

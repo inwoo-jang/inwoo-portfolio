@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="600" viewBox="0 0 720 600" role="img" aria-labelledby="title">
-  <title id="title">금융 AI 아키텍처 — 기존 업무 경로 옆에 AI 보조 경로가 붙고, 세 지점에서 다시 만난다</title>
+  <title id="title">금융 AI 아키텍처 | 기존 업무 경로 옆에 AI 보조 경로가 붙고, 세 지점에서 다시 만난다</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#7b838b" stroke-width="1.5"/></marker>
     <marker id="arrow-ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#9c3d65" stroke-width="1.8"/></marker>

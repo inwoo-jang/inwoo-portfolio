@@ -1,5 +1,5 @@
 ---
-title: LLM 모델은 어떤 기준으로 선택해야 할까? — 성능·추론·비용의 균형
+title: LLM 모델은 어떤 기준으로 선택해야 할까? 성능·추론·비용의 균형
 category: planning
 categories: [planning, ai]
 tags: [LLM, Model Selection, Reasoning, Inference Cost, AI Service Planning]
@@ -38,7 +38,7 @@ AI 서비스를 운영한다면 정확도뿐 아니라 응답 시간, 호출 비
 
 파라미터(Parameter)는 모델이 학습하는 가중치 같은 수치 요소다. 모델 규모를 키우면 더 복잡한 패턴을 배울 수 있는 능력이 커질 수 있다. 하지만 파라미터 수가 많다는 사실만으로 실제 성능이 높다고 판단할 수는 없다.
 
-### Chinchilla — 모델 크기보다 학습 자원 배분도 중요하다
+### Chinchilla | 모델 크기보다 학습 자원 배분도 중요하다
 
 DeepMind의 *Training Compute-Optimal Large Language Models*(2022)는 모델 크기와 학습 데이터량의 관계를 분석했다. 연구진은 700억 파라미터의 Chinchilla를 학습해 2,800억 파라미터의 Gopher와 비교했다. Chinchilla는 파라미터 수가 약 4분의 1이었지만, 연구에서 평가한 대부분의 작업에서 Gopher보다 높은 성능을 보였다. 같은 학습 연산 예산에서 모델 크기뿐 아니라 학습 데이터량을 적절히 나누는 게 중요하다는 결과였다.
 
@@ -203,9 +203,9 @@ TaxDesk에 적용해 볼 수 있는 설계 방향이고, 이 구성을 실제 �
 ## 참고
 
 
-- [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) — DeepMind, NeurIPS 2022. 파라미터 수와 학습 데이터량의 관계
-- [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) — JMLR 2022. MoE 구조와 선택적 파라미터 활성화
-- [Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models](https://arxiv.org/search/?query=Does+Thinking+More+Always+Help&searchtype=all) — NeurIPS 2025 관련 연구. 추가 추론의 효과와 한계
-- [OpenAI — A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — 성능 기준선 확보와 모델 선택·최적화
-- [OpenAI — Model Selection](https://platform.openai.com/docs/guides/model-selection) — 모델 선택 시 성능, 지연 시간, 비용 고려
-- [Anthropic — Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing) — 모델별 토큰 사용과 비용 구조
+- [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556): DeepMind, NeurIPS 2022. 파라미터 수와 학습 데이터량의 관계
+- [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961): JMLR 2022. MoE 구조와 선택적 파라미터 활성화
+- [Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models](https://arxiv.org/search/?query=Does+Thinking+More+Always+Help&searchtype=all): NeurIPS 2025 관련 연구. 추가 추론의 효과와 한계
+- [OpenAI: A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf): 성능 기준선 확보와 모델 선택·최적화
+- [OpenAI: Model Selection](https://platform.openai.com/docs/guides/model-selection): 모델 선택 시 성능, 지연 시간, 비용 고려
+- [Anthropic: Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing): 모델별 토큰 사용과 비용 구조

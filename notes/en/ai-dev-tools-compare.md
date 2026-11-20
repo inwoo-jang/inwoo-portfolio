@@ -1,5 +1,5 @@
 ---
-title: Comparing IDEs — VS Code · Kiro · Cursor
+title: Comparing IDEs | VS Code · Kiro · Cursor
 category: infra
 tags: [VS Code, Kiro, Cursor, AI Coding]
 date: 2026-11-06
@@ -21,10 +21,10 @@ I compared how VS Code, Kiro, and Cursor handle AI coding, project rules, and th
 
 | | VS Code | Kiro | Cursor |
 |---|---|---|---|
-| Focus | Mix-and-match — add AI features and agents to the editor (GitHub Copilot, etc.) | Spec-driven | Agent-driven |
+| Focus | Mix-and-match: add AI features and agents to the editor (GitHub Copilot, etc.) | Spec-driven | Agent-driven |
 | Workflow | Edit suggestions while coding, chat, agent tasks | Requirements → design → task list, in order (Specs) | Scope with Plan Mode → edit with Agent → review results in Diff |
 | Project rules | `.github/copilot-instructions.md`, `AGENTS.md` | `.kiro/steering/` (defaults: product · tech · structure), `AGENTS.md` | `.cursor/rules/*.mdc`, `AGENTS.md` |
-| Automation | Extensions · agents | Hooks — run a set action on file changes, tool use, or task completion | Rules · skills · plugins |
+| Automation | Extensions · agents | Hooks: run a set action on file changes, tool use, or task completion | Rules · skills · plugins |
 | External connections (MCP) | Supported | Supported | Supported |
 | Model choice | Models from multiple providers, your own API key, local models | Pick from the supported model list | Pick from per-provider model lists |
 
@@ -41,7 +41,7 @@ I compared how VS Code, Kiro, and Cursor handle AI coding, project rules, and th
 **VS Code**
 - AI is used through a GitHub Copilot plan, an account with a supported provider, or an API key
 - Choose the agent that does the work from Copilot · Claude · Codex
-- Rules file: `.github/copilot-instructions.md` — also recognizes `AGENTS.md`
+- Rules file: `.github/copilot-instructions.md`: also recognizes `AGENTS.md`
 
 **Kiro**
 - Specs: `requirements.md` → `design.md` → `tasks.md` (`bugfix.md` for bug fixes)
@@ -62,8 +62,8 @@ If you use several IDEs on the same project, it seems right to manage shared rul
 
 ## References
 
-- [VS Code — AI features overview](https://code.visualstudio.com/docs/copilot/overview)
-- [VS Code — Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [VS Code: AI features overview](https://code.visualstudio.com/docs/copilot/overview)
+- [VS Code: Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Kiro Docs](https://kiro.dev/docs/) · [Specs](https://kiro.dev/docs/specs/) · [Steering](https://kiro.dev/docs/steering/)
 - [Cursor Docs](https://cursor.com/docs) · [Rules](https://cursor.com/docs/context/rules)
 

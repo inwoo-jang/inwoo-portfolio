@@ -1,5 +1,5 @@
 ---
-title: Where should approval go? — a LangChain HITL exercise
+title: Where should approval go? a LangChain HITL exercise
 category: ai
 tags: [AI Agent, HITL, LangChain, create_agent]
 date: 2026-09-11

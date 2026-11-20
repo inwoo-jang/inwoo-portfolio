@@ -13,7 +13,7 @@
     {
       "id": "ai",
       "label": "AI & agents",
-      "description": "AI features and agents — prompts, RAG, memory, guardrails",
+      "description": "AI features and agents: prompts, RAG, memory, guardrails",
       "color": {
         "ink": "#6D4499",
         "soft": "#F2EBFA",
@@ -63,7 +63,7 @@
     {
       "id": "ax",
       "label": "AX",
-      "description": "Organizational AI transformation — governance, impact, industry adoption",
+      "description": "Organizational AI transformation: governance, impact, industry adoption",
       "color": {
         "ink": "#9C3D65",
         "soft": "#FCEAF2",
@@ -73,7 +73,7 @@
     {
       "id": "emerging",
       "label": "Emerging tech",
-      "description": "What new technologies are and what they change — Physical AI, digital twins, quantum computing, and more",
+      "description": "What new technologies are and what they change: Physical AI, digital twins, quantum computing, and more",
       "color": {
         "ink": "#12657C",
         "soft": "#E4F3F8",
@@ -156,7 +156,7 @@
     {
       "slug": "ax-domain-design-criteria",
       "file": "notes/en/ax-domain-design-criteria.md",
-      "revision": "34fdbceeef994113",
+      "revision": "3f48b7887a67454d",
       "title": "What Should Change When AX Moves Across Industries?",
       "category": "ax",
       "categories": [
@@ -184,7 +184,7 @@
     {
       "slug": "ai-coding-delivery",
       "file": "notes/en/ai-coding-delivery.md",
-      "revision": "50a6501675e5fd35",
+      "revision": "09bd93fb59371e60",
       "title": "As AI writes code faster, what needs to change in software development?",
       "category": "ax",
       "categories": [
@@ -213,7 +213,7 @@
     {
       "slug": "ai-technical-debt",
       "file": "notes/en/ai-technical-debt.md",
-      "revision": "8507b82ff2d2ccc1",
+      "revision": "aa6170480a95bd5f",
       "title": "How can AI help clean up code?",
       "category": "infra",
       "categories": [
@@ -238,7 +238,7 @@
     {
       "slug": "rag-stack-selection",
       "file": "notes/en/rag-stack-selection.md",
-      "revision": "23ad22cd0e6ee223",
+      "revision": "57930671ec066fac",
       "title": "How should we choose a technology stack for AI search and RAG?",
       "category": "ai",
       "categories": [
@@ -266,7 +266,7 @@
     {
       "slug": "agent-governance",
       "file": "notes/en/agent-governance.md",
-      "revision": "ff0b779e35d8996c",
+      "revision": "a2926f8f4bdb7034",
       "title": "As AI agents multiply, what should a company manage?",
       "category": "ax",
       "categories": [
@@ -295,7 +295,7 @@
     {
       "slug": "ai-waiting-ux",
       "file": "notes/en/ai-waiting-ux.md",
-      "revision": "bd0fde5d0b2438b1",
+      "revision": "85ae73400a2f2291",
       "title": "How should a service behave while users wait for an AI answer?",
       "category": "planning",
       "categories": [
@@ -319,8 +319,8 @@
     {
       "slug": "ai-dev-tools-compare",
       "file": "notes/en/ai-dev-tools-compare.md",
-      "revision": "080ccd1eb1e9483e",
-      "title": "Comparing IDEs — VS Code · Kiro · Cursor",
+      "revision": "f631141afbc461db",
+      "title": "Comparing IDEs | VS Code · Kiro · Cursor",
       "category": "infra",
       "categories": [
         "infra"
@@ -342,7 +342,7 @@
     {
       "slug": "agent-autonomy",
       "file": "notes/en/agent-autonomy.md",
-      "revision": "700d9ac692a9499f",
+      "revision": "d3c26042fc07e364",
       "title": "How autonomous should an agent be?",
       "category": "planning",
       "categories": [
@@ -373,7 +373,7 @@
     {
       "slug": "agent-kpi",
       "file": "notes/en/agent-kpi.md",
-      "revision": "52515820ff59c664",
+      "revision": "260caa5c2b6e80f3",
       "title": "How should you design KPIs for an AI agent?",
       "category": "ax",
       "categories": [
@@ -393,7 +393,6 @@
         "agent-eval",
         "agent-autonomy",
         "multi-agent-vs-single",
-        "why-ai-service",
         "agent-governance",
         "ai-coding-delivery",
         "ax-domain-design-criteria",
@@ -404,7 +403,7 @@
     {
       "slug": "cross-device-agents",
       "file": "notes/en/cross-device-agents.md",
-      "revision": "3ec7c831c1a3c14e",
+      "revision": "d39ce257e9a37bea",
       "title": "How can an AI agent's work continue across devices?",
       "category": "dev",
       "categories": [
@@ -432,8 +431,8 @@
     {
       "slug": "agent-eval",
       "file": "notes/en/agent-eval.md",
-      "revision": "a497f00eeb9ce0c2",
-      "title": "Character count couldn't evaluate a report — splitting checks between code and an LLM judge",
+      "revision": "c20c2b5eb59c982c",
+      "title": "Character count couldn't evaluate a report | splitting checks between code and an LLM judge",
       "category": "ops",
       "categories": [
         "ops",
@@ -461,7 +460,7 @@
     {
       "slug": "tech-stack-choice",
       "file": "notes/en/tech-stack-choice.md",
-      "revision": "e76d96bdaab0b268",
+      "revision": "2f6dd9fd494f253e",
       "title": "How do you put together a tech stack for a service?",
       "category": "dev",
       "categories": [
@@ -490,7 +489,7 @@
     {
       "slug": "ai-failure-tracing",
       "file": "notes/en/ai-failure-tracing.md",
-      "revision": "e612af668629eb46",
+      "revision": "a61630322091a863",
       "title": "When an AI answer is wrong, how do you find where it failed?",
       "category": "ops",
       "categories": [
@@ -518,8 +517,8 @@
     {
       "slug": "why-ai-agent",
       "file": "notes/en/why-ai-agent.md",
-      "revision": "64446f5aca3f9c35",
-      "title": "Why build it as an AI agent? — can you decide the next step in advance",
+      "revision": "0710ba7de56860e2",
+      "title": "Why build it as an AI agent? can you decide the next step in advance",
       "category": "planning",
       "categories": [
         "planning",
@@ -542,14 +541,13 @@
         "agent-autonomy",
         "multi-agent-vs-single",
         "tech-stack-choice",
-        "why-ai-service",
         "why-sllm"
       ]
     },
     {
       "slug": "when-rag",
       "file": "notes/en/when-rag.md",
-      "revision": "b06e641e9874fc14",
+      "revision": "f37b6ecdacdf0f05",
       "title": "When do you need RAG, and when does it make things worse?",
       "category": "ai",
       "categories": [
@@ -577,7 +575,7 @@
     {
       "slug": "ai-data-patterns",
       "file": "notes/en/ai-data-patterns.md",
-      "revision": "057975d475ca0e84",
+      "revision": "23f20c3ce0718dad",
       "title": "How much can we trust the patterns AI finds in data?",
       "category": "data",
       "categories": [
@@ -603,8 +601,8 @@
     {
       "slug": "rag-citation-rules",
       "file": "notes/en/rag-citation-rules.md",
-      "revision": "bae63cb33a1b6e35",
-      "title": "No evidence, no answer — citation checks for RAG",
+      "revision": "1bf41a4e67592397",
+      "title": "No evidence, no answer | citation checks for RAG",
       "category": "ai",
       "categories": [
         "ai"
@@ -631,7 +629,7 @@
     {
       "slug": "prompt-injection",
       "file": "notes/en/prompt-injection.md",
-      "revision": "cb1a49d3065579a0",
+      "revision": "610ef8388b3de0ff",
       "title": "Can you stop prompt injection just by fixing the prompt?",
       "category": "ai",
       "categories": [
@@ -658,7 +656,7 @@
     {
       "slug": "multi-agent-vs-single",
       "file": "notes/en/multi-agent-vs-single.md",
-      "revision": "cb52ca15796e187b",
+      "revision": "61099a144200c2b2",
       "title": "Is multi-agent really better than single-agent?",
       "category": "planning",
       "categories": [
@@ -688,7 +686,7 @@
     {
       "slug": "agent-memory",
       "file": "notes/en/agent-memory.md",
-      "revision": "8692764449dd385f",
+      "revision": "b2e7fe45f8ce1212",
       "title": "What should an AI agent remember, and when should it forget?",
       "category": "ai",
       "categories": [
@@ -715,8 +713,8 @@
     {
       "slug": "agent-guardrails",
       "file": "notes/en/agent-guardrails.md",
-      "revision": "f5ae9ad4488fce3a",
-      "title": "Where should an agent be stopped? — guardrails on input, call counts, and output",
+      "revision": "46e698229d0a0377",
+      "title": "Where should an agent be stopped? guardrails on input, call counts, and output",
       "category": "ai",
       "categories": [
         "ai"
@@ -744,8 +742,8 @@
     {
       "slug": "agent-hitl",
       "file": "notes/en/agent-hitl.md",
-      "revision": "b8ea9ca19f069762",
-      "title": "Where should approval go? — a LangChain HITL exercise",
+      "revision": "156d3f3418410518",
+      "title": "Where should approval go? a LangChain HITL exercise",
       "category": "ai",
       "categories": [
         "ai"
@@ -769,36 +767,10 @@
       ]
     },
     {
-      "slug": "why-ai-service",
-      "file": "notes/en/why-ai-service.md",
-      "revision": "a29af0d1eddf314c",
-      "title": "Why build an AI service? — which part of the user's work are you changing",
-      "category": "planning",
-      "categories": [
-        "planning"
-      ],
-      "tags": [
-        "AI product planning",
-        "Problem definition",
-        "User flow",
-        "Adoption decision"
-      ],
-      "date": "2026-09-11",
-      "dateType": "class",
-      "summary": "Being able to generate answers with AI isn't a reason to adopt it. I think we need to identify which user task to improve, consider whether it can be solved without AI, and design a flow that lets users recognize and correct errors.",
-      "sample": false,
-      "related": [
-        "why-ai-agent",
-        "why-ml-model",
-        "why-sllm",
-        "agent-kpi"
-      ]
-    },
-    {
       "slug": "model-selection",
       "file": "notes/en/model-selection.md",
-      "revision": "40778edce1f66268",
-      "title": "How should you choose an LLM? — balancing performance, reasoning, and cost",
+      "revision": "1afd8e49b5b6262a",
+      "title": "How should you choose an LLM? balancing performance, reasoning, and cost",
       "category": "planning",
       "categories": [
         "planning",
@@ -851,15 +823,14 @@
         "ai-data-patterns",
         "data-preprocessing",
         "model-selection",
-        "why-ai-service",
         "why-python-ai"
       ]
     },
     {
       "slug": "why-sllm",
       "file": "notes/en/why-sllm.md",
-      "revision": "11d026c2577348b0",
-      "title": "Why use an sLLM? — not because it's small, but because it fits the requirements",
+      "revision": "909c5c9289589282",
+      "title": "Why use an sLLM? not because it's small, but because it fits the requirements",
       "category": "planning",
       "categories": [
         "planning",
@@ -878,7 +849,6 @@
       "related": [
         "why-ai-agent",
         "model-selection",
-        "why-ai-service",
         "why-ml-model",
         "why-python-ai"
       ]
@@ -886,7 +856,7 @@
     {
       "slug": "data-preprocessing",
       "file": "notes/en/data-preprocessing.md",
-      "revision": "74b0889a4c69b1e2",
+      "revision": "325e97d0922b6dd4",
       "title": "Why is data preprocessing needed, and how far should it go?",
       "category": "data",
       "categories": [
@@ -915,7 +885,7 @@
     {
       "slug": "claude-cli-in-app",
       "file": "notes/en/claude-cli-in-app.md",
-      "revision": "612a2dfe6a448126",
+      "revision": "a9cd9afb127abb2b",
       "title": "Does Claude Code use my personal settings when called from an app?",
       "category": "infra",
       "categories": [
@@ -969,7 +939,7 @@
     {
       "slug": "context-engineering",
       "file": "notes/en/context-engineering.md",
-      "revision": "94c0ff4304b3b716",
+      "revision": "1d1f03cb19bd3b2a",
       "title": "What should an AI agent be given, when, and how much?",
       "category": "ai",
       "categories": [
@@ -1000,8 +970,8 @@
     {
       "slug": "prompt-techniques",
       "file": "notes/en/prompt-techniques.md",
-      "revision": "54ddbf23e4f46028",
-      "title": "10 prompt techniques — which one to reach for, and when",
+      "revision": "6170bebbacd705fb",
+      "title": "10 prompt techniques | which one to reach for, and when",
       "category": "ai",
       "categories": [
         "ai"

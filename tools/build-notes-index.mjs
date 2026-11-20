@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ==========================================================
-   tools/build-notes-index.mjs — notes/*.md 의 front matter를 읽어
+   tools/build-notes-index.mjs: notes/*.md 의 front matter를 읽어
    notes/index.json(노트 목록)을 만든다. 외부 패키지 없이 Node만 쓴다.
 
    사용: node tools/build-notes-index.mjs        → notes/index.json
@@ -30,7 +30,7 @@ for (const category of categories) {
   categoryIds.add(category.id);
 }
 
-// 시리즈 — 순서가 있는 연속 글. 중앙 설정(series.json)에 라벨·제목·기획 회차를 둔다.
+// 시리즈: 순서가 있는 연속 글. 중앙 설정(series.json)에 라벨·제목·기획 회차를 둔다.
 // 카테고리와 시리즈는 1:1이 아니다. 글은 front matter의 series·seriesOrder로 연결한다.
 let seriesList = [];
 try { seriesList = JSON.parse(await readFile(join(notesDir, "series.json"), "utf8")); } catch (e) { seriesList = []; }
@@ -199,4 +199,4 @@ if (/<script type="application\/json" id="notes-data">[\s\S]*?<\/script>/.test(p
   page = page.replace('  <script src="script/notes.js"></script>', () => `  ${block}\n  <script src="script/notes.js"></script>`);
 }
 await writeFile(pagePath, page);
-console.log(`${filePrefix}index.json — 노트 ${notes.length}개`);
+console.log(`${filePrefix}index.json: 노트 ${notes.length}개`);

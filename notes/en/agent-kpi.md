@@ -6,7 +6,7 @@ tags: [Agent Evaluation, Product KPI, Business Impact]
 date: 2026-11-06
 summary: An agent that works accurately is not necessarily one that improves the work itself. First define the task and what counts as success, then consider review and rework time, costs, and permission compliance alongside completion rate. This note covers choosing metrics in the order of goals → success criteria → KPIs → measurement and validation → improvement.
 sample: false
-related: [agent-eval, agent-autonomy, multi-agent-vs-single, why-ai-service]
+related: [agent-eval, agent-autonomy, multi-agent-vs-single]
 ---
 
 > I think an AI PM's job isn't just to push success rates up. It's to define what counts as success and to make that result verifiable.
@@ -21,7 +21,7 @@ So what should define an AI agent's performance? Going beyond a list of KPIs, I 
 
 ## Research: how are AI agents being evaluated?
 
-### Google Cloud — a KPI framework for production
+### Google Cloud | a KPI framework for production
 
 In February 2026, Google Cloud's *The KPIs that actually matter for production AI agents* split KPIs for production AI agents into three areas.
 
@@ -33,7 +33,7 @@ In February 2026, Google Cloud's *The KPIs that actually matter for production A
 
 The metric that caught my attention was **Cost per Successful Task**. Instead of checking whether AI calls are cheap, it measures how much was spent per task that actually succeeded. It also gives weight not just to how long the AI took to finish, but to how long it took a person to review and approve the result.
 
-### Google Cloud — goal-driven agent evaluation
+### Google Cloud | goal-driven agent evaluation
 
 In November 2025, *A methodical approach to agent evaluation* stresses clear success conditions for the agent as the starting point of evaluation design. It uses three broad criteria:
 
@@ -43,7 +43,7 @@ In November 2025, *A methodical approach to agent evaluation* stresses clear suc
 
 An agent can produce the right answer and still have queried the wrong data or called unnecessary tools. So you have to evaluate not just the final result but **the path it took to get there**.
 
-### ACL 2026 — A Survey on Evaluation of LLM-based Agents
+### ACL 2026 | A Survey on Evaluation of LLM-based Agents
 
 This is a comprehensive survey of agent evaluation methods and benchmarks. It notes that agent evaluation is broadening from static answer comparison to evaluating complex tasks in real environments, and that evaluating cost-efficiency, safety, and robustness in particular still has open problems.
 
@@ -79,7 +79,7 @@ So pick the core KPIs based on the work's purpose, but **conditions you can't co
 
 ## More things to consider in KPI design
 
-- **Make the criteria for task success explicit.** An agent declaring a task done doesn't mean the work is actually finished. Decide what evidence will confirm success — automated checks, results in an external system, human approval, and so on
+- **Make the criteria for task success explicit.** An agent declaring a task done doesn't mean the work is actually finished. Decide what evidence will confirm success: automated checks, results in an external system, human approval, and so on
 - **Keep measurement conditions consistent.** Comparing agents that handled tasks of different difficulty and types by overall success rate alone can lead to wrong conclusions. Look at what was evaluated, over what period, and how hard the work was
 - **Account for trade-offs between metrics.** Raising the autonomous completion rate reduces human intervention but can also make risky actions more likely. Decide which metrics must hold steady while you push results up
 - **Separate out the AI's contribution.** A drop in work time doesn't mean every improvement came from the AI. Compare against a pre-adoption baseline and, where possible, validate the effect under similar working conditions

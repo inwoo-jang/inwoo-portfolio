@@ -122,8 +122,8 @@ First figure out what problem a single agent can't solve, and check whether impr
 
 ## References
 
-- [Microsoft AutoGen](https://github.com/microsoft/autogen) — multi-agent collaboration and team patterns
-- [LangGraph](https://github.com/langchain-ai/langgraph) — stateful execution and agent orchestration
-- [LangChain Multi-Agent Documentation](https://docs.langchain.com/oss/python/langchain/multi-agent) — multi-agent architectures and patterns
-- [OpenAI Agent Orchestration](https://openai.github.io/openai-agents-python/multi_agent/) — handoff- and manager-based orchestration
-- [Anthropic: How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system) — a case study in multi-agent design and operation
+- [Microsoft AutoGen](https://github.com/microsoft/autogen): multi-agent collaboration and team patterns
+- [LangGraph](https://github.com/langchain-ai/langgraph): stateful execution and agent orchestration
+- [LangChain Multi-Agent Documentation](https://docs.langchain.com/oss/python/langchain/multi-agent): multi-agent architectures and patterns
+- [OpenAI Agent Orchestration](https://openai.github.io/openai-agents-python/multi_agent/): handoff- and manager-based orchestration
+- [Anthropic: How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system): a case study in multi-agent design and operation

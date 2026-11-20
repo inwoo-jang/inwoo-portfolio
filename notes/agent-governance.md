@@ -33,7 +33,7 @@ Gartner가 제시한 관리 방향은 거버넌스 정책 수립, 에이전트 �
 
 ## 기업들은 어떻게 대응하고 있을까?
 
-### SKT — 개인의 AI 활용에서 조직의 성과 관리로
+### SKT | 개인의 AI 활용에서 조직의 성과 관리로
 
 SKT는 ‘1인 1에이전트’ 전략으로 한때 7,000개 이상의 사내 에이전트가 생성됐지만, 2026년 11월 보도 기준 정기 가동되는 에이전트는 약 1,500개라고 밝혔다.
 
@@ -41,13 +41,13 @@ SKT는 ‘1인 1에이전트’ 전략으로 한때 7,000개 이상의 사내 �
 
 여기서 중요한 건 에이전트 수의 감소 자체가 아니라, **AI 도입의 목표가 활용 확산에서 조직 성과로 옮겨가고 있다는 점**이다.
 
-### IBM — 에이전트에도 신원과 권한이 필요하다
+### IBM | 에이전트에도 신원과 권한이 필요하다
 
 IBM은 2026년 10월 Agent Identity와 접근 제어 기능을 발표했다. 에이전트마다 관리 책임자, 생애주기 상태, 허용된 권한을 정의하고 필요한 시스템에만 접근하도록 제한하는 방식이다. 허가되지 않은 작업을 시도하면 접근 권한을 철회하는 기능도 포함한다.
 
 에이전트가 실제 업무를 수행한다면 누가 만들었는지뿐 아니라, **어떤 권한을 받았고 그 행동의 책임은 누구에게 있는지**도 관리해야 한다는 의미로 볼 수 있다.
 
-### Cisco — 에이전트의 행동과 비용을 함께 관측한다
+### Cisco | 에이전트의 행동과 비용을 함께 관측한다
 
 Cisco는 2026년 11월 Agent Observability와 보안 검증 기능의 확대를 발표했다. 에이전트의 실행 과정과 품질을 추적하는 것뿐 아니라, 토큰 사용 비용과 업무 성과를 연결해 평가하는 방향이다.
 
@@ -97,7 +97,7 @@ Cisco는 2026년 11월 Agent Observability와 보안 검증 기능의 확대를 
 
 ## 참고
 
-- [Gartner — Managing AI Agent Sprawl (2026.04.28)](https://www.gartner.com/en/newsroom/press-releases/2026-04-28-gartner-identifies-six-steps-to-manage-artificial-intelligence-agent-sprawl)
-- [전자신문 — SKT AX 2.0, 성과 중심 체계화 (2026.11.01)](https://www.etnews.com/20261031000044)
-- [IBM — Identity and Control for AI Agents (2026.10.27)](https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents%2C-securing-frontier-intelligence-for-the-enterprise)
-- [Cisco — Agent Observability (2026.11.09)](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-unveils-frontier-ai-red-teaming-and-agent-observability-to-secure-the-agentic-enterprise.html)
+- [Gartner: Managing AI Agent Sprawl (2026.04.28)](https://www.gartner.com/en/newsroom/press-releases/2026-04-28-gartner-identifies-six-steps-to-manage-artificial-intelligence-agent-sprawl)
+- [전자신문: SKT AX 2.0, 성과 중심 체계화 (2026.11.01)](https://www.etnews.com/20261031000044)
+- [IBM: Identity and Control for AI Agents (2026.10.27)](https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents%2C-securing-frontier-intelligence-for-the-enterprise)
+- [Cisco: Agent Observability (2026.11.09)](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-unveils-frontier-ai-red-teaming-and-agent-observability-to-secure-the-agentic-enterprise.html)

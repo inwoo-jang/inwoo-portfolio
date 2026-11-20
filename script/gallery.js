@@ -1,5 +1,5 @@
 /* Project screenshots: captions and paths live in project-images.js.
-   클릭은 문서 전체에서 위임 처리한다 — Quick View 읽기 화면이 연습장 본문을
+   클릭은 문서 전체에서 위임 처리한다: Quick View 읽기 화면이 연습장 본문을
    복제해 보여줘도 확대보기가 똑같이 동작하도록. */
 (function () {
   var dialog = document.createElement('dialog');
@@ -29,7 +29,7 @@
       if (!item.src || !item.alt) return;
       var figure = document.createElement('figure'); figure.className = 'note__shot';
       var button = document.createElement('button'); button.type = 'button'; button.className = 'project-gallery__open';
-      button.setAttribute('aria-label', item.alt + (EN ? ' — enlarge' : ' 확대보기'));
+      button.setAttribute('aria-label', item.alt + (EN ? ': enlarge' : ' 확대보기'));
       button.dataset.src = item.src; button.dataset.alt = item.alt; button.dataset.caption = item.caption || item.alt;
       var img = document.createElement('img'); img.alt = item.alt; img.loading = 'eager';
       var label = document.createElement('figcaption'); label.textContent = item.caption || item.alt;

@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/portfolio-quick.js — Quick View / Book View 전환
+   script/portfolio-quick.js: Quick View / Book View 전환
    - Quick View(기본): 프로젝트 카드 + 분류·유형 필터 + 읽기 화면
    - Book View: 기존 책장·연습장(script/portfolio.js)
    - 마크업은 디자인 시스템(css/ds.css, storybook/src/components.js)과 같다
@@ -31,7 +31,7 @@
   function T(ko, en) { return EN ? en : ko; }
 
   var BOOKS = {
-    work: { label: T("실무", "Work"), name: T("실무 — 지킴컴퍼니", "Work — JEEKIM COMPANY") },
+    work: { label: T("실무", "Work"), name: T("실무: 지킴컴퍼니", "Work: JEEKIM COMPANY") },
     skala: { label: T("교육", "Bootcamp"), name: T("SKALA 교육 과정", "SKALA bootcamp") },
     team: { label: T("팀", "Team"), name: T("팀에서 만든 것", "Built with a team") },
     solo: { label: T("개인", "Personal"), name: T("직접 만든 것", "Built on my own") }
@@ -136,7 +136,7 @@
     return Number(m[1]) * 10000 + Number(m[2] || 0) * 100 + Number(m[3] || 0);
   }
 
-  /* 정렬 드롭다운 — Dev Notes(script/notes.js)와 같은 동작 */
+  /* 정렬 드롭다운: Dev Notes(script/notes.js)와 같은 동작 */
   function initSort() {
     var trigger = quickPanel.querySelector("#project-sort");
     if (!trigger) { return; }
@@ -250,7 +250,7 @@
     return li;
   }
 
-  /* 내 역할 키워드 — 기획 · PM · 엔지니어링 구분 */
+  /* 내 역할 키워드: 기획 · PM · 엔지니어링 구분 */
   function rolesEl(roles) {
     var ul = el("ul", "roles");
     ul.setAttribute("aria-label", T("내 역할", "My role"));
@@ -258,7 +258,7 @@
     return ul;
   }
 
-  /* 먼저 볼 프로젝트 — 프로젝트명 → 핵심 판단 → 결과·현재 상태 */
+  /* 먼저 볼 프로젝트: 프로젝트명 → 핵심 판단 → 결과·현재 상태 */
   function renderFeatured() {
     var box = quickPanel.querySelector("[data-featured-grid]");
     if (!box) { return; }
@@ -385,7 +385,7 @@
     head.appendChild(title);
     if (p.overview) { head.appendChild(el("p", "reader-view__lede", p.overview)); }
 
-    // 기간 · 팀 · 내 역할 · 현재 상태 — 역할은 여기서 한 번만 말한다
+    // 기간 · 팀 · 내 역할 · 현재 상태: 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
     [[T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope], [T("내 역할", "My role"), p.role]].forEach(function (pair) {
       var d = el("div");
@@ -451,7 +451,7 @@
       }
       readerEl.appendChild(summary);
 
-      // 화면과 자료 — 실제 화면 · 팀 산출물 · 예시 데이터 · 설명도는 캡션에 구분해 적는다
+      // 화면과 자료: 실제 화면 · 팀 산출물 · 예시 데이터 · 설명도는 캡션에 구분해 적는다
       var gallery = article ? galleryFrom(article) : null;
       if (gallery) {
         readerEl.appendChild(heading(T("화면과 자료", "Screens and materials")));
@@ -543,7 +543,7 @@
     readerEl.hidden = true;
     listEl.hidden = false;
     if (pageHead) { pageHead.hidden = false; }
-    document.title = T("포트폴리오 — 장인우 · inwoo.log", "Portfolio — Inwoo Jang · inwoo.log");
+    document.title = T("포트폴리오: 장인우 · inwoo.log", "Portfolio: Inwoo Jang · inwoo.log");
     if (restoreFocus && lastOpenedId) {
       var link = quickPanel.querySelector('[data-quick-list] a[href="#p-' + lastOpenedId + '"]');
       if (link) {
@@ -561,7 +561,7 @@
     if (pageHead) { pageHead.hidden = true; }
     if (viewSwitch) { viewSwitch.hidden = true; }
     lastOpenedId = p.id;
-    document.title = p.title + T(" — 포트폴리오 · inwoo.log", " — Portfolio · inwoo.log");
+    document.title = p.title + T(": 포트폴리오 · inwoo.log", ": Portfolio · inwoo.log");
     window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
     var title = document.getElementById("reader-title");
     if (title) { title.focus({ preventScroll: true }); }

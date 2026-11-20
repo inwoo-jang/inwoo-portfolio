@@ -91,6 +91,6 @@ That said, whether risk-based tiered approval actually delivers better work resu
 ## References
 
 - [Measuring Agents in Production](https://arxiv.org/abs/2512.04123)
-- [Anthropic — Measuring AI Agent Autonomy in Practice](https://www.anthropic.com/research/measuring-agent-autonomy)
-- [NIST — AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)
-- [OpenAI — Guardrails and Human Review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals)
+- [Anthropic: Measuring AI Agent Autonomy in Practice](https://www.anthropic.com/research/measuring-agent-autonomy)
+- [NIST: AI Risk Management and Human-AI Interaction](https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/)
+- [OpenAI: Guardrails and Human Review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals)

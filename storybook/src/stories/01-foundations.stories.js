@@ -58,11 +58,11 @@ export const 상태표시 = {
   name: "상태 표시 어휘",
   render: () => `<p style="max-width:640px">프로젝트가 어디까지 갔는지 카드와 상세에 항상 같은 말로 표시합니다.</p>
 <ul style="list-style:none;padding:0;display:grid;gap:12px">
-<li>${status({ label: "운영 적용", kind: "live" })} — 실제 업무·서비스에 쓰임</li>
-<li>${status({ label: "내부 사용 · 시범 운영", kind: "live" })} — 내부에서 쓰이고 고객 시범 운영</li>
-<li>${status({ label: "출시 후 운영 중단", kind: "other" })} — 스토어 출시 후 서버 중단</li>
+<li>${status({ label: "운영 적용", kind: "live" })}: 실제 업무·서비스에 쓰임</li>
+<li>${status({ label: "내부 사용 · 시범 운영", kind: "live" })}: 내부에서 쓰이고 고객 시범 운영</li>
+<li>${status({ label: "출시 후 운영 중단", kind: "other" })}: 스토어 출시 후 서버 중단</li>
 <li>${status({ label: "베타 테스트 단계", kind: "other" })}</li>
-<li>${status({ label: "교육 실습", kind: "edu" })} — 교육 과정 과제</li>
+<li>${status({ label: "교육 실습", kind: "edu" })}: 교육 과정 과제</li>
 <li>${status({ label: "프로토타입", kind: "other" })} · ${status({ label: "개인 사용", kind: "other" })} · ${status({ label: "기획 · 디자인 단계", kind: "other" })}</li>
 </ul>`,
 };

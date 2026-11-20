@@ -1,5 +1,5 @@
 ---
-title: 근거가 없으면 답하지 않게 하기 — RAG 인용 검증 규칙
+title: 근거가 없으면 답하지 않게 하기 | RAG 인용 검증 규칙
 category: ai
 tags: [RAG, 인용, AI Agent, LangGraph]
 date: 2026-09-22

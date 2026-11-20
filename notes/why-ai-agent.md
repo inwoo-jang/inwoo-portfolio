@@ -1,5 +1,5 @@
 ---
-title: 왜 AI 에이전트로 만들까? — 다음 행동을 미리 정할 수 있는가
+title: 왜 AI 에이전트로 만들까? 다음 행동을 미리 정할 수 있는가
 category: planning
 categories: [planning, ai]
 tags: [AI 기획, AI Agent, 워크플로, 실행 범위]

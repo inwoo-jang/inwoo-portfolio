@@ -29,7 +29,7 @@ What interested me was that **as code generation gets faster, the bottleneck can
 
 ## What are companies experiencing?
 
-**1. GitHub — redesigning Git storage for the age of AI agents**
+**1. GitHub: redesigning Git storage for the age of AI agents**
 
 In November 2026, GitHub described a new architecture designed to improve the scalability of its Git storage infrastructure.
 
@@ -41,9 +41,9 @@ These figures describe a specific test environment, not a guarantee of the same 
 
 What interests me is not the AI model's performance, but **the redesign of existing development infrastructure to handle the volume of work AI can produce**.
 
-Reference: [GitHub Engineering — Inside GitHub's new Git storage architecture (2026-11-05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
+Reference: [GitHub Engineering: Inside GitHub's new Git storage architecture (2026-11-05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
 
-**2. Anthropic — source control and CI become bottlenecks as code volume grows**
+**2. Anthropic: source control and CI become bottlenecks as code volume grows**
 
 In October 2026, Anthropic explained why it had built Scion, its own source control system.
 
@@ -57,7 +57,7 @@ Together, these examples suggest that AI is changing more than how developers wr
 
 **Development infrastructure and collaboration processes may also need to adapt to the workload AI creates.**
 
-Reference: [Anthropic — Redesigning source control (2026-10-13)](https://www.anthropic.com/research/redesigning-source-control)
+Reference: [Anthropic: Redesigning source control (2026-10-13)](https://www.anthropic.com/research/redesigning-source-control)
 
 ## Where might the bottleneck move?
 
@@ -90,7 +90,7 @@ I see this as an attempt to observe not just how many issues AI flags, but wheth
 
 A high addressed rate does not, however, prove that reviews are accurate or that defects have decreased. Evaluating quality requires distinguishing useful suggestions from unnecessary ones.
 
-Reference: [GitHub — Code Review Addressed Rate (2026-11-05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
+Reference: [GitHub: Code Review Addressed Rate (2026-11-05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
 
 OpenAI has also shared examples of using Codex for software maintenance.
 
@@ -100,7 +100,7 @@ If AI can increase code production, it can also help remove unnecessary code and
 
 But the fact that AI performed maintenance is not sufficient on its own. We still need to verify that the changes preserved existing functionality and that maintenance costs actually decreased.
 
-Reference: [OpenAI — Maintaining software with the GPT-6 family (2026-10-14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
+Reference: [OpenAI: Maintaining software with the GPT-6 family (2026-10-14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
 
 ## How should development productivity be measured?
 
@@ -127,7 +127,7 @@ For example, more frequent deployments are not automatically a good outcome if f
 
 Ultimately, **speed and quality need to be evaluated together**.
 
-Reference: [DORA — Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
+Reference: [DORA: Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
 
 ## What should a product planner consider?
 
@@ -171,8 +171,8 @@ I think **the purpose of adopting AI should be to deliver useful software to use
 
 ## References
 
-- [GitHub Engineering — Inside GitHub's New Git Storage Architecture (2026-11-05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
-- [Anthropic — Redesigning Source Control (2026-10-13)](https://www.anthropic.com/research/redesigning-source-control)
-- [GitHub — Code Review Addressed Rate (2026-11-05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
-- [OpenAI — Maintaining Software with the GPT-6 Family (2026-10-14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
-- [DORA — Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
+- [GitHub Engineering: Inside GitHub's New Git Storage Architecture (2026-11-05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
+- [Anthropic: Redesigning Source Control (2026-10-13)](https://www.anthropic.com/research/redesigning-source-control)
+- [GitHub: Code Review Addressed Rate (2026-11-05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
+- [OpenAI: Maintaining Software with the GPT-6 Family (2026-10-14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
+- [DORA: Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)

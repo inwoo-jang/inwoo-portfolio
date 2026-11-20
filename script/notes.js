@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/notes.js — Dev Notes
+   script/notes.js: Dev Notes
    - 목록: notes/index.json (tools/build-notes-index.mjs 로 생성)
    - 본문: notes/<slug>.md 를 읽어 script/markdown.js 로 안전하게 렌더링
    - 주소: (없음)·#list → 목록 / #n-<slug> → 노트 상세
@@ -161,7 +161,7 @@
     return null;
   }
 
-  /* 카드·상세 상단의 작은 시리즈 라벨 — “AX FIELD NOTES · 01” */
+  /* 카드·상세 상단의 작은 시리즈 라벨: “AX FIELD NOTES · 01” */
   function seriesTag(note, className) {
     var s = seriesOf(note);
     if (!s) { return null; }
@@ -394,7 +394,7 @@
     return nav;
   }
 
-  /* 상세의 시리즈 목차 — 영문 라벨 · 한국어 제목 · 현재/전체 회차 · 목차 · 이전/다음.
+  /* 상세의 시리즈 목차: 영문 라벨 · 한국어 제목 · 현재/전체 회차 · 목차 · 이전/다음.
      게시되지 않은 회차는 링크 없이 보여 준다(없는 글의 주소를 만들지 않는다). */
   function seriesBlock(note) {
     var s = seriesOf(note);
@@ -493,7 +493,7 @@
     var flags = el("ul", "doc-flags");
     flags.style.marginTop = "var(--s4)";
     note.tags.forEach(function (t) { flags.appendChild(el("li", null, t)); });
-    if (note.sample) { flags.appendChild(el("li", "is-sample", T("작성 예정 — 목차만 정리한 글", "Coming soon — outline only"))); }
+    if (note.sample) { flags.appendChild(el("li", "is-sample", T("작성 예정: 목차만 정리한 글", "Coming soon: outline only"))); }
     head.appendChild(flags);
     readerEl.appendChild(head);
 
@@ -538,7 +538,7 @@
     readerEl.hidden = true;
     listEl.hidden = false;
     if (viewSwitch) { viewSwitch.hidden = false; }
-    document.title = T("Dev Notes — 장인우 · Inwoo.log", "Dev Notes — Inwoo Jang · Inwoo.log");
+    document.title = T("Dev Notes: 장인우 · Inwoo.log", "Dev Notes: Inwoo Jang · Inwoo.log");
     if (restoreFocus && lastOpened) {
       var link = gridEl.querySelector('a[href="#n-' + lastOpened + '"]');
       if (link) {
@@ -554,7 +554,7 @@
     readerEl.hidden = false;
     if (viewSwitch) { viewSwitch.hidden = true; }
     lastOpened = note.slug;
-    document.title = note.title + " — Notes · Inwoo.log";
+    document.title = note.title + ": Notes · Inwoo.log";
     root.scrollIntoView({ block: "start" });
     var title = document.getElementById("note-title");
     if (title) { title.focus({ preventScroll: true }); }

@@ -120,7 +120,7 @@ Human approval is a control too, so its effect has to be tested. WHO warns about
 
 Permissions have to be enforced by the actual APIs and business systems, not by prohibitions in a prompt. If the target or amount changes after approval, require approval again. Recovery plans should also cover cases where deleting a record can't undo the harm, such as sensitive information that has already gone out.
 
-> [!예시] A retail refund assistant — splitting authority
+> [!예시] A retail refund assistant: splitting authority
 > 1. AI reads the order status and refund policy and drafts a refund proposal.
 > 2. Separate rule logic checks identity, the refund window, the amount, and any previous refunds.
 > 3. Anything outside the predefined automatic range goes to a staff member, who sees the exact order and amount and approves it.

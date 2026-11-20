@@ -205,10 +205,10 @@ Prompt Injection 대응은 보안 담당자나 개발자만의 문제가 아닐 
 
 ## 참고
 
-- [OWASP — LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — 직접·간접 공격의 유형과 주요 방어 원칙
-- [OWASP — LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) — 입력·출력 검사, 도구 권한, 다층 방어
-- [Microsoft Security — How Microsoft Defends Against Indirect Prompt Injection Attacks](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks) (2025.07.29) — Spotlighting과 확률적·결정적 방어
-- [Microsoft Research — Defending Against Indirect Prompt Injection Attacks With Spotlighting](https://www.microsoft.com/en-us/research/publication/defending-against-indirect-prompt-injection-attacks-with-spotlighting/) (2024.03) — 출처 구분 방어 기법 연구
-- [Anthropic — Mitigating the Risk of Prompt Injections in Browser Use](https://www.anthropic.com/research/prompt-injection-defenses) (2025.11.24) — 브라우저 기반 Agent의 공격 경로와 방어
-- [OpenAI — Designing AI Agents to Resist Prompt Injection](https://openai.com/index/designing-agents-to-resist-prompt-injection/) (2026.03.11) — 사회공학적 공격과 실행 영향 제한
-- [ACL 2025 — The Task Shield: Enforcing Task Alignment to Defend Against Indirect Prompt Injection in LLM Agents](https://aclanthology.org/2025.acl-long.1435/) — 사용자 목표와 도구 실행의 정합성 검사
+- [OWASP: LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/): 직접·간접 공격의 유형과 주요 방어 원칙
+- [OWASP: LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html): 입력·출력 검사, 도구 권한, 다층 방어
+- [Microsoft Security: How Microsoft Defends Against Indirect Prompt Injection Attacks](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks) (2025.07.29): Spotlighting과 확률적·결정적 방어
+- [Microsoft Research: Defending Against Indirect Prompt Injection Attacks With Spotlighting](https://www.microsoft.com/en-us/research/publication/defending-against-indirect-prompt-injection-attacks-with-spotlighting/) (2024.03): 출처 구분 방어 기법 연구
+- [Anthropic: Mitigating the Risk of Prompt Injections in Browser Use](https://www.anthropic.com/research/prompt-injection-defenses) (2025.11.24): 브라우저 기반 Agent의 공격 경로와 방어
+- [OpenAI: Designing AI Agents to Resist Prompt Injection](https://openai.com/index/designing-agents-to-resist-prompt-injection/) (2026.03.11): 사회공학적 공격과 실행 영향 제한
+- [ACL 2025: The Task Shield: Enforcing Task Alignment to Defend Against Indirect Prompt Injection in LLM Agents](https://aclanthology.org/2025.acl-long.1435/): 사용자 목표와 도구 실행의 정합성 검사

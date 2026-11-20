@@ -1,5 +1,5 @@
 ---
-title: 10 prompt techniques — which one to reach for, and when
+title: 10 prompt techniques | which one to reach for, and when
 category: ai
 tags: [Prompt Engineering, RICE, CoT, Few-shot]
 date: 2026-07-15
@@ -29,10 +29,10 @@ A reference note on the prompt techniques from class, organized by **when to rea
 ## RICE template
 
 ```markdown
-[Role]        Who — e.g. a B2B strategy consultant with 10 years of experience
-[Instruction] What — deliverable · scope · priorities
-[Context]     Situation — company · problem · goal (the more specific, the less hallucination)
-[Examples]    Shape — an example or an outline of the output
+[Role]        Who: e.g. a B2B strategy consultant with 10 years of experience
+[Instruction] What: deliverable · scope · priorities
+[Context]     Situation: company · problem · goal (the more specific, the less hallucination)
+[Examples]    Shape: an example or an outline of the output
 + rules · tone · constraints (character count) · format (table · JSON)
 ```
 

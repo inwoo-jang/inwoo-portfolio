@@ -1,5 +1,5 @@
 ---
-title: 프롬프트 기법 10가지 — 언제 무엇을 꺼내 쓸까
+title: 프롬프트 기법 10가지 | 언제 무엇을 꺼내 쓸까
 category: ai
 tags: [Prompt Engineering, RICE, CoT, Few-shot]
 date: 2026-07-15
@@ -29,10 +29,10 @@ sample: false
 ## RICE 템플릿
 
 ```markdown
-[Role]        누가 — 예: 10년 차 B2B 전략 컨설턴트
-[Instruction] 무엇을 — 결과물 · 범위 · 우선순위
-[Context]     상황 — 회사 · 문제 · 목표 (구체적일수록 환각 ↓)
-[Examples]    모양 — 예시 또는 출력 목차
+[Role]        누가: 예: 10년 차 B2B 전략 컨설턴트
+[Instruction] 무엇을: 결과물 · 범위 · 우선순위
+[Context]     상황: 회사 · 문제 · 목표 (구체적일수록 환각 ↓)
+[Examples]    모양: 예시 또는 출력 목차
 + 규칙 · 말투 · 제약(글자 수) · 형식(표·JSON)
 ```
 

@@ -1,4 +1,4 @@
-/** inwoo.log Storybook — 사이트(정적 HTML)와 같은 css/ds.css·media를 그대로 쓴다. */
+/** inwoo.log Storybook: 사이트(정적 HTML)와 같은 css/ds.css·media를 그대로 쓴다. */
 export default {
   stories: ["../src/**/*.stories.js"],
   framework: { name: "@storybook/html-vite", options: {} },

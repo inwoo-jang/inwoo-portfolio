@@ -1,5 +1,5 @@
 ---
-title: 글자 수로는 보고서를 평가할 수 없었다 — 코드 검사와 LLM Judge 나누기
+title: 글자 수로는 보고서를 평가할 수 없었다 | 코드 검사와 LLM Judge 나누기
 category: ops
 categories: [ops, ai]
 tags: [AI Agent, 평가, LLM Judge, LangGraph]

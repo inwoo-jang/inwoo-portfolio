@@ -1,5 +1,5 @@
 ---
-title: IDE 툴 비교 — VS Code · Kiro · Cursor
+title: IDE 툴 비교 | VS Code · Kiro · Cursor
 category: infra
 tags: [VS Code, Kiro, Cursor, AI 코딩]
 date: 2026-11-06
@@ -21,10 +21,10 @@ VS Code·Kiro·Cursor의 AI 코딩 방식과 프로젝트 규칙 관리, 작업 
 
 | | VS Code | Kiro | Cursor |
 |---|---|---|---|
-| 중심 | 조합형 — 에디터에 AI 기능·에이전트를 붙임(GitHub Copilot 등) | 명세 중심 | 에이전트 중심 |
+| 중심 | 조합형: 에디터에 AI 기능·에이전트를 붙임(GitHub Copilot 등) | 명세 중심 | 에이전트 중심 |
 | 작업 흐름 | 코드 작성 중 수정 제안, 채팅, 에이전트 작업 | 요구사항 → 설계 → 작업 목록 순서로 진행(Specs) | Plan Mode로 범위 정리 → Agent로 수정 → Diff로 결과 검토 |
 | 프로젝트 규칙 | `.github/copilot-instructions.md`, `AGENTS.md` | `.kiro/steering/` (기본: product · tech · structure), `AGENTS.md` | `.cursor/rules/*.mdc`, `AGENTS.md` |
-| 자동화 | 확장 기능 · 에이전트 | Hooks — 파일 변경 · 도구 사용 · 작업 완료 시 지정한 동작 실행 | 규칙 · 스킬 · 플러그인 |
+| 자동화 | 확장 기능 · 에이전트 | Hooks: 파일 변경 · 도구 사용 · 작업 완료 시 지정한 동작 실행 | 규칙 · 스킬 · 플러그인 |
 | 외부 연결(MCP) | 지원 | 지원 | 지원 |
 | 모델 선택 | 여러 제공사의 모델, 개인 API 키, 로컬 모델 | 지원 모델 목록에서 선택 | 제공사별 모델 목록에서 선택 |
 
@@ -41,7 +41,7 @@ VS Code·Kiro·Cursor의 AI 코딩 방식과 프로젝트 규칙 관리, 작업 
 **VS Code**
 - AI는 GitHub Copilot 플랜, 지원 제공사 계정, API 키 중 하나로 사용
 - 작업을 수행할 에이전트를 Copilot · Claude · Codex 중에서 선택
-- 규칙 파일: `.github/copilot-instructions.md` — `AGENTS.md`도 인식
+- 규칙 파일: `.github/copilot-instructions.md`: `AGENTS.md`도 인식
 
 **Kiro**
 - Specs: `requirements.md` → `design.md` → `tasks.md` (버그 수정은 `bugfix.md`)
@@ -62,8 +62,8 @@ AI 코딩 도구를 고를 때 중요한 건 코드를 얼마나 빠르게 쓰�
 
 ## 참고
 
-- [VS Code — AI 기능 개요](https://code.visualstudio.com/docs/copilot/overview)
-- [VS Code — Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [VS Code: AI 기능 개요](https://code.visualstudio.com/docs/copilot/overview)
+- [VS Code: Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Kiro Docs](https://kiro.dev/docs/) · [Specs](https://kiro.dev/docs/specs/) · [Steering](https://kiro.dev/docs/steering/)
 - [Cursor Docs](https://cursor.com/docs) · [Rules](https://cursor.com/docs/context/rules)
 

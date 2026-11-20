@@ -172,13 +172,13 @@ The AWS Well-Architected Framework evaluates architecture across operational exc
 
 Total cost here isn't just the infrastructure bill. It includes development time, learning, maintenance, incident response, and the cost of changing technology later. The goal isn't the simplest possible stack, but **cutting unnecessary complexity while still meeting the quality you need**.
 
-## Recording why you chose it — ADR
+## Recording why you chose it | ADR
 
 A tech stack isn't a one-time decision. When users grow or requirements change, you have to revisit it, and without a record of why you chose that technology, you end up repeating the same review.
 
 An **ADR (Architecture Decision Record)** is a document that captures, for a major architecture decision, the situation at the time, the alternatives considered, why you chose what you did, and the expected impact.
 
-> [!Example] ADR — whether to adopt Redis
+> [!Example] ADR: whether to adopt Redis
 > **Context** · An early-stage B2B SaaS built its lookup features on PostgreSQL, and currently meets its latency requirements.
 >
 > **Alternatives considered** · Keep PostgreSQL as is / optimize queries and indexes / add a Redis cache
@@ -201,10 +201,10 @@ A good tech stack isn't one packed with the latest technology. It's one that ful
 
 ## References
 
-- [Microsoft Azure Architecture Center — Architecture Styles](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles) — characteristics and trade-offs of each architecture style
-- [AWS — Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) — evaluation criteria including reliability, security, operations, performance, and cost
-- [Google Cloud — Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) — principles for designing and operating cloud architecture
-- [Thoughtworks — Technology Radar](https://www.thoughtworks.com/radar) — criteria for adopting, trialing, assessing, and being cautious about technologies
-- [Martin Fowler — Monolith First](https://martinfowler.com/bliki/MonolithFirst.html) — starting with a monolith and moving to microservices
-- [Martin Fowler — YAGNI](https://martinfowler.com/bliki/Yagni.html) — the risk of building ahead for uncertain future needs
-- [AWS — Architectural Decision Records](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/) — how to record a decision's context, alternatives, and consequences
+- [Microsoft Azure Architecture Center: Architecture Styles](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles): characteristics and trade-offs of each architecture style
+- [AWS: Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html): evaluation criteria including reliability, security, operations, performance, and cost
+- [Google Cloud: Well-Architected Framework](https://docs.cloud.google.com/architecture/framework): principles for designing and operating cloud architecture
+- [Thoughtworks: Technology Radar](https://www.thoughtworks.com/radar): criteria for adopting, trialing, assessing, and being cautious about technologies
+- [Martin Fowler: Monolith First](https://martinfowler.com/bliki/MonolithFirst.html): starting with a monolith and moving to microservices
+- [Martin Fowler: YAGNI](https://martinfowler.com/bliki/Yagni.html): the risk of building ahead for uncertain future needs
+- [AWS: Architectural Decision Records](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/): how to record a decision's context, alternatives, and consequences

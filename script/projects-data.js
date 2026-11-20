@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/projects-data.js — Quick View 카드·요약용 데이터
+   script/projects-data.js: Quick View 카드·요약용 데이터
    - 상세 본문의 원본은 portfolio.html의 연습장 장(<article class="note__page">)이다.
    - id는 각 장의 data-project-gallery 값과 같다(연습장 장과 연결하는 키).
    - 기준 자료: 포트폴리오_전체_프로젝트_소재집_20261106 + 최신 팩트시트 정정.
@@ -8,10 +8,10 @@
    - 기획/구현, 테스트/운영, 팀 성과/개인 기여를 role·scope에서 구분한다.
    ========================================================== */
 window.PROJECT_TYPES = ["Product", "Operations", "AI Engineering", "Frontend", "Backend", "Tool"];
-/* 내 역할 키워드 — 기획 / 프로덕트 매니징 / 엔지니어링 구분 */
+/* 내 역할 키워드: 기획 / 프로덕트 매니징 / 엔지니어링 구분 */
 window.PROJECT_ROLES = ["기획", "PM", "프론트엔드", "백엔드", "풀스택 개발", "AI 엔지니어링"];
 
-/* 먼저 볼 프로젝트 — 프로젝트명 → 내가 한 핵심 판단 → 결과·현재 상태.
+/* 먼저 볼 프로젝트: 프로젝트명 → 내가 한 핵심 판단 → 결과·현재 상태.
    홈(index.html)의 대표 프로젝트와 같은 순서·문장을 쓴다. */
 window.FEATURED = [
   {
@@ -41,7 +41,7 @@ window.FEATURED = [
 ];
 
 window.PROJECTS = [
-  /* ---------- 실무 — 지킴컴퍼니 ---------- */
+  /* ---------- 실무: 지킴컴퍼니 ---------- */
   {
     id: "order-sync",
     roles: ["기획", "PM"],
@@ -114,7 +114,7 @@ window.PROJECTS = [
     headline: "답할 것과 넘길 것의 경계",
     headlineScope: "AI 서비스 정책 · 예외 처리",
     book: "work",
-    title: "약국 AI 세무 상담 — 삼일회계법인 협업",
+    title: "약국 AI 세무 상담 | 삼일회계법인 협업",
     scope: "(주)지킴컴퍼니 · 베타 테스트 단계",
     period: "2026.01–06",
     types: ["Product", "AI Engineering"],
@@ -140,7 +140,7 @@ window.PROJECTS = [
   {
     id: "pharmacy-link",
     image: "media/portfolio/jikim-home-card.jpg",
-    imageAlt: "지킴 앱 홈 화면 — 약국 가계부와 손익",
+    imageAlt: "지킴 앱 홈 화면: 약국 가계부와 손익",
     roles: ["기획", "PM"],
     status: "운영 적용",
     statusKind: "live",
@@ -251,7 +251,7 @@ window.PROJECTS = [
     headline: "숫자는 코드가 계산",
     headlineScope: "서버 제어 흐름 · RAG · Spring AI",
     book: "skala",
-    title: "TaxDesk — 금융소득 세무상담",
+    title: "TaxDesk | 금융소득 세무상담",
     scope: "교육 실습에서 시작한 개인 프로젝트 · 1인",
     period: "2026.08",
     periodDetail: "2026.08 구축 · 2026.11 개선",
@@ -305,13 +305,13 @@ window.PROJECTS = [
     id: "edu-up",
     roles: ["프론트엔드"],
     image: "media/portfolio/eduup-home.png",
-    imageAlt: "EDU:UP 메인 화면 — 맞춤 추천 강의와 도서(모의 데이터)",
+    imageAlt: "EDU:UP 메인 화면: 맞춤 추천 강의와 도서(모의 데이터)",
     status: "교육 실습",
     statusKind: "edu",
     headline: "Gateway 하나로 5개 서비스",
     headlineScope: "4인 팀 · 프론트엔드",
     book: "skala",
-    title: "EDU:UP — 교육복지포인트 플랫폼",
+    title: "EDU:UP | 교육복지포인트 플랫폼",
     scope: "교육 실습 · 4인 팀 · 프론트엔드",
     period: "2026.08",
     types: ["Frontend"],
@@ -335,7 +335,7 @@ window.PROJECTS = [
     image: "media/portfolio/gwangyebu-uiflow.png",
     imageAlt: "관계부 화면 11개의 이동 흐름도",
     book: "skala",
-    title: "관계부 — 기능·화면·ERD·API 설계",
+    title: "관계부 | 기능·화면·ERD·API 설계",
     scope: "교육 미니프로젝트 · 1인 · 3일",
     period: "2026.09",
     types: ["Product", "Frontend"],
@@ -364,7 +364,7 @@ window.PROJECTS = [
     status: "출품 준비 중",
     statusKind: "other",
     image: "media/portfolio/project-in-progress.svg",
-    imageAlt: "진행 중 — 표시광고 AI 사전검토 서비스",
+    imageAlt: "진행 중: 표시광고 AI 사전검토 서비스",
     book: "skala",
     title: "표시광고 AI 사전검토 서비스(가칭)",
     scope: "SKALA 팀 프로젝트",
@@ -388,7 +388,7 @@ window.PROJECTS = [
     image: "media/portfolio/quiket-card.png",
     imageAlt: "App Store에 출시된 퀴켓 소개 화면",
     book: "team",
-    title: "퀴켓 — AI 퀴즈 학습 앱",
+    title: "퀴켓 | AI 퀴즈 학습 앱",
     scope: "사이드 프로젝트 · 7인 팀 · PM",
     period: "2026.03–07",
     types: ["Product"],
@@ -423,7 +423,7 @@ window.PROJECTS = [
     headline: "분석 실패를 기본 흐름으로",
     headlineScope: "2인 팀 · 웹 · App Store",
     book: "team",
-    title: "에이링크 — AI 링크·QR 북마크",
+    title: "에이링크 | AI 링크·QR 북마크",
     scope: "2인 팀 · 웹 · iOS 출시",
     period: "2026.05–06",
     types: ["Product", "Frontend"],
@@ -441,12 +441,12 @@ window.PROJECTS = [
   {
     id: "dacon",
     image: "media/portfolio/dacon-labeling-marked.jpg",
-    imageAlt: "라벨링 도구 Stage 2 화면 — 충돌·진입 프레임, 진입 방향, 회피 공간을 표시한 상태",
+    imageAlt: "라벨링 도구 Stage 2 화면: 충돌·진입 프레임, 진입 방향, 회피 공간을 표시한 상태",
     roles: ["AI 엔지니어링"],
     status: "대회 종료",
     statusKind: "other",
     book: "team",
-    title: "데이콘 블랙박스 대회 — 재촬영 판별 실험 · 라벨링 도구",
+    title: "데이콘 블랙박스 대회 | 재촬영 판별 실험 · 라벨링 도구",
     scope: "팀 참가 · 대회",
     period: "2026.08–09",
     types: ["AI Engineering", "Tool"],
@@ -475,9 +475,9 @@ window.PROJECTS = [
     status: "출품 준비 중",
     statusKind: "other",
     image: "media/portfolio/possessed-flow.png",
-    imageAlt: "POSSESSED 기획 흐름도 — 도구 호출 제안, 정책 검사, 차단과 모의 실행",
+    imageAlt: "POSSESSED 기획 흐름도: 도구 호출 제안, 정책 검사, 차단과 모의 실행",
     book: "solo",
-    title: "POSSESSED — The Agent Overreach Lab",
+    title: "POSSESSED | The Agent Overreach Lab",
     scope: "개인 프로젝트 · Kiroween",
     period: "2026.11 – 진행 중",
     types: ["Product", "AI Engineering", "Tool"],
@@ -492,14 +492,14 @@ window.PROJECTS = [
   {
     id: "marketdesk",
     image: "media/portfolio/marketdesk-flow-card.jpg",
-    imageAlt: "마켓데스크 흐름 보드 — AI 산업의 한 달 흐름 요약",
+    imageAlt: "마켓데스크 흐름 보드: AI 산업의 한 달 흐름 요약",
     roles: ["기획", "풀스택 개발", "AI 엔지니어링"],
     status: "개발 완료 · 개인 사용 중",
     statusKind: "other",
     headline: "목적별 리포트 요약",
     headlineScope: "태스크 46개 · 결정 기록 15건",
     book: "solo",
-    title: "마켓데스크 — AI 리포트 분석·종목 관리",
+    title: "마켓데스크 | AI 리포트 분석·종목 관리",
     scope: "본인 개인 사용(미출시)",
     period: "2026.06 시작",
     types: ["AI Engineering", "Backend"],
@@ -545,13 +545,13 @@ window.PROJECTS = [
     id: "classtrack",
     roles: ["풀스택 개발"],
     image: "media/portfolio/classtrack-dashboard.jpg",
-    imageAlt: "ClassTrack 대시보드 — 강의·과제 집계와 수업일 캘린더",
+    imageAlt: "ClassTrack 대시보드: 강의·과제 집계와 수업일 캘린더",
     status: "배포 실습",
     statusKind: "other",
     headline: "종료일 없이 규칙으로 계산",
     headlineScope: "Spring Boot · Vue 3",
     book: "solo",
-    title: "ClassTrack — 강의·과제 추적 웹앱",
+    title: "ClassTrack | 강의·과제 추적 웹앱",
     scope: "구현·배포 실습",
     period: "2026.08",
     types: ["Backend", "Frontend"],
@@ -573,9 +573,9 @@ window.PROJECTS = [
     status: "공개 중",
     statusKind: "other",
     image: "media/portfolio/templets-hub-home.jpg",
-    imageAlt: "템플릿 허브 첫 화면 — 분류별 디자인 프롬프트 목록",
+    imageAlt: "템플릿 허브 첫 화면: 분류별 디자인 프롬프트 목록",
     book: "solo",
-    title: "템플릿 허브 — 문서 디자인 프롬프트 모음",
+    title: "템플릿 허브 | 문서 디자인 프롬프트 모음",
     scope: "작은 도구",
     period: "2026",
     types: ["Tool"],
@@ -607,7 +607,7 @@ window.PROJECTS = [
     problem: "처음 시작하는 사람이 기획부터 배포까지 한 번 끝까지 가 보게 하는 것이 목표였습니다.",
     role: "1인 제작(AI 코딩 도구 활용)",
     build: [
-      "기획부터 배포까지 8단계 — 단계마다 AI에 줄 프롬프트와 쓸 만한 오픈소스",
+      "기획부터 배포까지 8단계: 단계마다 AI에 줄 프롬프트와 쓸 만한 오픈소스",
       "API 키는 서버리스 함수에서만 사용",
       "빌드 전에 키 유출 검사를 통과하도록 설정"
     ],
@@ -618,21 +618,21 @@ window.PROJECTS = [
   {
     id: "personal-tools",
     image: "media/portfolio/study-note-serving.jpg",
-    imageAlt: "과목별 학습 노트 — 모델 서빙 & AIOps 구성 첫 화면",
+    imageAlt: "과목별 학습 노트: 모델 서빙 & AIOps 구성 첫 화면",
     roles: ["풀스택 개발", "AI 엔지니어링"],
     status: "개인 사용",
     statusKind: "other",
     book: "solo",
-    title: "개인용 툴 — 기타",
+    title: "개인용 툴 | 기타",
     scope: "작은 도구",
     period: "2026",
     types: ["Tool"],
-    overview: "메일 요약봇과 학습용 AI 코치 웹앱 — 직접 쓰려고 만든 작은 도구.",
+    overview: "메일 요약봇과 학습용 AI 코치 웹앱: 직접 쓰려고 만든 작은 도구.",
     problem: "매일 반복해서 확인하던 메일을 줄이고, AI에게 물어본 내용이 남지 않는 문제를 풀고 싶었습니다.",
     role: "1인 제작(AI 코딩 도구 활용)",
     build: [
-      "메일 요약봇 — Gmail을 IMAP으로 수집해 중요도별로 요약하고 Discord로 전송, GitHub Actions로 매일 아침 실행",
-      "학습용 AI 코치 — 교재 옆 질문 패널, AI가 주관식 질문을 내고 서술형 답을 채점해 답안·통과 여부를 DB에 저장"
+      "메일 요약봇: Gmail을 IMAP으로 수집해 중요도별로 요약하고 Discord로 전송, GitHub Actions로 매일 아침 실행",
+      "학습용 AI 코치: 교재 옆 질문 패널, AI가 주관식 질문을 내고 서술형 답을 채점해 답안·통과 여부를 DB에 저장"
     ],
     metrics: [],
     resultNote: "직접 쓰려고 만든 도구입니다. 학습용 AI 코치는 과목별로 만들어 썼습니다.",

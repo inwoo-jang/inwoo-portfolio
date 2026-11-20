@@ -181,11 +181,11 @@ RAG를 도입하는 것 자체가 목표가 되어서는 안 된다. **해결하
 ## 참고
 
 
-- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://aclanthology.org/2024.emnlp-industry.66/) — EMNLP 2024, RAG와 Long Context의 성능·비용 비교
-- [Long-Context LLMs Meet RAG](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5df5b1f121c915d8bdd00db6aac20827-Abstract-Conference.html) — ICLR 2025, 검색 문서 수와 성능 저하 현상
-- [Introducing Contextual Retrieval](https://www.anthropic.com/research/contextual-retrieval) — Anthropic, 2024.09.19, 문맥 손실과 검색 성능 개선
-- [LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs](https://proceedings.mlr.press/v267/li25dv.html) — ICML 2025, RAG와 Long Context의 적용 조건 비교
-- [UAEval4RAG: Unanswerability Evaluation for Retrieval Augmented Generation](https://aclanthology.org/2025.acl-long.415/) — ACL 2025, 답변 불가 상황 평가
-- [Ragas — Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/) — 검색 관련성, 근거 충실성, 답변 정확성 평가
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://aclanthology.org/2024.emnlp-industry.66/): EMNLP 2024, RAG와 Long Context의 성능·비용 비교
+- [Long-Context LLMs Meet RAG](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5df5b1f121c915d8bdd00db6aac20827-Abstract-Conference.html): ICLR 2025, 검색 문서 수와 성능 저하 현상
+- [Introducing Contextual Retrieval](https://www.anthropic.com/research/contextual-retrieval): Anthropic, 2024.09.19, 문맥 손실과 검색 성능 개선
+- [LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs](https://proceedings.mlr.press/v267/li25dv.html): ICML 2025, RAG와 Long Context의 적용 조건 비교
+- [UAEval4RAG: Unanswerability Evaluation for Retrieval Augmented Generation](https://aclanthology.org/2025.acl-long.415/): ACL 2025, 답변 불가 상황 평가
+- [Ragas: Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/): 검색 관련성, 근거 충실성, 답변 정확성 평가
 
 관련 실습: SKALA RAG 파이프라인 캡스톤 (2026.09.18 ~ 09.22)

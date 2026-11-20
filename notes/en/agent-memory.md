@@ -55,7 +55,7 @@ Looking at this breakdown, I thought each kind of memory should have its own ret
 
 ## Is an AI that remembers more a better AI?
 
-### LongMemEval — memory is more about using and updating than storing
+### LongMemEval | memory is more about using and updating than storing
 
 *LongMemEval*, published at ICLR 2025, evaluates long-term memory on five abilities:
 
@@ -76,7 +76,7 @@ The two I paid most attention to were Knowledge Updates and Abstention. Even if 
 
 So memory needs to separate **preserving the past record** from **judging which conditions are valid now**.
 
-### MemoryAgentBench — forgetting well is also something to evaluate
+### MemoryAgentBench | forgetting well is also something to evaluate
 
 *MemoryAgentBench* at ICLR 2026 includes selective forgetting among the areas it evaluates for agent memory. The point is that an agent needs not only to remember important information, but also to drop information that no longer holds from its current decisions.
 
@@ -229,11 +229,11 @@ In the end, I think a good memory system isn't one that remembers everything, bu
 
 Checked: 2026.11.11
 
-- [LangChain — Memory Overview](https://docs.langchain.com/oss/python/concepts/memory) — short- and long-term memory; semantic, episodic, and procedural memory
-- [LangGraph — Long-term Memory](https://docs.langchain.com/oss/python/langgraph/memory) — storing memory and managing state
-- [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813) — ICLR 2025; evaluates long-term memory on information retrieval, temporal reasoning, knowledge updates, and abstention
-- [MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions](https://arxiv.org/abs/2507.05257) — ICLR 2026; evaluates long-term memory and selective forgetting
-- [Letta — Memory Management](https://docs.letta.com/configuration/memory) — memory management for stateful agents
-- [Personal Information Protection Act, Article 21](https://www.law.go.kr/법령/개인정보보호법/제21조) — destruction of personal information
-- [Personal Information Protection Act, Article 36](https://www.law.go.kr/법령/개인정보보호법/제36조) — correction and deletion of personal information
-- [GDPR Article 5](https://gdpr-info.eu/art-5-gdpr/) — accuracy, data minimization, storage limitation
+- [LangChain: Memory Overview](https://docs.langchain.com/oss/python/concepts/memory): short- and long-term memory; semantic, episodic, and procedural memory
+- [LangGraph: Long-term Memory](https://docs.langchain.com/oss/python/langgraph/memory): storing memory and managing state
+- [LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813): ICLR 2025; evaluates long-term memory on information retrieval, temporal reasoning, knowledge updates, and abstention
+- [MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions](https://arxiv.org/abs/2507.05257): ICLR 2026; evaluates long-term memory and selective forgetting
+- [Letta: Memory Management](https://docs.letta.com/configuration/memory): memory management for stateful agents
+- [Personal Information Protection Act, Article 21](https://www.law.go.kr/법령/개인정보보호법/제21조): destruction of personal information
+- [Personal Information Protection Act, Article 36](https://www.law.go.kr/법령/개인정보보호법/제36조): correction and deletion of personal information
+- [GDPR Article 5](https://gdpr-info.eu/art-5-gdpr/): accuracy, data minimization, storage limitation

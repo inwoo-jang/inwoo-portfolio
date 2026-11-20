@@ -1,5 +1,5 @@
 ---
-title: Why use an sLLM? — not because it's small, but because it fits the requirements
+title: Why use an sLLM? not because it's small, but because it fits the requirements
 category: planning
 categories: [planning, ai]
 tags: [AI product planning, sLLM, Language model, Operating cost]

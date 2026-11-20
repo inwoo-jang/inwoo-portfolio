@@ -1,5 +1,5 @@
 ---
-title: Character count couldn't evaluate a report — splitting checks between code and an LLM judge
+title: Character count couldn't evaluate a report | splitting checks between code and an LLM judge
 category: ops
 categories: [ops, ai]
 tags: [AI Agent, Evaluation, LLM Judge, LangGraph]

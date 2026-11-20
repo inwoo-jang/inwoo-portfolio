@@ -3,7 +3,7 @@ window.PROJECT_IMAGES = {
   "possessed": [
     {
       "src": "media/portfolio/possessed-flow.png",
-      "alt": "POSSESSED 기획 흐름도 — 도구 호출 제안, 정책 검사, 차단과 모의 실행",
+      "alt": "POSSESSED 기획 흐름도: 도구 호출 제안, 정책 검사, 차단과 모의 실행",
       "caption": "기획·설계 흐름도 · 초기 구현 단계 · 전체 흐름 및 실제 LLM 실험 결과 검증 전"
     }
   ],
@@ -17,12 +17,12 @@ window.PROJECT_IMAGES = {
   "pharmacy-link": [
     {
       "src": "media/portfolio/jikim-home.jpg",
-      "alt": "지킴 앱 홈 — 손익과 약국 가계부",
+      "alt": "지킴 앱 홈: 손익과 약국 가계부",
       "caption": "회사 앱 소개 이미지 · 홈 화면(손익·약국 가계부)"
     },
     {
       "src": "media/portfolio/jikim-tax-tab.jpg",
-      "alt": "지킴 앱 세무 탭 — 매출·입금 현황",
+      "alt": "지킴 앱 세무 탭: 매출·입금 현황",
       "caption": "회사 앱 소개 이미지 · 세무 탭(매출·입금 현황)"
     }
   ],
@@ -43,7 +43,7 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/taxdesk-income-panel-2611.jpg",
-      "alt": "내 금융소득 패널 — 자사·연동 과세대상, 판정 제외 금액, 타사 미확인을 나눠 보여 줌",
+      "alt": "내 금융소득 패널: 자사·연동 과세대상, 판정 제외 금액, 타사 미확인을 나눠 보여 줌",
       "caption": "실제 화면(11월) · 확인된 소득과 확인 안 된 소득을 나눠 보여 주는 패널"
     },
     {
@@ -82,7 +82,7 @@ window.PROJECT_IMAGES = {
   "edu-up": [
     {
       "src": "media/portfolio/eduup-home.png",
-      "alt": "EDU:UP 메인 화면 — 맞춤 추천 강의와 도서",
+      "alt": "EDU:UP 메인 화면: 맞춤 추천 강의와 도서",
       "caption": "실제 화면 · 담당한 메인 화면(모의 데이터)"
     },
     {
@@ -109,29 +109,29 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/gwangyebu-app-home.png",
-      "alt": "관계부 홈 — 다가오는 경조사와 생일",
+      "alt": "관계부 홈: 다가오는 경조사와 생일",
       "caption": "실제 화면 · 프로토타입 홈(샘플 데이터)"
     },
     {
       "src": "media/portfolio/gwangyebu-app-persons.png",
-      "alt": "관계부 인물 목록 — 관계와 태그로 찾기",
+      "alt": "관계부 인물 목록: 관계와 태그로 찾기",
       "caption": "실제 화면 · 프로토타입 인물 목록(샘플 데이터)"
     },
     {
       "src": "media/portfolio/gwangyebu-app-ledger.png",
-      "alt": "관계부 장부 — 보낸 것과 받은 것 합계",
+      "alt": "관계부 장부: 보낸 것과 받은 것 합계",
       "caption": "실제 화면 · 프로토타입 장부(샘플 데이터)"
     }
   ],
   "quiket": [
     {
       "src": "media/portfolio/quiket-demo-upload.jpg",
-      "alt": "퀴켓 자료 추가 화면 — 챕터명을 먼저 쓰지 않고 파일을 고르는 단계",
+      "alt": "퀴켓 자료 추가 화면: 챕터명을 먼저 쓰지 않고 파일을 고르는 단계",
       "caption": "최종 발표 시연 화면 · ① 자료 올리기 · 팀 결과물"
     },
     {
       "src": "media/portfolio/quiket-demo-chapters.jpg",
-      "alt": "퀴켓 자료 확인 화면 — AI가 나눈 챕터명과 파트 4개를 확인하고 수정하는 단계",
+      "alt": "퀴켓 자료 확인 화면: AI가 나눈 챕터명과 파트 4개를 확인하고 수정하는 단계",
       "caption": "최종 발표 시연 화면 · ② AI가 나눈 챕터·파트 확인·수정 · 팀 결과물"
     },
     {
@@ -153,7 +153,7 @@ window.PROJECT_IMAGES = {
   "archivelink": [
     {
       "src": "media/portfolio/qlink-web.png",
-      "alt": "에이링크 웹 프로토타입 — 링크 목록과 AI 태그",
+      "alt": "에이링크 웹 프로토타입: 링크 목록과 AI 태그",
       "caption": "실제 화면 · 담당한 웹 프로토타입(샘플 링크)"
     },
     {
@@ -165,12 +165,12 @@ window.PROJECT_IMAGES = {
   "dacon": [
     {
       "src": "media/portfolio/dacon-labeling-marked.jpg",
-      "alt": "라벨링 도구 Stage 2 화면 — 충돌·진입 프레임, 진입 방향, 회피 공간을 표시한 상태",
+      "alt": "라벨링 도구 Stage 2 화면: 충돌·진입 프레임, 진입 방향, 회피 공간을 표시한 상태",
       "caption": "실제 화면 · 키보드로 충돌 프레임과 방향 표시(합성 영상)"
     },
     {
       "src": "media/portfolio/dacon-labeling-adjust.jpg",
-      "alt": "라벨링 도구 정밀 조정 화면 — 진입 프레임을 1프레임씩 조정",
+      "alt": "라벨링 도구 정밀 조정 화면: 진입 프레임을 1프레임씩 조정",
       "caption": "실제 화면 · 표시 직후 ±7프레임 조정(합성 영상)"
     }
   ],
@@ -178,7 +178,7 @@ window.PROJECT_IMAGES = {
   "payroll": [
     {
       "src": "media/portfolio/payroll-slip.jpg",
-      "alt": "급여명세서 화면 예시 — 지급내역, 공제내역, 실지급액",
+      "alt": "급여명세서 화면 예시: 지급내역, 공제내역, 실지급액",
       "caption": "회사 소개 이미지(예시 데이터) · 급여명세서"
     },
     {
@@ -200,12 +200,12 @@ window.PROJECT_IMAGES = {
   "marketdesk": [
     {
       "src": "media/portfolio/marketdesk-flow.jpg",
-      "alt": "마켓데스크 흐름 보드 — 핵심·엇갈림·흐름 위험 신호로 나눈 월별 요약",
+      "alt": "마켓데스크 흐름 보드: 핵심·엇갈림·흐름 위험 신호로 나눈 월별 요약",
       "caption": "실제 화면 · 리포트를 월별로 쌓아 흐름으로 요약"
     },
     {
       "src": "media/portfolio/marketdesk-home.jpg",
-      "alt": "마켓데스크 홈 — 렌즈, 내 산업, 관심 기업",
+      "alt": "마켓데스크 홈: 렌즈, 내 산업, 관심 기업",
       "caption": "실제 화면 · 읽는 목적과 관심 기업을 정하고 리포트 올리기"
     }
   ],
@@ -219,19 +219,19 @@ window.PROJECT_IMAGES = {
   "classtrack": [
     {
       "src": "media/portfolio/classtrack-dashboard.jpg",
-      "alt": "ClassTrack 대시보드 — 강의·과제 집계와 수업일 캘린더",
+      "alt": "ClassTrack 대시보드: 강의·과제 집계와 수업일 캘린더",
       "caption": "실제 화면 · 수업일만 표시하는 대시보드(예시 데이터)"
     },
     {
       "src": "media/portfolio/classtrack-dev.jpg",
-      "alt": "ClassTrack dev 화면 — 실행 중인 앱에서 읽어 온 API 목록과 AOP 적용 여부",
+      "alt": "ClassTrack dev 화면: 실행 중인 앱에서 읽어 온 API 목록과 AOP 적용 여부",
       "caption": "실제 화면 · API 목록과 로깅 적용 여부를 보는 dev 화면"
     }
   ],
   "templets-hub": [
     {
       "src": "media/portfolio/templets-hub-home.jpg",
-      "alt": "템플릿 허브 첫 화면 — 분류별 디자인 프롬프트 목록",
+      "alt": "템플릿 허브 첫 화면: 분류별 디자인 프롬프트 목록",
       "caption": "실제 화면 · 템플릿 허브 첫 화면"
     }
   ],
@@ -245,7 +245,7 @@ window.PROJECT_IMAGES = {
   "personal-tools": [
     {
       "src": "media/portfolio/study-note-serving.jpg",
-      "alt": "과목별 학습 노트 — 모델 서빙 · AIOps 3일 과정을 Day별 카드로 정리한 첫 화면",
+      "alt": "과목별 학습 노트: 모델 서빙 · AIOps 3일 과정을 Day별 카드로 정리한 첫 화면",
       "caption": "실제 화면 · 과목별 학습 노트"
     },
     {
@@ -255,7 +255,7 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/ai-coach-side.jpg",
-      "alt": "학습용 AI 코치 — 교재 본문 옆 질문 패널에 AI 설명이 펼쳐진 화면",
+      "alt": "학습용 AI 코치: 교재 본문 옆 질문 패널에 AI 설명이 펼쳐진 화면",
       "caption": "실제 화면 · 교재 옆에서 묻는 AI 코치"
     }
   ]

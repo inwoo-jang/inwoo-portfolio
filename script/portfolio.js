@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/portfolio.js — 추가 실습
+   script/portfolio.js: 추가 실습
    연습장 넘기기. 내용은 HTML에 모두 적혀 있고,
    이 파일은 어떤 장을 보여줄지와 넘기는 방향만 정한다.
 
@@ -54,7 +54,7 @@ function initNotebook(note) {
   }
 
   /**
-   * 표지에서 앞으로, 마지막 장에서 뒤로 넘기려 할 때 — 책장에 알린다.
+   * 표지에서 앞으로, 마지막 장에서 뒤로 넘기려 할 때: 책장에 알린다.
    * @param {string} direction "next" | "prev"
    */
   function reachEdge(direction) {
@@ -144,7 +144,7 @@ function initNotebook(note) {
     revealTop();
   }
 
-  /** 양면 보기인지 — 데스크톱 폭이고, 두 장 모두 왼쪽·오른쪽 면이 있을 때 */
+  /** 양면 보기인지: 데스크톱 폭이고, 두 장 모두 왼쪽·오른쪽 면이 있을 때 */
   function spreadMode(from, to) {
     if (!window.matchMedia("(min-width: 768px)").matches) { return false; }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return false; }
@@ -174,7 +174,7 @@ function initNotebook(note) {
 
   /**
    * 책 반쪽(종이 한 장) 크기의 판. 연습장 종이와 같은 색·결로 칠하고,
-   * 그 위에 장(.note__page)을 통째로 복제해 같은 자리에 얹는다 — 원래 스타일이 그대로 적용되도록.
+   * 그 위에 장(.note__page)을 통째로 복제해 같은 자리에 얹는다: 원래 스타일이 그대로 적용되도록.
    * 판에는 face 쪽 면만 보이고 반대쪽 면은 숨긴다.
    * @param {HTMLElement} page  복제할 장
    * @param {string} face       보일 면(".spread__left" / ".spread__right")
@@ -192,7 +192,7 @@ function initNotebook(note) {
     el.style.width = half + "px";
     paperLike(el, n, offset);
 
-    // 본문(.note__body) 자리와 크기를 그대로 흉내 낸 틀 — 장은 그 안을 가득 채운다
+    // 본문(.note__body) 자리와 크기를 그대로 흉내 낸 틀: 장은 그 안을 가득 채운다
     var frame = document.createElement("div");
     frame.className = "flip-plate__frame";
     frame.style.left = (b.left - n.left - offset) + "px";
@@ -241,10 +241,10 @@ function initNotebook(note) {
   }
 
   /**
-   * 종이 한 장 넘기기 — 책 오른쪽(또는 왼쪽) 반쪽 전체가 책등을 축으로 넘어간다.
+   * 종이 한 장 넘기기: 책 오른쪽(또는 왼쪽) 반쪽 전체가 책등을 축으로 넘어간다.
    * 다음 장: 오른쪽 종이가 왼쪽으로 넘어가며, 뒷면이 새 장의 왼쪽 면이 된다.
    * 이전 장: 왼쪽 종이가 오른쪽으로 넘어가며, 뒷면이 새 장의 오른쪽 면이 된다.
-   * 버튼 줄도 함께 복제한다 — 넘어가는 앞면은 넘기기 전 상태, 남는 쪽과 뒷면은 넘긴 뒤 상태.
+   * 버튼 줄도 함께 복제한다: 넘어가는 앞면은 넘기기 전 상태, 남는 쪽과 뒷면은 넘긴 뒤 상태.
    */
   function flipSheet(from, to, direction) {
     var next = direction === "next";
@@ -298,7 +298,7 @@ function initNotebook(note) {
       finished = true;
       busy = false;
       shadow.remove();
-      // 판을 바로 걷지 않고 아주 짧게 흐려서 걷는다 — 실제 장과의 미세한 글자 렌더링 차이가 '툭' 보이지 않게
+      // 판을 바로 걷지 않고 아주 짧게 흐려서 걷는다: 실제 장과의 미세한 글자 렌더링 차이가 '툭' 보이지 않게
       // 남아 있던 옛 면(stay)은 착지한 종이에 이미 덮였으므로 바로 걷는다
       stay.remove();
       sheet.classList.add("is-leaving");
@@ -320,7 +320,7 @@ function initNotebook(note) {
   }
 
   /**
-   * 애니메이션 없이 바로 그 장을 펼친다 — 다른 책에서 넘어올 때 쓴다.
+   * 애니메이션 없이 바로 그 장을 펼친다: 다른 책에서 넘어올 때 쓴다.
    * @param {number} index
    */
   function jumpTo(index) {
@@ -358,7 +358,7 @@ function initNotebook(note) {
   });
 
   /* ----------------------------------------------------------
-     종이 자체가 버튼 — 오른쪽 절반을 누르면 다음 장,
+     종이 자체가 버튼: 오른쪽 절반을 누르면 다음 장,
      왼쪽 절반을 누르면 이전 장. 커서도 방향 손가락으로 바뀐다.
      ---------------------------------------------------------- */
 
@@ -368,7 +368,7 @@ function initNotebook(note) {
     return (event.clientX - rect.left) > rect.width / 2;
   }
 
-  // 연습장 전체가 버튼 — 센터 기준 오른쪽 절반=다음 장, 왼쪽 절반=이전 장
+  // 연습장 전체가 버튼: 센터 기준 오른쪽 절반=다음 장, 왼쪽 절반=이전 장
   note.addEventListener("click", function (event) {
     // 목차·넘기기 버튼·링크 클릭은 각자 동작에 맡긴다
     if (event.target.closest("button, a")) { return; }
@@ -428,7 +428,7 @@ for (var n = 0; n < notebooks.length; n++) {
 }
 
 /* ==========================================================
-   책장 (portfolio.html) — 위에 꽂힌 책을 누르면 아래에 그 책이 펼쳐진다.
+   책장 (portfolio.html): 위에 꽂힌 책을 누르면 아래에 그 책이 펼쳐진다.
    한 번에 한 권만 펼치고, 마지막 장에서 다음으로 넘기면 다음 책 표지로,
    표지에서 이전으로 넘기면 앞 책의 마지막 장으로 이어진다.
    책장이 없는 페이지(how.html)에서는 아무것도 하지 않는다.

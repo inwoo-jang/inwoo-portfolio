@@ -205,10 +205,10 @@ Going forward, I think it's not enough to check that an agent understands instru
 
 ## References
 
-- [OWASP — LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — Types of direct and indirect attacks, and key defense principles
-- [OWASP — LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) — Input and output checks, tool permissions, layered defense
-- [Microsoft Security — How Microsoft Defends Against Indirect Prompt Injection Attacks](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks) (2025.07.29) — Spotlighting and probabilistic vs. deterministic defenses
-- [Microsoft Research — Defending Against Indirect Prompt Injection Attacks With Spotlighting](https://www.microsoft.com/en-us/research/publication/defending-against-indirect-prompt-injection-attacks-with-spotlighting/) (2024.03) — Research on source-separation defenses
-- [Anthropic — Mitigating the Risk of Prompt Injections in Browser Use](https://www.anthropic.com/research/prompt-injection-defenses) (2025.11.24) — Attack paths and defenses for browser-based agents
-- [OpenAI — Designing AI Agents to Resist Prompt Injection](https://openai.com/index/designing-agents-to-resist-prompt-injection/) (2026.03.11) — Social-engineering attacks and limiting execution impact
-- [ACL 2025 — The Task Shield: Enforcing Task Alignment to Defend Against Indirect Prompt Injection in LLM Agents](https://aclanthology.org/2025.acl-long.1435/) — Checking that tool execution matches the user's goal
+- [OWASP: LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/): Types of direct and indirect attacks, and key defense principles
+- [OWASP: LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html): Input and output checks, tool permissions, layered defense
+- [Microsoft Security: How Microsoft Defends Against Indirect Prompt Injection Attacks](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks) (2025.07.29): Spotlighting and probabilistic vs. deterministic defenses
+- [Microsoft Research: Defending Against Indirect Prompt Injection Attacks With Spotlighting](https://www.microsoft.com/en-us/research/publication/defending-against-indirect-prompt-injection-attacks-with-spotlighting/) (2024.03): Research on source-separation defenses
+- [Anthropic: Mitigating the Risk of Prompt Injections in Browser Use](https://www.anthropic.com/research/prompt-injection-defenses) (2025.11.24): Attack paths and defenses for browser-based agents
+- [OpenAI: Designing AI Agents to Resist Prompt Injection](https://openai.com/index/designing-agents-to-resist-prompt-injection/) (2026.03.11): Social-engineering attacks and limiting execution impact
+- [ACL 2025: The Task Shield: Enforcing Task Alignment to Defend Against Indirect Prompt Injection in LLM Agents](https://aclanthology.org/2025.acl-long.1435/): Checking that tool execution matches the user's goal

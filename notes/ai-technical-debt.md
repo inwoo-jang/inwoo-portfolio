@@ -58,9 +58,9 @@ OpenAI가 같은 저장소 범위에서 오래된 실험을 조사하게 했을 
 
 ## 참고
 
-- [OpenAI · Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) — Codex를 활용한 미사용 코드 정리, 모델 비용 비교, CI 개선 사례
-- [LaunchDarkly · Reducing technical debt from feature flags](https://launchdarkly.com/docs/eu-docs/guides/flags/technical-debt) — 오래된 플래그 후보를 찾는 기준과 정리 방법
-- [LaunchDarkly · Archiving flags](https://launchdarkly.com/docs/fed-docs/home/flags/archive) — 아카이브 전 확인할 최근 사용 이력과 플래그 의존관계
-- [Pete Hodgson · Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) — 플래그의 목적별 분류와 제거 작업을 백로그에 넣는 방법
-- [Uber Engineering · Introducing Piranha](https://www.uber.com/ke/en/blog/piranha/) — 종료된 실험의 코드 분기를 자동으로 정리하는 사례
-- [GitHub Docs · About GitHub Actions metrics](https://docs.github.com/en/actions/concepts/metrics) — CI 작업별 대기 시간, 실행 시간, 실패율 확인 방법
+- [OpenAI · Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family): Codex를 활용한 미사용 코드 정리, 모델 비용 비교, CI 개선 사례
+- [LaunchDarkly · Reducing technical debt from feature flags](https://launchdarkly.com/docs/eu-docs/guides/flags/technical-debt): 오래된 플래그 후보를 찾는 기준과 정리 방법
+- [LaunchDarkly · Archiving flags](https://launchdarkly.com/docs/fed-docs/home/flags/archive): 아카이브 전 확인할 최근 사용 이력과 플래그 의존관계
+- [Pete Hodgson · Feature Toggles](https://martinfowler.com/articles/feature-toggles.html): 플래그의 목적별 분류와 제거 작업을 백로그에 넣는 방법
+- [Uber Engineering · Introducing Piranha](https://www.uber.com/ke/en/blog/piranha/): 종료된 실험의 코드 분기를 자동으로 정리하는 사례
+- [GitHub Docs · About GitHub Actions metrics](https://docs.github.com/en/actions/concepts/metrics): CI 작업별 대기 시간, 실행 시간, 실패율 확인 방법

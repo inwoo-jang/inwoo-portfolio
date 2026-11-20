@@ -15,7 +15,7 @@ related: [prompt-techniques, rag-citation-rules, ai-failure-tracing, agent-guard
 
 It's easy to assume that good answers come from good prompts. Give the model a role, define the answer format, spell out the edge cases, and quality can improve.
 
-But no matter how firmly you tell a model to be accurate, it can't produce the right answer if the information it needs isn't there at the right time. Does it work the other way, then — give it as much relevant material as possible and it gets more accurate? Not necessarily. Irrelevant material can make the model miss what matters, and old and new information can contradict each other.
+But no matter how firmly you tell a model to be accurate, it can't produce the right answer if the information it needs isn't there at the right time. Does it work the other way, then? Does giving it more material make it more accurate? Not necessarily. Irrelevant material can make the model miss what matters, and old and new information can contradict each other.
 
 So I got interested not just in how to write prompts, but in **designing what information the model gets while it works**. AI agents use search, tool calls, and the results of earlier steps all at once, which makes context management even harder.
 
@@ -42,7 +42,7 @@ This defines the role, the answering style, the constraints, and the output form
 - Where the current task stands
 - Rules and constraints that must always be followed
 
-If prompt engineering is about **how the model should act**, context engineering is about **what it needs to know to make a judgment**. They aren't separate skills, though — they complement each other, since the instructions are themselves part of the context the model receives.
+If prompt engineering is about **how the model should act**, context engineering is about **what it needs to know to make a judgment**. They aren't separate skills, though. They complement each other, since the instructions are themselves part of the context the model receives.
 
 RAG is just one technique you can use for context engineering. It isn't the whole of it.
 
@@ -61,7 +61,7 @@ For tax consultation, finding the relevant law may not be enough. Which rules ap
 | Leave out | Anything unrelated to the current question or duplicated |
 | Needs checking | Anything with an unclear source or that conflicts with other material |
 
-The key here is **noticing when information is missing**. If a required condition hasn't been confirmed, asking the user or looking up more information — instead of producing an answer no matter what — is a valid design choice.
+The key here is **noticing when information is missing**. If a required condition hasn't been confirmed, asking the user or looking up more information (instead of producing an answer no matter what) is a valid design choice.
 
 ### When should it get it?
 
@@ -75,7 +75,7 @@ I don't think everything has to be handed over up front. Say an AI agent works i
 
 Each step needs different information. Interpreting the request needs the user's goal and conditions; choosing a tool needs the available tools and when to call them; the final answer needs the key results and evidence from the earlier steps. So instead of passing everything to every step, it's worth considering **giving each step only what it needs right now**.
 
-That said, hard constraints and approval conditions must not get lost when information is compressed. And important permission checks shouldn't be left to the prompt alone — the system has to enforce them separately.
+That said, hard constraints and approval conditions must not get lost when information is compressed. And important permission checks shouldn't be left to the prompt alone. The system has to enforce them separately.
 
 ### How much should it get?
 
@@ -117,7 +117,7 @@ Whatever the AI feature, I check these questions first when designing its contex
 | Handling conflicts | When retrieved sources disagree, does it go by recency, by source, or hand off to a person? |
 | Per-step handoff | What exactly gets passed to each step (interpretation, tool choice, answer)? |
 | Conditions to keep | Which constraints and approval conditions must never drop out, even in long conversations? |
-| Summary vs. original | What can be summarized, and what — like numbers, dates, and exceptions — must stay verbatim? |
+| Summary vs. original | What can be summarized, and what, including numbers, dates, and exceptions, must stay verbatim? |
 | Remembering and discarding | What gets stored, and when is it updated or thrown away? Do the user's corrections take priority? |
 | Enforcement | Are permissions and rules left to the prompt alone? |
 
@@ -149,10 +149,10 @@ I don't think "which matters more, prompt engineering or context engineering?" i
 
 When planning an AI agent, you have to design not just what to tell the model but **what information it needs, when to fetch it, how long to keep it, and what to throw away**. And giving the model information is a different thing from having the system enforce permissions and rules.
 
-Giving a lot of context is not the same as giving good context. I don't assume which setup is better — I check it on each project by comparing them as described above.
+Giving a lot of context is not the same as giving good context. I don't assume which setup is better. I check it on each project by comparing them as described above.
 
 ## References
 
-- [LangGraph GitHub](https://github.com/langchain-ai/langgraph) — reference for stateful agent workflows and implementation
-- [LangChain docs](https://docs.langchain.com/) — concepts and implementation for agents, RAG, and memory
-- [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — how to build and manage agent context
+- [LangGraph GitHub](https://github.com/langchain-ai/langgraph): reference for stateful agent workflows and implementation
+- [LangChain docs](https://docs.langchain.com/): concepts and implementation for agents, RAG, and memory
+- [Anthropic: Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents): how to build and manage agent context

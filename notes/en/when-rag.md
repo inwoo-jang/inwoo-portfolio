@@ -182,11 +182,11 @@ Adopting RAG shouldn't become the goal in itself. **Define the business problem 
 
 Checked: 2026.11.11
 
-- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://aclanthology.org/2024.emnlp-industry.66/) — EMNLP 2024, performance and cost comparison of RAG and long context
-- [Long-Context LLMs Meet RAG](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5df5b1f121c915d8bdd00db6aac20827-Abstract-Conference.html) — ICLR 2025, number of retrieved documents and performance drop
-- [Introducing Contextual Retrieval](https://www.anthropic.com/research/contextual-retrieval) — Anthropic, 2024.09.19, context loss and improving retrieval
-- [LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs](https://proceedings.mlr.press/v267/li25dv.html) — ICML 2025, comparing when RAG and long context fit
-- [UAEval4RAG: Unanswerability Evaluation for Retrieval Augmented Generation](https://aclanthology.org/2025.acl-long.415/) — ACL 2025, evaluating unanswerable cases
-- [Ragas — Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/) — Evaluating retrieval relevance, faithfulness, and answer correctness
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://aclanthology.org/2024.emnlp-industry.66/): EMNLP 2024, performance and cost comparison of RAG and long context
+- [Long-Context LLMs Meet RAG](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5df5b1f121c915d8bdd00db6aac20827-Abstract-Conference.html): ICLR 2025, number of retrieved documents and performance drop
+- [Introducing Contextual Retrieval](https://www.anthropic.com/research/contextual-retrieval): Anthropic, 2024.09.19, context loss and improving retrieval
+- [LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs](https://proceedings.mlr.press/v267/li25dv.html): ICML 2025, comparing when RAG and long context fit
+- [UAEval4RAG: Unanswerability Evaluation for Retrieval Augmented Generation](https://aclanthology.org/2025.acl-long.415/): ACL 2025, evaluating unanswerable cases
+- [Ragas: Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/): Evaluating retrieval relevance, faithfulness, and answer correctness
 
 Related exercise: SKALA RAG pipeline capstone (2026.09.18 ~ 09.22)

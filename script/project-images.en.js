@@ -3,7 +3,7 @@ window.PROJECT_IMAGES = {
   "possessed": [
     {
       "src": "media/portfolio/possessed-flow.png",
-      "alt": "POSSESSED design flow — tool-call proposals, policy checks, blocks and mock execution",
+      "alt": "POSSESSED design flow: tool-call proposals, policy checks, blocks and mock execution",
       "caption": "Design flow diagram · Early implementation · End-to-end flow and live LLM experiments not yet validated"
     }
   ],
@@ -17,12 +17,12 @@ window.PROJECT_IMAGES = {
   "pharmacy-link": [
     {
       "src": "media/portfolio/jikim-home.jpg",
-      "alt": "JEEKIM app home — profit and loss and Pharmacy Ledger",
+      "alt": "JEEKIM app home: profit and loss and Pharmacy Ledger",
       "caption": "Company app marketing image · Home screen (profit and loss, Pharmacy Ledger)"
     },
     {
       "src": "media/portfolio/jikim-tax-tab.jpg",
-      "alt": "JEEKIM app tax tab — sales and deposits",
+      "alt": "JEEKIM app tax tab: sales and deposits",
       "caption": "Company app marketing image · Tax tab (sales and deposits)"
     }
   ],
@@ -43,7 +43,7 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/taxdesk-income-panel-2611.jpg",
-      "alt": "My financial income panel — shows taxable income from this brokerage and linked accounts, amounts excluded from the determination, and unconfirmed income from other firms separately",
+      "alt": "My financial income panel: shows taxable income from this brokerage and linked accounts, amounts excluded from the determination, and unconfirmed income from other firms separately",
       "caption": "Real screen (November) · A panel that separates confirmed and unconfirmed income"
     },
     {
@@ -64,7 +64,7 @@ window.PROJECT_IMAGES = {
     {
       "src": "media/portfolio/taxdesk-no-source.png",
       "alt": "Response that declines to answer and explains why, when the question can't be confirmed from the provided sources",
-      "caption": "Real screen (August) · No source, no answer — it explains instead"
+      "caption": "Real screen (August) · No source, no answer: it explains instead"
     }
   ],
   "gtsrb": [
@@ -82,7 +82,7 @@ window.PROJECT_IMAGES = {
   "edu-up": [
     {
       "src": "media/portfolio/eduup-home.png",
-      "alt": "EDU:UP home screen — recommended courses and books",
+      "alt": "EDU:UP home screen: recommended courses and books",
       "caption": "Real screen · The home screen I built (mock data)"
     },
     {
@@ -109,29 +109,29 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/gwangyebu-app-home.png",
-      "alt": "Gwangyebu home — upcoming family events and birthdays",
+      "alt": "Gwangyebu home: upcoming family events and birthdays",
       "caption": "Real screen · Prototype home (sample data)"
     },
     {
       "src": "media/portfolio/gwangyebu-app-persons.png",
-      "alt": "Gwangyebu people list — find people by relationship and tag",
+      "alt": "Gwangyebu people list: find people by relationship and tag",
       "caption": "Real screen · Prototype people list (sample data)"
     },
     {
       "src": "media/portfolio/gwangyebu-app-ledger.png",
-      "alt": "Gwangyebu ledger — totals given and received",
+      "alt": "Gwangyebu ledger: totals given and received",
       "caption": "Real screen · Prototype ledger (sample data)"
     }
   ],
   "quiket": [
     {
       "src": "media/portfolio/quiket-demo-upload.jpg",
-      "alt": "Quiket add-materials screen — choosing files without naming a chapter first",
+      "alt": "Quiket add-materials screen: choosing files without naming a chapter first",
       "caption": "Final presentation demo · ① Upload materials · Team output"
     },
     {
       "src": "media/portfolio/quiket-demo-chapters.jpg",
-      "alt": "Quiket review screen — checking and editing the chapter name and four parts the AI created",
+      "alt": "Quiket review screen: checking and editing the chapter name and four parts the AI created",
       "caption": "Final presentation demo · ② Review and edit the chapters and parts the AI created · Team output"
     },
     {
@@ -153,7 +153,7 @@ window.PROJECT_IMAGES = {
   "archivelink": [
     {
       "src": "media/portfolio/qlink-web.png",
-      "alt": "ArchiveLink web prototype — link list with AI tags",
+      "alt": "ArchiveLink web prototype: link list with AI tags",
       "caption": "Real screen · The web prototype I built (sample links)"
     },
     {
@@ -165,12 +165,12 @@ window.PROJECT_IMAGES = {
   "dacon": [
     {
       "src": "media/portfolio/dacon-labeling-marked.jpg",
-      "alt": "Labeling tool, Stage 2 — collision and entry frames, entry direction and escape space marked",
+      "alt": "Labeling tool, Stage 2: collision and entry frames, entry direction and escape space marked",
       "caption": "Real screen · Marking collision frames and direction with the keyboard (synthetic video)"
     },
     {
       "src": "media/portfolio/dacon-labeling-adjust.jpg",
-      "alt": "Labeling tool fine-tuning screen — moving the entry frame one frame at a time",
+      "alt": "Labeling tool fine-tuning screen: moving the entry frame one frame at a time",
       "caption": "Real screen · ±7-frame adjustment right after marking (synthetic video)"
     }
   ],
@@ -178,7 +178,7 @@ window.PROJECT_IMAGES = {
   "payroll": [
     {
       "src": "media/portfolio/payroll-slip.jpg",
-      "alt": "Sample payslip screen — earnings, deductions and net pay",
+      "alt": "Sample payslip screen: earnings, deductions and net pay",
       "caption": "Company marketing image (sample data) · Payslip"
     },
     {
@@ -200,12 +200,12 @@ window.PROJECT_IMAGES = {
   "marketdesk": [
     {
       "src": "media/portfolio/marketdesk-flow.jpg",
-      "alt": "MarketDesk flow board — monthly summary split into key points, conflicting views and trend risk signals",
+      "alt": "MarketDesk flow board: monthly summary split into key points, conflicting views and trend risk signals",
       "caption": "Real screen · Reports stacked by month and summarized as a trend"
     },
     {
       "src": "media/portfolio/marketdesk-home.jpg",
-      "alt": "MarketDesk home — lenses, my industries and watched companies",
+      "alt": "MarketDesk home: lenses, my industries and watched companies",
       "caption": "Real screen · Set a reading goal and watched companies, then upload reports"
     }
   ],
@@ -219,19 +219,19 @@ window.PROJECT_IMAGES = {
   "classtrack": [
     {
       "src": "media/portfolio/classtrack-dashboard.jpg",
-      "alt": "ClassTrack dashboard — course and assignment totals with a class-day calendar",
+      "alt": "ClassTrack dashboard: course and assignment totals with a class-day calendar",
       "caption": "Real screen · Dashboard that shows class days only (sample data)"
     },
     {
       "src": "media/portfolio/classtrack-dev.jpg",
-      "alt": "ClassTrack dev screen — API list read from the running app, with whether AOP is applied",
+      "alt": "ClassTrack dev screen: API list read from the running app, with whether AOP is applied",
       "caption": "Real screen · Dev screen showing the API list and where logging is applied"
     }
   ],
   "templets-hub": [
     {
       "src": "media/portfolio/templets-hub-home.jpg",
-      "alt": "Template Hub first screen — design prompts listed by category",
+      "alt": "Template Hub first screen: design prompts listed by category",
       "caption": "Real screen · Template Hub first screen"
     }
   ],
@@ -245,7 +245,7 @@ window.PROJECT_IMAGES = {
   "personal-tools": [
     {
       "src": "media/portfolio/study-note-serving.jpg",
-      "alt": "Study notes by subject — first screen of the 3-day Model Serving · AIOps course, organized as day-by-day cards",
+      "alt": "Study notes by subject: first screen of the 3-day Model Serving · AIOps course, organized as day-by-day cards",
       "caption": "Real screen · Study notes by subject"
     },
     {
@@ -255,7 +255,7 @@ window.PROJECT_IMAGES = {
     },
     {
       "src": "media/portfolio/ai-coach-side.jpg",
-      "alt": "AI study coach — the question panel next to the textbook, open with an AI explanation",
+      "alt": "AI study coach: the question panel next to the textbook, open with an AI explanation",
       "caption": "Real screen · AI coach you ask beside the textbook"
     }
   ]

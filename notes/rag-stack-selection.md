@@ -51,7 +51,7 @@ related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 | 질문 재작성·분해 | 복합 질문을 ‘유사 심결 찾기’와 ‘적용 조문 개정 이력 조회’로 나눈다. 사건번호나 기준일처럼 원래 질문의 조건은 보존한다. |
 | SQL·그래프 탐색 | 확인된 관계를 따라 근거를 조회한다. 조회 경로가 일정하면 SQL 조인으로 시작할 수 있고, 질문마다 탐색 경로가 달라지면 그래프 조회를 비교할 수 있다. |
 
-[Elastic 하이브리드 검색](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search — 하이브리드 검색 순위](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
+[Elastic 하이브리드 검색](https://www.elastic.co/docs/solutions/search/hybrid-search) · [Azure AI Search: 하이브리드 검색 순위](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking)
 
 ## 후보는 찾았는데 순서가 틀리면?
 
@@ -64,7 +64,7 @@ related: [when-rag, data-preprocessing, rag-citation-rules, tech-stack-choice]
 
 Cross-Encoder 점수를 Tree 기반 랭커의 입력으로 사용할 수도 있다. 예를 들어 텍스트 관련성 점수에 ‘동일 매체’, ‘검증된 적용 조문 일치’를 함께 학습시킬 수 있다. 필수 조건은 조회나 필터로 처리하고, 선호 조건은 순위에 반영한다.
 
-검색에서 빠진 후보는 재랭킹 단계에서 복구할 수 없으므로, 같은 후보 목록으로 랭커를 비교하고 후보 검색 성능도 따로 측정한다. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers — Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
+검색에서 빠진 후보는 재랭킹 단계에서 복구할 수 없으므로, 같은 후보 목록으로 랭커를 비교하고 후보 검색 성능도 따로 측정한다. [Elastic Learning to Rank](https://www.elastic.co/docs/solutions/search/ranking/learning-to-rank-ltr) · [Sentence Transformers: Retrieve & Re-Rank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html)
 
 ## 답변에 어떤 근거를 넣을까?
 
@@ -76,7 +76,7 @@ Cross-Encoder 점수를 Tree 기반 랭커의 입력으로 사용할 수도 있�
 
 GraphRAG는 그래프를 근거 검색에 활용하는 접근이다. Microsoft 구현의 로컬 검색은 AI가 추출한 그래프와 원문 조각을 함께 사용한다. 법률 데이터에서는 추출된 관계를 원문과 대조하고, 인용과 실제 적용을 구분해 기록해야 한다.
 
-답변 생성 후에는 사건 ID, 판단 문단, 적용 조문 버전이 조회 결과와 일치하는지 확인한다. ID가 일치해도 근거가 답변의 주장을 뒷받침하는지는 별도로 평가한다. 검색 결과 목록과 원문만 제공하는 기능은 LLM 호출 없이도 구성할 수 있다. [RAG 논문](https://arxiv.org/abs/2005.11401) · [Microsoft GraphRAG — Query Overview](https://microsoft.github.io/graphrag/query/overview/)
+답변 생성 후에는 사건 ID, 판단 문단, 적용 조문 버전이 조회 결과와 일치하는지 확인한다. ID가 일치해도 근거가 답변의 주장을 뒷받침하는지는 별도로 평가한다. 검색 결과 목록과 원문만 제공하는 기능은 LLM 호출 없이도 구성할 수 있다. [RAG 논문](https://arxiv.org/abs/2005.11401) · [Microsoft GraphRAG: Query Overview](https://microsoft.github.io/graphrag/query/overview/)
 
 ## 표시광고 AI 사전검토 서비스(가칭)에서 비교할 구성과 지표
 
@@ -120,7 +120,7 @@ B와 C는 각각 키워드·벡터 결과를 RRF로 결합할 수 있다. C에�
 | **GraphRAG** | 지식그래프의 관계를 따라 **답변에 쓸 근거**를 가져온다. 예를 들어 판단에서 당시 조문 버전과 개정 기록까지 찾아 원문과 함께 LLM에 준다. 정식 OWL 온톨로지는 선택 사항이다. |
 | **Tree 기반 랭커** | 통합된 심결 후보의 **관련성 순위**를 학습한다. LambdaMART는 랭킹 방식이고 LightGBM은 이를 구현할 수 있는 라이브러리다. 검색 점수는 후보 관련성의 신호로 사용한다. |
 
-[LangGraph — Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph) · [LightGBM — Parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html)
+[LangGraph: Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph) · [LightGBM: Parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html)
 
 세 경로 병렬 검색은 LangGraph로 구성하고, 상위 원문을 LLM에 주는 단계에는 문서 RAG를 쓸 수 있다. **GraphRAG가 추가되는 지점은 근거 수집**이다. 검증한 ‘적용함’과 ‘개정함’ 관계를 따라 관련 원문을 찾을 때 적용한다. 조회 경로가 일정한 동안에는 SQL로 적용 조문과 판단 문단을 가져오는 구성을 기준선으로 삼을 수 있다.
 

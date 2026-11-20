@@ -33,7 +33,7 @@ My takeaway is that the point isn't to restrict every agent, but **to let the or
 
 ## How are companies responding?
 
-### SKT — from individual AI use to managing organizational results
+### SKT | from individual AI use to managing organizational results
 
 Under its "one agent per person" strategy, SKT at one point had more than 7,000 internal agents created, but as reported in November 2026, it said only about 1,500 agents run on a regular basis.
 
@@ -41,13 +41,13 @@ As a result, its AX 2.0 strategy focuses on productivity across the whole organi
 
 What matters here isn't the drop in agent count itself, but that **the goal of AI adoption is shifting from spreading usage to organizational results**.
 
-### IBM — agents need identities and permissions too
+### IBM | agents need identities and permissions too
 
 In October 2026, IBM announced Agent Identity and access control features. Each agent gets a defined owner, lifecycle status, and allowed permissions, and is restricted to only the systems it needs. It also includes revoking access when an agent attempts an unauthorized action.
 
 I read this as saying that if agents do real work, you have to manage not just who built them but **what permissions they were given and who is accountable for their actions**.
 
-### Cisco — observing agent behavior and cost together
+### Cisco | observing agent behavior and cost together
 
 In November 2026, Cisco announced expanded Agent Observability and security validation features. Beyond tracing how agents run and the quality of their work, the direction is to evaluate token costs against business results.
 
@@ -97,7 +97,7 @@ In the end, I see **the purpose of agent governance not as controlling AI more, 
 
 ## References
 
-- [Gartner — Managing AI Agent Sprawl (2026.04.28)](https://www.gartner.com/en/newsroom/press-releases/2026-04-28-gartner-identifies-six-steps-to-manage-artificial-intelligence-agent-sprawl)
-- [Electronic Times (etnews) — SKT AX 2.0 shifts to a results-driven system (2026.11.01)](https://www.etnews.com/20261031000044)
-- [IBM — Identity and Control for AI Agents (2026.10.27)](https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents%2C-securing-frontier-intelligence-for-the-enterprise)
-- [Cisco — Agent Observability (2026.11.09)](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-unveils-frontier-ai-red-teaming-and-agent-observability-to-secure-the-agentic-enterprise.html)
+- [Gartner: Managing AI Agent Sprawl (2026.04.28)](https://www.gartner.com/en/newsroom/press-releases/2026-04-28-gartner-identifies-six-steps-to-manage-artificial-intelligence-agent-sprawl)
+- [Electronic Times (etnews): SKT AX 2.0 shifts to a results-driven system (2026.11.01)](https://www.etnews.com/20261031000044)
+- [IBM: Identity and Control for AI Agents (2026.10.27)](https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents%2C-securing-frontier-intelligence-for-the-enterprise)
+- [Cisco: Agent Observability (2026.11.09)](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-unveils-frontier-ai-red-teaming-and-agent-observability-to-secure-the-agentic-enterprise.html)

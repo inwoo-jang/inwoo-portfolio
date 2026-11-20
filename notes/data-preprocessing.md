@@ -124,7 +124,7 @@ AI 서비스 기획자라면 전처리 기술을 모두 직접 구현하지 않�
 
 ## 참고
 
-- [scikit-learn — Common Pitfalls](https://scikit-learn.org/stable/common_pitfalls)
-- [Microsoft — Chunk Documents for RAG](https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents)
-- [Google Cloud — Document AI Layout Parser](https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk)
-- [LangChain — Text Splitters](https://docs.langchain.com/oss/python/integrations/splitters)
+- [scikit-learn: Common Pitfalls](https://scikit-learn.org/stable/common_pitfalls)
+- [Microsoft: Chunk Documents for RAG](https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents)
+- [Google Cloud: Document AI Layout Parser](https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk)
+- [LangChain: Text Splitters](https://docs.langchain.com/oss/python/integrations/splitters)

@@ -153,9 +153,9 @@ In the UI, I'd distinguish a response that has started from grading that has fin
 
 ## References
 
-- [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference) — settings sources, tools, skills, and safe mode
-- [Run Claude Code programmatically](https://code.claude.com/docs/en/headless) — non-interactive execution and streaming
-- [Codex CLI commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli) — `exec`, `--ignore-user-config`, and `--json`
-- [How Codex loads AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) — personal/project instructions and `CODEX_HOME`
-- [Codex skills](https://learn.chatgpt.com/docs/build-skills) — skill discovery locations
-- [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference) — `project_doc_max_bytes` and `skills.config`
+- [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference): settings sources, tools, skills, and safe mode
+- [Run Claude Code programmatically](https://code.claude.com/docs/en/headless): non-interactive execution and streaming
+- [Codex CLI commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli): `exec`, `--ignore-user-config`, and `--json`
+- [How Codex loads AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md): personal/project instructions and `CODEX_HOME`
+- [Codex skills](https://learn.chatgpt.com/docs/build-skills): skill discovery locations
+- [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference): `project_doc_max_bytes` and `skills.config`

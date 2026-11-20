@@ -1,5 +1,5 @@
 ---
-title: 승인은 어디에 걸어야 할까? — LangChain HITL 실습
+title: 승인은 어디에 걸어야 할까? LangChain HITL 실습
 category: ai
 tags: [AI Agent, HITL, LangChain, create_agent]
 date: 2026-09-11

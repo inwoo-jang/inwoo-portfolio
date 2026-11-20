@@ -1,5 +1,5 @@
 /* ==========================================================
-   script/projects-data.en.js — data for Quick View cards and summaries (English)
+   script/projects-data.en.js: data for Quick View cards and summaries (English)
    - The source of truth for project details is the notebook page in portfolio.en.html (<article class="note__page">).
    - Each id matches the page's data-project-gallery value (the key that links a card to its notebook page).
    - Based on: the full portfolio project source book (2026-11-06) plus corrections from the latest fact sheet.
@@ -8,10 +8,10 @@
    - role and scope keep these apart: planning vs. building, testing vs. running, team results vs. personal contribution.
    ========================================================== */
 window.PROJECT_TYPES = ["Product", "Operations", "AI Engineering", "Frontend", "Backend", "Tool"];
-/* My role keywords — separates product planning, product management and engineering */
+/* My role keywords: separates product planning, product management and engineering */
 window.PROJECT_ROLES = ["Product Planning", "PM", "Frontend", "Backend", "Full-stack", "AI Engineering"];
 
-/* Projects to see first — project name → the key call I made → result and current status.
+/* Projects to see first: project name → the key call I made → result and current status.
    Same order and wording as the featured projects on the home page (index.en.html). */
 window.FEATURED = [
   {
@@ -41,7 +41,7 @@ window.FEATURED = [
 ];
 
 window.PROJECTS = [
-  /* ---------- Work — JEEKIM COMPANY ---------- */
+  /* ---------- Work: JEEKIM COMPANY ---------- */
   {
     id: "order-sync",
     roles: ["Product Planning", "PM"],
@@ -114,7 +114,7 @@ window.PROJECTS = [
     headline: "Where to answer and where to hand off",
     headlineScope: "AI service policy · Edge cases",
     book: "work",
-    title: "AI tax consultation for pharmacies — with Samil PwC",
+    title: "AI tax consultation for pharmacies | with Samil PwC",
     scope: "JEEKIM COMPANY · In beta testing",
     period: "2026.01–06",
     types: ["Product", "AI Engineering"],
@@ -140,7 +140,7 @@ window.PROJECTS = [
   {
     id: "pharmacy-link",
     image: "media/portfolio/jikim-home-card.jpg",
-    imageAlt: "JEEKIM app home screen — Pharmacy Ledger and profit and loss",
+    imageAlt: "JEEKIM app home screen: Pharmacy Ledger and profit and loss",
     roles: ["Product Planning", "PM"],
     status: "Went live",
     statusKind: "live",
@@ -251,7 +251,7 @@ window.PROJECTS = [
     headline: "Code does the math",
     headlineScope: "Server-controlled flow · RAG · Spring AI",
     book: "skala",
-    title: "TaxDesk — tax consultation on financial income",
+    title: "TaxDesk | tax consultation on financial income",
     scope: "Personal project that started as a bootcamp exercise · Solo",
     period: "2026.08",
     periodDetail: "Built 2026.08 · Improved 2026.11",
@@ -268,7 +268,7 @@ window.PROJECTS = [
     resultNote: "This is a demo for practice, not a live service.",
     summary: {
       problem: "A tax answer needs both the legal basis and the tax calculation. In a manual test in August, a tax amount computed by treating other comprehensive income as KRW 0 went out as if it were a final answer.",
-      decision: "The server controls the order — income lookup → tax determination → calculation — and no tools are registered with the model. If a value needed for the calculation isn't confirmed, it asks instead of calculating. If a lookup fails or there's no source, it holds the determination and the answer.",
+      decision: "The server controls the order: income lookup → tax determination → calculation: and no tools are registered with the model. If a value needed for the calculation isn't confirmed, it asks instead of calculating. If a lookup fails or there's no source, it holds the determination and the answer.",
       result: "I re-ran the same risky condition (subject to comprehensive taxation + other comprehensive income not entered) and confirmed it asks for the income amount without giving a calculation (2026-11-10, mock model). 15 determinations and tax amounts match an independent calculation but haven't been reviewed by a tax professional, and the 6 legal-citation cases that need a real model weren't run."
     },
     related: ["samil"],
@@ -305,13 +305,13 @@ window.PROJECTS = [
     id: "edu-up",
     roles: ["Frontend"],
     image: "media/portfolio/eduup-home.png",
-    imageAlt: "EDU:UP home screen — recommended courses and books (mock data)",
+    imageAlt: "EDU:UP home screen: recommended courses and books (mock data)",
     status: "Bootcamp project",
     statusKind: "edu",
     headline: "Five services behind one gateway",
     headlineScope: "4-person team · Frontend",
     book: "skala",
-    title: "EDU:UP — education benefit points platform",
+    title: "EDU:UP | education benefit points platform",
     scope: "Bootcamp project · 4-person team · Frontend",
     period: "2026.08",
     types: ["Frontend"],
@@ -335,7 +335,7 @@ window.PROJECTS = [
     image: "media/portfolio/gwangyebu-uiflow.png",
     imageAlt: "Navigation flow across Gwangyebu's 11 screens",
     book: "skala",
-    title: "Gwangyebu — features, screens, ERD and API design",
+    title: "Gwangyebu | features, screens, ERD and API design",
     scope: "Bootcamp mini-project · Solo · 3 days",
     period: "2026.09",
     types: ["Product", "Frontend"],
@@ -364,7 +364,7 @@ window.PROJECTS = [
     status: "Preparing for submission",
     statusKind: "other",
     image: "media/portfolio/project-in-progress.en.svg",
-    imageAlt: "In progress — AI advertising pre-review service",
+    imageAlt: "In progress: AI advertising pre-review service",
     book: "skala",
     title: "AI advertising pre-review service (working title)",
     scope: "SKALA team project",
@@ -388,7 +388,7 @@ window.PROJECTS = [
     image: "media/portfolio/quiket-card.png",
     imageAlt: "Quiket's App Store listing",
     book: "team",
-    title: "Quiket — AI quiz study app",
+    title: "Quiket | AI quiz study app",
     scope: "Side project · 7-person team · PM",
     period: "2026.03–07",
     types: ["Product"],
@@ -423,7 +423,7 @@ window.PROJECTS = [
     headline: "Failed analysis as the default path",
     headlineScope: "2-person team · Web · App Store",
     book: "team",
-    title: "ArchiveLink — AI bookmarks for links and QR codes",
+    title: "ArchiveLink | AI bookmarks for links and QR codes",
     scope: "2-person team · Launched on web and iOS",
     period: "2026.05–06",
     types: ["Product", "Frontend"],
@@ -441,12 +441,12 @@ window.PROJECTS = [
   {
     id: "dacon",
     image: "media/portfolio/dacon-labeling-marked.jpg",
-    imageAlt: "Labeling tool, Stage 2 — collision and entry frames, entry direction and escape space marked",
+    imageAlt: "Labeling tool, Stage 2: collision and entry frames, entry direction and escape space marked",
     roles: ["AI Engineering"],
     status: "Competition ended",
     statusKind: "other",
     book: "team",
-    title: "DACON dashcam competition — recapture detection experiments and a labeling tool",
+    title: "DACON dashcam competition | recapture detection experiments and a labeling tool",
     scope: "Team entry · Competition",
     period: "2026.08–09",
     types: ["AI Engineering", "Tool"],
@@ -475,9 +475,9 @@ window.PROJECTS = [
     status: "Preparing for submission",
     statusKind: "other",
     image: "media/portfolio/possessed-flow.png",
-    imageAlt: "POSSESSED design flow — tool-call proposals, policy checks, blocks and mock execution",
+    imageAlt: "POSSESSED design flow: tool-call proposals, policy checks, blocks and mock execution",
     book: "solo",
-    title: "POSSESSED — The Agent Overreach Lab",
+    title: "POSSESSED | The Agent Overreach Lab",
     scope: "Personal project · Kiroween",
     period: "2026.11 – present",
     types: ["Product", "AI Engineering", "Tool"],
@@ -492,14 +492,14 @@ window.PROJECTS = [
   {
     id: "marketdesk",
     image: "media/portfolio/marketdesk-flow-card.jpg",
-    imageAlt: "MarketDesk flow board — a month of trends in the AI industry, summarized",
+    imageAlt: "MarketDesk flow board: a month of trends in the AI industry, summarized",
     roles: ["Product Planning", "Full-stack", "AI Engineering"],
     status: "Built · In personal use",
     statusKind: "other",
     headline: "Report summaries by reading goal",
     headlineScope: "46 tasks · 15 decision records",
     book: "solo",
-    title: "MarketDesk — AI report analysis and stock tracking",
+    title: "MarketDesk | AI report analysis and stock tracking",
     scope: "For my own use (not released)",
     period: "Started 2026.06",
     types: ["AI Engineering", "Backend"],
@@ -545,13 +545,13 @@ window.PROJECTS = [
     id: "classtrack",
     roles: ["Full-stack"],
     image: "media/portfolio/classtrack-dashboard.jpg",
-    imageAlt: "ClassTrack dashboard — course and assignment totals with a class-day calendar",
+    imageAlt: "ClassTrack dashboard: course and assignment totals with a class-day calendar",
     status: "Deployment exercise",
     statusKind: "other",
     headline: "Rules instead of a stored end date",
     headlineScope: "Spring Boot · Vue 3",
     book: "solo",
-    title: "ClassTrack — course and assignment tracker",
+    title: "ClassTrack | course and assignment tracker",
     scope: "Build and deployment exercise",
     period: "2026.08",
     types: ["Backend", "Frontend"],
@@ -573,9 +573,9 @@ window.PROJECTS = [
     status: "Public",
     statusKind: "other",
     image: "media/portfolio/templets-hub-home.jpg",
-    imageAlt: "Template Hub first screen — design prompts listed by category",
+    imageAlt: "Template Hub first screen: design prompts listed by category",
     book: "solo",
-    title: "Template Hub — a collection of document design prompts",
+    title: "Template Hub | a collection of document design prompts",
     scope: "Small tool",
     period: "2026",
     types: ["Tool"],
@@ -607,7 +607,7 @@ window.PROJECTS = [
     problem: "The goal was to get beginners through one complete run, from planning to deployment.",
     role: "Built solo (with AI coding tools)",
     build: [
-      "8 steps from planning to deployment — each with a prompt to give an AI and useful open-source tools",
+      "8 steps from planning to deployment: each with a prompt to give an AI and useful open-source tools",
       "API keys are used only in serverless functions",
       "The build must pass a key-leak check first"
     ],
@@ -618,21 +618,21 @@ window.PROJECTS = [
   {
     id: "personal-tools",
     image: "media/portfolio/study-note-serving.jpg",
-    imageAlt: "Study notes by subject — first screen of the Model Serving & AIOps notes",
+    imageAlt: "Study notes by subject: first screen of the Model Serving & AIOps notes",
     roles: ["Full-stack", "AI Engineering"],
     status: "Personal use",
     statusKind: "other",
     book: "solo",
-    title: "Personal tools — other",
+    title: "Personal tools | other",
     scope: "Small tool",
     period: "2026",
     types: ["Tool"],
-    overview: "A mail summary bot and an AI study coach web app — small tools I built for myself.",
+    overview: "A mail summary bot and an AI study coach web app: small tools I built for myself.",
     problem: "I wanted to cut down on the email I checked every day, and to stop losing what I'd asked AI.",
     role: "Built solo (with AI coding tools)",
     build: [
-      "Mail summary bot — pulls Gmail over IMAP, summarizes by importance and sends it to Discord; runs every morning on GitHub Actions",
-      "AI study coach — a question panel next to the textbook; the AI asks open-ended questions, grades written answers and saves the answer and pass/fail to a database"
+      "Mail summary bot: pulls Gmail over IMAP, summarizes by importance and sends it to Discord; runs every morning on GitHub Actions",
+      "AI study coach: a question panel next to the textbook; the AI asks open-ended questions, grades written answers and saves the answer and pass/fail to a database"
     ],
     metrics: [],
     resultNote: "These are tools I built for my own use. I made a separate AI study coach for each subject.",

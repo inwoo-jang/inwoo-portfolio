@@ -1,5 +1,5 @@
 ---
-title: 에이전트를 어디서 멈춰 세울까? — 입력·호출 횟수·출력 가드레일
+title: 에이전트를 어디서 멈춰 세울까? 입력·호출 횟수·출력 가드레일
 category: ai
 tags: [AI Agent, 가드레일, LangChain, Middleware]
 date: 2026-09-11

@@ -322,10 +322,10 @@ MCP를 고려한 API 설계는 우리 기능을 여러 AI 앱에 제공할 수 �
 
 ## 참고
 
-- [MCP — What is the Model Context Protocol?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
-- [MCP — Architecture overview](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
-- [MCP — Tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
+- [MCP: What is the Model Context Protocol?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
+- [MCP: Architecture overview](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
+- [MCP: Tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
 - [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Anthropic — Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) · 2024-11-25
-- [Stripe — Model Context Protocol](https://docs.stripe.com/mcp)
-- [Anthropic — Writing effective tools for agents](https://www.anthropic.com/research/writing-tools-for-agents) · 2025-09-11
+- [Anthropic: Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) · 2024-11-25
+- [Stripe: Model Context Protocol](https://docs.stripe.com/mcp)
+- [Anthropic: Writing effective tools for agents](https://www.anthropic.com/research/writing-tools-for-agents) · 2025-09-11

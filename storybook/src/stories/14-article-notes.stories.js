@@ -1,6 +1,7 @@
+import exampleNote from "../../../notes/rag-citation-rules.md?raw";
 import * as C from "../components.js";
 import NOTE_INDEX from "../../../notes/index.json";
-import "../../../script/markdown.js";   // window.renderMarkdown — 노트 본문과 같은 렌더러
+import "../../../script/markdown.js";   // window.renderMarkdown: 노트 본문과 같은 렌더러
 
 const categoryStyle = (c) => `--note-ink:${c.color.ink};--note-soft:${c.color.soft};--tape:${c.color.tape}`;
 const seriesLabel = (n) => { const s = n.series && (NOTE_INDEX.series || []).find((x) => x.id === n.series.id); return s ? `${s.label} · ${String(n.series.order).padStart(2, "0")}` : ""; };
@@ -11,7 +12,7 @@ export default { title: "컴포넌트/글" };
 
 export const 섹션제목 = {
   name: "섹션 제목",
-  render: () => `<section class="section" style="max-width:760px">${C.sectionHead({ no: "03", title: "협업 — 상대가 다음 일을 할 수 있게 넘기기", lead: "같은 기획도 받는 사람에 따라 필요한 정보가 다릅니다." })}</section>`,
+  render: () => `<section class="section" style="max-width:760px">${C.sectionHead({ no: "03", title: "협업: 상대가 다음 일을 할 수 있게 넘기기", lead: "같은 기획도 받는 사람에 따라 필요한 정보가 다릅니다." })}</section>`,
 };
 
 export const 흐름도 = {
@@ -28,7 +29,7 @@ export const 표 = {
 
 export const 명세표 = {
   name: "명세 표",
-  render: () => `<div style="max-width:680px">${C.table({ spec: true, keyCol: 1, head: ["QUIZ-01 문항 생성", "내용"], rows: [["입력", "자료 범위 · 문제 수 · 난이도"], ["정책", "선택한 자료 범위 안에서만 출제"], ["예외", "생성 요청이 실패하면 오류 안내와 재시도를 제공"]], caption: "공개용으로 재구성한 예시 — 예외 행만 강조" })}</div>`,
+  render: () => `<div style="max-width:680px">${C.table({ spec: true, keyCol: 1, head: ["QUIZ-01 문항 생성", "내용"], rows: [["입력", "자료 범위 · 문제 수 · 난이도"], ["정책", "선택한 자료 범위 안에서만 출제"], ["예외", "생성 요청이 실패하면 오류 안내와 재시도를 제공"]], caption: "공개용으로 재구성한 예시: 예외 행만 강조" })}</div>`,
 };
 
 export const 두칸비교 = {
@@ -59,7 +60,7 @@ export const 글정보 = {
   render: (a) => C.docFlags({ items: ["도구 가이드", "VS Code", "macOS", "기본 단축키 기준"], sample: a.sample }),
 };
 
-/* 일반 글 · 다중 분류 · 첫 시리즈 글 — 실제 index.json에서 하나씩 고른다 */
+/* 일반 글 · 다중 분류 · 첫 시리즈 글: 실제 index.json에서 하나씩 고른다 */
 export const 카드종류 = {
   name: "Dev Notes · 카드 종류",
   render: () => {
@@ -70,7 +71,7 @@ export const 카드종류 = {
   },
 };
 
-/* 시리즈 목차 — 실제 공개 상태(공개 1편 + 준비 중 회차)와, 1·3편이 공개된 경우 */
+/* 시리즈 목차: 실제 공개 상태(공개 1편 + 준비 중 회차)와, 1·3편이 공개된 경우 */
 export const 시리즈목차 = {
   name: "Dev Notes · 시리즈 목차",
   render: () => {
@@ -86,49 +87,13 @@ export const 시리즈목차 = {
 
 export const 빈결과 = { name: "Dev Notes · 결과 없음", render: () => `<div style="max-width:680px">${C.emptyState({})}</div>` };
 
-/* Dev Notes 글 구성 — notes/_template.md의 골격을 실제 노트 렌더러(script/markdown.js)로 그린다.
-   모든 노트는 이 순서를 따른다: 결론 인용 → 계기(또는 겪은 문제) → 본문 → 현재의 생각 → 남은 질문 → 참고 */
-
-const NOTE_SKELETON = `> 결론 한두 문장. 이 글에서 내가 내린 판단을 먼저 적는다. 목록 카드의 요약과 같은 결로 쓴다.
-
-## 이 질문을 하게 된 계기
-
-무엇을 하다가 어떤 질문이 생겼는지 한두 단락. 구현 기록이면 이 자리에 **겪은 문제**를 쓴다.
-
-## 본문 섹션 — 번호 없이
-
-판단의 근거를 쓴다. 비교는 표로 정리한다.
-
-| 기준 | 확인할 질문 |
-| --- | --- |
-| 피해 | 틀리면 무엇이 망가지는가? |
-| 복구 | 되돌릴 수 있는가? |
-
-> [!예시] 가정 예시는 이 상자 안에
-> 설명을 위한 가정은 본문과 섞지 않고 점선 상자에 넣는다. 실제 경험이 아님을 따로 적지 않아도 된다.
-
-코드나 명령은 근거로 뒤에 둔다.
-
-\`\`\`python
-agent.invoke(Command(resume={"decisions": [{"type": "approve"}]}))
-\`\`\`
-
-## 현재의 생각
-
-지금 내 판단을 한다체로 쓴다. 검증하지 못한 부분은 숨기지 않되, 방어 문장을 반복하지 않는다.
-
-## 남은 질문
-
-- 아직 확인하지 못한 것
-
-## 참고
-
-- [공식 문서 이름](https://example.com)`;
+const exampleBody = exampleNote.replace(/^---[\s\S]*?\n---\n/, "");
+const exampleTitle = NOTE_INDEX.notes.find((note) => note.slug === "rag-citation-rules").title;
 
 export const 글구성 = {
   name: "Dev Notes · 글 구성",
   render: () => `<article class="reader-view" data-note-reader style="max-width:760px">
-    <header><p class="reader-view__series">시리즈가 있으면 · 01</p><h1>질문형 제목 — 이 글이 답하려는 질문</h1><p class="meta">작성 2026.11.13</p></header>
-    <div class="md" style="margin-top:32px">${window.renderMarkdown ? window.renderMarkdown(NOTE_SKELETON, { idPrefix: "sb-" }) : "<p>markdown.js를 불러오지 못했습니다.</p>"}</div>
+    <header><h1>${exampleTitle}</h1></header>
+    <div class="md" style="margin-top:32px">${window.renderMarkdown(exampleBody, { idPrefix: "sb-" })}</div>
   </article>`,
 };

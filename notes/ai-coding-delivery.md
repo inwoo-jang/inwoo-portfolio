@@ -29,7 +29,7 @@ AI 코딩 도구가 발전하면서 개발자가 직접 코드를 작성하는 �
 
 ## 실제 기업들은 어떤 문제를 겪고 있을까?
 
-**1. GitHub — AI 에이전트 시대를 대비해 Git 저장소 아키텍처를 재설계하다**
+**1. GitHub: AI 에이전트 시대를 대비해 Git 저장소 아키텍처를 재설계하다**
 
 GitHub는 2026년 11월 기존 Git 저장소 인프라의 확장성을 개선한 새로운 아키텍처를 공개했다.
 
@@ -41,9 +41,9 @@ GitHub의 내부 테스트에서는 단일 저장소에 5,000개의 에이전트
 
 흥미로운 것은 AI 모델 자체의 성능이 아니라 **AI가 생산하는 작업량을 감당하기 위해 기존 개발 인프라를 재설계했다는 점**이다.
 
-참고: [GitHub Engineering — Inside GitHub's new Git storage architecture (2026.11.05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
+참고: [GitHub Engineering: Inside GitHub's new Git storage architecture (2026.11.05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
 
-**2. Anthropic — 코드 생성량이 증가하자 버전 관리와 CI가 병목이 되다**
+**2. Anthropic: 코드 생성량이 증가하자 버전 관리와 CI가 병목이 되다**
 
 Anthropic은 2026년 10월 자체 소스 관리 시스템인 Scion을 개발한 배경을 공개했다.
 
@@ -57,7 +57,7 @@ AI 코딩 활용이 확대되면서 코드 작성보다 소스 관리, 빌드, C
 
 **개발 인프라와 협업 프로세스 역시 AI가 만들어내는 작업량에 맞춰 달라져야 할 수 있다.**
 
-참고: [Anthropic — Redesigning source control for AI agents (2026.10.13)](https://www.anthropic.com/research/redesigning-source-control)
+참고: [Anthropic: Redesigning source control for AI agents (2026.10.13)](https://www.anthropic.com/research/redesigning-source-control)
 
 ## 개발 프로세스의 병목은 어디로 이동할까?
 
@@ -90,7 +90,7 @@ AI가 작성한 리뷰 코멘트 중 개발자가 실제로 조치한 비율을 
 
 다만 조치율이 높다고 해서 리뷰가 정확하거나 실제 결함이 줄었다고 단정할 수는 없다. 유용한 제안과 불필요한 제안을 구분하려면 추가적인 품질 평가가 필요하다.
 
-참고: [GitHub — Code Review Addressed Rate (2026.11.05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
+참고: [GitHub: Code Review Addressed Rate (2026.11.05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
 
 한편 OpenAI는 Codex를 활용한 코드 유지보수 사례를 공개했다.
 
@@ -100,7 +100,7 @@ AI가 코드 생산량을 증가시킬 수 있다면, 반대로 불필요한 코
 
 하지만 유지보수 역시 AI가 자동으로 수행했다는 사실만으로 충분하지 않다. 변경이 기존 기능을 손상하지 않았는지 검증하고, 유지보수 비용이 실제로 줄었는지 확인해야 한다.
 
-참고: [OpenAI — Maintaining software with the GPT-6 family (2026.10.14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
+참고: [OpenAI: Maintaining software with the GPT-6 family (2026.10.14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
 
 ## 개발 생산성은 무엇으로 측정해야 할까?
 
@@ -127,7 +127,7 @@ Lead Time, Change Failure Rate, Deployment Frequency 등은 DORA의 소프트웨
 
 결국 **개발 속도와 품질을 함께 평가해야 한다.**
 
-참고: [DORA — Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
+참고: [DORA: Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
 
 ## 서비스 기획자라면 무엇을 고려해야 할까?
 
@@ -171,8 +171,8 @@ AI 코딩 도구가 발전할수록 개발자의 업무가 단순히 줄어든�
 
 ## 참고
 
-- [GitHub Engineering — Inside GitHub's New Git Storage Architecture (2026.11.05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
-- [Anthropic — Redesigning Source Control (2026.10.13)](https://www.anthropic.com/research/redesigning-source-control)
-- [GitHub — Code Review Addressed Rate (2026.11.05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
-- [OpenAI — Maintaining Software with the GPT-6 Family (2026.10.14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
-- [DORA — Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)
+- [GitHub Engineering: Inside GitHub's New Git Storage Architecture (2026.11.05)](https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/)
+- [Anthropic: Redesigning Source Control (2026.10.13)](https://www.anthropic.com/research/redesigning-source-control)
+- [GitHub: Code Review Addressed Rate (2026.11.05)](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/)
+- [OpenAI: Maintaining Software with the GPT-6 Family (2026.10.14)](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family)
+- [DORA: Software Delivery Performance](https://dora.dev/guides/dora-metrics-four-keys/)

@@ -12,7 +12,7 @@
   {
     "id": "ai",
     "label": "AI & agents",
-    "description": "AI features and agents — prompts, RAG, memory, guardrails",
+    "description": "AI features and agents: prompts, RAG, memory, guardrails",
     "color": {
       "ink": "#6D4499",
       "soft": "#F2EBFA",
@@ -62,7 +62,7 @@
   {
     "id": "ax",
     "label": "AX",
-    "description": "Organizational AI transformation — governance, impact, industry adoption",
+    "description": "Organizational AI transformation: governance, impact, industry adoption",
     "color": {
       "ink": "#9C3D65",
       "soft": "#FCEAF2",
@@ -72,7 +72,7 @@
   {
     "id": "emerging",
     "label": "Emerging tech",
-    "description": "What new technologies are and what they change — Physical AI, digital twins, quantum computing, and more",
+    "description": "What new technologies are and what they change: Physical AI, digital twins, quantum computing, and more",
     "color": {
       "ink": "#12657C",
       "soft": "#E4F3F8",
