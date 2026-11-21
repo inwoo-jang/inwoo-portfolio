@@ -1,0 +1,97 @@
+/* 홈에 적용하기 전, Storybook에서만 비교하는 소개 시안. */
+.hi-preview { --hi-accent: #a5d6c4; padding: 36px 24px 56px; background: #eeeef0; min-height: 100dvh; word-break: keep-all; }
+.hi-preview-head, .hi-controls, .hi-design-note { max-width: 1200px; margin-inline: auto; }
+.hi-preview-head > p:first-child { margin: 0 0 8px; font-size: 11px; letter-spacing: .14em; color: #66686e; font-weight: 650; }
+.hi-preview-head h2 { font-size: 26px; letter-spacing: -.04em; }
+.hi-preview-head > p:last-child { margin: 8px 0 24px; font-size: 14px; color: #62656b; }
+.hi-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.hi-controls fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.hi-controls label { position: relative; cursor: pointer; }
+.hi-controls input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.hi-controls label span { display: block; border: 1px solid #d3d4d7; border-radius: 4px; padding: 9px 12px; font-size: 13px; background: #fff; color: #33363c; transition: background .15s; }
+.hi-controls label:hover span { background: #e3e5e6; }
+.hi-controls label small { margin-right: 4px; opacity: .6; font-size: 10px; }
+.hi-controls input:checked + span { background: #202328; color: #fff; border-color: #202328; }
+.hi-controls input:focus-visible + span { outline: 2px solid #467d6d; outline-offset: 3px; }
+.hi-single-title { margin: 0; font-size: 15px; font-weight: 650; }
+.hi-design-note { min-height: 24px; margin-block: 16px 20px; font-size: 13px; color: #62656b; }
+.hi-stage { container: hi-stage / inline-size; max-width: 1200px; margin-inline: auto; width: 100%; }
+.hi-stage[data-size="mobile"] { max-width: 390px; }
+.hi-hero { --hi-text: #f7f7f4; --hi-muted: #aeb4ba; background: #191c20; color: var(--hi-text); overflow: hidden; border-radius: 8px; box-shadow: 0 12px 36px #1112; }
+.hi-hero-inner { padding: 64px 56px 56px; display: grid; grid-template-columns: minmax(0, 1fr) 294px; align-items: center; gap: 56px; min-height: 580px; }
+.hi-copy { min-width: 0; }
+.hi-name { display: flex; align-items: center; gap: 16px; margin: 0 0 32px; color: var(--hi-text); font-size: 17px; font-weight: 650; }
+.hi-name > span { border-left: 1px solid #ffffff30; padding-left: 16px; font-size: 12px; font-weight: 400; color: var(--hi-muted); }
+.hi-summary { max-width: 500px; margin: 30px 0 0; color: var(--hi-muted); font-size: 15px; line-height: 1.9; letter-spacing: -.01em; }
+.hi-profile { min-width: 0; }
+.hi-profile .intro-profile { margin: 0; padding: 24px 0 24px 24px; border: 0; border-left: 1px solid #ffffff20; background: none; border-radius: 0; box-shadow: none; }
+.hi-profile .intro-profile__head { margin: 0 0 20px; padding: 0; background: transparent; border: 0; color: var(--hi-muted); }
+.hi-profile .intro-profile dd, .hi-profile .email-copy-link { color: var(--hi-text); }
+.hi-profile .intro-profile dt, .hi-profile .intro-profile dd small, .hi-profile .intro-profile__more { color: var(--hi-muted); }
+.hi-profile .intro-profile__more { border-color: #ffffff20; }
+.hi-bottom { display: flex; justify-content: space-between; gap: 16px; padding: 18px 56px; border-top: 1px solid #ffffff16; color: var(--hi-muted); font-size: 10px; letter-spacing: .12em; }
+/* 01: 큰 글자와 얇은 색 밑줄. */
+.hi-poster-title { color: var(--hi-text); font-size: clamp(32px, 4.1cqi, 52px); line-height: 1.28; letter-spacing: -.055em; font-weight: 750; }
+.hi-poster-title > span { display: block; white-space: nowrap; }
+.hi-poster-title em { font-style: normal; position: relative; text-decoration: underline; text-decoration-color: #a5d6c458; text-decoration-thickness: 5px; text-underline-offset: 8px; }
+.hi-poster-title > span:nth-child(2) { color: var(--hi-accent); }
+.hi-hero--poster .hi-name::before { content: ""; width: 8px; height: 8px; background: var(--hi-accent); border-radius: 50%; }
+/* 02: 직무 세 가지를 읽기 좋은 색인으로. */
+.hi-index-title { color: var(--hi-text); border-top: 1px solid #ffffff35; }
+.hi-index-title > span { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid #ffffff25; }
+.hi-index-title small { color: var(--hi-accent); font-size: 11px; font-weight: 400; letter-spacing: 0; }
+.hi-index-title b { font-size: clamp(26px, 3cqi, 38px); font-weight: 650; letter-spacing: -.045em; }
+.hi-index-title svg { width: 24px; height: 24px; color: var(--hi-muted); }
+.hi-hero--index .hi-summary { margin-top: 24px; }
+/* 03: 에디토리얼 구성에 기존 홈의 차콜·블루 토큰을 적용. */
+.hi-hero--paper { --hi-text: var(--char-text); --hi-muted: var(--char-muted); --hi-accent: var(--char-accent); background: var(--char); border-top: 6px solid var(--char-accent); }
+.hi-paper-kicker { margin: 0 0 16px; font-size: 11px; color: var(--hi-muted); letter-spacing: .15em; }
+.hi-paper-name { margin: 0 0 26px; font-size: clamp(58px, 7cqi, 88px); font-weight: 750; letter-spacing: -.07em; line-height: 1; }
+.hi-paper-name { color: #fff; }
+.hi-paper-name > span { color: var(--char-accent); }
+.hi-paper-title { display: flex; flex-wrap: wrap; gap: 6px 0; color: var(--hi-text); font-size: 19px; font-weight: 600; line-height: 1.5; letter-spacing: -.035em; }
+.hi-paper-title span + span::before { content: "/"; color: var(--char-accent); margin: 0 10px; font-weight: 400; }
+.hi-hero--paper .hi-summary { border-top: 1px solid var(--char-line); padding-top: 24px; }
+.hi-hero--paper .hi-profile .intro-profile { border-color: var(--char-line); }
+.hi-hero--paper .hi-profile .intro-profile__more, .hi-hero--paper .hi-bottom { border-color: var(--char-line); }
+.hi-hero--paper .hi-profile .intro-profile__more { color: var(--char-accent); }
+.hi-hero--paper :focus-visible { outline-color: var(--char-accent); }
+/* 04: 세 직무를 하나의 흐름으로 연결. */
+.hi-flow-title { position: relative; color: var(--hi-text); }
+.hi-flow-title::before { content: ""; position: absolute; left: 21px; top: 20px; bottom: 20px; width: 1px; background: #a5d6c455; }
+.hi-flow-title > span { position: relative; display: grid; grid-template-columns: 42px minmax(0,1fr) 24px; align-items: center; gap: 18px; margin-bottom: 14px; padding: 16px; border: 1px solid #ffffff22; background: #22272a; border-radius: 6px; }
+.hi-flow-title > span:nth-child(2) { margin-left: 20px; }
+.hi-flow-title > span:nth-child(3) { margin-left: 40px; border-color: #a5d6c45c; background: #253630; }
+.hi-flow-title small { font-size: 11px; font-weight: 500; color: var(--hi-accent); letter-spacing: 0; }
+.hi-flow-title b { font-size: clamp(22px, 2.5cqi, 30px); letter-spacing: -.045em; font-weight: 650; }
+.hi-flow-title svg { width: 22px; height: 22px; color: var(--hi-accent); transform: rotate(90deg); }
+.hi-flow-title .hi-check { transform: none; }
+@container hi-stage (max-width: 900px) {
+  .hi-hero-inner { grid-template-columns: minmax(0,1fr) 260px; gap: 28px; padding: 40px 32px; }
+  .hi-poster-title { font-size: clamp(28px, 4.3cqi, 40px); }
+}
+@container hi-stage (max-width: 680px) {
+  .hi-hero-inner { grid-template-columns: minmax(0,1fr); gap: 36px; padding: 36px 24px; min-height: auto; }
+  .hi-name { margin-bottom: 28px; }
+  .hi-poster-title { font-size: clamp(28px, 8.5cqi, 42px); }
+  .hi-summary { font-size: 14px; line-height: 1.85; margin-top: 28px; }
+  .hi-profile .intro-profile { padding: 24px 0 0; border-left: 0; border-top: 1px solid #ffffff25; }
+  .hi-bottom { padding: 18px 24px; letter-spacing: .05em; }
+  .hi-index-title b { font-size: clamp(23px, 7.5cqi, 34px); }
+  .hi-index-title > span { gap: 12px; grid-template-columns: 20px minmax(0,1fr) 20px; padding: 18px 0; }
+  .hi-index-title svg { width: 20px; }
+  .hi-paper-name { font-size: 70px; }
+  .hi-paper-title { display: block; font-size: 22px; }
+  .hi-paper-title span { display: block; }
+  .hi-paper-title span + span::before { content: none; }
+  .hi-flow-title > span { padding: 12px; gap: 8px; grid-template-columns: 24px minmax(0,1fr) 18px; }
+  .hi-flow-title > span:nth-child(2) { margin-left: 8px; }
+  .hi-flow-title > span:nth-child(3) { margin-left: 16px; }
+  .hi-flow-title b { font-size: clamp(20px, 6.2cqi, 28px); }
+}
+@media (max-width: 560px) {
+  .hi-preview { padding: 24px 12px 36px; }
+  .hi-controls { align-items: flex-start; }
+  .hi-controls label span { padding: 8px 10px; font-size: 12px; }
+  .hi-design-note { margin-bottom: 16px; }
+}
