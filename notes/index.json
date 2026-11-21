@@ -158,6 +158,33 @@
   ],
   "notes": [
     {
+      "slug": "ai-service-ux",
+      "file": "notes/ai-service-ux.md",
+      "revision": "765cc9eb5993d2cd",
+      "title": "AI 서비스의 UX는 기존 SaaS와 무엇이 달라져야 할까?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai"
+      ],
+      "tags": [
+        "AI UX",
+        "Human-AI Interaction",
+        "사용자 통제",
+        "검증 UX"
+      ],
+      "date": "2026-11-21",
+      "summary": "AI가 초안을 빨리 만들어도 검토와 수정에 시간이 더 들면 업무는 나아지지 않는다. 고객 문의 처리 예시와 HCI 연구를 바탕으로 AI 도입 판단, 데이터·비용 안내, 결과 검증, 실행·복구, 반복 사용의 설계 기준을 정리했다.",
+      "sample": false,
+      "related": [
+        "ai-waiting-ux",
+        "agent-autonomy",
+        "rag-citation-rules",
+        "agent-kpi",
+        "ai-requirements-definition"
+      ]
+    },
+    {
       "slug": "ai-requirements-definition",
       "file": "notes/ai-requirements-definition.md",
       "revision": "d48d5fa5a72e978a",
@@ -180,7 +207,8 @@
       "related": [
         "ai-coding-delivery",
         "tech-stack-choice",
-        "ai-dev-tools-compare"
+        "ai-dev-tools-compare",
+        "ai-service-ux"
       ]
     },
     {
@@ -447,6 +475,7 @@
       "related": [
         "tech-stack-choice",
         "claude-cli-in-app",
+        "ai-service-ux",
         "physical-ai-01"
       ]
     },
@@ -506,6 +535,7 @@
         "agent-eval",
         "agent-governance",
         "agent-kpi",
+        "ai-service-ux",
         "ax-domain-design-criteria",
         "finance-ax-decision-execution",
         "multi-agent-vs-single",
@@ -538,6 +568,7 @@
         "multi-agent-vs-single",
         "agent-governance",
         "ai-coding-delivery",
+        "ai-service-ux",
         "ax-domain-design-criteria",
         "cross-device-agents",
         "finance-ax-decision-execution",
@@ -818,6 +849,7 @@
       "related": [
         "agent-eval",
         "ai-failure-tracing",
+        "ai-service-ux",
         "context-engineering",
         "data-preprocessing",
         "prompt-injection",
