@@ -181,7 +181,37 @@
         "agent-autonomy",
         "rag-citation-rules",
         "agent-kpi",
-        "ai-requirements-definition"
+        "ai-requirements-definition",
+        "ai-output-quality"
+      ]
+    },
+    {
+      "slug": "ai-output-quality",
+      "file": "notes/ai-output-quality.md",
+      "revision": "5b3af3c3bbcb299f",
+      "title": "AI로 만든 글과 화면은 왜 비슷해 보일까?",
+      "category": "planning",
+      "categories": [
+        "planning",
+        "ai",
+        "ops"
+      ],
+      "tags": [
+        "AI Writing",
+        "Frontend Design",
+        "Context Engineering",
+        "LLM-as-a-Judge",
+        "품질 검토"
+      ],
+      "date": "2026-11-21",
+      "updated": "2026-11-21",
+      "summary": "AI는 익숙한 표현과 구성을 반복하기 쉽고, 작성자의 관찰과 선택 이유가 빠지면 결과물의 차이도 줄어든다. 나의 관점·판단·취향을 제작 기준으로 전달하고 편집 과정에서도 보존하는 전략을 정리한다.",
+      "sample": false,
+      "related": [
+        "context-engineering",
+        "agent-eval",
+        "ai-service-ux",
+        "ai-coding-delivery"
       ]
     },
     {
@@ -424,6 +454,7 @@
         "ai-dev-tools-compare",
         "tech-stack-choice",
         "agent-kpi",
+        "ai-output-quality",
         "ai-requirements-definition",
         "ai-technical-debt"
       ]
@@ -653,6 +684,7 @@
         "agent-kpi",
         "ai-data-patterns",
         "ai-failure-tracing",
+        "ai-output-quality",
         "multi-agent-vs-single",
         "rag-citation-rules",
         "why-ai-agent"
@@ -1194,6 +1226,7 @@
         "ai-failure-tracing",
         "agent-guardrails",
         "agent-memory",
+        "ai-output-quality",
         "cross-device-agents",
         "data-preprocessing",
         "when-rag"
