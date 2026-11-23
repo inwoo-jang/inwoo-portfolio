@@ -199,4 +199,29 @@ if (/<script type="application\/json" id="notes-data">[\s\S]*?<\/script>/.test(p
   page = page.replace('  <script src="script/notes.js"></script>', () => `  ${block}\n  <script src="script/notes.js"></script>`);
 }
 await writeFile(pagePath, page);
+
+// 홈 미리보기도 같은 최신순 목록·제목·요약을 사용한다.
+const homePath = join(root, lang ? "index.en.html" : "index.html");
+let home;
+try { home = await readFile(homePath, "utf8"); }
+catch (error) { if (error.code !== "ENOENT") throw error; }
+if (home) {
+  const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+  const cards = notes.filter((note) => !note.sample).slice(0, 3).map((note) => {
+    const tapes = note.categories.map((id) => {
+      const color = categories.find((category) => category.id === id).color.tape;
+      return `<span class="note-tape" style="--tape:${color}"></span>`;
+    }).join("");
+    return `          <li class="entry">
+            <span class="note-tapes" aria-hidden="true">${tapes}</span>
+            <time class="entry__date" datetime="${escapeHtml(note.date)}">${escapeHtml(note.date.replace(/-/g, "."))}</time>
+            <h3 class="entry__title"><a href="${lang ? "notes.en.html" : "notes.html"}#n-${escapeHtml(note.slug)}">${escapeHtml(note.title)}</a></h3>
+            <p class="entry__summary">${escapeHtml(note.summary)}</p>
+          </li>`;
+  }).join("\n");
+  home = home.replace(/(<ul class="entries home-memos" data-notes-grid>)[\s\S]*?(\s*<\/ul>)/,
+    (_, opening, closing) => `${opening}\n${cards}${closing}`);
+  await writeFile(homePath, home);
+}
 console.log(`${filePrefix}index.json: 노트 ${notes.length}개`);

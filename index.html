@@ -25,6 +25,10 @@
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
   <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
   <link rel="stylesheet" href="css/ds.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/demo-motion.css">
 </head>
 <body>
 
@@ -84,6 +88,7 @@
             <p class="work__meta"><strong>문제해결력</strong><span>약국 물류 · 도매몰 주문 연동</span></p>
             <h3 class="work__title"><a href="portfolio.html#p-order-sync">하루 약 1시간 걸리던 주문 입력이 10분으로 줄었습니다</a></h3>
             <p class="work__did">주문을 수거 박스와 연결해 일부만 수거해도 정산에 반영되도록 했습니다.</p>
+            <button type="button" class="work__demo" data-demo-open="order"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg></i>데모 보기 <span>22초</span></button>
           </div>
         </li>
         <li class="work">
@@ -91,6 +96,7 @@
             <p class="work__meta"><strong>기획력</strong><span>약국 회계 · 가계부 첫 설정</span></p>
             <h3 class="work__title"><a href="portfolio.html#p-pharmacy-link">따로 연결하던 세 곳을 인증서 하나로 묶었습니다</a></h3>
             <p class="work__did">약국의 첫 설정을 원격으로 돕다가 발견한 불편입니다. 홈택스·요양기관·4대보험은 같은 인증서를 쓰고, 별도 계정이 필요한 곳만 따로 연결하도록 기획했습니다.</p>
+            <button type="button" class="work__demo" data-demo-open="cert"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg></i>데모 보기 <span>22초</span></button>
           </div>
         </li>
         <li class="work">
@@ -98,6 +104,7 @@
             <p class="work__meta"><strong>기술력</strong><span>광고 규제 · AI 사전검토</span></p>
             <h3 class="work__title"><a href="portfolio.html#p-ad-review">VLM이 광고 이미지의 맥락까지 읽도록 설계했습니다</a></h3>
             <p class="work__did">프론트엔드를 맡았고, 팀원들의 제안으로 광고 문구를 읽는 OCR과 문구·이미지를 함께 분석하는 VLM 기능도 구현했습니다.</p>
+            <button type="button" class="work__demo" data-demo-open="vlm"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg></i>분석 구조 보기 <span>32초</span></button>
           </div>
         </li>
       </ul>
@@ -111,22 +118,22 @@
         </div>
         <ul class="entries home-memos" data-notes-grid>
           <li class="entry">
-            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#F0D48C"></span></span>
-            <time class="entry__date" datetime="2026-10-07">2026.10.07</time>
-            <h3 class="entry__title"><a href="notes.html#n-why-ai-agent">왜 AI 에이전트로 만들까?</a></h3>
-            <p class="entry__summary">어떤 일을 에이전트에 맡기고, 어떤 일은 순서를 미리 정해둘까.</p>
+            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#F0D48C"></span><span class="note-tape" style="--tape:#C9B2E4"></span></span>
+            <time class="entry__date" datetime="2026-11-21">2026.11.21</time>
+            <h3 class="entry__title"><a href="notes.html#n-ai-service-ux">AI 서비스의 UX는 기존 SaaS와 무엇이 달라져야 할까?</a></h3>
+            <p class="entry__summary">AI가 초안을 빨리 만들어도 검토와 수정에 시간이 더 들면 업무는 나아지지 않는다. 고객 문의 처리 예시와 HCI 연구를 바탕으로 AI 도입 판단, 데이터·비용 안내, 결과 검증, 실행·복구, 반복 사용의 설계 기준을 정리했다.</p>
           </li>
           <li class="entry">
-            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#EAAFC8"></span></span>
-            <time class="entry__date" datetime="2026-11-06">2026.11.06</time>
-            <h3 class="entry__title"><a href="notes.html#n-agent-kpi">AI 에이전트의 KPI는 어떻게 설계해야 하는가?</a></h3>
-            <p class="entry__summary">완료율과 함께 사람이 다시 확인하고 고치는 시간까지 보는 이유.</p>
+            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#F0D48C"></span><span class="note-tape" style="--tape:#C9B2E4"></span><span class="note-tape" style="--tape:#BAD59F"></span></span>
+            <time class="entry__date" datetime="2026-11-21">2026.11.21</time>
+            <h3 class="entry__title"><a href="notes.html#n-ai-output-quality">AI로 만든 글과 화면은 왜 비슷해 보일까?</a></h3>
+            <p class="entry__summary">AI는 익숙한 표현과 구성을 반복하기 쉽고, 작성자의 관찰과 선택 이유가 빠지면 결과물의 차이도 줄어든다. 나의 관점·판단·취향을 제작 기준으로 전달하고 편집 과정에서도 보존하는 전략을 정리한다.</p>
           </li>
           <li class="entry">
-            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#EAAFC8"></span></span>
-            <time class="entry__date" datetime="2026-11-12">2026.11.12</time>
-            <h3 class="entry__title"><a href="notes.html#n-ax-domain-design-criteria">AX는 산업마다 무엇이 달라져야 할까?</a></h3>
-            <p class="entry__summary">실수가 미치는 영향에 따라 AI에 맡길 범위를 정하는 기준.</p>
+            <span class="note-tapes" aria-hidden="true"><span class="note-tape" style="--tape:#F0D48C"></span><span class="note-tape" style="--tape:#AEC4EA"></span></span>
+            <time class="entry__date" datetime="2026-11-20">2026.11.20</time>
+            <h3 class="entry__title"><a href="notes.html#n-ai-requirements-definition">AI가 코드를 만드는 시대에 좋은 요구사항 정의란?</a></h3>
+            <p class="entry__summary">좋은 요구사항은 구현 방법을 다 지정한 문서가 아니라, 무엇을 만들지에 대한 합의와 무엇이 잘못된 결과인지 판정할 기준을 담은 문서다. AI가 코드를 빨리 쓸수록 분량보다 이 두 가지가 중요해진다. 사용자의 문제, 지켜야 할 업무 규칙, 아직 결정하지 않은 조건, 검증 가능한 결과를 구분해 적는 틀을 정리했다.</p>
           </li>
         </ul>
         <p class="home-section-more"><a href="notes.html">Dev Notes 전체 보기<span aria-hidden="true">→</span></a></p>
@@ -163,7 +170,67 @@
     </div>
   </footer>
 
+  <dialog class="demo-dialog" aria-labelledby="demo-dialog-title" tabindex="-1">
+    <div class="demo-dialog__bar"><p class="demo-dialog__title" id="demo-dialog-title"></p><button type="button" class="demo-dialog__close">닫기 ×</button></div>
+      <section class="demo-scene" data-demo="order" data-title="주문 연동 · 22초" hidden>
+        <div class="dm__view">
+          <div class="dm" data-cuts="4,8.5,13,17.5,22" data-scene="0" aria-hidden="true">
+            <div class="dm__text"><div class="dm__eyebrows"><p class="dm__eyebrow" data-s="1">01 문제 <span>· 실무 사례 재현</span></p><p class="dm__eyebrow" data-s="2">02 쓰는 사람 <span>· 실무 사례 재현</span></p><p class="dm__eyebrow" data-s="3">03 얽힌 곳 <span>· 실무 사례 재현</span></p><p class="dm__eyebrow" data-s="4">04 바꾼 것 <span>· 실무 사례 재현</span></p><p class="dm__eyebrow" data-s="5">05 결과 <span>· 실무 사례 재현</span></p></div><div class="dm__heads"><p class="dm__head" data-s="1">1년·2년·3년 보관 서비스가<br><em>주문 하나</em>로 묶여 들어왔습니다</p><p class="dm__head" data-s="2">주문은 운영 담당자가<br>엑셀로 받아 직접 입력했습니다</p><p class="dm__head" data-s="3">라벨이 같다 보니<br>여러 곳에서 같이 꼬였습니다</p><p class="dm__head" data-s="4">주문번호에 상품 순번을 붙여<br>박스마다 <em>라벨</em>을 따로 달았습니다</p><p class="dm__head" data-s="5">일부만 수거돼도<br>박스별로 상태와 정산이 맞습니다</p></div><div class="dm__rowsets"><ul class="dm__rows" data-s="1"><li><b>박스 라벨</b><span>약국명 · 주문일자 · 주문번호뿐</span></li><li><b>박스 안</b><span>교부일이 다른 처방전이 섞여 있음</span></li></ul><ul class="dm__rows" data-s="2"><li><b>약국</b><span>일부만 수거를 신청하거나 미룸</span></li><li><b>스캔센터</b><span>라벨만 보고 업로드</span></li></ul><ul class="dm__rows" data-s="3"><li><b>부분 수거</b><span>도매몰과 어드민 상태가 다름</span></li><li><b>스캔</b><span>엉뚱한 주문에 올라감</span></li><li><b>정산</b><span>부분 수거분이 빠짐</span></li></ul><ul class="dm__rows" data-s="4"><li><b>박스 라벨</b><span>주문번호 + 상품 순번</span></li><li><b>박스 옆면</b><span>교부기간 표기</span></li><li><b>약국 안내</b><span>표기 가이드 전달</span></li></ul><ul class="dm__rows" data-s="5"><li><b>정산</b><span class="is-hot">수거한 3박스만</span></li><li><b>도매몰 상태</b><span class="is-hot">부분배송</span></li><li><b>수기 입력</b><span class="is-hot">하루 약 1시간 → 10분</span></li></ul></div></div>
+            <div class="dm__space"><div class="dm__rig"><div class="dm__card om-box" data-in="1 4 5"><div class="lb-old"><small>주문 A</small><b>○○약국 · 06.12</b><em>보관 ?</em></div><div class="lb-new"><small>1년 보관</small><strong>A-1</strong><em class="iss"><i>교부일</i>25.01.01~<br>25.03.31</em><span class="st"><i data-k="wait">대기</i><i data-k="out">수거</i></span></div></div><div class="dm__card om-box" data-in="1 4 5"><div class="lb-old"><small>주문 A</small><b>○○약국 · 06.12</b><em>보관 ?</em></div><div class="lb-new"><small>2년 보관</small><strong>A-2</strong><em class="iss"><i>교부일</i>25.01.01~<br>25.02.28</em><span class="st"><i data-k="wait">대기</i><i data-k="out">수거</i></span></div></div><div class="dm__card om-box" data-in="1 4 5"><div class="lb-old"><small>주문 A</small><b>○○약국 · 06.12</b><em>보관 ?</em></div><div class="lb-new"><small>2년 보관</small><strong>A-3</strong><em class="iss"><i>교부일</i>25.03.01~<br>25.04.30</em><span class="st"><i data-k="wait">대기</i><i data-k="out">수거</i></span></div></div><div class="dm__card om-box" data-in="1 4 5"><div class="lb-old"><small>주문 A</small><b>○○약국 · 06.12</b><em>보관 ?</em></div><div class="lb-new"><small>3년 보관</small><strong>A-4</strong><em class="iss"><i>교부일</i>25.01.01~<br>25.03.31</em><span class="st"><i data-k="wait">대기</i><i data-k="out">수거</i></span></div></div><div class="dm__card om-box" data-in="1 4 5"><div class="lb-old"><small>주문 A</small><b>○○약국 · 06.12</b><em>보관 ?</em></div><div class="lb-new"><small>3년 보관</small><strong>A-5</strong><em class="iss"><i>교부일</i>25.04.01~<br>25.06.30</em><span class="st"><i data-k="wait">대기</i><i data-k="out">수거</i></span></div></div><p class="dm__tag" data-in="1" style="--x:0px;--y:96px;--w:610px"><b>주문 A</b> · 1년 · 2년 · 3년 보관 서비스</p><p class="dm__tag dm__tag--warn" data-in="1" style="--x:0px;--y:316px;--w:610px">모든 박스에 같은 라벨</p><div class="dm__card who who--2" data-in="2" style="--x:0px;--y:90px"><small>쓰는 사람</small><strong>운영 담당자</strong><p>도매몰 주문을 엑셀로 받아 어드민에 하나씩 입력</p></div><div class="dm__card who who--2" data-in="2" style="--x:316px;--y:90px"><small>쓰는 사람</small><strong>약국</strong><p>박스 일부만 수거를 신청하거나 수거를 미룸</p></div><div class="dm__card who who--5" data-in="3" style="--x:0px;--y:40px"><small>얽힌 곳</small><strong>도매몰</strong><p>주문 현황이 우리 어드민과 어긋남</p></div><div class="dm__card who who--5" data-in="3" style="--x:212px;--y:40px"><small>얽힌 곳</small><strong>스캔센터</strong><p>라벨만 보고 다른 주문에 업로드</p></div><div class="dm__card who who--5" data-in="3" style="--x:424px;--y:40px"><small>얽힌 곳</small><strong>HMP몰 정산 담당</strong><p>부분 수거분이 정산에서 빠짐</p></div><div class="dm__card who who--5" data-in="3" style="--x:106px;--y:228px"><small>얽힌 곳</small><strong>배송사</strong><p>약국에서 박스를 수거</p></div><div class="dm__card who who--5" data-in="3" style="--x:318px;--y:228px"><small>얽힌 곳</small><strong>개발팀</strong><p>연동을 구현</p></div><p class="dm__tag" data-in="4" style="--x:0px;--y:104px;--w:110px"><b>1년</b> · 1박스</p><p class="dm__tag" data-in="4" style="--x:124px;--y:104px;--w:234px"><b>2년</b> · 2박스</p><p class="dm__tag" data-in="4" style="--x:372px;--y:104px;--w:234px"><b>3년</b> · 2박스</p><p class="dm__tag" data-in="5" style="--x:0px;--y:40px;--w:620px"><b>주문 A</b> · 도매몰 상태 <span class="dm__chip is-hot">부분배송</span></p><p class="dm__tag is-hot" data-in="5" style="--x:-8px;--y:326px;--w:358px"><b>수거 3박스 → 정산 반영</b></p><p class="dm__tag" data-in="5" style="--x:428px;--y:326px;--w:182px"><b>약국 보관 2박스</b> → 다음 수거</p></div></div>
+          </div>
+        </div>
+        <p class="sr-only">약국 한 곳의 1년·2년·3년 보관 서비스가 주문 하나로 들어왔고, 모든 박스에 약국명과 주문일자, 같은 주문번호 라벨만 붙어 있었습니다. 박스 안 처방전도 교부일이 제각각이었습니다. 운영 담당자는 주문을 엑셀로 받아 직접 입력했고, 약국은 일부만 수거를 신청하거나 미뤘습니다. 그래서 부분 수거 때 도매몰과 어드민 상태가 달라지고, 스캔이 엉뚱한 주문에 올라가고, 부분 수거분이 정산에서 빠졌습니다. 주문번호에 상품 순번을 붙여 박스마다 라벨을 달고, 옆면에 교부기간을 적게 하고, 약국에 표기 가이드를 안내했습니다. 이제 수거한 박스만 정산에 반영되고 도매몰에는 부분배송으로 표시되며, 수기 입력은 하루 약 1시간에서 10분으로 줄었습니다.</p>
+        <div class="dm__ctrl">
+          <button type="button" class="dm__btn"></button>
+          <div class="dm__progress" aria-hidden="true"></div>
+          <span class="dm__time" aria-hidden="true"></span>
+        </div>
+        <div class="demo-dialog__foot">
+          <a class="demo-dialog__more" href="portfolio.html#p-order-sync">상세 보기 →</a>
+        </div>
+      </section>
+      <section class="demo-scene" data-demo="cert" data-title="약국 가계부 첫 설정 · 22초" hidden>
+        <div class="dm__view">
+          <div class="dm" data-cuts="4,8.5,13,17.5,22" data-scene="0" aria-hidden="true">
+            <div class="dm__text"><div class="dm__eyebrows"><p class="dm__eyebrow" data-s="1">01 문제 <span>· 흐름 재현</span></p><p class="dm__eyebrow" data-s="2">02 쓰는 사람 <span>· 흐름 재현</span></p><p class="dm__eyebrow" data-s="3">03 연동 제약 <span>· 흐름 재현</span></p><p class="dm__eyebrow" data-s="4">04 바꾼 것 <span>· 흐름 재현</span></p><p class="dm__eyebrow" data-s="5">05 결과 <span>· 흐름 재현</span></p></div><div class="dm__heads"><p class="dm__head" data-s="1">첫 설정 때 기관 네 곳을<br>하나씩 <em>따로</em> 연결해야 했습니다</p><p class="dm__head" data-s="2">연결은 주로 약사가 했고,<br>영업담당자가 대신 해 주기도 했습니다</p><p class="dm__head" data-s="3">외부기관 방식에 맞춰<br><em>연결 흐름</em>을 정리했습니다</p><p class="dm__head" data-s="4">같은 인증서를 쓰는 세 곳은<br><em>한 번에</em> 연결되게 묶었습니다</p><p class="dm__head" data-s="5">바뀐 흐름이 실제로 적용됐고,<br>원격지원이 거의 필요 없어졌습니다</p></div><div class="dm__rowsets"><ul class="dm__rows" data-s="1"><li><b>홈택스·요양기관·4대보험</b><span>각각 인증서 연결</span></li><li><b>여신금융</b><span>아이디·비밀번호</span></li></ul><ul class="dm__rows" data-s="2"><li><b>막히면</b><span>원격지원 요청</span></li><li><b>원격지원</b><span>제가 원격으로 같이 연결</span></li></ul><ul class="dm__rows" data-s="3"><li><b>외부기관</b><span>정해진 인증 방식은 그대로</span></li><li><b>우리 쪽 조정</b><span>사내 개발팀 · 외부 연동 업체</span></li></ul><ul class="dm__rows" data-s="4"><li><b>인증서 로그인</b><span class="is-hot">한 번으로 3곳</span></li><li><b>여신금융</b><span>별도 계정 그대로</span></li><li><b>예외</b><span>로그인 실패·개인 금융인증서는 별도 경로</span></li></ul><ul class="dm__rows" data-s="5"><li><b>적용</b><span class="is-hot">실제 서비스에 반영</span></li><li><b>원격지원</b><span class="is-hot">첫 설정 때 거의 필요 없음</span></li></ul></div></div>
+            <div class="dm__space"><div class="dm__rig"><div class="dm__card pl-card" data-in="1 4 5"><small>기관</small><strong>홈택스</strong><em>인증서</em><span class="pill">연결</span></div><div class="dm__card pl-card" data-in="1 4 5"><small>기관</small><strong>요양기관</strong><em>인증서</em><span class="pill">연결</span></div><div class="dm__card pl-card" data-in="1 4 5"><small>기관</small><strong>4대보험</strong><em>인증서</em><span class="pill">연결</span></div><div class="dm__card pl-card" data-in="1 4 5"><small>기관</small><strong>여신금융</strong><em>아이디·비밀번호</em><span class="pill">연결</span></div><div class="dm__card who who--3" data-in="2" style="--x:0px;--y:110px"><small>쓰는 사람</small><strong>약사</strong><p>첫 설정에서 기관마다 직접 연결</p></div><div class="dm__card who who--3" data-in="2" style="--x:212px;--y:110px"><small>쓰는 사람</small><strong>파트너사 영업담당자</strong><p>서비스를 안내하며 설치·연결을 대신함</p></div><div class="dm__card who who--3" data-in="2" style="--x:424px;--y:110px"><small>쓰는 사람</small><strong>원격지원</strong><p>막힌 연결을 원격으로 도움</p></div><div class="dm__card who who--4" data-in="3" style="--x:0px;--y:30px"><small>우리 쪽 구현</small><strong>사내 개발팀</strong><p>기관별 인증 방식에 맞춰 연결 흐름 구현</p></div><div class="dm__card who who--4" data-in="3" style="--x:316px;--y:30px"><small>연동 협업</small><strong>외부 데이터 연동 업체</strong><p>기관별 인증·데이터 연결 지원</p></div><div class="dm__card who who--4" data-in="3" style="--x:0px;--y:226px"><small>얽힌 곳</small><strong>CS·운영팀</strong><p>원격지원과 문의 대응</p></div><div class="dm__card who who--4" data-in="3" style="--x:316px;--y:226px"><small>외부 연동 조건</small><strong>기관별 인증 방식</strong><p>홈택스·여신금융 등 정해진 방식에 우리 서비스가 맞춤</p></div><p class="dm__tag is-hot" data-in="4 5" style="--x:24px;--y:360px;--w:206px"><b>인증서 1회 → 3곳 연결</b></p><p class="dm__tag" data-in="4 5" style="--x:474px;--y:360px;--w:150px"><b>별도 계정</b> · 그대로</p><p class="dm__tag is-hot" data-in="5" style="--x:24px;--y:40px;--w:600px"><b>운영 적용</b> · 원격지원 거의 없음</p></div></div>
+          </div>
+        </div>
+        <p class="sr-only">문제: 약국이 첫 설정에서 홈택스·요양기관·4대보험·여신금융을 각각 연결해야 했습니다. 액션 유저: 약사와 파트너사 영업담당자가 연결했고, 막히면 원격지원으로 도왔습니다. 연동 제약: 외부기관의 인증 방식은 그대로 두고, 사내 개발팀·외부 데이터 연동 업체와 우리 서비스의 연결 흐름을 정리했습니다. CS·운영팀은 원격지원과 문의에 대응했습니다. 해결: 같은 인증서를 쓰는 세 곳은 한 흐름으로 묶고 여신금융만 별도 계정으로 두었으며, 로그인 실패나 개인 금융인증서는 별도 경로를 안내했습니다. 결과: 운영에 적용됐고 첫 설정에 원격지원이 거의 필요 없어졌습니다.</p>
+        <div class="dm__ctrl">
+          <button type="button" class="dm__btn"></button>
+          <div class="dm__progress" aria-hidden="true"></div>
+          <span class="dm__time" aria-hidden="true"></span>
+        </div>
+        <div class="demo-dialog__foot">
+          <a class="demo-dialog__more" href="portfolio.html#p-pharmacy-link">상세 보기 →</a>
+        </div>
+      </section>
+      <section class="demo-scene" data-demo="vlm" data-title="표시광고 AI 사전검토 · 32초" hidden>
+        <div class="dm__view">
+          <div class="dm dm--ad" data-cuts="5,11,18,25,32" data-scene="0" aria-hidden="true">
+            <ol class="ad-flow"><li data-step="1"><span>01</span>복합 광고</li><li data-step="2"><span>02</span>문구 추출</li><li data-step="3"><span>03</span>관계 분석</li><li data-step="4"><span>04</span>인용 검증</li><li data-step="5"><span>05</span>게시 점검</li></ol>
+            <div class="dm__text"><div class="dm__eyebrows"><p class="dm__eyebrow" data-s="1">01 복합 광고 <span>· 가상 광고</span></p><p class="dm__eyebrow" data-s="2">02 문구 추출 <span>· 가상 광고</span></p><p class="dm__eyebrow" data-s="3">03 관계 분석 <span>· 가상 광고</span></p><p class="dm__eyebrow" data-s="4">04 인용 검증 <span>· 가상 광고</span></p><p class="dm__eyebrow" data-s="5">05 게시 점검 <span>· 가상 광고</span></p></div><div class="dm__heads"><p class="dm__head" data-s="1">광고 한 장에<br><em>주장과 조건</em>이 겹쳐 있습니다</p><p class="dm__head" data-s="2">문구의 위계를 나누고<br><em>근거 ID</em>를 남깁니다</p><p class="dm__head" data-s="3">서로 다른 조건을<br><em>각 주장에</em> 연결합니다</p><p class="dm__head" data-s="4">원문에 <em>딱 한 번</em><br>나오는 인용만 통과합니다</p><p class="dm__head" data-s="5">게시할 크기에서도<br><em>근거를 확인</em>합니다</p></div><div class="dm__rowsets"><ul class="dm__rows" data-s="1"><li><b>광고 구성</b><span>효능 주장 · 첫 구매 할인 · 묶음 혜택</span></li><li><b>작은 글씨</b><span>혜택마다 적용 조건이 다름</span></li></ul><ul class="dm__rows" data-s="2"><li><b>문구 위계</b><span>제목 · 상품 설명 · 혜택 · 조건</span></li><li><b>미판독</b><span>읽지 못한 곳은 확인 필요로 유지</span></li></ul><ul class="dm__rows" data-s="3"><li><b>입력 고정</b><span>같은 원본 · OCR · 사용자 수정본</span></li><li><b>분석 후보</b><span>근거 ID · 원문 인용 · 조건 관계</span></li></ul><ul class="dm__rows" data-s="4"><li><b>한 번 일치</b><span>코드가 인용 위치를 계산</span></li><li><b>없거나 중복</b><span>모호한 인용은 거절</span></li></ul><ul class="dm__rows" data-s="5"><li><b>게시 크기</b><span>모델 재호출 없이 표시 크기 계산</span></li><li><b>작은 글씨</b><span>확대 재판독도 원문 대신 후보로</span></li></ul></div></div>
+            <div class="dm__space"><div class="dm__rig">
+              <p class="dm__tag ad-source" data-in="1 2 3 4 5" style="--x:0px;--y:-24px">광고 원본 · 가상 예시</p>
+              <div class="dm__card ad-card ad-card--complex" data-in="1 2 3 4 5" data-c="ad"><div class="ad-top"><small>DAILY FORMULA</small><span>데일리 B 스틱</span></div><p class="ad-h1">하루 한 포,<br>피로 끝<sup>¹</sup><span class="ad-hl"><b data-ocr="L1" data-context="주장"></b></span></p><div class="ad-scene-wrap"><img class="ad-scene" src="media/portfolio/daily-b-studio.webp" width="960" height="720" alt="" decoding="async"><span class="ad-hl"><b data-ocr="" data-context="장면" ></b></span></div><p class="ad-body">비타민 B군 함유 · 1일 1포<span class="ad-hl"><b data-ocr="L2" data-context="상품"></b></span></p><div class="ad-offers"><p class="ad-offer">첫 구매<br><strong>30% OFF<sup>²</sup></strong><span class="ad-hl"><b data-ocr="L3" data-context="혜택"></b></span></p><p class="ad-offer">패밀리팩<br><strong>2+1<sup>³</sup></strong><span class="ad-hl"><b data-ocr="L4" data-context="혜택"></b></span></p></div><div class="ad-conditions"><p class="ad-cond">¹ 개인차가 있을 수 있습니다<span class="ad-hl"><b data-ocr="L5" data-context="조건"></b></span></p><p class="ad-cond">² 첫 결제 한정 · 첫 결제 취소 시 제외<span class="ad-hl"><b data-ocr="L6" data-context="조건"></b></span></p><p class="ad-cond">³ 동일 상품 2박스 구매 시 · 11.30까지<span class="ad-hl"><b data-ocr="L7" data-context="조건"></b></span></p></div></div>
+              <div class="ad-transfer" data-in="1 2 3 4 5" style="--x:260px;--y:242px"><svg viewBox="0 0 24 16"><path d="M1 8h20m-5-5 5 5-5 5"/></svg></div>
+              <div class="dm__card ad-panel typed-card" data-in="1" style="--x:284px;--y:0px"><small>문구만 입력</small><h3>문구만으로는 관계가 빠집니다</h3><div class="ad-copy"><p>하루 한 포, 피로 끝¹<br>30% OFF · 2+1</p></div><p class="ad-panel__note">할인과 묶음 혜택의 조건이 다르고, 실험 기구 이미지는 효능을 암시합니다.</p></div>
+              <div class="dm__card ad-panel ocr-card" data-in="2" style="--x:284px;--y:0px"><small>OCR · 위계별 전사</small><h3>일곱 줄의 문구와 위계</h3><ol class="ad-lines ad-lines--dense"><li><code>L1</code><div><span>H1 · 주장</span><q>하루 한 포, 피로 끝¹</q></div></li><li><code>L2</code><div><span>본문</span><q>비타민 B군 함유 · 1일 1포</q></div></li><li><code>L3</code><div><span>혜택</span><q>첫 구매 30% OFF²</q></div></li><li><code>L4</code><div><span>혜택</span><q>패밀리팩 2+1³</q></div></li><li><code>L5</code><div><span>조건</span><q>¹ 개인차가 있을 수 있습니다</q></div></li><li><code>L6</code><div><span>조건</span><q>² 첫 결제 한정 · 첫 결제 취소 시 제외</q></div></li><li><code>L7</code><div><span>조건</span><q>³ 동일 상품 2박스 구매 시 · 11.30까지</q></div></li></ol></div>
+              <div class="dm__card ad-panel vlm-card" data-in="3" style="--x:284px;--y:0px"><small>VLM · 구조화된 후보</small><h3>세 주장에 서로 다른 조건</h3><p class="ad-panel__input ad-snapshot">같은 원본 + 전사 + 수정본</p><ul class="ad-context"><li><span>장면</span><b>비타민 스틱 · 실험 기구</b></li><li><span>암시</span><b>과학적으로 검증된 듯한 인상</b></li><li><span>강조</span><b>H1 효능 주장 · 30% · 2+1</b></li></ul><ul class="ad-relations"><li><code>L5 → L1</code><span>효능 주장에 대한 단서</span></li><li><code>L6 → L3</code><span>할인 대상·결제 조건</span></li><li><code>L7 → L4</code><span>묶음 수량·행사 기한</span></li></ul><p class="ad-panel__note">조건 관계와 시각적 해석은 후보로 유지합니다.</p></div>
+              <div class="dm__card ad-panel chk-card" data-in="4" style="--x:284px;--y:0px"><small>코드 · 인용 검증</small><h3>문구가 있어도 모호하면 거절</h3><ul class="ad-checks"><li class="ad-check--match"><span>일치</span><div><b>L3 · “30% OFF”</b><p>원문에 1회 → 인용 위치 계산</p></div></li><li class="ad-check--review"><span>중복</span><div><b>L6 · “첫 결제”</b><p>같은 줄에 2회 → 위치가 모호해 거절</p></div></li><li class="ad-check--reject"><span>없음</span><div><b>“임상으로 입증”</b><p>원문에 없는 인용 → 거절</p></div></li></ul><p class="ad-panel__note">같은 OCR 스냅샷과 대조하고, 위치를 추측하지 않습니다.</p></div>
+              <div class="dm__card ad-panel publish-card" data-in="5" style="--x:284px;--y:0px"><small>게시 조건 · 재판독</small><h3>크기·잘림·미판독까지 확인</h3><ol class="ad-publication"><li><span>01</span><div><b>게시 크기 계산</b><p>게시 폭 260 → 180 CSS px<br>각주 9 px → 6.2 CSS px</p></div></li><li><span>02</span><div><b>조건 잘림 감지</b><p>L7이 게시 영역 밖으로 잘림<br>미확인 범위를 후속 검토에 전달</p></div></li><li><span>03</span><div><b>작은 글씨 재판독</b><p>선택 영역을 잘라 확대해 판독<br>차이는 후보로 · 기존 전사는 유지</p></div></li></ol><p class="ad-panel__note">로컬 연결 확인 · 정확도 미측정</p></div>
+              <div class="ad-crop-guide" data-in="5" style="--x:0px;--y:468px"><span>게시 영역 밖 · 조건 문구 잘림</span></div>
+            </div></div>
+          </div>
+        </div>
+        <p class="sr-only">가상 비타민 광고에 효능 주장, 상품 설명, 첫 구매 30% 할인, 2+1 묶음 혜택과 서로 다른 세 가지 조건을 배치했습니다. OCR은 일곱 줄의 ID와 제목·본문·혜택·조건 위계를 남깁니다. VLM은 같은 원본·전사·사용자 수정본의 스냅샷을 읽고 시각적 해석과 L5에서 L1, L6에서 L3, L7에서 L4로의 조건 관계를 후보로 냅니다. 코드는 인용이 지정된 전사 줄에 정확히 한 번 있는지 확인해 위치를 계산하고, 원문에 없거나 여러 번 나오는 인용을 거절합니다. 게시 폭만 바뀌면 모델을 다시 부르지 않고 표시 크기를 계산하며, 잘린 조건을 미확인 범위로 남깁니다. 작은 글씨 확대 재판독은 원문을 덮어쓰지 않고 후보로 보여줍니다. 로컬 구현 구조를 재현한 모션이며 실시간 모델 응답이나 법적 판단이 아닙니다.</p>
+        <div class="dm__ctrl"><button type="button" class="dm__btn"></button><div class="dm__progress"></div><span class="dm__time" aria-hidden="true"></span></div>
+        <div class="demo-dialog__foot"><a class="demo-dialog__more" href="portfolio.html#p-ad-review">상세 보기 →</a></div>
+      </section>
+  </dialog>
   <script src="script/nav.js"></script>
   <script src="script/copy-email.js"></script>
+  <script src="script/demo-motion.js"></script>
 </body>
 </html>
