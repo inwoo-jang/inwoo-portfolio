@@ -1,132 +1,76 @@
-# inwoo-portfolio
+# 장인우 | B2B 제품 기획 · 업무 자동화 · AI 서비스 개발
 
-장인우 채용 지원용 포트폴리오. **Inwoo.log 디자인**을 그대로 쓰되 포트폴리오에 필요한 내용만 담았다.
+서비스를 기획할 때 고객이 보는 화면과 그 뒤의 업무 흐름을 함께 살핍니다.
+실무에서 맡은 기획·운영 사례와 직접 구현한 프로젝트, 판단과 검증 과정을 기록한 개인 포트폴리오입니다.
 
-홈은 “서비스를 기획할 때 고객이 보는 화면과 그 뒤의 업무 흐름을 함께 살핍니다.”라는 소개로 시작한다. 큰 이름 → 직무 → 업무 방식 순서의 에디토리얼 구성에 GitHub Primer(light) 팔레트를 사용한다. 헤더는 흰 바탕, 소개 영역은 연한 회색 띠(canvas.subtle)다. 소개 옆에는 경력과 연락처를 확인할 수 있는 프로필 요약을 둔다. 대표 프로젝트는 업무 시간이 줄어든 주문 연동 사례부터 읽도록 배치한다. 대표 카드 하단의 ‘데모 보기’를 누르면 창(`css/demo-motion.css` · `script/demo-motion.js`)에서 데모를 한 번 재생한다(주문·인증 22초, 표시광고 32초; 자동재생·반복 없음). 주문·인증 데모는 문제 정의 → 액션 유저 → 이해관계자 → 해결 방향 → 결과, 표시광고 데모는 복합 광고 → OCR 위계별 전사 → VLM 조건 관계 → 인용 단일 일치 검증 → 게시 크기·잘림·재판독 순서다. 진행바의 각 구간을 클릭하거나 키보드로 선택해 장면을 이동할 수 있다. 기존 어두운 무대와 세리프 제목은 유지하고, 카드와 강조는 포트폴리오의 네이비·블루·스카이블루 계열로 맞췄다. 영상 아래 설명 문단은 제거하고 상세 보기 링크만 둔다. 주문 연동·약국 가계부는 실제 사례 재현, 표시광고는 가상 광고로 만든 구조 재현이다. 퀴켓 상세에는 최종 발표 시연 영상 중 업로드→챕터·파트 확인→이름 수정 구간(28초, 소리 없음)만 싣는다.
+[포트폴리오 보기](https://inwoo-jang.github.io/inwoo-portfolio/) · [프로젝트](https://inwoo-jang.github.io/inwoo-portfolio/portfolio.html) · [Dev Notes](https://inwoo-jang.github.io/inwoo-portfolio/notes.html) · [English](https://inwoo-jang.github.io/inwoo-portfolio/index.en.html)
 
-- 배포: https://inwoo-jang.github.io/inwoo-portfolio/
-- 원본 사이트 Inwoo.log(SKALA 과제, 캘린더·여행·독서·방명록 포함): https://inwoo-jang.github.io/SKALA-FRONT/
+## 둘러보기
 
-## 페이지
-
-| 파일 | 내용 |
-|---|---|
-| `index.html` | 홈: 벤토 히어로(워드마크 + 배포 화면 슬라이더 4장) · 바로가기 · Now 사이드바 |
-| `profile.html` | Basic · Skills · Timeline |
-| `portfolio.html` | Quick View(카드·필터·읽기 화면) / Book View 연습장 4권: 실무(지킴) 7장 / SKALA 교육 5장 / 팀 3장 / 개인 7장 |
-| `how.html` | 긴 글 + 목차: 대표 사례 · 기획 흐름 · 협업 · 개발. 새 디자인 시스템(`css/ds.css`)을 처음 적용한 페이지 |
-| `storybook/index.html` | 디자인 시스템 시안: 원칙 · 기초 요소 · 컴포넌트 · 템플릿 (내부용, 메뉴에 없음) |
-| `notes.html` | Dev Notes: 기획·기술 선택 기준, 개발 도구·AI 구현·검증 기록 (Markdown) |
-
-### Portfolio 보기 방식
-
-- 페이지 오른쪽 위의 9칸 카드·책 아이콘으로 Quick View와 Book View를 전환한다. 보기 전환은 높이 32px의 화이트 바탕에 선택한 버튼만 블랙으로 표시한다. Dev Notes에도 같은 스타일을 쓴다. 아이콘에 마우스를 올리면 보기 이름을 확인할 수 있다.
-- **먼저 볼 프로젝트**: 목록 맨 위에 대표 4개(주문 연동 · 급여명세서 · 퀴켓 · TaxDesk)를 `script/projects-data.js`의 `window.FEATURED`로 보여 준다. 카드는 프로젝트명 → 판단 → 결과·현재 상태 순서이고, 홈(`index.html`)의 대표 프로젝트와 같은 문장을 쓴다.
-- **Quick View(기본)**: 프로젝트 카드 22개를 분류(Work/SKALA/Team/Solo)·유형(Product/Operations/AI Engineering/Frontend/Backend/Tool)으로 거른다.
-  카드를 누르면 읽기 화면(`#p-<id>`)이 열린다: 프로젝트명 → 한 줄 설명 → 기간·팀·내 역할·현재 상태 → 문제·내 판단·확인한 결과 → 화면과 자료 → 상세 과정(연습장 본문) → 기술과 관련 자료 순서. 역할은 상단 메타에서 한 번만 말한다.
-- **Book View**: 기존 책장·연습장. `#skala` · `#team` · `#solo` 주소는 그대로 Book View로 열린다.
-- 카드 요약은 `script/projects-data.js`, 상세 본문의 원본은 `portfolio.html`의 연습장 장이다(id = `data-project-gallery` 값).
-  요약에는 본문에 적힌 사실만 쓰고, 팀 결과·설계 목표·추정치는 `metrics[].scope`에 범위를 적는다.
-
-### Dev Notes 추가
-
-페이지 오른쪽 위의 9칸 카드·리스트 아이콘으로 보기 방식을 바꾼다. 카드 보기는 기존 포스트잇 형태, 리스트 보기는 날짜·분류와 제목·요약·키워드를 행으로 정돈한다. 선택은 브라우저에 저장되며, 검색·분류 필터와 상세에서 목록으로 돌아올 때도 유지된다. 목록 위의 정렬 메뉴에서 최신순·오래된순을 고를 수 있다. 같은 날짜의 시리즈 글은 최신순에서 큰 회차부터, 오래된순에서 작은 회차부터 표시한다. 정렬 선택도 브라우저에 저장된다.
-
-1. `notes/_template.md`를 복사해 `notes/영문-슬러그.md`로 저장하고 front matter(title · category · tags · date · summary · sample)를 채운다.
-2. `node tools/build-notes-index.mjs`: `notes/index.json`과 `notes.html`의 내장 목록을 함께 갱신한다. 본문 내용의 해시를 캐시 버전으로 기록하므로 글 수정 후에도 반드시 실행한다. 영어판은 `node tools/build-notes-index.mjs en`으로 갱신한다. 홈의 Dev Notes 미리보기도 같은 목록에서 최신 게시글 세 편의 제목·날짜·요약을 그대로 가져와 함께 갱신한다.
-3. 본문은 브라우저에서 `script/markdown.js`가 렌더링한다. 원문 HTML은 쓰지 않고 모두 이스케이프하며, 링크는 http(s)·mailto·상대 경로만 허용한다.
-4. `fetch`를 쓰므로 로컬 확인은 파일 더블클릭이 아니라 `python3 -m http.server`로 연다.
-
-분류 이름·범위·색상은 `notes/categories.json`에서 함께 관리한다. 수정 후 인덱스를 다시 생성하면 필터·분류 안내·카드·본문에 같은 기준과 색상이 적용된다. 글이 없는 분류도 표시한다.
-
-| 분류 | ID | 색상 | 다룰 내용 |
-|---|---|---|---|
-| 기획 | `planning` | 앰버 | 문제 정의, AI 도입 판단, 모델·구조 선택 기준 |
-| AI·에이전트 | `ai` | 퍼플 | 프롬프트, RAG, 메모리, 가드레일 등 AI 기능과 에이전트 구현 |
-| 데이터·ML | `data` | 틸 | 데이터 전처리·분석, 모델 학습과 예측 검증 |
-| 서비스 개발 | `dev` | 블루 | 서비스 구조, 화면·서버·DB 설계와 구현 |
-| 인프라·개발 | `infra` | 오렌지 | 개발 도구, 실행 환경, CI·배포와 코드 관리 |
-| 테스트·운영 | `ops` | 올리브 | 평가·테스트, 관측과 장애 추적, 운영 품질 |
-| AX | `ax` | 로즈 | 조직의 AI 전환: 거버넌스, 성과 측정, 산업별 도입 |
-| 신기술·트렌드 | `emerging` | 시안 | 새로 등장한 기술 자체의 이해: Physical AI, 디지털 트윈, 양자 컴퓨팅 등. 기술 이름은 태그로, 연재는 시리즈로 |
-
-### 시리즈
-
-순서가 있는 연속 글은 front matter에 `series: domain-ax`, `seriesOrder: 1`을 적는다. 시리즈의 영문 라벨·한국어 제목·기획 회차는 `notes/series.json`(영어판은 `notes/en/series.json`)에서 관리한다.
-카드 위에는 `AX FIELD NOTES · 01` 라벨이, 상세 하단에는 목차(현재 글 강조, 게시되지 않은 회차는 링크 없이 “준비 중”)와 이전·다음 글이 나온다. 없는 시리즈 ID, 같은 회차 중복은 인덱스 생성 단계에서 오류로 멈춘다.
-
-`category`에는 대표 분류 하나를 적는다. 그 분야를 찾는 독자가 이 글에서 실제로 답을 얻을 수 있으면 `categories: [planning, data, ai]`처럼 대표를 맨 앞에 포함한 배열로 추가 분류를 적는다(대표 포함 서로 다른 분류 3개 이하). 생성기는 `category`와 `categories`를 합쳐 대표가 맨 앞인 중복 없는 집합으로 정규화하고, 3개 초과·알 수 없는 분류는 오류로 멈춘다. 검사: `node tools/test-notes-index.mjs`. 카드 상단에는 분류별 색상의 세로 테이프를 나란히 표시하고, 마우스를 올리면 분류명이 나온다. 스크린리더에는 분류명을 함께 전달한다. 카드 아래에는 분류 라벨 대신 기술 키워드를 표시한다. 글은 연결한 모든 분류에서 검색된다. 전체 글 수는 중복을 제거하고, 분류별 글 수에는 중복을 허용한다.
-
-기술 선택 이유는 `planning`, 구현 과정은 해당 기술 분류를 주 분류로 둔다. ML·DL·LLM 비교 글은 `planning`을 주 분류로, `data`와 `ai`를 추가 분류로 둔다. 에이전트 평가 글은 `ai`와 `testing`, 앱에서 CLI를 실행하는 글은 `ai`·`tools`·`backend`에 함께 표시한다. 비교·사용 가이드·오류 해결은 태그로 구분한다.
-
-기획 글의 가정 예시와 실제 프로젝트 경험을 구분하고, 기술 설명에는 확인한 공식 자료를 연결한다.
-
-연습장은 표지(목차)에서 항목을 누르면 해당 장이 펼쳐진다.
-종이 오른쪽 절반을 누르면 다음 장, 왼쪽 절반을 누르면 이전 장. 방향키(← →)로도 넘긴다.
-
-## 원본에서 뺀 것
-
-Calendar · Trip · Reading · Guestbook · 로그인/회원가입 · 날씨/미니게임 사이드바.
-`auth.js`는 싣지 않는다. 히어로 슬라이더는 여행 사진 대신 실제 배포 화면(16:10)을 담는다.
-
-## 포트폴리오와 Dev Notes의 목소리
-
-장인우는 현장 업무를 익혀 서비스를 기획하고, 직접 만들어 확인하는 사람이다. 쇼핑몰을 운영한 경험, 세무 서비스에서 개발팀과 일한 경험, 혼자 AI 서비스를 만든 경험이 있다. 글 한 편에는 그중 해당하는 역할만 담는다. 첫 독자는 프로젝트를 모르는 동료로 생각한다.
-
-**말투의 첫 기준은 본인 글이다.** 올리브영 PM 지원서에서 본인이 자기답다고 고른 표현은 “이걸 왜 저한테 추천하는지 궁금했습니다”였다. 먼저 앱에서 본 추천 문구가 나오기 때문에 질문이 자연스럽다. 홈과 프로젝트는 이처럼 편하게 말할 수 있는 존댓말로 쓴다. Dev Notes는 다음에 비슷한 일을 할 때 다시 찾아볼 기록이다. 써본 명령어, 확인 순서, 선택 기준, 읽어둘 출처 중 꺼내 쓸 내용을 짧은 한다체로 남긴다. 글마다 질문을 만들 필요는 없다.
-
-제목과 부제를 한 줄에 쓸 때는 `|`로 구분한다. 항목 이름은 굵게 쓰거나 설명 앞에 `:`를 붙인다. 본문에서 긴 대시로 덧붙이던 말은 자연스러운 문장으로 풀어 쓴다.
-
-| 고정 레퍼런스 | 가져올 점 |
+| 페이지 | 내용 |
 | --- | --- |
-| [우아한형제들 · 응? 이게 왜 롤백되는거지?](https://techblog.woowahan.com/2606/) | 예외를 잡았는데 바로 다음 줄에 롤백 로그가 찍혔다. 관찰과 예상이 어긋나는 한 장면이면 기술 설명을 시작할 이유가 생긴다. |
-| [카카오페이 · Next.js 트러블슈팅](https://tech.kakaopay.com/post/nextjs-troubleshooting-cors-version-skew/) | 새로고침만 할 때와 서비스를 닫고 다시 들어와 새로고침할 때의 결과를 구별한다. 같은 문제를 만난 동료가 확인할 조건을 남긴다. |
-| [RAG 인용 검증 메모](notes/rag-citation-rules.md) | 근거가 없을 때의 응답, 허용하지 않은 인용을 거르는 규칙처럼 다음 구현에서 꺼내 쓸 내용을 남긴다. |
+| [Home](https://inwoo-jang.github.io/inwoo-portfolio/) | 대표 프로젝트, 모션 데모, 최신 Dev Notes 세 편 |
+| [Profile](https://inwoo-jang.github.io/inwoo-portfolio/profile.html) | 경력·학력, 기술을 실제로 사용한 프로젝트 |
+| [Portfolio](https://inwoo-jang.github.io/inwoo-portfolio/portfolio.html) | 실무·교육·팀·개인 프로젝트의 역할, 판단, 결과·현재 상태 |
+| [How I Work](https://inwoo-jang.github.io/inwoo-portfolio/how.html) | 업무 흐름을 이해하고 기획·협업·구현을 진행한 사례 |
+| [Dev Notes](https://inwoo-jang.github.io/inwoo-portfolio/notes.html) | AI 도입 판단, UX, 에이전트, 데이터, 구현·검증 기록 |
 
-구현 기록은 입력, 화면, 로그 가운데 당시 실제로 본 하나에서 시작한다. 자료를 읽고 쓴 글은 저자의 주장과 내 해석을 구분한다. 예시는 가정이라고 밝힌다. 타인의 감정이나 말버릇을 빌리거나 기억에 없는 시행착오를 보태지 않는다. 배운 점이 따로 떠오르지 않으면 확인한 결과에서 끝내도 된다.
+프로젝트는 카드·필터로 탐색하는 Quick View와 연습장 형태의 Book View를 지원합니다. 노트는 카드·목록 보기, 검색, 분류, 시리즈별 탐색을 지원합니다. 한국어·영어 페이지를 제공합니다.
 
-## 사실 기준
+홈의 프로젝트 데모는 버튼을 눌러 한 번 재생하며, 진행바로 장면을 이동할 수 있습니다. 주문·인증 사례는 실제 업무 흐름을 재현하고, 표시광고는 가상 광고로 OCR·VLM 분석 구조를 설명합니다. 개인 기여, 팀 결과, 실무 적용, 실습·로컬 구현의 범위를 구분해 적습니다.
 
-내용은 `포트폴리오_전체_프로젝트_소재집_20261106.md`(비공개 작업 자료)와 `~/Desktop/자기계발/지원/자소서&포트폴리오/자소서_작성가이드.md` 팩트시트의 최신 정정을 따른다. 표시광고 프로젝트는 사용자가 승인한 가칭·개요·담당 역할(UX·프론트엔드, OCR·VLM)·사용 모델·OCR↔VLM 연결 방식·구현 상태(구현/로컬 독립 구현/목업 구분)를 공개하며, 실제 명칭·내부 문서 원문·고객 자료·정확도 수치는 싣지 않는다. POSSESSED는 승인된 개요와 기획·설계·풀스택 개발·AI 엔지니어링 담당 범위, 초기 구현·검증 중인 상태를 짧게 공개한다. 표시광고 프로젝트의 썸네일은 ‘진행 중’ 표시를 사용한다. POSSESSED는 사용자가 제공한 기획 흐름도를 썸네일·연습장·상세 이미지로 사용하며, 초기 구현 단계와 검증 전 범위를 캡션에 표시한다. 내부 정책 수치와 기획 원문 링크는 공개하지 않는다.
-L2 기술(Docker·Supabase·MSA)은 스킬 태그에 넣지 않고, 프로젝트 안에서 한계와 함께만 언급한다.
+## 구현
 
-## 파일
+HTML·CSS·JavaScript로 만든 정적 사이트이며 GitHub Pages로 배포합니다. 사이트 실행에 프레임워크 빌드나 npm 설치는 필요하지 않습니다.
 
-```
-index.html · profile.html · portfolio.html · how.html · notes.html
-css/ds.css           디자인 시스템 (GitHub Primer 팔레트 토큰 · 공통 규칙)
-css/notebook.css     Portfolio 책장 보기 전용
-css/flags.css
-script/nav.js        모바일 햄버거 메뉴
-script/slider.js     히어로 슬라이더
-script/portfolio.js  연습장 넘기기
-script/portfolio-quick.js  Quick View · 필터 · 읽기 화면 · 보기 전환
-script/projects-data.js    Quick View 카드 요약 데이터
-script/markdown.js   노트용 안전한 경량 Markdown 렌더러
-script/notes.js      노트 목록 · 검색 · 카테고리 · 상세
-notes/               노트 Markdown + index.json
-tools/build-notes-index.mjs  notes/index.json 생성
-media/
-```
+- 공통 스타일: [css/ds.css](css/ds.css)
+- 프로젝트 요약: [script/projects-data.js](script/projects-data.js), [영어판](script/projects-data.en.js)
+- 프로젝트 상세: [portfolio.html](portfolio.html), [영어판](portfolio.en.html)
+- 데모: [css/demo-motion.css](css/demo-motion.css), [script/demo-motion.js](script/demo-motion.js)
+- 노트: [notes/](notes/), [notes/en/](notes/en/)
+- UI 컴포넌트 확인: 별도 [Storybook 프로젝트](storybook/)
 
-## 프로젝트 이미지 추가
+기존 [Inwoo.log 학습 사이트](https://github.com/inwoo-jang/SKALA-FRONT)를 바탕으로 포트폴리오를 구성했습니다.
 
-프로필의 프로젝트 썸네일은 `script/projects-data.js`의 `image`·`imageAlt`를 Portfolio Quick View와 함께 사용한다. `data-project-thumbnail="프로젝트 ID"`로 연결하며, 이미지 정보는 페이지를 열 때 반영된다. 이미지가 없거나 로딩에 실패하면 프로젝트의 요약 문구를 표시한다. 실제 화면 갤러리의 이미지 목록은 아래 `script/project-images.js`에서 관리한다.
+## 로컬에서 보기
 
-`script/project-images.js`에서 해당 프로젝트 배열에 아래 항목을 추가합니다. 이미지는 `media/portfolio/`에 저장합니다. 빈 배열은 화면에 나오지 않으며, 파일을 불러오지 못한 이미지도 숨깁니다.
+Python 3가 필요합니다.
 
-```js
-"taxdesk": [
-  {
-    src: "media/portfolio/taxdesk-chat.png",
-    alt: "세무상담 데스크의 법령 근거와 계산 결과 화면",
-    caption: "교육·개인 프로젝트 · 테스트 질문으로 확인한 응답"
-  }
-]
+```bash
+git clone https://github.com/inwoo-jang/inwoo-portfolio.git
+cd inwoo-portfolio
+python3 -m http.server 8000
 ```
 
-이미지를 누르면 확대되고 닫기 버튼이나 Escape로 돌아옵니다. 실제 고객정보·연락처·인증키를 포함하지 않은 공개용 화면만 넣으세요. 가상 데이터는 캡션에 표시합니다. 캡처에 없는 기능이나 성과를 캡션으로 추가하지 않습니다.
+[http://localhost:8000](http://localhost:8000)에서 확인합니다. 노트 본문을 `fetch`로 읽으므로 HTML 파일을 직접 열기보다 로컬 서버를 사용합니다.
 
-현재 등록: 퀴켓 출시 페이지, 관계부 UI 흐름도·ERD, 바이브코딩 가이드. 관계부 연락처 화면과 에이링크 로그인 화면은 공개용 데이터인지 확인한 뒤 등록하도록 제외했습니다. 원본 파일은 보존합니다. 세무상담 데스크, 마켓데스크, ClassTrack, 라벨링 도구는 안전한 실제 화면을 준비한 뒤 각각의 빈 배열에 추가할 수 있습니다.
+## 노트 추가·갱신
 
-기획 문서는 원문 링크 대신 `how.html`의 요약 예시로 소개합니다. 퀴켓 와이어프레임은 `media/portfolio/wireframe-1.png`~`wireframe-3.png`의 내용 비우기 처리본만 공개합니다. 원본 PNG와 OCR 작업 자료는 저장소에 포함하지 않습니다.
+1. [노트 템플릿](notes/_template.md)을 복사하고 제목·분류·날짜·요약 등 front matter를 작성합니다.
+2. Node.js로 해당 언어의 인덱스를 생성합니다. 홈의 최신 세 글도 목록과 동일한 제목·날짜·요약으로 함께 갱신됩니다.
+
+```bash
+node tools/build-notes-index.mjs
+node tools/build-notes-index.mjs en
+node tools/test-notes-index.mjs
+```
+
+이 검사는 노트 분류·시리즈·정렬 등 인덱스 계약을 확인합니다. 화면 전체의 동작이나 프로젝트 데모의 재생 검사를 대신하지 않습니다.
+
+분류·시리즈 설정, 이미지 추가, 콘텐츠 작성 기준은 [유지보수 문서](docs/maintenance.md)에 정리했습니다.
+
+## Storybook
+
+사이트 배포와 별개로 UI 컴포넌트와 화면 시안을 확인하는 개발 도구입니다.
+
+```bash
+cd storybook
+npm ci
+npm run storybook
+```
+
+실행 명령은 [storybook/package.json](storybook/package.json)을 기준으로 합니다. 정적 결과물은 `npm run build-storybook`으로 생성하며 Git 추적에서 제외합니다.
+
+## 배포
+
+GitHub Pages는 `main` 브랜치의 저장소 루트를 게시합니다. 정적 사이트 파일을 커밋·푸시하면 Pages 빌드 후 반영됩니다. 노트를 수정했다면 인덱스와 홈 미리보기를 생성한 결과도 함께 커밋합니다.
