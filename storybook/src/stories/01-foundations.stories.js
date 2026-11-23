@@ -3,22 +3,21 @@ import { status } from "../components.js";
 export default { title: "기초 요소" };
 
 const COLORS = [
-  ["--paper", "#FFFFFF", "페이지 바탕"],
-  ["--paper-2", "#F5F6F8", "띠 · 표 머리 · 코드"],
-  ["--ink", "#111418", "제목 · 굵은 선 (18:1)"],
-  ["--text", "#2B2F36", "본문 (13:1)"],
-  ["--muted", "#545B66", "보조 · 메타 (7:1)"],
-  ["--faint", "#6F7682", "날짜 등 (4.6:1)"],
-  ["--rule", "#E4E7EB", "구분선"],
-  ["--accent", "#1B4F8F", "링크 · 번호 · 주요 버튼 (8:1)"],
-  ["--accent-soft", "#EDF3FA", "선택 영역"],
-  ["--ok", "#1E6B45", "운영 적용 · 출시 표시"],
+  ["--paper", "#FFFFFF", "페이지 바탕 (Primer canvas.default)"],
+  ["--paper-2", "#F6F8FA", "띠 · 표 머리 · 코드 (canvas.subtle)"],
+  ["--ink", "#1F2328", "제목 · 본문 (fg.default, 15.8:1)"],
+  ["--muted", "#59636E", "보조 · 메타 · 날짜 (fg.muted, 6.1:1)"],
+  ["--rule", "#D1D9E0", "구분선 (border.default)"],
+  ["--accent", "#0969DA", "링크 · 번호 · 주요 버튼 (accent.fg, 5.1:1)"],
+  ["--accent-strong", "#0550AE", "hover · 배지 글자"],
+  ["--accent-soft", "#DDF4FF", "배지 바탕 · 선택 영역 (accent.subtle)"],
+  ["--ok", "#1A7F37", "운영 적용 · 출시 표시 (success.fg)"],
 ];
 
 export const 색 = {
   render: () => `<ul style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;list-style:none;padding:0;margin:0">
 ${COLORS.map(([v, hex, use]) => `<li style="margin:0;font-size:13px;line-height:1.5"><i style="display:block;height:56px;margin-bottom:8px;border:1px solid var(--rule);border-radius:4px;background:var(${v})"></i><b style="color:var(--ink)">${v}</b><br><code>${hex}</code><br>${use}</li>`).join("")}
-</ul><p style="margin-top:24px;font-size:13px;color:var(--muted)">대비는 흰 바탕(#FFFFFF) 기준. 본문·보조 글자는 모두 WCAG AA(4.5:1) 이상입니다.</p>`,
+</ul><p style="margin-top:24px;font-size:13px;color:var(--muted)">GitHub Primer(light) 팔레트를 역할별로 대응. 대비는 흰 바탕(#FFFFFF) 기준. 본문·보조 글자는 모두 WCAG AA(4.5:1) 이상입니다.</p>`,
 };
 
 const TYPE = [

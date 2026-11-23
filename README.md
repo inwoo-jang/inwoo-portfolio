@@ -2,7 +2,7 @@
 
 장인우 채용 지원용 포트폴리오. **Inwoo.log 디자인**을 그대로 쓰되 포트폴리오에 필요한 내용만 담았다.
 
-홈은 “서비스를 기획할 때 고객이 보는 화면과 그 뒤의 업무 흐름을 함께 살핍니다.”라는 소개로 시작한다. 큰 이름 → 직무 → 업무 방식 순서의 에디토리얼 구성에 기존 차콜·블루 컬러를 사용한다. 소개 옆에는 경력과 연락처를 확인할 수 있는 프로필 요약을 둔다. 대표 프로젝트는 업무 시간이 줄어든 주문 연동 사례부터 읽도록 배치한다.
+홈은 “서비스를 기획할 때 고객이 보는 화면과 그 뒤의 업무 흐름을 함께 살핍니다.”라는 소개로 시작한다. 큰 이름 → 직무 → 업무 방식 순서의 에디토리얼 구성에 GitHub Primer(light) 팔레트를 사용한다. 헤더는 흰 바탕, 소개 영역은 연한 회색 띠(canvas.subtle)다. 소개 옆에는 경력과 연락처를 확인할 수 있는 프로필 요약을 둔다. 대표 프로젝트는 업무 시간이 줄어든 주문 연동 사례부터 읽도록 배치한다.
 
 - 배포: https://inwoo-jang.github.io/inwoo-portfolio/
 - 원본 사이트 Inwoo.log(SKALA 과제, 캘린더·여행·독서·방명록 포함): https://inwoo-jang.github.io/SKALA-FRONT/
@@ -94,7 +94,8 @@ L2 기술(Docker·Supabase·MSA)은 스킬 태그에 넣지 않고, 프로젝트
 
 ```
 index.html · profile.html · portfolio.html · how.html · notes.html
-css/style.css        Inwoo.log 원본 스타일 (+ 연습장 3권 배치·슬라이더 비율·앵커 여백 몇 줄)
+css/ds.css           디자인 시스템 (GitHub Primer 팔레트 토큰 · 공통 규칙)
+css/notebook.css     Portfolio 책장 보기 전용
 css/flags.css
 script/nav.js        모바일 햄버거 메뉴
 script/slider.js     히어로 슬라이더
