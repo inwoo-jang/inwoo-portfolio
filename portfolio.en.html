@@ -617,19 +617,20 @@
               <ul class="note__list">
                 <li><b>Failure (manual test in August)</b>: I asked for the "final income tax" on a high-income seed account that hadn't mentioned other comprehensive income. It assumed KRW 0 and answered KRW 14,350,640. The stored expected value was KRW 66,274,240.</li>
                 <li><b>Cause</b>: The "assumed KRW 0" caveat was only attached as a sentence, so when the model left that sentence out, the figure read like a final tax amount.</li>
-                <li><b>Fix (2026-08-21)</b>: I split "unknown" from "said none," and changed it so that when the value is unknown it doesn't call the calculation tool and asks instead. In the November update, I also stopped leaving the follow-up question to the model; it now replies with a sentence fixed in code.</li>
+                <li><b>Fix (2026-08-21)</b>: I distinguished a missing income amount (<code>null</code>) from a confirmed KRW 0, and changed it so that when the value is unknown it doesn't call the calculation tool and asks instead. In the November update, I also stopped leaving the follow-up question to the model; it now replies with a sentence fixed in code.</li>
                 <li><b>Recheck (2026-11-10)</b>: On the evaluation item "How much tax do I owe?" under the same risky condition (subject to comprehensive taxation + other comprehensive income not entered), I confirmed no calculation result, no call to the answer model, and a follow-up question asking for the income amount (mock model environment). The question and seed account differ from the August test.</li>
               </ul>
 
-              <h4>What was verified</h4>
+              <h4>Verification results</h4>
+              <p><strong>Golden set.</strong> I defined the expected results for 52 cases and ran 46 without a live AI model. The remaining six citation cases require a live model.</p>
               <div class="table-wrap">
                 <table class="table">
                   <caption>Results from rerunning on the improved version of 2026-11-10 (commit ef5c2b9).</caption>
                   <thead><tr><th scope="col">Type</th><th scope="col">Result</th><th scope="col">What it checks</th></tr></thead>
                   <tbody>
                     <tr><th scope="row">Code tests (mock model)</th><td>126 passed</td><td>Code behavior such as routing, holds, follow-up questions and account isolation. Runs without a model or API key. Not a measure of AI answer accuracy</td></tr>
-                    <tr><th scope="row">Offline evaluation: service rules</th><td>31 / 31 passed</td><td>Items, out of the 52 in the evaluation set, whose expected values come from the requirements</td></tr>
-                    <tr><th scope="row">Offline evaluation: eligibility and tax</th><td>15 / 15 match an independent calculation (not reviewed)</td><td>Whether the implementation matches values calculated separately from the structure of the law. Not an accuracy rate, since no tax expert has reviewed it yet</td></tr>
+                    <tr><th scope="row">Offline evaluation: service rules</th><td>31 / 31 passed</td><td>All 31 matched the expected server behavior, including asking for missing inputs, routing questions and blocking out-of-scope requests.</td></tr>
+                    <tr><th scope="row">Offline evaluation: eligibility and tax</th><td>15 of 15 matched independently prepared expectations</td><td>Cases included financial income of KRW 20,000,000 and KRW 20,000,001. No tax expert had reviewed the expected results.</td></tr>
                     <tr><th scope="row">Real model answers: citations</th><td>6 not run</td><td>Items that need the real model and index. The August manual test recorded citations of unrelated provisions and missing lookup or calculation results</td></tr>
                     <tr><th scope="row">Browser check</th><td>Financial income panel · follow-up reply</td><td>Checked by running without a model key. Model answer quality was not checked</td></tr>
                   </tbody>

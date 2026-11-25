@@ -277,7 +277,7 @@ window.PROJECTS = [
     summary: {
       problem: "A tax answer needs both the legal basis and the tax calculation. In a manual test in August, a tax amount computed by treating other comprehensive income as KRW 0 went out as if it were a final answer.",
       decision: "The server controls the order: income lookup → tax determination → calculation: and no tools are registered with the model. If a value needed for the calculation isn't confirmed, it asks instead of calculating. If a lookup fails or there's no source, it holds the determination and the answer.",
-      result: "I re-ran the same risky condition (subject to comprehensive taxation + other comprehensive income not entered) and confirmed it asks for the income amount without giving a calculation (2026-11-10, mock model). 15 determinations and tax amounts match an independent calculation but haven't been reviewed by a tax professional, and the 6 legal-citation cases that need a real model weren't run."
+      result: "I ran 46 of the 52 golden-set cases without a live AI model. All 31 server behavior cases matched expectations. All 15 tax amount and classification cases matched separately prepared expectations that had not been reviewed by a tax expert. The six citation cases were not run."
     },
     related: ["samil"],
     stack: ["Java", "Spring Boot", "Spring AI", "RAG", "Offline evaluation"]
