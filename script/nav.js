@@ -40,3 +40,14 @@ document.querySelectorAll("[data-lang-link]").forEach(function (a) {
     if (location.hash) { a.href = a.getAttribute("href").split("#")[0] + location.hash; }
   });
 });
+
+// Profile 미리보기 안에서 읽을 때도 Esc로 원래 링크에 돌아간다.
+const profilePreview = window.frameElement?.closest("dialog.skill-preview");
+if (profilePreview) {
+  window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !event.defaultPrevented && !document.querySelector("dialog[open]")) {
+      event.preventDefault();
+      profilePreview.close();
+    }
+  });
+}

@@ -26,6 +26,7 @@
   <link rel="icon" type="image/svg+xml" href="media/icon/favicon.svg">
   <link rel="stylesheet" href="css/ds.css">
   <link rel="stylesheet" href="css/notebook.css">
+  <link rel="stylesheet" href="css/demo-motion.css">
 </head>
 <body class="page-portfolio">
 
@@ -243,52 +244,27 @@
               <div class="spread__left">
               <p class="chip chip--ko">01 · Work · Planning · Verification</p>
               <h3>Order and box status sync with a pharmaceutical wholesaler’s ordering platform</h3>
-              <p class="note__meta">2026.01 – 02 · JEEKIM COMPANY, prescription storage service · Me: integration rules, data cross-checks · Built by: dev team · Went live</p>
+              <p class="note__meta">2026.01 – 02</p>
               </div>
               <div class="spread__right">
-
-              <p>The service collects pharmacies' paper prescriptions, scans them and stores them. Orders come in from an external pharmaceutical wholesaler’s ordering platform.</p>
-
-              <h4>The problem</h4>
-              <p>The operations staff were downloading mall orders as Excel files and typing them into the admin by hand.
-                 The mall tracks <mark>orders and order items</mark>, while our operations track <mark>boxes</mark>.
-                 So when only some boxes were picked up, or a pickup was postponed, it was hard to keep status and shipping details in sync on both sides.</p>
-
+              <p data-case-intro>Pharmacies ordered prescription storage through a wholesaler, but our team collected and settled each box separately. I defined how the wholesaler’s order number and item sequence mapped to internal box IDs so boxes collected on different days could be settled correctly.</p>
               <h4>My role</h4>
-              <p>I reviewed the mall's API spec and planned the mapping and status rules. After development, I asked the dev team to run the API calls, cross-checked the results, and logged issues in QA.
-                 The dev team built it, and the external API format was set by the mall.</p>
-
-              <h4>Rules I set</h4>
+              <p>I reviewed the marketplace API and defined the matching, collection and settlement rules. The developers implemented them, and I checked the records on both sides.</p>
+              <h4>Results and verification</h4>
               <ul class="note__list">
-                <li>Identify each item to process by order number plus item sequence number (the line-item number within the order), and link it to an internal box on that basis</li>
-                <li>Treat partial pickup and postponed pickup as separate statuses, and map partial pickup to the mall's existing "partially shipped" status</li>
-                <li>Improve the admin search so staff can look up an order directly by the mall's order number</li>
+                <li><strong>Record checks</strong> · I compared API responses with both screens. Orders were missing at the collection-time boundary, and delivery details appeared only on the first box. I reported both issues and checked again after the fixes.</li>
+                <li><strong>Manual entry time</strong> · The staff member who manually registered marketplace orders in the admin system went from about one hour a day on that task to ten minutes.</li>
+                <li><strong>Settlement after pickup</strong> · Partial pickups appeared in settlement. In operation, I also saw fewer inquiries about conflicting statuses in the marketplace and our admin system.</li>
               </ul>
 
-              <h4>Example | one order, two boxes, partial pickup</h4>
-              <div class="table-wrap">
-                <table class="table">
-                  <caption>Numbers and items are a made-up example for illustration.</caption>
-                  <thead><tr><th scope="col">Mall (per order)</th><th scope="col">Internal (per box)</th><th scope="col">Box status</th><th scope="col">Sent to mall</th></tr></thead>
-                  <tbody>
-                    <tr><th scope="row">Order A · item 1</th><td>Box A-1</td><td>Picked up</td><td rowspan="2">Partially shipped</td></tr>
-                    <tr><th scope="row">Order A · item 2</th><td>Box A-2</td><td>Pickup postponed</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>An order number alone can't show a different status for each box. So the first thing I settled was the rule: identify items by <mark>order number + item sequence number</mark> and link them to boxes. The item sequence number is the line-item number inside the mall's order, not a new number we assigned to boxes. Orders where only some boxes were picked up are sent to the mall as its existing "partially shipped" status, and only the picked-up items go into settlement.</p>
-
-              <h4>Verification</h4>
-              <p>I compared the API call results against the screens on both sides and found two bugs, which I passed to the dev team.</p>
-              <ul class="note__list">
-                <li>Orders that fell on the boundary of the call time window were missed</li>
-                <li>For orders with several boxes, shipping details were applied only to the first box</li>
-              </ul>
-
-              <h4>Result</h4>
-              <p>The staff member's manual entry for this task dropped <mark>from about 1 hour a day to 10 minutes</mark>.
-                 Partial pickups were now reflected in settlement, and questions about mismatched statuses went down (based on my own checks).</p>
-
+              <details class="more">
+                <summary>How a two-box order appears when only one box is collected</summary>
+                <div class="more__body">
+                  <p>An operations colleague downloaded pharmacy storage orders from the wholesaler into Excel, then entered them again in our admin system. Importing an order would save typing, but a single order could contain boxes collected on different days.</p>
+                  <p>Consider an order with two boxes. One is collected today and the other is postponed until tomorrow. The order number alone cannot tell the bookkeeper which box to settle.</p>
+                  <p>I paired the external order number with the wholesaler’s existing item sequence and mapped that pair to an internal box ID. Only collected boxes counted toward settlement. We used the wholesaler’s existing partial-delivery status to report back.</p>
+                </div>
+              </details>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">API spec review</li>
@@ -303,36 +279,34 @@
               <div class="spread__left">
               <p class="chip chip--ko">02 · Work · Service planning</p>
               <h3>Planning a payslip service</h3>
-              <p class="note__meta">2025.12 – 2026.05 · JEEKIM COMPANY · Me: calculation standards, rules and screen planning, dev testing · Built by: dev team · Internal use · Pilot with customers</p>
+              <p class="note__meta">2025.12 – 2026.05</p>
               </div>
               <div class="spread__right">
-
-              <h4>The problem</h4>
-              <p>The bookkeeping staff didn't use the existing payslip feature because its calculations were wrong.
-                 Each pharmacy reported pay differently (hourly or monthly, before or after tax), so staff filled in payslips <mark>by adjusting the inputs until the after-tax amount matched</mark>.
-                 When someone new took over, the basis for the numbers wasn't recorded anywhere, which made handovers hard.</p>
-
-              <h4>Learning the work</h4>
-              <p>To plan the solution, I did the bookkeeping for about 30 clients myself and wrote down the payroll and deduction rules and their exceptions.</p>
-
-              <h4>Calculating gross pay from agreed take-home pay</h4>
-              <p>I defined the inputs and formulas for each employee type, taking into account whether pay was hourly or monthly and whether the agreed amount was gross or net. For day workers with agreed take-home pay, I <mark>worked backward to find the gross pay</mark> that would leave that amount after deductions.</p>
-              <p>I translated the Excel formulas into Google Apps Script and entered the same inputs in WEHAGO for each pay scenario to compare the results. I shared the verified script with the development team as a reference and helped test the feature.</p>
-
-              <h4>Output formats for pharmacy owners and bookkeepers</h4>
-              <p>I designed the flow so pharmacy owners could save a payslip as a JPG and send it to the employee through KakaoTalk. Bookkeepers needed an Excel file they could import into WEHAGO for payroll processing.</p>
-
+              <p data-case-intro>Each bookkeeper prepared payslips for about 240 employees a month. When a pharmacy provided a take-home amount, the bookkeeper adjusted the inputs until net pay matched. I designed a workflow to automate that calculation and let pharmacy owners review payslips and send them directly to staff.</p>
+              <h4>My role</h4>
+              <p>I planned the inputs, calculation rules and payslip delivery flow. The development team implemented the service.</p>
               <h4>Results and verification</h4>
               <ul class="note__list">
-                <li><strong>Payroll calculations</strong> · I varied the pay amounts across employee types and pay agreements, entered identical inputs in the finished feature and WEHAGO, and checked whether their results matched.</li>
-                <li><strong>Excel export</strong> · I imported the exported file into WEHAGO and checked that the payroll records appeared there.</li>
-                <li><strong>Usability</strong> · I walked through each scenario from entering pay to issuing the payslip, checking for awkward interactions and watching the browser console for errors.</li>
+                <li><strong>Calculations and ERP</strong> · I varied pay types and amounts and compared the results with WEHAGO. I imported the exported Excel file into the ERP and checked the payroll records.</li>
+                <li><strong>Screen QA</strong> · I walked through each scenario from entering pay to issuing a payslip, checking usability and the browser console for errors.</li>
+                <li><strong>Less manual work</strong> · Payroll calculations automatically included the billed social insurance contributions, so bookkeepers downloaded fewer statements from the insurance agencies by hand.</li>
+                <li><strong>Adoption</strong> · Some bookkeepers still used the old process after release because they were unsure about the calculations. I wrote an admin guide for bookkeepers and a separate guide for clients. After explaining the calculation rules and workflows in a meeting, I observed bookkeepers using the service for payroll and followed the customer beta.</li>
               </ul>
-              <p>Some bookkeepers initially kept their previous process because they were unsure about the calculations. I wrote an admin and operations guide for bookkeepers and a separate user guide for our bookkeeping clients. After I explained the calculation rules and walked through the guides in a meeting, <mark>I saw bookkeepers use the service for actual payroll and followed the customer beta test.</mark> Staff also had fewer social insurance statements to download manually.</p>
 
-              <h4>Current status</h4>
-              <p>I left the company while it was in the customer pilot stage.</p>
-
+              <details class="more">
+                <summary>Working backward from net pay and handing the calculation rules to developers</summary>
+                <div class="more__body">
+                  <p>Pharmacy owners needed a way to send payslips to employees. Bookkeepers rarely used the existing feature because its calculations were off. They adjusted the inputs by hand until the take-home pay matched the amount the pharmacy had given them.</p>
+                  <p>Doing the books for about 30 clients showed me how differently pharmacies reported pay. Old payslips showed the final amount, so a bookkeeper taking over an account could not tell how it had been calculated. I defined inputs and rules for hourly and monthly pay and for gross and net agreements. For day workers promised a particular take-home amount, I worked backward to the gross pay that would leave that amount after deductions.</p>
+                  <p>I worked out the rules in Excel, translated them into Apps Script and gave the developers the reference code. My goal was to eliminate manual payslip preparation for bookkeepers.</p>
+                </div>
+              </details>
+              <details class="more">
+                <summary>Why owners needed a JPG and bookkeepers needed Excel</summary>
+                <div class="more__body">
+                  <p>Owners needed to check the amount and get the slip to the employee. I designed a JPG they could save and send through KakaoTalk. Bookkeepers could export the payroll records to Excel for their next task.</p>
+                </div>
+              </details>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">Defining calculation standards</li>
@@ -385,29 +359,31 @@
               <div class="spread__left">
               <p class="chip chip--ko">04 · Work · Integration flow planning</p>
               <h3>Pharmacy Ledger: account connection flow and partner site integration</h3>
-              <p class="note__meta">During 2024.10 – 2026.06 · JEEKIM COMPANY, Pharmacy Ledger · Me: connection flow and edge case planning, checks in live use · Went live</p>
+              <p class="note__meta">During 2024.10 – 2026.06</p>
               </div>
               <div class="spread__right">
-
-              <h4>The problem</h4>
-              <p>While doing remote support, I saw how inconvenient it was for pharmacies to connect Hometax, the card sales service (Credit Finance Association), the healthcare provider portal and social insurance <mark>one by one, separately</mark>.
-                 Sales reps at partner companies who introduce the service also kept asking about setup and rules.</p>
-
-              <h4>Rules I set</h4>
+              <p data-case-intro>Setting up the pharmacy ledger meant entering the same certificate several times. I grouped Hometax, the healthcare provider portal and social insurance under one certificate entry. The credit finance service kept its own account login.</p>
+              <h4>My role</h4>
+              <p>I reviewed each institution’s authentication requirements with our developers and the external data provider, then planned the setup and fallback login flows for pharmacies.</p>
+              <h4>Results and verification</h4>
               <ul class="note__list">
-                <li>Hometax, the healthcare provider portal and social insurance were combined into one flow that uses a single certificate</li>
-                <li>The card sales service, which uses a different authentication method, was kept as a separate account connection</li>
-                <li>Defined the edge case where the Hometax certificate doesn't match</li>
-                <li>Took into account how partner sales reps would use it when introducing the service</li>
+                <li>Once the flow went live, first-time setup rarely required remote support. New sales partners generally handled setup themselves after one training session. The ledger views also went live on OnlinePharm.</li>
               </ul>
 
-              <h4>Result</h4>
-              <p>The improved connection flow <mark>went into production</mark>. I did not build the authentication feature itself or design the security architecture.</p>
-
-              <h4>Partner site integration</h4>
-              <p>I planned an iframe integration so users could view Pharmacy Ledger's profit and loss reports and claims data inside the website of our partner, Onlinepharm.
-                 The integration I planned went live in the actual service. This is a separate case from the wholesale mall order sync above.</p>
-
+              <details class="more">
+                <summary>What remote setup revealed and when Hometax needed a fallback</summary>
+                <div class="more__body">
+                  <p>When I helped owners set up the pharmacy ledger remotely, they entered a certificate for Hometax and then entered it again for the healthcare provider portal and social insurance. New sales partners had to walk pharmacies through those same steps.</p>
+                  <p>I planned one certificate entry for Hometax, the healthcare provider portal and social insurance. The credit finance service required its own account, so it kept a separate login.</p>
+                  <p>Hometax needed a fallback. If the pharmacy certificate did not work or the owner used a personal financial certificate, a separate window let them continue with an ID and password or a financial certificate.</p>
+                </div>
+              </details>
+              <details class="more">
+                <summary>Making the pharmacy ledger available inside OnlinePharm</summary>
+                <div class="more__body">
+                  <p>I also planned an iframe integration so users on OnlinePharm could view their ledger reports and claims information.</p>
+                </div>
+              </details>
 
               <ul class="tag-row">
                 <li class="tag tag--sky">Connection flow</li>
@@ -581,69 +557,26 @@
               <div class="spread__left">
               <p class="chip chip--ko">01 · Bootcamp · Solo</p>
               <h3>TaxDesk | tax consultation on financial income</h3>
-              <p class="note__meta">Built 2026.08 (8.20–21) · Improved 2026.11 (11.10) · Personal project that started as a SKALA exercise · Designed solo, built and verified with AI coding tools · Java · Spring Boot · Spring AI · Synthetic account data</p>
+              <p class="note__meta">Built 2026.08 (8.20–21)</p>
               </div>
               <div class="spread__right">
-
-              <p>A consultation demo where customers of a fictional brokerage (SKALA Securities) ask whether their interest and dividend income falls under comprehensive taxation and how much tax to expect.
-                 With the company chatbot, my part ended at setting the answer-scope rules and handing them off, so I built this to see <mark>how those rules hold up in code</mark>.</p>
-
-              <h4>How a request is actually processed</h4>
-              <p>The server decides the order of steps. The lookup, eligibility check and calculation functions are defined as Spring AI <code>@Tool</code>s, but they are not registered with the model; the server calls them directly in a fixed order. It is not a Tool Calling setup where the model picks which tool to call.</p>
-              <div class="table-wrap">
-                <table class="table">
-                  <thead><tr><th scope="col">Step</th><th scope="col">Who</th><th scope="col">What happens</th></tr></thead>
-                  <tbody>
-                    <tr><th scope="row">1. Classify the question</th><td>Rules → model</td><td>Out-of-scope questions (capital gains tax, investment advice, someone else's account, etc.) are rejected by rules right away, with no model call. Questions like simulations or applications are also classified by rules; only questions the rules can't settle go to a low-cost model for one classification pass. If the model fails, rules classify it instead</td></tr>
-                    <tr><th scope="row">2. Look up, check, calculate</th><td>Server → tool code</td><td>Look up the account's income → check comprehensive taxation against the KRW 20 million threshold → only if the conditions are met, calculate the tax or run a limit simulation</td></tr>
-                    <tr><th scope="row">3. Search for evidence</th><td>RAG</td><td>Search provisions in 9 summary documents of the law. No search for tax calculation questions</td></tr>
-                    <tr><th scope="row">4. Answer</th><td>Model → code check</td><td>The model turns the lookup and calculation results and the evidence into an explanation. If it cites a provision that wasn't retrieved, the code blocks that answer</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h4>Handling values that aren't confirmed</h4>
+              <p data-case-intro>I built a financial-income tax demo for a fictional brokerage as a solo training project. The server retrieves income and calculates tax. When other income is unknown (null), it asks for the amount. It records zero only when the customer confirms they have none.</p>
+              <h4>Results and verification</h4>
               <ul class="note__list">
-                <li><b>Other comprehensive income unknown: tax calculation</b>: If the customer is subject to comprehensive taxation, it doesn't calculate and doesn't call the answer model (question classification still runs); it asks for the income amount. It tells "unknown" apart from the customer saying they have "none."</li>
-                <li><b>Same situation: limit simulation</b>: It assumes KRW 0, calculates the tax bracket thresholds, and adds a note that it "calculated assuming KRW 0."</li>
-                <li><b>Customer gives total salary or revenue</b>: That isn't taxable income, so it doesn't use the figure as is and asks again.</li>
-                <li><b>Account lookup fails</b>: It holds the check and the calculation, and explains that the lookup failed, which does not mean there is no income.</li>
-                <li><b>No retrieved evidence for a legal question</b>: It holds the answer and points the customer to the National Tax Service consultation center (126) or Hometax.</li>
-                <li><b>Financial income at other firms not confirmed</b>: It still runs the check, but adds a caveat that it's based on data from our firm and linked institutions and could change.</li>
-                <li><b>Values not yet distinguished</b>: Deductions and tax already paid are counted as 0 if the customer doesn't mention them (unconfirmed and 0 are not distinguished).</li>
+                <li><strong>Missing inputs</strong> · I tested the follow-up for missing income and separately checked that an explicit “none” was recorded as zero.</li>
+                <li><strong>Server code tests</strong> · In the November revision, I used a mock model to check question routing, when to hold a calculation, and isolation between accounts. All 126 code tests passed.</li>
+                <li><strong>Automated golden-set checks</strong> · I ran 46 of 52 golden-set cases without a live model. All 31 server behavior cases matched the specification. All 15 tax amount and classification cases matched separately calculated expectations, which had not been reviewed by a tax expert. The six citation cases were excluded from this run.</li>
+                <li><strong>Live model tests</strong> · In a separate test of the initial version, I asked GPT-4o 12 regulatory questions. I compared retrieved and cited provisions with the expected sources and found missing provisions and a wrong tax rate supported by an unrelated citation.</li>
               </ul>
 
-              <h4>Key case | a tax figure based on an assumed KRW 0 went out as is</h4>
-              <ul class="note__list">
-                <li><b>Failure (manual test in August)</b>: I asked for the "final income tax" on a high-income seed account that hadn't mentioned other comprehensive income. It assumed KRW 0 and answered KRW 14,350,640. The stored expected value was KRW 66,274,240.</li>
-                <li><b>Cause</b>: The "assumed KRW 0" caveat was only attached as a sentence, so when the model left that sentence out, the figure read like a final tax amount.</li>
-                <li><b>Fix (2026-08-21)</b>: I distinguished a missing income amount (<code>null</code>) from a confirmed KRW 0, and changed it so that when the value is unknown it doesn't call the calculation tool and asks instead. In the November update, I also stopped leaving the follow-up question to the model; it now replies with a sentence fixed in code.</li>
-                <li><b>Recheck (2026-11-10)</b>: On the evaluation item "How much tax do I owe?" under the same risky condition (subject to comprehensive taxation + other comprehensive income not entered), I confirmed no calculation result, no call to the answer model, and a follow-up question asking for the income amount (mock model environment). The question and seed account differ from the August test.</li>
-              </ul>
-
-              <h4>Verification results</h4>
-              <p><strong>Golden set.</strong> I defined the expected results for 52 cases and ran 46 without a live AI model. The remaining six citation cases require a live model.</p>
-              <div class="table-wrap">
-                <table class="table">
-                  <caption>Results from rerunning on the improved version of 2026-11-10 (commit ef5c2b9).</caption>
-                  <thead><tr><th scope="col">Type</th><th scope="col">Result</th><th scope="col">What it checks</th></tr></thead>
-                  <tbody>
-                    <tr><th scope="row">Code tests (mock model)</th><td>126 passed</td><td>Code behavior such as routing, holds, follow-up questions and account isolation. Runs without a model or API key. Not a measure of AI answer accuracy</td></tr>
-                    <tr><th scope="row">Offline evaluation: service rules</th><td>31 / 31 passed</td><td>All 31 matched the expected server behavior, including asking for missing inputs, routing questions and blocking out-of-scope requests.</td></tr>
-                    <tr><th scope="row">Offline evaluation: eligibility and tax</th><td>15 of 15 matched independently prepared expectations</td><td>Cases included financial income of KRW 20,000,000 and KRW 20,000,001. No tax expert had reviewed the expected results.</td></tr>
-                    <tr><th scope="row">Real model answers: citations</th><td>6 not run</td><td>Items that need the real model and index. The August manual test recorded citations of unrelated provisions and missing lookup or calculation results</td></tr>
-                    <tr><th scope="row">Browser check</th><td>Financial income panel · follow-up reply</td><td>Checked by running without a model key. Model answer quality was not checked</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>While putting this site together, I reran the tests and evaluations above on the same commit and got the same results (2026-11-10). In the August version, the tests caught 6 of 7 types of bugs planted in the calculation code (the bugs were planted by an AI coding tool).</p>
-
-              <h4>Tax rates applied</h4>
-              <p>The settings use a 10% dividend gross-up rate, based on income earned in 2026 under the Income Tax Act, Act No. 21221 (effective 2026-07-01). In August, while checking the calculation basis against the original text, I fixed a value that had been left at 11%.
-                 I did not check the application rules in the addenda or the special rule for dividend income from high-dividend companies (Restriction of Special Taxation Act, Article 104-27). The special rule is not applied automatically; the service only mentions it.</p>
-
-              <h4>Current status</h4>
-              <p>This is a demo built for practice. The account data is synthetic, and it isn't connected to any real financial institution or product sign-up system. Tax amounts are estimates that a tax expert has not reviewed, and it doesn't have the security or persistent storage needed to run publicly.</p>
+              <details class="more">
+                <summary>Why the system returned a tax figure with income missing, and how I fixed it</summary>
+                <div class="more__body">
+                  <p>When I planned a pharmacy chatbot at work, I defined which questions it should answer and handed the rules to a partner. I wanted to see how a rule changed an actual answer. I built TaxDesk as a solo training project using accounts from a fictional brokerage.</p>
+                  <p>In an early test, I asked for the final tax on an account with no amount entered for other income. The system assumed zero and returned KRW 14,350,640. Once the explanation dropped that assumption, the figure read like a final bill.</p>
+                  <p>I implemented the lookup, classification and calculation sequence in the Java and Spring Boot server. Unknown other income (<code>null</code>) pauses the calculation and triggers a follow-up. An explicit “none” records KRW 0 and lets it continue. The server supplies the follow-up wording. When the AI explains a regulation, the server also withholds any answer that cites a provision outside the retrieved sources.</p>
+                </div>
+              </details>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/skala-taxdesk/tree/ef5c2b9" target="_blank" rel="noopener">Code (ef5c2b9) ↗</a>
@@ -916,43 +849,39 @@
               <div class="spread__left">
               <p class="chip chip--ko">01 · Team · 7 people · PM</p>
               <h3>Quiket | an AI quiz study app</h3>
-              <p class="note__meta">2026.03 – 07 · DDD side project, team of 7 (4 developers · 2 designers) · Me: PM and product planning · Production app built by: dev team · Released on the App Store 2026.07.10</p>
+              <p class="note__meta">2026.03 – 07</p>
               </div>
               <div class="spread__right">
-
-              <p>A study app where you upload your study materials, AI writes questions from them, and you retry the ones you got wrong.
-                 As PM, I coordinated requirements, user flows and release scope. <mark>The dev team built the production app.</mark></p>
-
-              <h4>The problem learners had</h4>
-              <p>Turning lecture notes and handwritten notes into review questions felt like a burden. We defined this problem through 12 user interviews and ran two rounds of user testing before release.</p>
-
-              <h4>Validating before development</h4>
-              <p>I built a mini version of question generation with Next.js and Gemini myself to check it (using AI coding tools).
-                 It generated too many questions even from short materials, so I set <mark>a question count based on input length</mark> and reflected it in the settings and guidance.</p>
-
-              <h4>Coordinating the release | setting the first scope within the schedule</h4>
+              <p data-case-intro>Quiket turns study files into quizzes and lets learners retry missed questions. When chapter names held people up, I changed the flow: choose a subject, upload the file, then edit the chapters suggested by AI.</p>
+              <h4>My role</h4>
+              <p>As PM of a seven-person team, I led user research and coordinated the release scope. I created Figma wireframes for at least 100 screens and handled feature specifications, QA and store review. My teammates designed and developed the final app.</p>
+              <h4>Results and verification</h4>
               <ul class="note__list">
-                <li>Marked MoSCoW priorities with the same criteria across the PRD, wireframes, detailed specs and sprint tasks</li>
-                <li>The designers wanted to preserve the character and acorn elements, while the developers needed to complete the core learning features within the launch schedule</li>
-                <li>I coordinated which features to include in the first release and which to address later, while keeping the character and acorn elements on screen</li>
+                <li><strong>User testing</strong> · Six participants took part in the second round. Of eight hypotheses, two were supported, four partly supported, one unresolved and one could not be measured. After I revised the instructions, I observed participants using both quiz modes, one question at a time and all at once.</li>
+                <li><strong>Internal QA</strong> · We checked the new upload order in final internal QA and the presentation demo. I prioritized two issues for fixing: new subjects missing from quiz creation and the retry action failing.</li>
+                <li><strong>Team release</strong> · The team released the app on the App Store and Google Play. DDD named me PM MVP. The server is now offline.</li>
               </ul>
 
-              <h4>After the second user test | the order of uploading materials</h4>
-              <ul class="note__list">
-                <li><b>What we saw</b>: The second UT checked 8 hypotheses with 6 participants: 2 validated, 4 partly validated, 1 unresolved and 1 not measurable. Even after we renamed "part" to "chapter," people were still confused by how materials were organized, and some said they wanted to upload materials first and name them later.</li>
-                <li><b>Decision</b>: Renaming alone wasn't enough, so we made the chapter structure and input order the top items to improve.</li>
-                <li><b>New flow (final presentation demo)</b>: Users enter the subject name first, then upload files at the add-materials step without naming chapters in advance. They review the chapter and part names the AI created and edit them if needed.</li>
-                <li><b>What was confirmed</b>: Checked in final internal QA and the final presentation demo. We did not run another user test on the new flow.</li>
-              </ul>
-              <p>Users also reported insufficient feedback during and after quiz generation, and weak differentiation from general-purpose AI.</p>
-
-              <h4>What I did</h4>
-              <p>PRD, IA, functional spec and user flows; 100+ wireframe screens in Figma; running the sprint schedule; checking the backend ERD against the rules; handling store review; midterm and final presentations.
-                 I fixed meetings to Sunday nights every week and prepared the agenda in advance, so every meeting except the first ended within 30 minutes.</p>
-
-              <h4>Result and current status</h4>
-              <p>We released it on the App Store (2026.07.10) and Google Play (team result), and I was selected as the club's <mark>PM MVP</mark>.
-                 After launch, teammates' jobs made it hard to keep working on monetization, and the servers are now shut down.</p>
+              <details class="more">
+                <summary>Why renaming “parts” to “chapters” did not fix the upload flow</summary>
+                <div class="more__body">
+                  <p>In 12 interviews, learners described the work of turning their lecture notes into practice questions.</p>
+                  <p>In our second user test, changing “part” to “chapter” still left people unsure how to organize their files. They wanted to upload first. I changed the sequence so learners named the subject, uploaded the file, then reviewed and edited the chapters and parts proposed by AI.</p>
+                </div>
+              </details>
+              <details class="more">
+                <summary>Setting a minimum amount of material per question and agreeing on the first release</summary>
+                <div class="more__body">
+                  <p>Before app development, I built a question-generation prototype with Next.js and the Gemini API. Short notes produced too many questions, so I set a minimum amount of source material per question.</p>
+                  <p>The designers wanted to keep the characters and acorns. The developers needed to finish the core study flow in time. I kept those visual elements on screen and marked first-release and later work in the specifications and sprint tasks.</p>
+                </div>
+              </details>
+              <figure class="demo-video">
+                <video controls muted playsinline preload="metadata" poster="media/portfolio/quiket-demo-upload-rename-poster.jpg" width="540" height="1200" aria-label="Quiket final presentation demo: uploading materials, reviewing auto-built chapters and parts, renaming a part">
+                  <source src="media/portfolio/quiket-demo-upload-rename.mp4" type="video/mp4">
+                </video>
+                <figcaption><b>Part of the final presentation demo · 28s · no sound · Korean UI</b><br>Upload materials → review the chapters and parts built automatically → rename a part. This reflects feedback from the second user test that people wanted to upload materials first. The changed flow was checked in final internal QA.</figcaption>
+              </figure>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://play.google.com/store/apps/details?id=com.f1.quiket" target="_blank" rel="noopener">Google Play ↗</a>
@@ -1139,35 +1068,29 @@
               <div class="spread__left">
               <p class="chip chip--ko">01 · Solo · In real use</p>
               <h3>MarketDesk | AI report analysis and stock tracking</h3>
-              <p class="note__meta">Started 2026.06 · Planned solo, built with AI and verified · Built · In personal use (not released)</p>
+              <p class="note__meta">Started 2026.06</p>
               </div>
               <div class="spread__right">
-
-              <h4>The problem</h4>
-              <p>I wanted to study the economy, but even a single report had so much in it that it was hard to read, and industry reports and company reports didn't connect into a bigger picture.
-                 So I built a tool where AI writes a structured summary <mark>for each reading purpose (lens)</mark> and stacks the results into a timeline by industry.</p>
-
-              <h4>Key features</h4>
+              <p data-case-intro>I built MarketDesk to read financial reports alongside their analysis while studying economics. I implemented the frontend, API, database and document analysis worker myself, then changed how the worker handled long PDFs that timed out.</p>
+              <h4>Results and verification</h4>
               <ul class="note__list">
-                <li>Structured six-item summaries per lens, with industry and document type classified automatically on upload</li>
-                <li>Flow board: builds up by month and year × industry, company and economic trends</li>
-                <li>My stocks: prices from a brokerage Open API, paper trading, a trading journal</li>
-                <li>Export to PDF and Markdown</li>
+                <li><strong>Processing time</strong> · I reran one previously failing 35-page PDF locally. Before the change it timed out after more than 150 seconds. Afterward, analysis of that same file finished in about five seconds.</li>
+                <li><strong>Summary recovery</strong> · I separately reprocessed a document that had produced an empty summary after a response-format error and checked that the summary appeared.</li>
               </ul>
 
-              <h4>How I worked</h4>
-              <p>I wrote the planning doc first, then worked from sprints, tasks and a decision log in Notion.
-                 Each task is written as <mark>purpose, scope, implementation notes, edge cases, tests and done criteria</mark>.
-                 AI implements it and records its first check; I then check again on screen locally and create a fix task if it falls short.</p>
-
-              <h4>Implementation and verification</h4>
-              <ul class="note__list">
-                <li>PDF parsing was blocking the upload response, so the API server and the parsing worker were split and connected with a queue</li>
-                <li>Exact duplicates are blocked by a SHA-256 of the content, and near-duplicates are caught with SimHash and offered for merging</li>
-                <li>Found that for reports with no known publication date, the upload date was shown as if it were the publication date (the model leaves the date blank, but the screen filled in the upload date). That fallback was removed, and users now enter the date themselves</li>
-                <li>Every extraction call includes "Don't invent numbers or forecasts that aren't in the report; leave missing items blank." Related companies are shown only as hashtags, and the AI doesn't recommend stocks</li>
-                <li>A function that checks whether extracted numbers appear on the cited page was built, but it isn't connected to the upload flow</li>
-              </ul>
+              <details class="more">
+                <summary>How a publication date appeared when the report had none</summary>
+                <div class="more__body">
+                  <p>While studying economics, I found it hard to connect an industry report with the company reports I read next. I built a six-part summary tailored to each reading goal and grouped past analyses by industry. The publication date helps readers place each report in that sequence.</p>
+                  <p>The model left the publication date empty when it could not find one, but the screen filled the gap with the upload date. That made an unverified date look like a fact from the report. I removed the fallback and let readers enter a date they could confirm.</p>
+                </div>
+              </details>
+              <details class="more">
+                <summary>Recovering from long PDF runs and malformed model responses</summary>
+                <div class="more__body">
+                  <p>Parsing a long PDF also held up the upload request. I put a queue between the Hono API and the analysis worker, limited the source text sent to the model and reduced unnecessary tool loading. I added summary recovery for responses broken by quotes or line breaks.</p>
+                </div>
+              </details>
 
               <p class="btn-row">
                 <a class="btn btn--mini" href="https://github.com/inwoo-jang/marketdesk" target="_blank" rel="noopener">GitHub ↗</a>

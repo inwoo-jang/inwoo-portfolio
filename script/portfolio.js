@@ -370,8 +370,8 @@ function initNotebook(note) {
 
   // 연습장 전체가 버튼: 센터 기준 오른쪽 절반=다음 장, 왼쪽 절반=이전 장
   note.addEventListener("click", function (event) {
-    // 목차·넘기기 버튼·링크 클릭은 각자 동작에 맡긴다
-    if (event.target.closest("button, a")) { return; }
+    // 목차·넘기기 버튼·링크·영상 클릭은 각자 동작에 맡긴다
+    if (event.target.closest("button, a, video, details")) { return; }
     // 글을 드래그해 선택한 경우는 넘기지 않는다
     var selection = window.getSelection && window.getSelection();
     if (selection && !selection.isCollapsed && note.contains(selection.anchorNode)) { return; }
@@ -385,7 +385,7 @@ function initNotebook(note) {
 
   // 넘길 수 있는 방향일 때만 손가락 커서를 보여준다
   note.addEventListener("mousemove", function (event) {
-    var overControl = !!event.target.closest("button, a");
+    var overControl = !!event.target.closest("button, a, video, details");
     var right = isRightHalf(event);
 
     note.classList.toggle("zone-next",

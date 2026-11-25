@@ -47,7 +47,7 @@ export const PROJECTS = [
     role: "본인: 화면·서비스 정책 · 모델·DB: 협력사", tags: ["AI 정책", "외부 협업"] },
   { id: "quiket", group: "팀", kind: "사이드 프로젝트 · 7인 팀", period: "2026.03 – 07", status: other("출시 후 운영 중단"),
     title: "퀴켓 | AI 퀴즈 학습 앱", image: "media/portfolio/quiket-card.png", imageAlt: "App Store에 출시된 퀴켓 소개 화면",
-    result: "미니 버전으로 문항 수 기준을 먼저 정하고, MoSCoW로 첫 출시 범위를 조율해 App Store·Google Play에 출시했습니다(팀 결과).",
+    result: "시제품을 통해 문항당 최소 자료량을 정하고, MoSCoW로 첫 출시 범위를 조율해 App Store·Google Play에 출시했습니다(팀 결과).",
     role: "본인: PM·기획 · 정식 앱 구현: 개발팀", tags: ["PM", "사용자 테스트", "PM MVP"] },
   { id: "taxdesk", group: "교육", kind: "교육 실습 · 1인", period: "2026.08", status: edu(),
     title: "TaxDesk | 금융소득 세무상담", headline: "숫자는 코드가 계산", headlineScope: "서버 제어 흐름 · RAG · Spring AI",

@@ -390,3 +390,8 @@ button.dm__seg[aria-current="step"] i { background: var(--dm-accent); }
 .is-tall .dm--ad .ad-panel__note { font-size: 14px; }
 
 .dm--ad .ad-card--complex .ad-h1 .ad-hl b { top: 4px; right: 4px; }
+/* 주문 연동: 새 라벨은 순번 + 내부 박스 ID */
+.om-box .lb-new small { font-size: 9.5px; letter-spacing: .04em; line-height: 1.35; }
+.om-box .lb-new strong { display: flex; align-items: baseline; gap: 3px; font-size: 26px; }
+.om-box .lb-new strong i { font-family: 'Pretendard Variable', Pretendard, sans-serif; font-style: normal; font-size: 9px; letter-spacing: .12em; color: #8D867C; }
+.dm__tag--warn b { color: #E2B36F; }

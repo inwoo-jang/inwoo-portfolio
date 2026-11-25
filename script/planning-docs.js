@@ -26,10 +26,20 @@
     body.scrollTop = 0;
   }
 
-  opener.addEventListener("click", () => {
-    showPage(0);
-    dialog.showModal();
-  });
+  function openPage(index) {
+    showPage(index);
+    if (!dialog.open) dialog.showModal();
+  }
+
+  function openLinkedPage() {
+    const target = document.getElementById(location.hash.slice(1));
+    const index = pages.indexOf(target);
+    if (index >= 0) openPage(index);
+  }
+
+  opener.addEventListener("click", () => openPage(0));
+  window.addEventListener("hashchange", openLinkedPage);
+  openLinkedPage();
   previous.addEventListener("click", () => showPage(current - 1));
   next.addEventListener("click", () => {
     if (current === pages.length - 1) dialog.close();
@@ -39,5 +49,12 @@
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
-  dialog.addEventListener("close", () => opener.focus({ preventScroll: true }));
+  dialog.addEventListener("close", () => {
+    if (pages.includes(document.getElementById(location.hash.slice(1)))) {
+      history.replaceState(history.state, "", "#flow");
+      opener.focus();
+    } else {
+      opener.focus({ preventScroll: true });
+    }
+  });
 })();

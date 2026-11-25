@@ -79,7 +79,7 @@
 
   function tagsEl(items) {
     var ul = el("ul", "tags");
-    ul.setAttribute("aria-label", T("기술·키워드", "Tech and keywords"));
+    ul.setAttribute("aria-label", T("프로젝트 키워드", "Project keywords"));
     items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
     return ul;
   }
@@ -313,7 +313,7 @@
     return copy;
   }
 
-  function proseFrom(article) {
+  function proseFrom(article, caseIntro) {
     var copy = article.cloneNode(true);
     copy.removeAttribute("hidden");
     // 책(양면) 보기용으로 나눈 왼쪽·오른쪽 면을 풀어 원래 순서대로 읽게 한다
@@ -321,6 +321,7 @@
       while (w.firstChild) { w.parentNode.insertBefore(w.firstChild, w); }
       w.remove();
     });
+    if (caseIntro) { copy.querySelector("[data-case-intro]").remove(); }
     var firstMeta = copy.querySelector(":scope > .note__meta");
     if (firstMeta) { firstMeta.remove(); }
     copy.querySelectorAll(":scope > .chip, :scope > h3, :scope > .tag-row, :scope > .btn-row")
@@ -329,7 +330,7 @@
     copy.querySelectorAll("[data-project-gallery]").forEach(function (g) { g.remove(); });
     // 요약과 메타에서 이미 말한 ‘담당 역할’ 단락은 읽기 화면에서 생략(연습장에는 그대로 둔다)
     copy.querySelectorAll(":scope > h4").forEach(function (h4) {
-      if (h4.textContent.trim() !== T("담당 역할", "My role")) { return; }
+      if (caseIntro || h4.textContent.trim() !== T("담당 역할", "My role")) { return; }
       var next = h4.nextElementSibling;
       while (next && next.tagName !== "H4" && !next.classList.contains("tag-row")) {
         var after = next.nextElementSibling; next.remove(); next = after;
@@ -338,7 +339,9 @@
     });
     // 연습장의 소제목(h4)은 읽기 화면에서 한 단계 위(h3)로
     copy.querySelectorAll("h4").forEach(function (h4) {
-      var h3 = el("h3"); h3.innerHTML = h4.innerHTML; h4.replaceWith(h3);
+      var sectionTitle = el(caseIntro ? "h2" : "h3");
+      sectionTitle.innerHTML = h4.innerHTML;
+      h4.replaceWith(sectionTitle);
     });
     var prose = el("div", "reader-view__prose");
     while (copy.firstChild) { prose.appendChild(copy.firstChild); }
@@ -366,6 +369,7 @@
 
   function renderReader(p) {
     var article = articleOf(p.id);
+    var caseIntro = article && article.querySelector("[data-case-intro]");
     var order = visibleProjects();
     if (order.indexOf(p) < 0) { order = projects; }
     var index = order.indexOf(p);
@@ -385,11 +389,14 @@
     title.id = "reader-title";
     title.tabIndex = -1;
     head.appendChild(title);
-    if (p.overview) { head.appendChild(el("p", "reader-view__lede", p.overview)); }
+    var intro = caseIntro ? caseIntro.textContent : p.overview;
+    if (intro) { head.appendChild(el("p", "reader-view__lede", intro)); }
 
     // 기간 · 팀 · 내 역할 · 현재 상태: 역할은 여기서 한 번만 말한다
     var facts = el("dl", "facts");
-    [[T("도메인", "Domain"), p.domain], [T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope], [T("내 역할", "My role"), p.role]].forEach(function (pair) {
+    var factRows = [[T("도메인", "Domain"), p.domain], [T("기간", "Period"), p.periodDetail || p.period], [T("팀·구분", "Team"), p.scope]];
+    if (!caseIntro) { factRows.push([T("내 역할", "My role"), p.role]); }
+    factRows.forEach(function (pair) {
       var d = el("div");
       d.appendChild(el("dt", null, pair[0]));
       d.appendChild(el("dd", null, pair[1]));
@@ -435,23 +442,27 @@
       }
       readerEl.appendChild(el("p", "note-box", p.briefNote));
     } else {
-      var S = p.summary;
-      summaryRow(T("문제", "Problem"), S ? S.problem : p.problem);
-      if (S) {
-        summaryRow(T("내 판단", "Key decisions"), S.decision);
+      if (caseIntro) {
+        readerEl.appendChild(proseFrom(article, caseIntro));
       } else {
-        var ul = el("ul", "reader-summary__list");
-        p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
-        summaryRow(T("내 판단", "Key decisions"), ul);
+        var S = p.summary;
+        summaryRow(T("문제", "Problem"), S ? S.problem : p.problem);
+        if (S) {
+          summaryRow(T("내 판단", "Key decisions"), S.decision);
+        } else {
+          var ul = el("ul", "reader-summary__list");
+          p.build.forEach(function (x) { ul.appendChild(el("li", null, x)); });
+          summaryRow(T("내 판단", "Key decisions"), ul);
+        }
+        var resultText = S && S.result ? S.result : p.resultNote;
+        if (p.metrics.length || resultText) {
+          var rs = el("div");
+          if (p.metrics.length) { rs.appendChild(figures()); }
+          if (resultText) { rs.appendChild(el("p", "reader-summary__note", resultText)); }
+          summaryRow(T("확인한 결과", "Results"), rs);
+        }
+        readerEl.appendChild(summary);
       }
-      var resultText = S && S.result ? S.result : p.resultNote;
-      if (p.metrics.length || resultText) {
-        var rs = el("div");
-        if (p.metrics.length) { rs.appendChild(figures()); }
-        if (resultText) { rs.appendChild(el("p", "reader-summary__note", resultText)); }
-        summaryRow(T("확인한 결과", "Results"), rs);
-      }
-      readerEl.appendChild(summary);
 
       // 화면과 자료: 실제 화면 · 팀 산출물 · 예시 데이터 · 설명도는 캡션에 구분해 적는다
       var gallery = article ? galleryFrom(article) : null;
@@ -460,7 +471,7 @@
         readerEl.appendChild(gallery);
       }
 
-      if (article) {
+      if (article && !caseIntro) {
         readerEl.appendChild(heading(T("상세 과정", "How it went")));
         readerEl.appendChild(proseFrom(article));
       }
@@ -468,10 +479,13 @@
       // 기술 · 관련 자료 · 관련 프로젝트
       var links = article ? linksFrom(article) : [];
       var related = (p.related || []).map(byId).filter(Boolean);
-      readerEl.appendChild(heading(T("기술과 관련 자료", "Tech and links")));
       var linkRow = el("div", "reader-summary__links");
-      linkRow.appendChild(tagsEl(p.stack));
+      if (p.stack.length) {
+        linkRow.appendChild(heading(T("프로젝트 키워드", "Project keywords")));
+        linkRow.appendChild(tagsEl(p.stack));
+      }
       if (links.length) {
+        linkRow.appendChild(heading(T("프로젝트 링크", "Project links")));
         var row = el("p", "reader-view__actions");
         row.style.marginTop = "var(--s3)";
         links.forEach(function (a) { row.appendChild(a); });

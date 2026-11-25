@@ -15,16 +15,16 @@ window.PROJECT_ROLES = ["Product Planning", "PM", "Frontend", "Backend", "Full-s
    Same order and wording as the featured projects on the home page (index.en.html). */
 window.FEATURED = [
   {
-    id: "order-sync",
-    decision: "I set the rule for identifying each item by order number and line number and linking it to an internal box, plus the rules for partial and postponed pickups.",
-    result: "That manual data entry went from about 1 hour to 10 minutes a day (my own record) · Once it was built, I cross-checked both systems' data and reported 2 bugs to QA",
-    split: "Sync rules, data checks, QA: me · Build: dev team"
-  },
-  {
     id: "payroll",
     decision: "I checked gross pay for day workers against WEHAGO and designed payslips that pharmacy owners could share through KakaoTalk.",
     result: "Used for real payroll in-house · I left the company during the customer pilot",
     split: "Planning and rule validation: me · Build: dev team"
+  },
+  {
+    id: "order-sync",
+    decision: "I set the rule for identifying each item by order number and line number and linking it to an internal box, plus the rules for partial and postponed pickups.",
+    result: "That manual data entry went from about 1 hour to 10 minutes a day (my own record) · Once it was built, I cross-checked both systems' data and reported 2 bugs to QA",
+    split: "Sync rules, data checks, QA: me · Build: dev team"
   },
   {
     id: "quiket",
@@ -33,10 +33,10 @@ window.FEATURED = [
     split: "PM, planning, user testing: me · Production app: dev team"
   },
   {
-    id: "taxdesk",
-    decision: "The server controls the order of income lookup, tax determination and calculation. The model only classifies questions and explains answers. If an income figure isn't confirmed, it asks instead of calculating.",
-    result: "After fixing the August failure (tax computed by assuming KRW 0), it now asks a follow-up question under the same risky conditions · Demo, not yet reviewed by a tax professional",
-    split: "Designed solo · Built and tested with AI coding tools"
+    id: "marketdesk",
+    decision: "I built the frontend, API, database and document analysis worker.",
+    result: "One 35-page PDF timed out after more than 150 seconds and finished in about five seconds on a local rerun.",
+    split: "Solo planning and full-stack development"
   }
 ];
 
@@ -160,11 +160,11 @@ window.PROJECTS = [
     role: "Connection flow and edge-case planning, checks in live use. I did not build the authentication or design its security.",
     build: [
       "Hometax, the healthcare provider portal and the four social insurance services connect with one digital certificate; the credit card sales service connects with a separate account",
-      "Defined the edge case where the Hometax certificate doesn't match",
+      "When the Hometax certificate login fails or a personal financial certificate is used, guide users to a separate sign-in path",
       "Planned an iframe integration so partners' websites can show the profit and loss report and claims data"
     ],
     metrics: [],
-    resultNote: "The improved connection flow and the iframe integration went into the live service.",
+    resultNote: "The improved connection flow and the iframe integration went into the live service, and afterwards first-time setup rarely needed remote support.",
     stack: ["Connection flow", "Edge cases", "Partner integration", "Remote support"]
   },
   {
@@ -409,7 +409,7 @@ window.PROJECTS = [
     problem: "Learners found it hard to turn lecture notes into review questions. For the launch, we had to fit the first release into the schedules of 4 developers and 2 designers.",
     role: "PM, planning and user testing; built a mini version myself to validate ideas. The dev team built the production app.",
     build: [
-      "The mini version showed that short materials produced too many questions, so I set question counts by input length",
+      "The mini version showed that short materials produced too many questions, so I set a minimum amount of source material per question",
       "Applied the same MoSCoW priorities across the PRD, wireframes, specs and sprints",
       "Kept the character and acorn elements the designers wanted on screen, and coordinated the feature scope so the core learning features could be completed in time for launch"
     ],
@@ -522,9 +522,9 @@ window.PROJECTS = [
     types: ["AI Engineering", "Backend"],
     overview: "A tool where AI summarizes research reports in a structured way for each reading goal (lens) and stacks them into trends by industry.",
     problem: "Even a single report was long and hard to get through, and industry reports and company reports didn't connect, so they never added up to a trend.",
-    role: "Solo planning, build with AI, and testing on screen",
+    role: "Solo product design and full-stack implementation with AI coding tools",
     build: [
-      "Wrote each task with its goal, scope, edge cases, tests and done criteria, then rechecked the AI's build on screen",
+      "Built the frontend, API, database and document analysis worker",
       "Split the API server and parsing worker, connected by a queue; SHA-256 blocks duplicates and SimHash detects near-duplicates",
       "Found that the publish date was being filled with the upload date, and changed it so unknown values are entered by hand"
     ],
