@@ -315,13 +315,12 @@
               <h4>Learning the work</h4>
               <p>To plan the solution, I did the bookkeeping for about 30 clients myself and wrote down the payroll and deduction rules and their exceptions.</p>
 
-              <h4>My role and the standards I set</h4>
-              <ul class="note__list">
-                <li>Set two standards: calculation results must match the tax software (WEHAGO), and the flow must follow the actual filing process</li>
-                <li>Built scenarios for each pay type and checked the formulas against WEHAGO's results</li>
-                <li>Moved the Excel calculation logic into <mark>reference code in Google Apps Script</mark> and handed it to the dev team</li>
-                <li>Planned the rules, data fields, user flow and screens, and took part in dev testing</li>
-              </ul>
+              <h4>Calculating gross pay from agreed take-home pay</h4>
+              <p>I defined the inputs and formulas for each employee type, taking into account whether pay was hourly or monthly and whether the agreed amount was gross or net. For day workers with agreed take-home pay, I <mark>worked backward to find the gross pay</mark> that would leave that amount after deductions.</p>
+              <p>I translated the Excel formulas into Google Apps Script and entered the same inputs in WEHAGO for each pay scenario to compare the results. I shared the verified script with the development team as a reference and helped test the feature.</p>
+
+              <h4>Output formats for pharmacy owners and bookkeepers</h4>
+              <p>I designed the flow so pharmacy owners could save a payslip as a JPG and send it to the employee through KakaoTalk. I also considered an Excel export format so bookkeepers could reuse the payroll figures in their subsequent work.</p>
 
               <h4>Result</h4>
               <p>Even after release, staff kept the old method because they worried the numbers might be wrong.

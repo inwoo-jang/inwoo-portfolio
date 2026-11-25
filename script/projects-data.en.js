@@ -22,7 +22,7 @@ window.FEATURED = [
   },
   {
     id: "payroll",
-    decision: "I defined the calculation rules and edge cases for each pay type, checked them against the tax software's results, and handed the dev team reference code.",
+    decision: "I checked gross pay for day workers against WEHAGO and designed payslips that pharmacy owners could share through KakaoTalk.",
     result: "Used for real payroll in-house · I left the company during the customer pilot",
     split: "Planning and rule validation: me · Build: dev team"
   },
@@ -89,7 +89,7 @@ window.PROJECTS = [
     scope: "JEEKIM COMPANY · Internal use and customer pilot",
     period: "2025.12–2026.05",
     types: ["Product"],
-    overview: "Re-planned an unused payslip feature by defining payroll calculation rules that match how payroll is actually filed.",
+    overview: "I planned how pharmacies calculate pay and send each employee a payslip.",
     problem: "The existing feature calculated wrong, so nobody used it. Staff worked backward from the net amount to fill in the inputs, and when someone left, the calculation method left with them.",
     role: "Calculation rules, policy and screen planning, rule validation, staff training (me) · Build: dev team",
     build: [
@@ -101,7 +101,7 @@ window.PROJECTS = [
     resultNote: "After I shared the explanation and guide, the team started using it for real payroll, and I confirmed it reached a customer pilot. I left the company during the pilot.",
     summary: {
       problem: "The existing payslip feature calculated wrong, so nobody used it. Staff worked backward from the net amount to fill in the inputs, and when someone left, the calculation method left with them.",
-      decision: "I did the bookkeeping for about 30 clients myself to define calculation rules and edge cases for each pay type, checked each scenario against the tax software (WEHAGO), and handed the dev team Apps Script reference code.",
+      decision: "For day workers with agreed take-home pay, I worked backward to gross pay. I checked the result against WEHAGO using the same inputs and shared my Apps Script with the developers as a reference.",
       result: "After I shared the rules and a user guide, the team started using it for real payroll, and I confirmed it reached a customer pilot. I left the company during the pilot."
     },
     stack: ["Calculation rules", "WEHAGO cross-check", "Apps Script", "Rollout to staff"]
