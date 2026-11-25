@@ -98,11 +98,11 @@ window.PROJECTS = [
       "Moved the Excel calculation logic into Google Apps Script reference code and handed it to the dev team"
     ],
     metrics: [],
-    resultNote: "After I shared the explanation and guide, the team started using it for real payroll, and I confirmed it reached a customer pilot. I left the company during the pilot.",
+    resultNote: "I verified the Excel import in WEHAGO. After I shared separate guides for bookkeepers and clients, bookkeepers used the service for payroll and customers began beta testing.",
     summary: {
       problem: "The existing payslip feature calculated wrong, so nobody used it. Staff worked backward from the net amount to fill in the inputs, and when someone left, the calculation method left with them.",
       decision: "For day workers with agreed take-home pay, I worked backward to gross pay. I checked the result against WEHAGO using the same inputs and shared my Apps Script with the developers as a reference.",
-      result: "After I shared the rules and a user guide, the team started using it for real payroll, and I confirmed it reached a customer pilot. I left the company during the pilot."
+      result: "I verified the Excel import in WEHAGO. After I shared separate guides for bookkeepers and clients, bookkeepers used the service for payroll and customers began beta testing."
     },
     stack: ["Calculation rules", "WEHAGO cross-check", "Apps Script", "Rollout to staff"]
   },
